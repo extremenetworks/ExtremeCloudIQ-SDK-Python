@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **idle_timeout** | **int** | The idle timeout in minutes, the minimum value is 5 minutes and the maximum value is 4 hours | [optional] 
 **last_login_time** | **datetime** | The last login time | [optional] 
 **org_id** | **int** | The HIQ organization ID if it is HIQ user | [optional] 
+**location_ids** | **list[int]** | The assigned location IDs. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**assign_devices_location**](DeviceApi.md#assign_devices_location) | **POST** /devices/location/:assign | Assign location to multiple devices
 [**assign_devices_network_policy**](DeviceApi.md#assign_devices_network_policy) | **POST** /devices/network-policy/:assign | Assign network policy to multiple devices
 [**assign_devices_radius_proxy**](DeviceApi.md#assign_devices_radius_proxy) | **PUT** /devices/radius-proxy/:assign | Assign RADIUS proxy to devices
+[**bounce_device_port**](DeviceApi.md#bounce_device_port) | **POST** /devices/{id}/bounce-port | Bounce port of a device
 [**change_device_description**](DeviceApi.md#change_device_description) | **PUT** /devices/{id}/description | Change description for a device
 [**change_device_level_ssid_status**](DeviceApi.md#change_device_level_ssid_status) | **POST** /devices/{id}/ssid/status/:change | Enable or disable SSID for a device
 [**change_device_status_to_manage**](DeviceApi.md#change_device_status_to_manage) | **POST** /devices/{id}/:manage | Change admin state to &#39;Managed&#39; for a device
@@ -28,6 +29,8 @@ Method | HTTP request | Description
 [**get_device_location**](DeviceApi.md#get_device_location) | **GET** /devices/{id}/location | Get location for a device
 [**get_device_network_policy**](DeviceApi.md#get_device_network_policy) | **GET** /devices/{id}/network-policy | Get network policy for a device
 [**get_device_stats**](DeviceApi.md#get_device_stats) | **GET** /devices/stats | Get device stats
+[**get_device_wifi_interface**](DeviceApi.md#get_device_wifi_interface) | **GET** /devices/{id}/interfaces/wifi | Get the device WiFi interfaces stats
+[**get_xiq_device_installation_report**](DeviceApi.md#get_xiq_device_installation_report) | **GET** /devices/{id}/installation-report | Get device installation report
 [**list_device_alarm**](DeviceApi.md#list_device_alarm) | **GET** /devices/{id}/alarms | List alarms for a device
 [**list_devices**](DeviceApi.md#list_devices) | **GET** /devices | [LRO] List devices
 [**list_devices_by_network_policy**](DeviceApi.md#list_devices_by_network_policy) | **GET** /devices/network-policy/{policyId} | List assigned devices for network policy
@@ -485,6 +488,83 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bounce_device_port**
+> XiqBounceDevicePortResponse bounce_device_port(id, xiq_bounce_device_port_request)
+
+Bounce port of a device
+
+Bounce port for the given device id.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device id
+xiq_bounce_device_port_request = extremecloudiq.XiqBounceDevicePortRequest() # XiqBounceDevicePortRequest | 
+
+    try:
+        # Bounce port of a device
+        api_response = api_instance.bounce_device_port(id, xiq_bounce_device_port_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->bounce_device_port: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device id | 
+ **xiq_bounce_device_port_request** | [**XiqBounceDevicePortRequest**](XiqBounceDevicePortRequest.md)|  | 
+
+### Return type
+
+[**XiqBounceDevicePortResponse**](XiqBounceDevicePortResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -1832,6 +1912,160 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XiqDeviceStats**](XiqDeviceStats.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_device_wifi_interface**
+> list[XiqDeviceWifiInterface] get_device_wifi_interface(id, start_time, end_time)
+
+Get the device WiFi interfaces stats
+
+Get the device WiFi interfaces stats by device ID.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device ID
+start_time = 56 # int | The start time for collecting the wifi interfaces stat
+end_time = 56 # int | The end time for collecting the wifi interfaces stat
+
+    try:
+        # Get the device WiFi interfaces stats
+        api_response = api_instance.get_device_wifi_interface(id, start_time, end_time)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->get_device_wifi_interface: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device ID | 
+ **start_time** | **int**| The start time for collecting the wifi interfaces stat | 
+ **end_time** | **int**| The end time for collecting the wifi interfaces stat | 
+
+### Return type
+
+[**list[XiqDeviceWifiInterface]**](XiqDeviceWifiInterface.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_xiq_device_installation_report**
+> XiqDeviceInstallationReport get_xiq_device_installation_report(id)
+
+Get device installation report
+
+Get device installation report of a specific device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device ID
+
+    try:
+        # Get device installation report
+        api_response = api_instance.get_xiq_device_installation_report(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->get_xiq_device_installation_report: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device ID | 
+
+### Return type
+
+[**XiqDeviceInstallationReport**](XiqDeviceInstallationReport.md)
 
 ### Authorization
 

@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_audit_logs**
-> PagedXiqAuditLog list_audit_logs(page=page, limit=limit, categories=categories, username=username, start_time=start_time, end_time=end_time)
+> PagedXiqAuditLog list_audit_logs(page=page, limit=limit, categories=categories, username=username, start_time=start_time, end_time=end_time, keyword=keyword)
 
 List audit logs
 
@@ -139,10 +139,11 @@ categories = [extremecloudiq.XiqAuditLogCategory()] # list[XiqAuditLogCategory] 
 username = 'username_example' # str | The user login name (optional)
 start_time = 56 # int | The start time to query, epoch time in milliseconds since 1/1/1970, default is 0 if not specified or is negative (optional)
 end_time = 56 # int | The end time to query, epoch time in milliseconds since 1/1/1970, default is now if not specified or is negative (optional)
+keyword = 'keyword_example' # str | The case-insensitive keyword to search in description (optional)
 
     try:
         # List audit logs
-        api_response = api_instance.list_audit_logs(page=page, limit=limit, categories=categories, username=username, start_time=start_time, end_time=end_time)
+        api_response = api_instance.list_audit_logs(page=page, limit=limit, categories=categories, username=username, start_time=start_time, end_time=end_time, keyword=keyword)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling LogApi->list_audit_logs: %s\n" % e)
@@ -158,6 +159,7 @@ Name | Type | Description  | Notes
  **username** | **str**| The user login name | [optional] 
  **start_time** | **int**| The start time to query, epoch time in milliseconds since 1/1/1970, default is 0 if not specified or is negative | [optional] 
  **end_time** | **int**| The end time to query, epoch time in milliseconds since 1/1/1970, default is now if not specified or is negative | [optional] 
+ **keyword** | **str**| The case-insensitive keyword to search in description | [optional] 
 
 ### Return type
 

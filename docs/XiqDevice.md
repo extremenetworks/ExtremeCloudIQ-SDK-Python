@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **locations** | [**list[XiqLocationLegend]**](XiqLocationLegend.md) | The detailed location | [optional] 
 **country_code** | **int** | The assigned country code on the device | [optional] 
 **description** | **str** | The device description | [optional] 
+**lldp_cdp_infos** | [**list[XiqDeviceLldpCdpInfo]**](XiqDeviceLldpCdpInfo.md) | The device LLDP/CDP information | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

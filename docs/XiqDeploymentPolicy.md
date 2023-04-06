@@ -4,7 +4,7 @@ Push configuration and upgrade firmware policy
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**enable_complete_configuration_update** | **bool** | true if update complete configuration, otherwise update delta configuration | 
+**enable_complete_configuration_update** | **bool** | true if update complete configuration, otherwise update delta configuration. Note: ExtremeCloud IQ will neither upgrade device firmware nor reboot device for a delta configuration push. That means that the other parameters for firmware upgrade and activation are not required when this is false. | 
 **firmware_upgrade_policy** | [**XiqFirmwareUpgradePolicy**](XiqFirmwareUpgradePolicy.md) |  | [optional] 
 **firmware_activate_option** | [**XiqFirmwareActivateOption**](XiqFirmwareActivateOption.md) |  | [optional] 
 
