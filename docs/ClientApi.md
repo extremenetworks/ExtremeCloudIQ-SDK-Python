@@ -87,7 +87,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_active_clients_count**
-> int get_active_clients_count(location_ids=location_ids, device_ids=device_ids, vlans=vlans, user_profile_names=user_profile_names, ssids=ssids)
+> int get_active_clients_count(location_ids=location_ids, device_ids=device_ids, vlans=vlans, user_profile_names=user_profile_names, ssids=ssids, client_os_names=client_os_names, client_connection_types=client_connection_types, client_health_status=client_health_status, exclude_locally_managed=exclude_locally_managed, search_string=search_string)
 
 Get active clients count
 
@@ -127,10 +127,15 @@ device_ids = [56] # list[int] | The device IDs (optional)
 vlans = [56] # list[int] | The associate VLAN IDs (optional)
 user_profile_names = ['user_profile_names_example'] # list[str] | The user profile names (optional)
 ssids = ['ssids_example'] # list[str] | The SSIDs (optional)
+client_os_names = ['client_os_names_example'] # list[str] | The client os names (optional)
+client_connection_types = [56] # list[int] | The client connection types: 1 - WIRELESS, 2 - WIRED, -1 - UNDETERMINED (optional)
+client_health_status = 56 # int | The client health status: 1 - HEALTHY, 2 - POOR (optional)
+exclude_locally_managed = False # bool | Return Cloud managed Devices' clients count (optional) (default to False)
+search_string = 'search_string_example' # str | The search string (optional)
 
     try:
         # Get active clients count
-        api_response = api_instance.get_active_clients_count(location_ids=location_ids, device_ids=device_ids, vlans=vlans, user_profile_names=user_profile_names, ssids=ssids)
+        api_response = api_instance.get_active_clients_count(location_ids=location_ids, device_ids=device_ids, vlans=vlans, user_profile_names=user_profile_names, ssids=ssids, client_os_names=client_os_names, client_connection_types=client_connection_types, client_health_status=client_health_status, exclude_locally_managed=exclude_locally_managed, search_string=search_string)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ClientApi->get_active_clients_count: %s\n" % e)
@@ -145,6 +150,11 @@ Name | Type | Description  | Notes
  **vlans** | [**list[int]**](int.md)| The associate VLAN IDs | [optional] 
  **user_profile_names** | [**list[str]**](str.md)| The user profile names | [optional] 
  **ssids** | [**list[str]**](str.md)| The SSIDs | [optional] 
+ **client_os_names** | [**list[str]**](str.md)| The client os names | [optional] 
+ **client_connection_types** | [**list[int]**](int.md)| The client connection types: 1 - WIRELESS, 2 - WIRED, -1 - UNDETERMINED | [optional] 
+ **client_health_status** | **int**| The client health status: 1 - HEALTHY, 2 - POOR | [optional] 
+ **exclude_locally_managed** | **bool**| Return Cloud managed Devices&#39; clients count | [optional] [default to False]
+ **search_string** | **str**| The search string | [optional] 
 
 ### Return type
 
@@ -249,7 +259,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_client_summary**
-> XiqClientSummary get_client_summary(location_ids=location_ids, device_ids=device_ids, vlans=vlans, user_profile_names=user_profile_names, ssids=ssids)
+> XiqClientSummary get_client_summary(location_ids=location_ids, device_ids=device_ids, vlans=vlans, user_profile_names=user_profile_names, ssids=ssids, client_os_names=client_os_names, client_connection_types=client_connection_types, client_health_status=client_health_status, exclude_locally_managed=exclude_locally_managed, search_string=search_string)
 
 Get client summary metrics
 
@@ -289,10 +299,15 @@ device_ids = [56] # list[int] | The device IDs (optional)
 vlans = [56] # list[int] | The associate VLAN IDs (optional)
 user_profile_names = ['user_profile_names_example'] # list[str] | The user profile names (optional)
 ssids = ['ssids_example'] # list[str] | The SSIDs (optional)
+client_os_names = ['client_os_names_example'] # list[str] | The client os names (optional)
+client_connection_types = [56] # list[int] | The client connection types: 1 - WIRELESS, 2 - WIRED, -1 - UNDETERMINED (optional)
+client_health_status = 56 # int | The client health status: 1 - HEALTHY, 2 - POOR (optional)
+exclude_locally_managed = False # bool | Return Cloud managed Devices' clients count (optional) (default to False)
+search_string = 'search_string_example' # str | The search string (optional)
 
     try:
         # Get client summary metrics
-        api_response = api_instance.get_client_summary(location_ids=location_ids, device_ids=device_ids, vlans=vlans, user_profile_names=user_profile_names, ssids=ssids)
+        api_response = api_instance.get_client_summary(location_ids=location_ids, device_ids=device_ids, vlans=vlans, user_profile_names=user_profile_names, ssids=ssids, client_os_names=client_os_names, client_connection_types=client_connection_types, client_health_status=client_health_status, exclude_locally_managed=exclude_locally_managed, search_string=search_string)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ClientApi->get_client_summary: %s\n" % e)
@@ -307,6 +322,11 @@ Name | Type | Description  | Notes
  **vlans** | [**list[int]**](int.md)| The associate VLAN IDs | [optional] 
  **user_profile_names** | [**list[str]**](str.md)| The user profile names | [optional] 
  **ssids** | [**list[str]**](str.md)| The SSIDs | [optional] 
+ **client_os_names** | [**list[str]**](str.md)| The client os names | [optional] 
+ **client_connection_types** | [**list[int]**](int.md)| The client connection types: 1 - WIRELESS, 2 - WIRED, -1 - UNDETERMINED | [optional] 
+ **client_health_status** | **int**| The client health status: 1 - HEALTHY, 2 - POOR | [optional] 
+ **exclude_locally_managed** | **bool**| Return Cloud managed Devices&#39; clients count | [optional] [default to False]
+ **search_string** | **str**| The search string | [optional] 
 
 ### Return type
 
@@ -411,7 +431,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_active_clients**
-> PagedXiqClient list_active_clients(location_ids=location_ids, device_ids=device_ids, vlans=vlans, user_profile_names=user_profile_names, ssids=ssids, page=page, search_string=search_string, limit=limit, views=views, fields=fields)
+> PagedXiqClient list_active_clients(location_ids=location_ids, device_ids=device_ids, vlans=vlans, user_profile_names=user_profile_names, ssids=ssids, client_os_names=client_os_names, client_connection_types=client_connection_types, client_health_status=client_health_status, exclude_locally_managed=exclude_locally_managed, search_string=search_string, page=page, limit=limit, sort_field=sort_field, sort_order=sort_order, views=views, fields=fields)
 
 List active clients
 
@@ -451,15 +471,21 @@ device_ids = [56] # list[int] | The device IDs (optional)
 vlans = [56] # list[int] | The associate vlan IDs (optional)
 user_profile_names = ['user_profile_names_example'] # list[str] | The user profile names (optional)
 ssids = ['ssids_example'] # list[str] | The SSIDs (optional)
-page = 1 # int | Page number, min = 1 (optional) (default to 1)
+client_os_names = ['client_os_names_example'] # list[str] | The client os names (optional)
+client_connection_types = [56] # list[int] | The client connection types: 1 - WIRELESS, 2 - WIRED, -1 - UNDETERMINED (optional)
+client_health_status = 56 # int | The client health status: 1 - HEALTHY, 2 - POOR (optional)
+exclude_locally_managed = False # bool | Return Cloud managed Devices' clients (optional) (default to False)
 search_string = 'search_string_example' # str | The search string (optional)
+page = 1 # int | Page number, min = 1 (optional) (default to 1)
 limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+sort_field = extremecloudiq.XiqClientSortField() # XiqClientSortField | Sort field (optional)
+sort_order = extremecloudiq.XiqSortOrder() # XiqSortOrder | Sort order (ascending by default) (optional)
 views = [extremecloudiq.XiqClientView()] # list[XiqClientView] | The views to return client fields (Check fields for each view at XiqClientView schema) (optional)
 fields = [extremecloudiq.XiqClientField()] # list[XiqClientField] | The client fields to return (optional)
 
     try:
         # List active clients
-        api_response = api_instance.list_active_clients(location_ids=location_ids, device_ids=device_ids, vlans=vlans, user_profile_names=user_profile_names, ssids=ssids, page=page, search_string=search_string, limit=limit, views=views, fields=fields)
+        api_response = api_instance.list_active_clients(location_ids=location_ids, device_ids=device_ids, vlans=vlans, user_profile_names=user_profile_names, ssids=ssids, client_os_names=client_os_names, client_connection_types=client_connection_types, client_health_status=client_health_status, exclude_locally_managed=exclude_locally_managed, search_string=search_string, page=page, limit=limit, sort_field=sort_field, sort_order=sort_order, views=views, fields=fields)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ClientApi->list_active_clients: %s\n" % e)
@@ -474,9 +500,15 @@ Name | Type | Description  | Notes
  **vlans** | [**list[int]**](int.md)| The associate vlan IDs | [optional] 
  **user_profile_names** | [**list[str]**](str.md)| The user profile names | [optional] 
  **ssids** | [**list[str]**](str.md)| The SSIDs | [optional] 
- **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **client_os_names** | [**list[str]**](str.md)| The client os names | [optional] 
+ **client_connection_types** | [**list[int]**](int.md)| The client connection types: 1 - WIRELESS, 2 - WIRED, -1 - UNDETERMINED | [optional] 
+ **client_health_status** | **int**| The client health status: 1 - HEALTHY, 2 - POOR | [optional] 
+ **exclude_locally_managed** | **bool**| Return Cloud managed Devices&#39; clients | [optional] [default to False]
  **search_string** | **str**| The search string | [optional] 
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
  **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+ **sort_field** | [**XiqClientSortField**](.md)| Sort field | [optional] 
+ **sort_order** | [**XiqSortOrder**](.md)| Sort order (ascending by default) | [optional] 
  **views** | [**list[XiqClientView]**](XiqClientView.md)| The views to return client fields (Check fields for each view at XiqClientView schema) | [optional] 
  **fields** | [**list[XiqClientField]**](XiqClientField.md)| The client fields to return | [optional] 
 

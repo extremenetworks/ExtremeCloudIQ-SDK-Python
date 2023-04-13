@@ -4,12 +4,83 @@ All URIs are relative to *http://localhost:8081*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**get_assurance_scans_overview_data**](CopilotAnomaliesApi.md#get_assurance_scans_overview_data) | **GET** /copilot/assurance-scans/overview | 
 [**get_devices_by_location**](CopilotAnomaliesApi.md#get_devices_by_location) | **GET** /copilot/anomalies/devices-by-location | 
 [**get_dfs_recurrence_channel_stats**](CopilotAnomaliesApi.md#get_dfs_recurrence_channel_stats) | **GET** /copilot/anomalies/dfs-recurrence/channel-stats | 
 [**get_dfs_recurrence_count_stats**](CopilotAnomaliesApi.md#get_dfs_recurrence_count_stats) | **GET** /copilot/anomalies/dfs-recurrence/count-stats | 
 [**get_poe_flapping_stats**](CopilotAnomaliesApi.md#get_poe_flapping_stats) | **GET** /copilot/anomalies/poeflapping/stats | 
+[**get_port_efficiency_speed_duplex_stats**](CopilotAnomaliesApi.md#get_port_efficiency_speed_duplex_stats) | **GET** /copilot/anomalies/port-efficiency/speed-duplex-stats | 
+[**get_port_efficiency_stats**](CopilotAnomaliesApi.md#get_port_efficiency_stats) | **GET** /copilot/anomalies/port-efficiency/stats | 
 [**list_anomaly_locations**](CopilotAnomaliesApi.md#list_anomaly_locations) | **GET** /copilot/anomalies/locations | 
 
+
+# **get_assurance_scans_overview_data**
+> XiqAssuranceScansOverviewResponse get_assurance_scans_overview_data()
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.CopilotAnomaliesApi(api_client)
+    
+    try:
+        api_response = api_instance.get_assurance_scans_overview_data()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CopilotAnomaliesApi->get_assurance_scans_overview_data: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**XiqAssuranceScansOverviewResponse**](XiqAssuranceScansOverviewResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_devices_by_location**
 > XiqAnomalyDevicesByLocationResponse get_devices_by_location(anomaly_type=anomaly_type, location_id=location_id)
@@ -287,6 +358,154 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XiqPoeFlappingStatsResponse**](XiqPoeFlappingStatsResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_port_efficiency_speed_duplex_stats**
+> XiqPortEfficiencySpeedDuplexStatsResponse get_port_efficiency_speed_duplex_stats(anomaly_id, location_id=location_id)
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.CopilotAnomaliesApi(api_client)
+    anomaly_id = 'anomaly_id_example' # str | The anomaly id
+location_id = 0 # int | The location id (optional) (default to 0)
+
+    try:
+        api_response = api_instance.get_port_efficiency_speed_duplex_stats(anomaly_id, location_id=location_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CopilotAnomaliesApi->get_port_efficiency_speed_duplex_stats: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **anomaly_id** | **str**| The anomaly id | 
+ **location_id** | **int**| The location id | [optional] [default to 0]
+
+### Return type
+
+[**XiqPortEfficiencySpeedDuplexStatsResponse**](XiqPortEfficiencySpeedDuplexStatsResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_port_efficiency_stats**
+> XiqPortEfficiencyStatsResponse get_port_efficiency_stats(anomaly_id, location_id=location_id)
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.CopilotAnomaliesApi(api_client)
+    anomaly_id = 'anomaly_id_example' # str | The anomaly id
+location_id = 0 # int | The location id (optional) (default to 0)
+
+    try:
+        api_response = api_instance.get_port_efficiency_stats(anomaly_id, location_id=location_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CopilotAnomaliesApi->get_port_efficiency_stats: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **anomaly_id** | **str**| The anomaly id | 
+ **location_id** | **int**| The location id | [optional] [default to 0]
+
+### Return type
+
+[**XiqPortEfficiencyStatsResponse**](XiqPortEfficiencyStatsResponse.md)
 
 ### Authorization
 

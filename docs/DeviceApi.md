@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**assign_devices_location**](DeviceApi.md#assign_devices_location) | **POST** /devices/location/:assign | Assign location to multiple devices
 [**assign_devices_network_policy**](DeviceApi.md#assign_devices_network_policy) | **POST** /devices/network-policy/:assign | Assign network policy to multiple devices
 [**assign_devices_radius_proxy**](DeviceApi.md#assign_devices_radius_proxy) | **PUT** /devices/radius-proxy/:assign | Assign RADIUS proxy to devices
-[**bounce_device_port**](DeviceApi.md#bounce_device_port) | **POST** /devices/{id}/bounce-port | Bounce port of a device
+[**bounce_device_port**](DeviceApi.md#bounce_device_port) | **POST** /devices/{id}/bounce-port | Bounce port of a device (EXOS, VOSS and SR Switches
 [**change_device_description**](DeviceApi.md#change_device_description) | **PUT** /devices/{id}/description | Change description for a device
 [**change_device_level_ssid_status**](DeviceApi.md#change_device_level_ssid_status) | **POST** /devices/{id}/ssid/status/:change | Enable or disable SSID for a device
 [**change_device_status_to_manage**](DeviceApi.md#change_device_status_to_manage) | **POST** /devices/{id}/:manage | Change admin state to &#39;Managed&#39; for a device
@@ -503,7 +503,7 @@ void (empty response body)
 # **bounce_device_port**
 > XiqBounceDevicePortResponse bounce_device_port(id, xiq_bounce_device_port_request)
 
-Bounce port of a device
+Bounce port of a device (EXOS, VOSS and SR Switches
 
 Bounce port for the given device id.
 
@@ -540,7 +540,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 xiq_bounce_device_port_request = extremecloudiq.XiqBounceDevicePortRequest() # XiqBounceDevicePortRequest | 
 
     try:
-        # Bounce port of a device
+        # Bounce port of a device (EXOS, VOSS and SR Switches
         api_response = api_instance.bounce_device_port(id, xiq_bounce_device_port_request)
         pprint(api_response)
     except ApiException as e:
