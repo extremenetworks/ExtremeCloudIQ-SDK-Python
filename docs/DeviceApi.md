@@ -34,6 +34,7 @@ Method | HTTP request | Description
 [**list_device_alarm**](DeviceApi.md#list_device_alarm) | **GET** /devices/{id}/alarms | List alarms for a device
 [**list_devices**](DeviceApi.md#list_devices) | **GET** /devices | [LRO] List devices
 [**list_devices_by_network_policy**](DeviceApi.md#list_devices_by_network_policy) | **GET** /devices/network-policy/{policyId} | List assigned devices for network policy
+[**list_digital_twin_products**](DeviceApi.md#list_digital_twin_products) | **GET** /devices/digital-twin | List Digital Twin product information.
 [**onboard_devices**](DeviceApi.md#onboard_devices) | **POST** /devices/:onboard | Onboard Devices
 [**override_device_level_ssid**](DeviceApi.md#override_device_level_ssid) | **POST** /devices/{id}/ssid/:override | Override SSID for a device
 [**query_devices_location**](DeviceApi.md#query_devices_location) | **POST** /devices/location/:query | Query location for multiple devices
@@ -2170,7 +2171,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_devices**
-> PagedXiqDevice list_devices(page=page, limit=limit, location_id=location_id, connected=connected, admin_states=admin_states, mac_addresses=mac_addresses, sns=sns, hostnames=hostnames, sort_field=sort_field, order=order, views=views, fields=fields, device_types=device_types, _async=_async)
+> PagedXiqDevice list_devices(page=page, limit=limit, location_id=location_id, connected=connected, admin_states=admin_states, mac_addresses=mac_addresses, sns=sns, hostnames=hostnames, sort_field=sort_field, order=order, views=views, fields=fields, device_types=device_types, _async=_async, null_field=null_field)
 
 [LRO] List devices
 
@@ -2219,10 +2220,11 @@ views = [extremecloudiq.XiqDeviceView()] # list[XiqDeviceView] | The views to re
 fields = [extremecloudiq.XiqDeviceField()] # list[XiqDeviceField] | The device fields to return (optional)
 device_types = ["REAL"] # list[XiqDeviceType] | The device types to return (optional) (default to ["REAL"])
 _async = False # bool | Whether to enable async mode (optional) (default to False)
+null_field = extremecloudiq.XiqDeviceNullField() # XiqDeviceNullField | The device empty field, only returns the selected field that is null (optional)
 
     try:
         # [LRO] List devices
-        api_response = api_instance.list_devices(page=page, limit=limit, location_id=location_id, connected=connected, admin_states=admin_states, mac_addresses=mac_addresses, sns=sns, hostnames=hostnames, sort_field=sort_field, order=order, views=views, fields=fields, device_types=device_types, _async=_async)
+        api_response = api_instance.list_devices(page=page, limit=limit, location_id=location_id, connected=connected, admin_states=admin_states, mac_addresses=mac_addresses, sns=sns, hostnames=hostnames, sort_field=sort_field, order=order, views=views, fields=fields, device_types=device_types, _async=_async, null_field=null_field)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DeviceApi->list_devices: %s\n" % e)
@@ -2246,6 +2248,7 @@ Name | Type | Description  | Notes
  **fields** | [**list[XiqDeviceField]**](XiqDeviceField.md)| The device fields to return | [optional] 
  **device_types** | [**list[XiqDeviceType]**](XiqDeviceType.md)| The device types to return | [optional] [default to [&quot;REAL&quot;]]
  **_async** | **bool**| Whether to enable async mode | [optional] [default to False]
+ **null_field** | [**XiqDeviceNullField**](.md)| The device empty field, only returns the selected field that is null | [optional] 
 
 ### Return type
 
@@ -2349,12 +2352,93 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_digital_twin_products**
+> PagedXiqDigitalTwinProducts list_digital_twin_products(page=page, limit=limit, makes=makes, models=models)
+
+List Digital Twin product information.
+
+List of Digital Twin product information with pagination.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+makes = [extremecloudiq.XiqDigitalTwinMake()] # list[XiqDigitalTwinMake] | List by makes or any with null/empty makes. (optional)
+models = [extremecloudiq.XiqDigitalTwinModel()] # list[XiqDigitalTwinModel] | List by makes or any with null/empty models. (optional)
+
+    try:
+        # List Digital Twin product information.
+        api_response = api_instance.list_digital_twin_products(page=page, limit=limit, makes=makes, models=models)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->list_digital_twin_products: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+ **makes** | [**list[XiqDigitalTwinMake]**](XiqDigitalTwinMake.md)| List by makes or any with null/empty makes. | [optional] 
+ **models** | [**list[XiqDigitalTwinModel]**](XiqDigitalTwinModel.md)| List by makes or any with null/empty models. | [optional] 
+
+### Return type
+
+[**PagedXiqDigitalTwinProducts**](PagedXiqDigitalTwinProducts.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **onboard_devices**
 > onboard_devices(xiq_onboard_device_request)
 
 Onboard Devices
 
-Onboard devices for all devices, such as Extreme/Aerohive, EXOS, VOSS, WiNG, and Dell. This is asynchronized operation to support massive device onboarding.
+Onboard devices for all devices, such as Extreme/Aerohive, EXOS, VOSS, WiNG, Dell, and Digital Twin. This is asynchronized operation to support massive device onboarding.
 
 ### Example
 

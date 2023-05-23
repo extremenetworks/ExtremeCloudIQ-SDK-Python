@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **voss** | [**XiqVossDevices**](XiqVossDevices.md) |  | [optional] 
 **wing** | [**XiqWingDevices**](XiqWingDevices.md) |  | [optional] 
 **dell** | [**XiqDellDevices**](XiqDellDevices.md) |  | [optional] 
+**dt** | [**XiqDigitalTwinDevices**](XiqDigitalTwinDevices.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
