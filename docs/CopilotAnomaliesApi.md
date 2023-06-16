@@ -13,6 +13,10 @@ Method | HTTP request | Description
 [**get_poe_flapping_stats**](CopilotAnomaliesApi.md#get_poe_flapping_stats) | **GET** /copilot/anomalies/poeflapping/stats | 
 [**get_port_efficiency_speed_duplex_stats**](CopilotAnomaliesApi.md#get_port_efficiency_speed_duplex_stats) | **GET** /copilot/anomalies/port-efficiency/speed-duplex-stats | 
 [**get_port_efficiency_stats**](CopilotAnomaliesApi.md#get_port_efficiency_stats) | **GET** /copilot/anomalies/port-efficiency/stats | 
+[**get_wifi_capacity_client_list**](CopilotAnomaliesApi.md#get_wifi_capacity_client_list) | **GET** /copilot/anomalies/wifi-capacity/client-list | 
+[**get_wifi_capacity_stats**](CopilotAnomaliesApi.md#get_wifi_capacity_stats) | **GET** /copilot/anomalies/wifi-capacity/stats | 
+[**get_wifi_efficiency_client_list**](CopilotAnomaliesApi.md#get_wifi_efficiency_client_list) | **GET** /copilot/anomalies/wifi-efficiency/client-list | 
+[**get_wifi_efficiency_stats**](CopilotAnomaliesApi.md#get_wifi_efficiency_stats) | **GET** /copilot/anomalies/wifi-efficiency/stats | 
 [**list_anomaly_locations**](CopilotAnomaliesApi.md#list_anomaly_locations) | **GET** /copilot/anomalies/locations | 
 
 
@@ -656,6 +660,302 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XiqPortEfficiencyStatsResponse**](XiqPortEfficiencyStatsResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_wifi_capacity_client_list**
+> XiqWifiCapacityClientListResponse get_wifi_capacity_client_list(device_id, channel, timestamp)
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.CopilotAnomaliesApi(api_client)
+    device_id = 56 # int | The device id
+channel = 56 # int | The channel
+timestamp = 56 # int | The timestamp
+
+    try:
+        api_response = api_instance.get_wifi_capacity_client_list(device_id, channel, timestamp)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CopilotAnomaliesApi->get_wifi_capacity_client_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **device_id** | **int**| The device id | 
+ **channel** | **int**| The channel | 
+ **timestamp** | **int**| The timestamp | 
+
+### Return type
+
+[**XiqWifiCapacityClientListResponse**](XiqWifiCapacityClientListResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_wifi_capacity_stats**
+> XiqWifiCapacityStatsResponse get_wifi_capacity_stats(anomaly_id)
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.CopilotAnomaliesApi(api_client)
+    anomaly_id = 'anomaly_id_example' # str | The anomaly id
+
+    try:
+        api_response = api_instance.get_wifi_capacity_stats(anomaly_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CopilotAnomaliesApi->get_wifi_capacity_stats: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **anomaly_id** | **str**| The anomaly id | 
+
+### Return type
+
+[**XiqWifiCapacityStatsResponse**](XiqWifiCapacityStatsResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_wifi_efficiency_client_list**
+> XiqWifiEfficiencyClientListResponse get_wifi_efficiency_client_list(device_id, channel, timestamp)
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.CopilotAnomaliesApi(api_client)
+    device_id = 56 # int | The device id
+channel = 56 # int | The channel number
+timestamp = 56 # int | The timestamp
+
+    try:
+        api_response = api_instance.get_wifi_efficiency_client_list(device_id, channel, timestamp)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CopilotAnomaliesApi->get_wifi_efficiency_client_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **device_id** | **int**| The device id | 
+ **channel** | **int**| The channel number | 
+ **timestamp** | **int**| The timestamp | 
+
+### Return type
+
+[**XiqWifiEfficiencyClientListResponse**](XiqWifiEfficiencyClientListResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_wifi_efficiency_stats**
+> XiqWifiEfficiencyStatsResponse get_wifi_efficiency_stats(anomaly_id)
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.CopilotAnomaliesApi(api_client)
+    anomaly_id = 'anomaly_id_example' # str | The anomaly id
+
+    try:
+        api_response = api_instance.get_wifi_efficiency_stats(anomaly_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CopilotAnomaliesApi->get_wifi_efficiency_stats: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **anomaly_id** | **str**| The anomaly id | 
+
+### Return type
+
+[**XiqWifiEfficiencyStatsResponse**](XiqWifiEfficiencyStatsResponse.md)
 
 ### Authorization
 

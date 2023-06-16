@@ -15,6 +15,9 @@ Name | Type | Description | Notes
 **recommended_action** | **str** | the recommended action | [optional] 
 **anomaly_subtypes** | **str** | the anomaly sub-type | [optional] 
 **interface_name** | **str** | the interface name | [optional] 
+**channel_mode** | **str** | the channel mode : tx or rx | [optional] 
+**channel** | **int** | the channel number | [optional] 
+**frequency** | **str** | the frequency | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
