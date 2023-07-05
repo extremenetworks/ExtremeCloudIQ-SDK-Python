@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost:8081*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**advanced_onboard_devices**](DeviceApi.md#advanced_onboard_devices) | **POST** /devices/:advanced-onboard | [LRO] Advanced Onboard Devices
 [**assign_device_location**](DeviceApi.md#assign_device_location) | **PUT** /devices/{id}/location | Assign location to a device
 [**assign_device_network_policy**](DeviceApi.md#assign_device_network_policy) | **PUT** /devices/{id}/network-policy | Assign network policy to a device
 [**assign_devices_country_code**](DeviceApi.md#assign_devices_country_code) | **POST** /devices/country-code/:assign | Assign a country code to devices
@@ -50,6 +51,83 @@ Method | HTTP request | Description
 [**send_cli_to_device**](DeviceApi.md#send_cli_to_device) | **POST** /devices/{id}/:cli | Send CLI to a device
 [**send_cli_to_devices**](DeviceApi.md#send_cli_to_devices) | **POST** /devices/:cli | [LRO] Send CLI to devices
 
+
+# **advanced_onboard_devices**
+> XiqAdvancedOnboardDeviceResponse advanced_onboard_devices(xiq_advanced_onboard_device_request, _async=_async)
+
+[LRO] Advanced Onboard Devices
+
+Advanced onboard devices for all devices, such as Extreme/Aerohive, EXOS, VOSS, WiNG, Dell, and Digital Twin. Advanced onboard devices will allow the user to set the device hostname, attach the device location, associate network policy, etc. in a single API request. To avoid API timeout when onboarding a large number of devices, please make sure to enable async mode (set async=true in query parameter) and use long-running operation API to query the result.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    xiq_advanced_onboard_device_request = extremecloudiq.XiqAdvancedOnboardDeviceRequest() # XiqAdvancedOnboardDeviceRequest | 
+_async = False # bool | Whether to enable async mode (optional) (default to False)
+
+    try:
+        # [LRO] Advanced Onboard Devices
+        api_response = api_instance.advanced_onboard_devices(xiq_advanced_onboard_device_request, _async=_async)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->advanced_onboard_devices: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xiq_advanced_onboard_device_request** | [**XiqAdvancedOnboardDeviceRequest**](XiqAdvancedOnboardDeviceRequest.md)|  | 
+ **_async** | **bool**| Whether to enable async mode | [optional] [default to False]
+
+### Return type
+
+[**XiqAdvancedOnboardDeviceResponse**](XiqAdvancedOnboardDeviceResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **assign_device_location**
 > assign_device_location(id, xiq_device_location_assignment)
@@ -2171,7 +2249,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_devices**
-> PagedXiqDevice list_devices(page=page, limit=limit, location_id=location_id, connected=connected, admin_states=admin_states, mac_addresses=mac_addresses, sns=sns, hostnames=hostnames, sort_field=sort_field, order=order, views=views, fields=fields, device_types=device_types, _async=_async, null_field=null_field)
+> PagedXiqDevice list_devices(page=page, limit=limit, location_id=location_id, connected=connected, admin_states=admin_states, mac_addresses=mac_addresses, sns=sns, hostnames=hostnames, sort_field=sort_field, order=order, views=views, fields=fields, device_types=device_types, null_field=null_field, location_ids=location_ids, _async=_async)
 
 [LRO] List devices
 
@@ -2219,12 +2297,13 @@ order = extremecloudiq.XiqSortOrder() # XiqSortOrder | The sort order (ascending
 views = [extremecloudiq.XiqDeviceView()] # list[XiqDeviceView] | The views to return device fields (Check fields for each view at XiqDeviceView schema) (optional)
 fields = [extremecloudiq.XiqDeviceField()] # list[XiqDeviceField] | The device fields to return (optional)
 device_types = ["REAL"] # list[XiqDeviceType] | The device types to return (optional) (default to ["REAL"])
-_async = False # bool | Whether to enable async mode (optional) (default to False)
 null_field = extremecloudiq.XiqDeviceNullField() # XiqDeviceNullField | The device empty field, only returns the selected field that is null (optional)
+location_ids = [56] # list[int] | The location IDs (optional)
+_async = False # bool | Whether to enable async mode (optional) (default to False)
 
     try:
         # [LRO] List devices
-        api_response = api_instance.list_devices(page=page, limit=limit, location_id=location_id, connected=connected, admin_states=admin_states, mac_addresses=mac_addresses, sns=sns, hostnames=hostnames, sort_field=sort_field, order=order, views=views, fields=fields, device_types=device_types, _async=_async, null_field=null_field)
+        api_response = api_instance.list_devices(page=page, limit=limit, location_id=location_id, connected=connected, admin_states=admin_states, mac_addresses=mac_addresses, sns=sns, hostnames=hostnames, sort_field=sort_field, order=order, views=views, fields=fields, device_types=device_types, null_field=null_field, location_ids=location_ids, _async=_async)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DeviceApi->list_devices: %s\n" % e)
@@ -2247,8 +2326,9 @@ Name | Type | Description  | Notes
  **views** | [**list[XiqDeviceView]**](XiqDeviceView.md)| The views to return device fields (Check fields for each view at XiqDeviceView schema) | [optional] 
  **fields** | [**list[XiqDeviceField]**](XiqDeviceField.md)| The device fields to return | [optional] 
  **device_types** | [**list[XiqDeviceType]**](XiqDeviceType.md)| The device types to return | [optional] [default to [&quot;REAL&quot;]]
- **_async** | **bool**| Whether to enable async mode | [optional] [default to False]
  **null_field** | [**XiqDeviceNullField**](.md)| The device empty field, only returns the selected field that is null | [optional] 
+ **location_ids** | [**list[int]**](int.md)| The location IDs | [optional] 
+ **_async** | **bool**| Whether to enable async mode | [optional] [default to False]
 
 ### Return type
 
