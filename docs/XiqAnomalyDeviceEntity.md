@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **channel_mode** | **str** | the channel mode : tx or rx | [optional] 
 **channel** | **int** | the channel number | [optional] 
 **frequency** | **str** | the frequency | [optional] 
+**location_id** | **int** | the location id | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

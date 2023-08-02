@@ -1,11 +1,12 @@
 # XiqAnomalyLocationEntity
 
-Copilot Connectivity Experience data
+Copilot Anomaly Locations data
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **location_type** | [**XiqLocationType**](XiqLocationType.md) |  | [optional] 
-**location_id** | **int** | the location id | [optional] 
+**location_ids** | **list[int]** | the location id | [optional] 
+**building_id** | **int** | the building id | [optional] 
 **location_name** | **str** | the location name | [optional] 
 **pinned** | **bool** | is location pinned | [optional] 
 **muted** | **bool** | the location muted | [optional] 
