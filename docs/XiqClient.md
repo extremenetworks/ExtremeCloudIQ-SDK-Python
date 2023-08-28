@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **wing_ap** | **bool** | Wing ap flag | [optional] 
 **vendor** | **str** | The vendor of client | [optional] 
 **locations** | [**list[XiqLocationLegend]**](XiqLocationLegend.md) | The detailed location | [optional] 
+**product_type** | **str** | The Category which describes the Extreme device types(For example:For example:SR_2208P, AP_4000, AP_5010) | [optional] 
 **alias** | **str** | The alias of the client | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

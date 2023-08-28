@@ -82,8 +82,8 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **400** | Bad Request |  -  |
 **500** | Internal Server Error |  -  |
-**200** | Successful operation |  -  |
 **403** | Access Denied |  -  |
+**200** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

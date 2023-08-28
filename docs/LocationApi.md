@@ -10,6 +10,8 @@ Method | HTTP request | Description
 [**delete_building**](LocationApi.md#delete_building) | **DELETE** /locations/building/{id} | Delete building by ID
 [**delete_floor**](LocationApi.md#delete_floor) | **DELETE** /locations/floor/{id} | Delete floor by ID
 [**delete_location**](LocationApi.md#delete_location) | **DELETE** /locations/{id} | Delete location by ID
+[**get_location_devices_list**](LocationApi.md#get_location_devices_list) | **GET** /locations/tree/devices | Get devices on the location hierarchy.
+[**get_location_maps_list**](LocationApi.md#get_location_maps_list) | **GET** /locations/tree/maps | Get maps on the location hierarchy.
 [**get_location_tree**](LocationApi.md#get_location_tree) | **GET** /locations/tree | Get location tree
 [**initialize_location**](LocationApi.md#initialize_location) | **POST** /locations/:init | Initialize organization location
 [**update_building**](LocationApi.md#update_building) | **PUT** /locations/building/{id} | Update building
@@ -450,6 +452,168 @@ Name | Type | Description  | Notes
 ### Return type
 
 **str**
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_location_devices_list**
+> PagedXiqLocationTreeDevice get_location_devices_list(page=page, limit=limit, location_id=location_id, expand_children=expand_children)
+
+Get devices on the location hierarchy.
+
+Get devices on the location hierarchy with pagination.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.LocationApi(api_client)
+    page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+location_id = 56 # int | The location ID, or null for all locations. (optional)
+expand_children = True # bool | Whether to return the child locations recursively, default is true. Set it to false to improve performance when there are a lot of child locations. (optional) (default to True)
+
+    try:
+        # Get devices on the location hierarchy.
+        api_response = api_instance.get_location_devices_list(page=page, limit=limit, location_id=location_id, expand_children=expand_children)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LocationApi->get_location_devices_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+ **location_id** | **int**| The location ID, or null for all locations. | [optional] 
+ **expand_children** | **bool**| Whether to return the child locations recursively, default is true. Set it to false to improve performance when there are a lot of child locations. | [optional] [default to True]
+
+### Return type
+
+[**PagedXiqLocationTreeDevice**](PagedXiqLocationTreeDevice.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_location_maps_list**
+> PagedXiqLocationTreeMap get_location_maps_list(page=page, limit=limit, location_id=location_id, expand_children=expand_children)
+
+Get maps on the location hierarchy.
+
+Get maps on the location hierarchy with pagination.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.LocationApi(api_client)
+    page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+location_id = 56 # int | The location ID, or null for all locations. (optional)
+expand_children = True # bool | Whether to return the child locations recursively, default is true. Set it to false to improve performance when there are a lot of child locations. (optional) (default to True)
+
+    try:
+        # Get maps on the location hierarchy.
+        api_response = api_instance.get_location_maps_list(page=page, limit=limit, location_id=location_id, expand_children=expand_children)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LocationApi->get_location_maps_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+ **location_id** | **int**| The location ID, or null for all locations. | [optional] 
+ **expand_children** | **bool**| Whether to return the child locations recursively, default is true. Set it to false to improve performance when there are a lot of child locations. | [optional] [default to True]
+
+### Return type
+
+[**PagedXiqLocationTreeMap**](PagedXiqLocationTreeMap.md)
 
 ### Authorization
 
