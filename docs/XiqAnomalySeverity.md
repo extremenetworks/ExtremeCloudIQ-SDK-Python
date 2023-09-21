@@ -1,6 +1,5 @@
 # XiqAnomalySeverity
 
-the severity
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

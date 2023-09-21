@@ -1,6 +1,6 @@
 # XiqPcgAssignPortsResponse
 
-The response of assign ports for AP150W
+The response of assign ports for AP150W or AP302W
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

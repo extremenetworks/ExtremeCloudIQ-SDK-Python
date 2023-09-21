@@ -1,6 +1,6 @@
 # XiqActionType
 
-The Action type
+The anomaly type
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,6 +1,6 @@
 # XiqAnomalyType
 
-The Anomaly type
+The anomaly Type
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

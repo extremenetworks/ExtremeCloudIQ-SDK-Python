@@ -1,6 +1,6 @@
 # XiqPcgAssignPortsRequest
 
-The payload to assign ports for AP150W)
+The payload to assign ports for AP150W or AP302W)
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

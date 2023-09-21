@@ -4,7 +4,7 @@ The PCG port assignment entry
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**device_id** | **int** | The device ID of AP150W | 
+**device_id** | **int** | The device ID of AP150W or AP302W | 
 **eth1_user_id** | **int** | The eth1 user ID, get available users from \&quot;/pcgs/key-based/network-policy-{policyId}/users\&quot; | [optional] 
 **eth2_user_id** | **int** | The eth2 user ID, get available users from \&quot;/pcgs/key-based/network-policy-{policyId}/users\&quot; | [optional] 
 **eth3_user_id** | **int** | The eth3 user ID, get available users from \&quot;/pcgs/key-based/network-policy-{policyId}/users\&quot; | [optional] 

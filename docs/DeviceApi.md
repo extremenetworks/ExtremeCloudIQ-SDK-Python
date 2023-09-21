@@ -2249,7 +2249,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_devices**
-> PagedXiqDevice list_devices(page=page, limit=limit, location_id=location_id, connected=connected, admin_states=admin_states, mac_addresses=mac_addresses, sns=sns, hostnames=hostnames, sort_field=sort_field, order=order, views=views, fields=fields, device_types=device_types, null_field=null_field, location_ids=location_ids, _async=_async)
+> PagedXiqDevice list_devices(page=page, limit=limit, location_id=location_id, connected=connected, admin_states=admin_states, mac_addresses=mac_addresses, sns=sns, hostnames=hostnames, sort_field=sort_field, order=order, views=views, fields=fields, device_types=device_types, null_field=null_field, location_ids=location_ids, _async=_async, config_mismatch=config_mismatch)
 
 [LRO] List devices
 
@@ -2300,10 +2300,11 @@ device_types = ["REAL"] # list[XiqDeviceType] | The device types to return (opti
 null_field = extremecloudiq.XiqDeviceNullField() # XiqDeviceNullField | The device empty field, only returns the selected field that is null (optional)
 location_ids = [56] # list[int] | The location IDs (optional)
 _async = False # bool | Whether to enable async mode (optional) (default to False)
+config_mismatch = True # bool | Config audit status(MATCHED(false) or UNMATCHED(true)) (optional)
 
     try:
         # [LRO] List devices
-        api_response = api_instance.list_devices(page=page, limit=limit, location_id=location_id, connected=connected, admin_states=admin_states, mac_addresses=mac_addresses, sns=sns, hostnames=hostnames, sort_field=sort_field, order=order, views=views, fields=fields, device_types=device_types, null_field=null_field, location_ids=location_ids, _async=_async)
+        api_response = api_instance.list_devices(page=page, limit=limit, location_id=location_id, connected=connected, admin_states=admin_states, mac_addresses=mac_addresses, sns=sns, hostnames=hostnames, sort_field=sort_field, order=order, views=views, fields=fields, device_types=device_types, null_field=null_field, location_ids=location_ids, _async=_async, config_mismatch=config_mismatch)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DeviceApi->list_devices: %s\n" % e)
@@ -2329,6 +2330,7 @@ Name | Type | Description  | Notes
  **null_field** | [**XiqDeviceNullField**](.md)| The device empty field, only returns the selected field that is null | [optional] 
  **location_ids** | [**list[int]**](int.md)| The location IDs | [optional] 
  **_async** | **bool**| Whether to enable async mode | [optional] [default to False]
+ **config_mismatch** | **bool**| Config audit status(MATCHED(false) or UNMATCHED(true)) | [optional] 
 
 ### Return type
 

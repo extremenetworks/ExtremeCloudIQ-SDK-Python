@@ -5,9 +5,12 @@ All URIs are relative to *http://localhost:8081*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_anomalies_notifications**](CopilotAnomaliesApi.md#get_anomalies_notifications) | **GET** /copilot/anomalies/notifications | 
+[**get_anomalies_report**](CopilotAnomaliesApi.md#get_anomalies_report) | **GET** /copilot/anomalies/report | 
 [**get_assurance_scans_overview_data**](CopilotAnomaliesApi.md#get_assurance_scans_overview_data) | **GET** /copilot/assurance-scans/overview | 
 [**get_atp_device_stats**](CopilotAnomaliesApi.md#get_atp_device_stats) | **GET** /copilot/anomalies/adverse-traffic/device-stats | 
 [**get_atp_packet_counts**](CopilotAnomaliesApi.md#get_atp_packet_counts) | **GET** /copilot/anomalies/adverse-traffic/packet-counts | 
+[**get_copilot_anomaliesby_category**](CopilotAnomaliesApi.md#get_copilot_anomaliesby_category) | **GET** /copilot/anomalies/anomalies-by-category | 
+[**get_copilot_devices_with_locations**](CopilotAnomaliesApi.md#get_copilot_devices_with_locations) | **GET** /copilot/anomalies/devices-with-locations | 
 [**get_devices_by_location**](CopilotAnomaliesApi.md#get_devices_by_location) | **GET** /copilot/anomalies/devices-by-location | 
 [**get_dfs_recurrence_channel_stats**](CopilotAnomaliesApi.md#get_dfs_recurrence_channel_stats) | **GET** /copilot/anomalies/dfs-recurrence/channel-stats | 
 [**get_dfs_recurrence_count_stats**](CopilotAnomaliesApi.md#get_dfs_recurrence_count_stats) | **GET** /copilot/anomalies/dfs-recurrence/count-stats | 
@@ -22,6 +25,7 @@ Method | HTTP request | Description
 [**update_anomalies_feedback**](CopilotAnomaliesApi.md#update_anomalies_feedback) | **PUT** /copilot/anomalies/devices/feedback | 
 [**update_anomaly_action**](CopilotAnomaliesApi.md#update_anomaly_action) | **PUT** /copilot/anomalies/update-action | 
 [**update_anomaly_device_action**](CopilotAnomaliesApi.md#update_anomaly_device_action) | **PUT** /copilot/anomalies/devices/update-action | 
+[**update_copilot_anomalies_devices_action**](CopilotAnomaliesApi.md#update_copilot_anomalies_devices_action) | **PUT** /copilot/anomalies/update-device-action | [LRO] Update Anomalies and Devices
 
 
 # **get_anomalies_notifications**
@@ -72,6 +76,98 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**XiqAnomaliesNotificationsResponse**](XiqAnomaliesNotificationsResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_anomalies_report**
+> file get_anomalies_report(start_time, end_time, anomaly_type=anomaly_type, building_id=building_id, severity=severity, exclude_muted=exclude_muted, sort_field=sort_field, sort_order=sort_order, search_key=search_key, file_type=file_type, offset_time=offset_time)
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.CopilotAnomaliesApi(api_client)
+    start_time = 56 # int | The start time to query, epoch time in milliseconds since 1/1/1970
+end_time = 56 # int | The end time to query, epoch time in milliseconds since 1/1/1970
+anomaly_type = extremecloudiq.XiqAnomalyType() # XiqAnomalyType | The type of anomaly (optional)
+building_id = 56 # int | The location identifier (optional)
+severity = extremecloudiq.XiqAnomalySeverity() # XiqAnomalySeverity | The severity of anomaly (optional)
+exclude_muted = False # bool | Exclude muted anomalies (optional) (default to False)
+sort_field = extremecloudiq.XiqAnomalySortField() # XiqAnomalySortField | The sorting field (optional)
+sort_order = extremecloudiq.XiqSortOrder() # XiqSortOrder | The sorting order (optional)
+search_key = '' # str | The search key (optional) (default to '')
+file_type = 'csv' # str | The file format (optional) (default to 'csv')
+offset_time = 56 # int | The offset value (optional)
+
+    try:
+        api_response = api_instance.get_anomalies_report(start_time, end_time, anomaly_type=anomaly_type, building_id=building_id, severity=severity, exclude_muted=exclude_muted, sort_field=sort_field, sort_order=sort_order, search_key=search_key, file_type=file_type, offset_time=offset_time)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CopilotAnomaliesApi->get_anomalies_report: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **start_time** | **int**| The start time to query, epoch time in milliseconds since 1/1/1970 | 
+ **end_time** | **int**| The end time to query, epoch time in milliseconds since 1/1/1970 | 
+ **anomaly_type** | [**XiqAnomalyType**](.md)| The type of anomaly | [optional] 
+ **building_id** | **int**| The location identifier | [optional] 
+ **severity** | [**XiqAnomalySeverity**](.md)| The severity of anomaly | [optional] 
+ **exclude_muted** | **bool**| Exclude muted anomalies | [optional] [default to False]
+ **sort_field** | [**XiqAnomalySortField**](.md)| The sorting field | [optional] 
+ **sort_order** | [**XiqSortOrder**](.md)| The sorting order | [optional] 
+ **search_key** | **str**| The search key | [optional] [default to &#39;&#39;]
+ **file_type** | **str**| The file format | [optional] [default to &#39;csv&#39;]
+ **offset_time** | **int**| The offset value | [optional] 
+
+### Return type
+
+**file**
 
 ### Authorization
 
@@ -284,6 +380,180 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XiqAtpPacketCountsResponse**](XiqAtpPacketCountsResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_copilot_anomaliesby_category**
+> XiqCopilotAnomaliesByCategory get_copilot_anomaliesby_category(start_time, end_time, anomaly_type=anomaly_type, building_id=building_id, severity=severity, exclude_muted=exclude_muted)
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.CopilotAnomaliesApi(api_client)
+    start_time = 56 # int | The start time to query, epoch time in milliseconds since 1/1/1970
+end_time = 56 # int | The end time to query, epoch time in milliseconds since 1/1/1970
+anomaly_type = extremecloudiq.XiqAnomalyType() # XiqAnomalyType | The type of anomaly (optional)
+building_id = 56 # int | The location identifier (optional)
+severity = extremecloudiq.XiqAnomalySeverity() # XiqAnomalySeverity | The severity od anomaly (optional)
+exclude_muted = False # bool | exclude muted (optional) (default to False)
+
+    try:
+        api_response = api_instance.get_copilot_anomaliesby_category(start_time, end_time, anomaly_type=anomaly_type, building_id=building_id, severity=severity, exclude_muted=exclude_muted)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CopilotAnomaliesApi->get_copilot_anomaliesby_category: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **start_time** | **int**| The start time to query, epoch time in milliseconds since 1/1/1970 | 
+ **end_time** | **int**| The end time to query, epoch time in milliseconds since 1/1/1970 | 
+ **anomaly_type** | [**XiqAnomalyType**](.md)| The type of anomaly | [optional] 
+ **building_id** | **int**| The location identifier | [optional] 
+ **severity** | [**XiqAnomalySeverity**](.md)| The severity od anomaly | [optional] 
+ **exclude_muted** | **bool**| exclude muted | [optional] [default to False]
+
+### Return type
+
+[**XiqCopilotAnomaliesByCategory**](XiqCopilotAnomaliesByCategory.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_copilot_devices_with_locations**
+> XiqCopilotPagedXiqAnomalyDeviceWithLocation get_copilot_devices_with_locations(start_time, end_time, page=page, limit=limit, anomaly_type=anomaly_type, building_id=building_id, severity=severity, exclude_muted=exclude_muted, sort_field=sort_field, sort_order=sort_order, search_key=search_key)
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.CopilotAnomaliesApi(api_client)
+    start_time = 56 # int | The start time to query, epoch time in milliseconds since 1/1/1970
+end_time = 56 # int | The end time to query, epoch time in milliseconds since 1/1/1970
+page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Number of Records, min = 1, max = 100 (optional) (default to 10)
+anomaly_type = extremecloudiq.XiqAnomalyType() # XiqAnomalyType | The type of anomaly (optional)
+building_id = 56 # int | The location identifier (optional)
+severity = extremecloudiq.XiqAnomalySeverity() # XiqAnomalySeverity | The severity of anomaly (optional)
+exclude_muted = False # bool | Exclude muted anomalies (optional) (default to False)
+sort_field = extremecloudiq.XiqAnomalySortField() # XiqAnomalySortField | The sorting field (optional)
+sort_order = extremecloudiq.XiqSortOrder() # XiqSortOrder | The sorting order (optional)
+search_key = '' # str | The search key (optional) (default to '')
+
+    try:
+        api_response = api_instance.get_copilot_devices_with_locations(start_time, end_time, page=page, limit=limit, anomaly_type=anomaly_type, building_id=building_id, severity=severity, exclude_muted=exclude_muted, sort_field=sort_field, sort_order=sort_order, search_key=search_key)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CopilotAnomaliesApi->get_copilot_devices_with_locations: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **start_time** | **int**| The start time to query, epoch time in milliseconds since 1/1/1970 | 
+ **end_time** | **int**| The end time to query, epoch time in milliseconds since 1/1/1970 | 
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Number of Records, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+ **anomaly_type** | [**XiqAnomalyType**](.md)| The type of anomaly | [optional] 
+ **building_id** | **int**| The location identifier | [optional] 
+ **severity** | [**XiqAnomalySeverity**](.md)| The severity of anomaly | [optional] 
+ **exclude_muted** | **bool**| Exclude muted anomalies | [optional] [default to False]
+ **sort_field** | [**XiqAnomalySortField**](.md)| The sorting field | [optional] 
+ **sort_order** | [**XiqSortOrder**](.md)| The sorting order | [optional] 
+ **search_key** | **str**| The search key | [optional] [default to &#39;&#39;]
+
+### Return type
+
+[**XiqCopilotPagedXiqAnomalyDeviceWithLocation**](XiqCopilotPagedXiqAnomalyDeviceWithLocation.md)
 
 ### Authorization
 
@@ -1312,6 +1582,82 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XiqCopilotAnomaliesActionResponse**](XiqCopilotAnomaliesActionResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_copilot_anomalies_devices_action**
+> update_copilot_anomalies_devices_action(xiq_update_anomalies_and_devices_request, _async=_async)
+
+[LRO] Update Anomalies and Devices
+
+Update Anomalies and Devices.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.CopilotAnomaliesApi(api_client)
+    xiq_update_anomalies_and_devices_request = extremecloudiq.XiqUpdateAnomaliesAndDevicesRequest() # XiqUpdateAnomaliesAndDevicesRequest | 
+_async = False # bool | Whether to enable async mode (optional) (default to False)
+
+    try:
+        # [LRO] Update Anomalies and Devices
+        api_instance.update_copilot_anomalies_devices_action(xiq_update_anomalies_and_devices_request, _async=_async)
+    except ApiException as e:
+        print("Exception when calling CopilotAnomaliesApi->update_copilot_anomalies_devices_action: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xiq_update_anomalies_and_devices_request** | [**XiqUpdateAnomaliesAndDevicesRequest**](XiqUpdateAnomaliesAndDevicesRequest.md)|  | 
+ **_async** | **bool**| Whether to enable async mode | [optional] [default to False]
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

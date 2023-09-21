@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **total_count** | **int** | The total element count | 
 **data** | [**list[XiqAnomalyLocationEntity]**](XiqAnomalyLocationEntity.md) | The data in the current page | [optional] 
 **summary** | **str** | The summary | [optional] 
+**affected_count** | [**XiqAnomalyAffectedCount**](XiqAnomalyAffectedCount.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

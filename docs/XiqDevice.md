@@ -35,6 +35,8 @@ Name | Type | Description | Notes
 **country_code** | **int** | The assigned country code on the device | [optional] 
 **description** | **str** | The device description | [optional] 
 **lldp_cdp_infos** | [**list[XiqDeviceLldpCdpInfo]**](XiqDeviceLldpCdpInfo.md) | The device LLDP/CDP information | [optional] 
+**system_up_time** | **int** | The device uptime | [optional] 
+**config_mismatch** | **bool** | Config audit status(MATCHED or UNMATCHED) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

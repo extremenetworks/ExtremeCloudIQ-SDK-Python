@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**disconnect_client**](ClientApi.md#disconnect_client) | **DELETE** /clients/byMac/{clientMac} | Disconnect the client
 [**get_active_clients_count**](ClientApi.md#get_active_clients_count) | **GET** /clients/active/count | Get active clients count
 [**get_client**](ClientApi.md#get_client) | **GET** /clients/{id} | Get client info
+[**get_client_by_mac**](ClientApi.md#get_client_by_mac) | **GET** /clients/byMac/{clientMac} | Get client info by mac
 [**get_client_summary**](ClientApi.md#get_client_summary) | **GET** /clients/summary | Get client summary metrics
 [**get_client_usage**](ClientApi.md#get_client_usage) | **GET** /clients/usage | Get usage per client
 [**list_active_clients**](ClientApi.md#list_active_clients) | **GET** /clients/active | List active clients
@@ -233,6 +234,85 @@ fields = [extremecloudiq.XiqClientField()] # list[XiqClientField] | The client f
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The client ID | 
+ **views** | [**list[XiqClientView]**](XiqClientView.md)| The views to return client fields (Check fields for each view at XiqClientView schema) | [optional] 
+ **fields** | [**list[XiqClientField]**](XiqClientField.md)| The client fields to return | [optional] 
+
+### Return type
+
+[**XiqClient**](XiqClient.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_client_by_mac**
+> XiqClient get_client_by_mac(client_mac, views=views, fields=fields)
+
+Get client info by mac
+
+Get client detailed information based on clientMac.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ClientApi(api_client)
+    client_mac = 'client_mac_example' # str | The client mac address
+views = [extremecloudiq.XiqClientView()] # list[XiqClientView] | The views to return client fields (Check fields for each view at XiqClientView schema) (optional)
+fields = [extremecloudiq.XiqClientField()] # list[XiqClientField] | The client fields to return (optional)
+
+    try:
+        # Get client info by mac
+        api_response = api_instance.get_client_by_mac(client_mac, views=views, fields=fields)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ClientApi->get_client_by_mac: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **client_mac** | **str**| The client mac address | 
  **views** | [**list[XiqClientView]**](XiqClientView.md)| The views to return client fields (Check fields for each view at XiqClientView schema) | [optional] 
  **fields** | [**list[XiqClientField]**](XiqClientField.md)| The client fields to return | [optional] 
 

@@ -110,7 +110,7 @@ void (empty response body)
 
 Assign ports to devices in network policy
 
-Assign ports for devices (only support AP150W now) in a network policy.
+Assign ports for devices (currently support for AP150W & AP302W) in a network policy.
 
 ### Example
 
@@ -864,7 +864,7 @@ Name | Type | Description  | Notes
 
 Get device port assignments in network policy
 
-Get port assignments for devices (only support AP150W now) in a network policy.
+Get port assignments for devices (currently support for AP150W & AP302W) in a network policy.
 
 ### Example
 
