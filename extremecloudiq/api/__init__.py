@@ -18,10 +18,12 @@ from extremecloudiq.api.configuration___user_management_api import Configuration
 from extremecloudiq.api.copilot___anomalies_api import CopilotAnomaliesApi
 from extremecloudiq.api.copilot___connectivity_experience_api import CopilotConnectivityExperienceApi
 from extremecloudiq.api.device_api import DeviceApi
+from extremecloudiq.api.essentials___extreme_location_api import EssentialsExtremeLocationApi
 from extremecloudiq.api.hiq_api import HIQApi
 from extremecloudiq.api.location_api import LocationApi
 from extremecloudiq.api.log_api import LogApi
 from extremecloudiq.api.network_policy_api import NetworkPolicyApi
 from extremecloudiq.api.notification_api import NotificationApi
 from extremecloudiq.api.operation_api import OperationApi
+from extremecloudiq.api.packet_capture_api import PacketCaptureApi
 from extremecloudiq.api.user_api import UserApi

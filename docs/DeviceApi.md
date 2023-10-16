@@ -50,6 +50,8 @@ Method | HTTP request | Description
 [**revoke_devices_radius_proxy**](DeviceApi.md#revoke_devices_radius_proxy) | **DELETE** /devices/radius-proxy/:revoke | Revoke RADIUS proxy from multiple devices
 [**send_cli_to_device**](DeviceApi.md#send_cli_to_device) | **POST** /devices/{id}/:cli | Send CLI to a device
 [**send_cli_to_devices**](DeviceApi.md#send_cli_to_devices) | **POST** /devices/:cli | [LRO] Send CLI to devices
+[**start_thread_commissioner**](DeviceApi.md#start_thread_commissioner) | **POST** /devices/{id}/thread/commissioner/:start | Start Thread Commissioner
+[**stop_thread_commissioner**](DeviceApi.md#stop_thread_commissioner) | **POST** /devices/{id}/thread/commissioner/:stop | Stop Thread Commissioner
 
 
 # **advanced_onboard_devices**
@@ -3543,6 +3545,158 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XiqSendCliResponse**](XiqSendCliResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_thread_commissioner**
+> start_thread_commissioner(id, xiq_thread_start_commissioner_request)
+
+Start Thread Commissioner
+
+Start the thread commissioner on the device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | 
+xiq_thread_start_commissioner_request = extremecloudiq.XiqThreadStartCommissionerRequest() # XiqThreadStartCommissionerRequest | 
+
+    try:
+        # Start Thread Commissioner
+        api_instance.start_thread_commissioner(id, xiq_thread_start_commissioner_request)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->start_thread_commissioner: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | 
+ **xiq_thread_start_commissioner_request** | [**XiqThreadStartCommissionerRequest**](XiqThreadStartCommissionerRequest.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **stop_thread_commissioner**
+> stop_thread_commissioner(id, xiq_thread_stop_commissioner_request)
+
+Stop Thread Commissioner
+
+Stop the thread commissioner on the device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | 
+xiq_thread_stop_commissioner_request = extremecloudiq.XiqThreadStopCommissionerRequest() # XiqThreadStopCommissionerRequest | 
+
+    try:
+        # Stop Thread Commissioner
+        api_instance.stop_thread_commissioner(id, xiq_thread_stop_commissioner_request)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->stop_thread_commissioner: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | 
+ **xiq_thread_stop_commissioner_request** | [**XiqThreadStopCommissionerRequest**](XiqThreadStopCommissionerRequest.md)|  | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

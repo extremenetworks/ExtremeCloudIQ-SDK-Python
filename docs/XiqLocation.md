@@ -1,6 +1,6 @@
 # XiqLocation
 
-The hierarchical location for Generic/Building/Floor
+The hierarchical location for Site_Group/Site/Building/Floor
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

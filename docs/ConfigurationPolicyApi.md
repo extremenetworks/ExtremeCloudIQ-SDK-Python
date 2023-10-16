@@ -10,18 +10,21 @@ Method | HTTP request | Description
 [**change_psk_password**](ConfigurationPolicyApi.md#change_psk_password) | **PUT** /ssids/{id}/psk/password | Change the SSID PSK password
 [**create_classification_rule**](ConfigurationPolicyApi.md#create_classification_rule) | **POST** /classification-rules | Create classification rule
 [**create_cloud_config_group**](ConfigurationPolicyApi.md#create_cloud_config_group) | **POST** /ccgs | Create new cloud config group
+[**create_iot_profile**](ConfigurationPolicyApi.md#create_iot_profile) | **POST** /iot-profiles | Create a IoT profile
 [**create_mac_oui_profile**](ConfigurationPolicyApi.md#create_mac_oui_profile) | **POST** /radio-profiles/mac-ouis | Create a MAC OUI profile
 [**create_radio_profile**](ConfigurationPolicyApi.md#create_radio_profile) | **POST** /radio-profiles | Create a radio profile
 [**create_user_profile**](ConfigurationPolicyApi.md#create_user_profile) | **POST** /user-profiles | Create a user profile
 [**delete_classification_rule**](ConfigurationPolicyApi.md#delete_classification_rule) | **DELETE** /classification-rules/{id} | Delete classification rule by ID
 [**delete_cloud_config_group**](ConfigurationPolicyApi.md#delete_cloud_config_group) | **DELETE** /ccgs/{id} | Delete a cloud config group
 [**delete_co_user_profile**](ConfigurationPolicyApi.md#delete_co_user_profile) | **DELETE** /user-profiles/{id} | Delete an user profile by ID
+[**delete_iot_profile**](ConfigurationPolicyApi.md#delete_iot_profile) | **DELETE** /iot-profiles/{id} | Delete Iot profile by ID
 [**delete_radio_profile**](ConfigurationPolicyApi.md#delete_radio_profile) | **DELETE** /radio-profiles/{id} | Delete radio profile by ID
 [**delete_rp_mac_oui_profile**](ConfigurationPolicyApi.md#delete_rp_mac_oui_profile) | **DELETE** /radio-profiles/mac-ouis/{id} | Delete MAC OUI profile
 [**disable_ssid_cwp**](ConfigurationPolicyApi.md#disable_ssid_cwp) | **POST** /ssids/{id}/cwp/:disable | Disable the CWP on the SSID
 [**enable_ssid_cwp**](ConfigurationPolicyApi.md#enable_ssid_cwp) | **POST** /ssids/{id}/cwp/:enable | Enable and attach the CWP on the SSID
 [**get_classification_rule**](ConfigurationPolicyApi.md#get_classification_rule) | **GET** /classification-rules/{id} | Get a classification rule by ID
 [**get_cloud_config_group**](ConfigurationPolicyApi.md#get_cloud_config_group) | **GET** /ccgs/{id} | Get a cloud config group
+[**get_iot_profile**](ConfigurationPolicyApi.md#get_iot_profile) | **GET** /iot-profiles/{id} | Get IoT profile by ID
 [**get_neighborhood_analysis**](ConfigurationPolicyApi.md#get_neighborhood_analysis) | **GET** /radio-profiles/neighborhood-analysis/{id} | Get neighborhood analysis settings
 [**get_radio_profile**](ConfigurationPolicyApi.md#get_radio_profile) | **GET** /radio-profiles/{id} | Get radio profile by ID
 [**get_rp_channel_selection**](ConfigurationPolicyApi.md#get_rp_channel_selection) | **GET** /radio-profiles/channel-selection/{id} | Get channel selection settings
@@ -33,6 +36,7 @@ Method | HTTP request | Description
 [**get_user_profile**](ConfigurationPolicyApi.md#get_user_profile) | **GET** /user-profiles/{id} | Get user profile by ID
 [**list_classification_rules**](ConfigurationPolicyApi.md#list_classification_rules) | **GET** /classification-rules | List classification rules
 [**list_cloud_config_groups**](ConfigurationPolicyApi.md#list_cloud_config_groups) | **GET** /ccgs | List clould config groups
+[**list_iot_profiles**](ConfigurationPolicyApi.md#list_iot_profiles) | **GET** /iot-profiles | List IoT profiles
 [**list_l3_address_profiles**](ConfigurationPolicyApi.md#list_l3_address_profiles) | **GET** /l3-address-profiles | List L3 address profiles
 [**list_radio_profiles**](ConfigurationPolicyApi.md#list_radio_profiles) | **GET** /radio-profiles | List radio profiles
 [**list_rp_mac_oui_profiles**](ConfigurationPolicyApi.md#list_rp_mac_oui_profiles) | **GET** /radio-profiles/mac-ouis | List MAC OUI profiles
@@ -47,6 +51,7 @@ Method | HTTP request | Description
 [**update_classification_rule**](ConfigurationPolicyApi.md#update_classification_rule) | **PUT** /classification-rules/{id} | Update classification rule
 [**update_cloud_config_group**](ConfigurationPolicyApi.md#update_cloud_config_group) | **PUT** /ccgs/{id} | Update cloud config group information
 [**update_co_user_profile**](ConfigurationPolicyApi.md#update_co_user_profile) | **PUT** /user-profiles/{id} | Update user profile
+[**update_iot_profile**](ConfigurationPolicyApi.md#update_iot_profile) | **PUT** /iot-profiles/{id} | Update radio profile by ID
 [**update_neighborhood_analysis**](ConfigurationPolicyApi.md#update_neighborhood_analysis) | **PUT** /radio-profiles/neighborhood-analysis/{id} | Update neighborhood analysis settings
 [**update_radio_profile**](ConfigurationPolicyApi.md#update_radio_profile) | **PUT** /radio-profiles/{id} | Update radio profile by ID
 [**update_rp_channel_selection**](ConfigurationPolicyApi.md#update_rp_channel_selection) | **PUT** /radio-profiles/channel-selection/{id} | Update channel selection settings
@@ -491,6 +496,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XiqCloudConfigGroup**](XiqCloudConfigGroup.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_iot_profile**
+> XiqIotProfile create_iot_profile(xiq_iot_profile_request)
+
+Create a IoT profile
+
+Create a new IoT profile.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    xiq_iot_profile_request = extremecloudiq.XiqIotProfileRequest() # XiqIotProfileRequest | The request body to create new IoT profile.
+
+    try:
+        # Create a IoT profile
+        api_response = api_instance.create_iot_profile(xiq_iot_profile_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->create_iot_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xiq_iot_profile_request** | [**XiqIotProfileRequest**](XiqIotProfileRequest.md)| The request body to create new IoT profile. | 
+
+### Return type
+
+[**XiqIotProfile**](XiqIotProfile.md)
 
 ### Authorization
 
@@ -958,6 +1038,80 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_iot_profile**
+> delete_iot_profile(id)
+
+Delete Iot profile by ID
+
+Delete the existing IoT profile by the profile ID.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The IoT profile ID
+
+    try:
+        # Delete Iot profile by ID
+        api_instance.delete_iot_profile(id)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->delete_iot_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The IoT profile ID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **delete_radio_profile**
 > delete_radio_profile(id)
 
@@ -1386,6 +1540,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XiqCloudConfigGroup**](XiqCloudConfigGroup.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_iot_profile**
+> XiqIotProfile get_iot_profile(id)
+
+Get IoT profile by ID
+
+Get IoT profile details for the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The IoT profile ID
+
+    try:
+        # Get IoT profile by ID
+        api_response = api_instance.get_iot_profile(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->get_iot_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The IoT profile ID | 
+
+### Return type
+
+[**XiqIotProfile**](XiqIotProfile.md)
 
 ### Authorization
 
@@ -2215,6 +2444,83 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PagedXiqCloudConfigGroup**](PagedXiqCloudConfigGroup.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_iot_profiles**
+> PagedXiqIotProfile list_iot_profiles(page=page, limit=limit)
+
+List IoT profiles
+
+List a page of IoT profiles.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+
+    try:
+        # List IoT profiles
+        api_response = api_instance.list_iot_profiles(page=page, limit=limit)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->list_iot_profiles: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+
+### Return type
+
+[**PagedXiqIotProfile**](PagedXiqIotProfile.md)
 
 ### Authorization
 
@@ -3283,6 +3589,83 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XiqUserProfile**](XiqUserProfile.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_iot_profile**
+> XiqIotProfile update_iot_profile(id, xiq_iot_profile_request)
+
+Update radio profile by ID
+
+Update the existing radio profile by the profile ID.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The radio profile ID.
+xiq_iot_profile_request = extremecloudiq.XiqIotProfileRequest() # XiqIotProfileRequest | The payload of the update radio profile request.
+
+    try:
+        # Update radio profile by ID
+        api_response = api_instance.update_iot_profile(id, xiq_iot_profile_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->update_iot_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The radio profile ID. | 
+ **xiq_iot_profile_request** | [**XiqIotProfileRequest**](XiqIotProfileRequest.md)| The payload of the update radio profile request. | 
+
+### Return type
+
+[**XiqIotProfile**](XiqIotProfile.md)
 
 ### Authorization
 
