@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **org_id** | **int** | The organization identifier, valid when enabling HIQ feature | [optional] 
 **parent_id** | **int** | The parent location ID | 
 **name** | **str** | The building name | 
-**address** | **str** | The building street address | 
+**address** | [**XiqAddress**](XiqAddress.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

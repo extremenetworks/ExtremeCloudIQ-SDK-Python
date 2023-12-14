@@ -13,7 +13,8 @@ Name | Type | Description | Notes
 **dns_server** | **str** |  | [optional] 
 **enable_poe** | **bool** |  | [optional] 
 **xiq_connectivity** | **bool** |  | [optional] 
-**installation_images** | **bool** |  | [optional] 
+**image_count** | **int** |  | [optional] 
+**image_names** | **list[str]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

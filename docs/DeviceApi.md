@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**change_status_to_unmanage**](DeviceApi.md#change_status_to_unmanage) | **POST** /devices/:unmanage | Change status to Unmanaged
 [**delete_device**](DeviceApi.md#delete_device) | **DELETE** /devices/{id} | Delete a device
 [**delete_devices**](DeviceApi.md#delete_devices) | **POST** /devices/:delete | Delete devices
+[**download_device_gallery_image**](DeviceApi.md#download_device_gallery_image) | **GET** /devices/{id}/gallery-image | Download device gallery image.
 [**get_device**](DeviceApi.md#get_device) | **GET** /devices/{id} | Get device info for a specific device
 [**get_device_cpu_memory_history**](DeviceApi.md#get_device_cpu_memory_history) | **GET** /devices/{id}/history/cpu-mem | Get device CPU/memory usage history
 [**get_device_ibeacon**](DeviceApi.md#get_device_ibeacon) | **GET** /devices/{id}/ibeacon | Get the device iBeacon setting
@@ -35,6 +36,7 @@ Method | HTTP request | Description
 [**list_device_alarm**](DeviceApi.md#list_device_alarm) | **GET** /devices/{id}/alarms | List alarms for a device
 [**list_devices**](DeviceApi.md#list_devices) | **GET** /devices | [LRO] List devices
 [**list_devices_by_network_policy**](DeviceApi.md#list_devices_by_network_policy) | **GET** /devices/network-policy/{policyId} | List assigned devices for network policy
+[**list_devices_radio_information**](DeviceApi.md#list_devices_radio_information) | **GET** /devices/radio-information | Get Devices Radio Information
 [**list_digital_twin_products**](DeviceApi.md#list_digital_twin_products) | **GET** /devices/digital-twin | List Digital Twin product information.
 [**onboard_devices**](DeviceApi.md#onboard_devices) | **POST** /devices/:onboard | Onboard Devices
 [**override_device_level_ssid**](DeviceApi.md#override_device_level_ssid) | **POST** /devices/{id}/ssid/:override | Override SSID for a device
@@ -1478,6 +1480,83 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **download_device_gallery_image**
+> file download_device_gallery_image(id, image_name)
+
+Download device gallery image.
+
+Download the image file from the device media gallery.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device ID
+image_name = 'image_name_example' # str | The image name
+
+    try:
+        # Download device gallery image.
+        api_response = api_instance.download_device_gallery_image(id, image_name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->download_device_gallery_image: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device ID | 
+ **image_name** | **str**| The image name | 
+
+### Return type
+
+**file**
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/octet-stream
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_device**
 > XiqDevice get_device(id, views=views, fields=fields)
 
@@ -2416,6 +2495,87 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PagedXiqDevice**](PagedXiqDevice.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_devices_radio_information**
+> PagedXiqRadioEntity list_devices_radio_information(device_ids, page=page, limit=limit, include_disabled_radio=include_disabled_radio)
+
+Get Devices Radio Information
+
+Get client radios information of the devices.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    device_ids = [56] # list[int] | the list of devices
+page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Number of Records, min = 1, max = 50 (optional) (default to 10)
+include_disabled_radio = False # bool | Include Disabled Radios (optional) (default to False)
+
+    try:
+        # Get Devices Radio Information
+        api_response = api_instance.list_devices_radio_information(device_ids, page=page, limit=limit, include_disabled_radio=include_disabled_radio)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->list_devices_radio_information: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **device_ids** | [**list[int]**](int.md)| the list of devices | 
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Number of Records, min &#x3D; 1, max &#x3D; 50 | [optional] [default to 10]
+ **include_disabled_radio** | **bool**| Include Disabled Radios | [optional] [default to False]
+
+### Return type
+
+[**PagedXiqRadioEntity**](PagedXiqRadioEntity.md)
 
 ### Authorization
 

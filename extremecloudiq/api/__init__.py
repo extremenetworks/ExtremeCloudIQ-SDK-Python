@@ -22,6 +22,7 @@ from extremecloudiq.api.essentials___extreme_location_api import EssentialsExtre
 from extremecloudiq.api.hiq_api import HIQApi
 from extremecloudiq.api.location_api import LocationApi
 from extremecloudiq.api.log_api import LogApi
+from extremecloudiq.api.misc_api import MiscApi
 from extremecloudiq.api.network_policy_api import NetworkPolicyApi
 from extremecloudiq.api.notification_api import NotificationApi
 from extremecloudiq.api.operation_api import OperationApi

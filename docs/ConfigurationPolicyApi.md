@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**delete_classification_rule**](ConfigurationPolicyApi.md#delete_classification_rule) | **DELETE** /classification-rules/{id} | Delete classification rule by ID
 [**delete_cloud_config_group**](ConfigurationPolicyApi.md#delete_cloud_config_group) | **DELETE** /ccgs/{id} | Delete a cloud config group
 [**delete_co_user_profile**](ConfigurationPolicyApi.md#delete_co_user_profile) | **DELETE** /user-profiles/{id} | Delete an user profile by ID
-[**delete_iot_profile**](ConfigurationPolicyApi.md#delete_iot_profile) | **DELETE** /iot-profiles/{id} | Delete Iot profile by ID
+[**delete_iot_profile**](ConfigurationPolicyApi.md#delete_iot_profile) | **DELETE** /iot-profiles/{id} | Delete IoT profile by ID
 [**delete_radio_profile**](ConfigurationPolicyApi.md#delete_radio_profile) | **DELETE** /radio-profiles/{id} | Delete radio profile by ID
 [**delete_rp_mac_oui_profile**](ConfigurationPolicyApi.md#delete_rp_mac_oui_profile) | **DELETE** /radio-profiles/mac-ouis/{id} | Delete MAC OUI profile
 [**disable_ssid_cwp**](ConfigurationPolicyApi.md#disable_ssid_cwp) | **POST** /ssids/{id}/cwp/:disable | Disable the CWP on the SSID
@@ -51,7 +51,7 @@ Method | HTTP request | Description
 [**update_classification_rule**](ConfigurationPolicyApi.md#update_classification_rule) | **PUT** /classification-rules/{id} | Update classification rule
 [**update_cloud_config_group**](ConfigurationPolicyApi.md#update_cloud_config_group) | **PUT** /ccgs/{id} | Update cloud config group information
 [**update_co_user_profile**](ConfigurationPolicyApi.md#update_co_user_profile) | **PUT** /user-profiles/{id} | Update user profile
-[**update_iot_profile**](ConfigurationPolicyApi.md#update_iot_profile) | **PUT** /iot-profiles/{id} | Update radio profile by ID
+[**update_iot_profile**](ConfigurationPolicyApi.md#update_iot_profile) | **PUT** /iot-profiles/{id} | Update IoT profile by ID
 [**update_neighborhood_analysis**](ConfigurationPolicyApi.md#update_neighborhood_analysis) | **PUT** /radio-profiles/neighborhood-analysis/{id} | Update neighborhood analysis settings
 [**update_radio_profile**](ConfigurationPolicyApi.md#update_radio_profile) | **PUT** /radio-profiles/{id} | Update radio profile by ID
 [**update_rp_channel_selection**](ConfigurationPolicyApi.md#update_rp_channel_selection) | **PUT** /radio-profiles/channel-selection/{id} | Update channel selection settings
@@ -1041,7 +1041,7 @@ void (empty response body)
 # **delete_iot_profile**
 > delete_iot_profile(id)
 
-Delete Iot profile by ID
+Delete IoT profile by ID
 
 Delete the existing IoT profile by the profile ID.
 
@@ -1077,7 +1077,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     id = 56 # int | The IoT profile ID
 
     try:
-        # Delete Iot profile by ID
+        # Delete IoT profile by ID
         api_instance.delete_iot_profile(id)
     except ApiException as e:
         print("Exception when calling ConfigurationPolicyApi->delete_iot_profile: %s\n" % e)
@@ -3612,9 +3612,9 @@ Name | Type | Description  | Notes
 # **update_iot_profile**
 > XiqIotProfile update_iot_profile(id, xiq_iot_profile_request)
 
-Update radio profile by ID
+Update IoT profile by ID
 
-Update the existing radio profile by the profile ID.
+Update the existing IoT profile by the profile ID.
 
 ### Example
 
@@ -3645,11 +3645,11 @@ configuration = extremecloudiq.Configuration(
 with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
-    id = 56 # int | The radio profile ID.
-xiq_iot_profile_request = extremecloudiq.XiqIotProfileRequest() # XiqIotProfileRequest | The payload of the update radio profile request.
+    id = 56 # int | The IoT profile ID.
+xiq_iot_profile_request = extremecloudiq.XiqIotProfileRequest() # XiqIotProfileRequest | The payload of the update IoT profile request.
 
     try:
-        # Update radio profile by ID
+        # Update IoT profile by ID
         api_response = api_instance.update_iot_profile(id, xiq_iot_profile_request)
         pprint(api_response)
     except ApiException as e:
@@ -3660,8 +3660,8 @@ xiq_iot_profile_request = extremecloudiq.XiqIotProfileRequest() # XiqIotProfileR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The radio profile ID. | 
- **xiq_iot_profile_request** | [**XiqIotProfileRequest**](XiqIotProfileRequest.md)| The payload of the update radio profile request. | 
+ **id** | **int**| The IoT profile ID. | 
+ **xiq_iot_profile_request** | [**XiqIotProfileRequest**](XiqIotProfileRequest.md)| The payload of the update IoT profile request. | 
 
 ### Return type
 
