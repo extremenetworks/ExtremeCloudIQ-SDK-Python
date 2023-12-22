@@ -4,7 +4,6 @@ All URIs are relative to *http://localhost:8081*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_connectivity_details_by_client_type**](CopilotConnectivityExperienceApi.md#get_connectivity_details_by_client_type) | **GET** /copilot/connectivity/client-type | 
 [**get_connectivity_details_by_locations**](CopilotConnectivityExperienceApi.md#get_connectivity_details_by_locations) | **GET** /copilot/connectivity/locations | 
 [**get_wired_connectivity_experience**](CopilotConnectivityExperienceApi.md#get_wired_connectivity_experience) | **GET** /copilot/connectivity/wired/experience | 
 [**get_wired_events**](CopilotConnectivityExperienceApi.md#get_wired_events) | **GET** /copilot/connectivity/wired/events | 
@@ -24,88 +23,8 @@ Method | HTTP request | Description
 [**get_wireless_views**](CopilotConnectivityExperienceApi.md#get_wireless_views) | **GET** /copilot/connectivity/wireless/views | 
 
 
-# **get_connectivity_details_by_client_type**
-> XiqConnectivityDetailsByClientTypeResponse get_connectivity_details_by_client_type(start_time, end_time, location_id=location_id, client_type=client_type, forensic_bucket=forensic_bucket)
-
-
-
-### Example
-
-* Bearer (JWT) Authentication (BearerAuth):
-```python
-from __future__ import print_function
-import time
-import extremecloudiq
-from extremecloudiq.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8081
-# See configuration.py for a list of all supported configuration parameters.
-configuration = extremecloudiq.Configuration(
-    host = "http://localhost:8081"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): BearerAuth
-configuration = extremecloudiq.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with extremecloudiq.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = extremecloudiq.CopilotConnectivityExperienceApi(api_client)
-    start_time = 56 # int | The start time to query, epoch time in milliseconds since 1/1/1970
-end_time = 56 # int | The end time to query, epoch time in milliseconds since 1/1/1970
-location_id = 0 # int | The location Id (optional) (default to 0)
-client_type = extremecloudiq.XiqClientType() # XiqClientType | The client type (optional)
-forensic_bucket = extremecloudiq.XiqForensicBucket() # XiqForensicBucket | The time period bucket detected (optional)
-
-    try:
-        api_response = api_instance.get_connectivity_details_by_client_type(start_time, end_time, location_id=location_id, client_type=client_type, forensic_bucket=forensic_bucket)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling CopilotConnectivityExperienceApi->get_connectivity_details_by_client_type: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start_time** | **int**| The start time to query, epoch time in milliseconds since 1/1/1970 | 
- **end_time** | **int**| The end time to query, epoch time in milliseconds since 1/1/1970 | 
- **location_id** | **int**| The location Id | [optional] [default to 0]
- **client_type** | [**XiqClientType**](.md)| The client type | [optional] 
- **forensic_bucket** | [**XiqForensicBucket**](.md)| The time period bucket detected | [optional] 
-
-### Return type
-
-[**XiqConnectivityDetailsByClientTypeResponse**](XiqConnectivityDetailsByClientTypeResponse.md)
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**400** | Bad Request |  -  |
-**500** | Internal Server Error |  -  |
-**200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_connectivity_details_by_locations**
-> PagedXiqConnectivityExperienceData get_connectivity_details_by_locations(start_time, end_time, page=page, limit=limit, sort_field=sort_field, sort_order=sort_order, location_id=location_id, search_key=search_key, client_type=client_type, forensic_bucket=forensic_bucket, quality_index=quality_index)
+> PagedXiqConnectivityExperienceData get_connectivity_details_by_locations(start_time, end_time, page=page, limit=limit, sort_field=sort_field, sort_order=sort_order, location_id=location_id, search_key=search_key, client_type=client_type)
 
 
 
@@ -147,11 +66,9 @@ sort_order = extremecloudiq.XiqSortOrder() # XiqSortOrder | The sorting order (o
 location_id = 0 # int | The location Id (optional) (default to 0)
 search_key = '' # str | The search value (optional) (default to '')
 client_type = extremecloudiq.XiqClientType() # XiqClientType | The client type (optional)
-forensic_bucket = extremecloudiq.XiqForensicBucket() # XiqForensicBucket | The time period bucket detected (optional)
-quality_index = extremecloudiq.XiqQualityIndex() # XiqQualityIndex | The quality index value (optional)
 
     try:
-        api_response = api_instance.get_connectivity_details_by_locations(start_time, end_time, page=page, limit=limit, sort_field=sort_field, sort_order=sort_order, location_id=location_id, search_key=search_key, client_type=client_type, forensic_bucket=forensic_bucket, quality_index=quality_index)
+        api_response = api_instance.get_connectivity_details_by_locations(start_time, end_time, page=page, limit=limit, sort_field=sort_field, sort_order=sort_order, location_id=location_id, search_key=search_key, client_type=client_type)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CopilotConnectivityExperienceApi->get_connectivity_details_by_locations: %s\n" % e)
@@ -170,8 +87,6 @@ Name | Type | Description  | Notes
  **location_id** | **int**| The location Id | [optional] [default to 0]
  **search_key** | **str**| The search value | [optional] [default to &#39;&#39;]
  **client_type** | [**XiqClientType**](.md)| The client type | [optional] 
- **forensic_bucket** | [**XiqForensicBucket**](.md)| The time period bucket detected | [optional] 
- **quality_index** | [**XiqQualityIndex**](.md)| The quality index value | [optional] 
 
 ### Return type
 

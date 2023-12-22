@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**parent_id** | **int** | The parent site group ID | 
+**parent_id** | **int** | The parent site ID | 
 **name** | **str** | The site name | 
 **address** | [**XiqAddress**](XiqAddress.md) |  | [optional] 
-**country_code** | **int** | The site country code. Get the list of country codes from /countries XAPI. | 
+**country_code** | **int** | The site country code. Get the list of country codes from /countries XAPI. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
