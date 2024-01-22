@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **info** | **str** | the info related to connectivity experience view type | [optional] 
 **name** | **str** | the location/ssid/os-name based on view type | 
 **quality_index** | **int** | the quality index | 
+**quality_index_value** | [**XiqQualityIndex**](XiqQualityIndex.md) |  | 
 **client_type** | [**XiqClientType**](XiqClientType.md) |  | 
 **trend_indicator** | [**XiqTrendIndicator**](XiqTrendIndicator.md) |  | 
 **quality_index_graph** | [**list[XiqDataPoint]**](XiqDataPoint.md) | the quality index graph | 
