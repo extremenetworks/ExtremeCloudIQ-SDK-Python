@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **serial_number** | **str** | The serial number | 
 **service_tag** | **str** | The service tag | 
-**location** | [**XiqDeviceLocationAssignment**](XiqDeviceLocationAssignment.md) |  | [optional] 
+**location** | [**XiqDeviceLocationAssignment**](XiqDeviceLocationAssignment.md) |  | 
 **network_policy_id** | **int** | The assigned network policy | [optional] 
 **hostname** | **str** | The device hostname | [optional] 
 

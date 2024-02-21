@@ -5,7 +5,7 @@ VSP Operating System Software (VOSS) device to onboard
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **serial_number** | **str** | The serial number | 
-**location** | [**XiqDeviceLocationAssignment**](XiqDeviceLocationAssignment.md) |  | [optional] 
+**location** | [**XiqDeviceLocationAssignment**](XiqDeviceLocationAssignment.md) |  | 
 **network_policy_id** | **int** | The assigned network policy | [optional] 
 **hostname** | **str** | The device hostname | [optional] 
 

@@ -4,22 +4,24 @@ All URIs are relative to *http://localhost:8081*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_building**](LocationApi.md#create_building) | **POST** /locations/building | Create building
+[**create_building**](LocationApi.md#create_building) | **POST** /locations/building | Create a building
 [**create_floor**](LocationApi.md#create_floor) | **POST** /locations/floor | Create a floor
 [**create_location**](LocationApi.md#create_location) | **POST** /locations | Create a location
-[**create_site**](LocationApi.md#create_site) | **POST** /locations/site | Create site
+[**create_site**](LocationApi.md#create_site) | **POST** /locations/site | Create a site
 [**delete_building**](LocationApi.md#delete_building) | **DELETE** /locations/building/{id} | Delete a building by ID
 [**delete_floor**](LocationApi.md#delete_floor) | **DELETE** /locations/floor/{id} | Delete a floor by ID
 [**delete_location**](LocationApi.md#delete_location) | **DELETE** /locations/{id} | Delete a location by ID
 [**delete_site**](LocationApi.md#delete_site) | **DELETE** /locations/site/{id} | Delete a site by ID
+[**get_building**](LocationApi.md#get_building) | **GET** /locations/building/{id} | Get a building by ID
+[**get_floor**](LocationApi.md#get_floor) | **GET** /locations/floor/{id} | Get a floor by ID
 [**get_location_devices_list**](LocationApi.md#get_location_devices_list) | **GET** /locations/tree/devices | Get devices on the location hierarchy.
 [**get_location_maps_list**](LocationApi.md#get_location_maps_list) | **GET** /locations/tree/maps | Get maps on the location hierarchy.
 [**get_location_tree**](LocationApi.md#get_location_tree) | **GET** /locations/tree | Get location tree
 [**get_site**](LocationApi.md#get_site) | **GET** /locations/site/{id} | Get a site by ID
 [**initialize_location**](LocationApi.md#initialize_location) | **POST** /locations/:init | Initialize organization location
-[**list_buildings**](LocationApi.md#list_buildings) | **GET** /locations/building | List the buildings
-[**list_floors**](LocationApi.md#list_floors) | **GET** /locations/floor | List the floors
-[**list_sites**](LocationApi.md#list_sites) | **GET** /locations/site | List the sites
+[**list_buildings**](LocationApi.md#list_buildings) | **GET** /locations/building | List buildings
+[**list_floors**](LocationApi.md#list_floors) | **GET** /locations/floor | List floors
+[**list_sites**](LocationApi.md#list_sites) | **GET** /locations/site | List sites
 [**update_building**](LocationApi.md#update_building) | **PUT** /locations/building/{id} | Update a building
 [**update_floor**](LocationApi.md#update_floor) | **PUT** /locations/floor/{id} | Update a floor
 [**update_location**](LocationApi.md#update_location) | **PUT** /locations/{id} | Update a location
@@ -30,7 +32,7 @@ Method | HTTP request | Description
 # **create_building**
 > XiqBuilding create_building(xiq_create_building_request)
 
-Create building
+Create a building
 
 Create a new building under the parent site.
 
@@ -66,7 +68,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     xiq_create_building_request = extremecloudiq.XiqCreateBuildingRequest() # XiqCreateBuildingRequest | Create building request body
 
     try:
-        # Create building
+        # Create a building
         api_response = api_instance.create_building(xiq_create_building_request)
         pprint(api_response)
     except ApiException as e:
@@ -255,7 +257,7 @@ Name | Type | Description  | Notes
 # **create_site**
 > XiqSite create_site(xiq_create_site_request)
 
-Create site
+Create a site
 
 Create a new site under the site group.
 
@@ -291,7 +293,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     xiq_create_site_request = extremecloudiq.XiqCreateSiteRequest() # XiqCreateSiteRequest | Create site request body
 
     try:
-        # Create site
+        # Create a site
         api_response = api_instance.create_site(xiq_create_site_request)
         pprint(api_response)
     except ApiException as e:
@@ -478,7 +480,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_location**
-> str delete_location(id, force_delete=force_delete)
+> delete_location(id, force_delete=force_delete)
 
 Delete a location by ID
 
@@ -518,8 +520,7 @@ force_delete = False # bool | Force deletion of this location and its descendant
 
     try:
         # Delete a location by ID
-        api_response = api_instance.delete_location(id, force_delete=force_delete)
-        pprint(api_response)
+        api_instance.delete_location(id, force_delete=force_delete)
     except ApiException as e:
         print("Exception when calling LocationApi->delete_location: %s\n" % e)
 ```
@@ -533,7 +534,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+void (empty response body)
 
 ### Authorization
 
@@ -555,7 +556,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_site**
-> str delete_site(id, force_delete=force_delete)
+> delete_site(id, force_delete=force_delete)
 
 Delete a site by ID
 
@@ -595,8 +596,7 @@ force_delete = False # bool | Force deletion of this site and its descendants re
 
     try:
         # Delete a site by ID
-        api_response = api_instance.delete_site(id, force_delete=force_delete)
-        pprint(api_response)
+        api_instance.delete_site(id, force_delete=force_delete)
     except ApiException as e:
         print("Exception when calling LocationApi->delete_site: %s\n" % e)
 ```
@@ -610,7 +610,157 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_building**
+> XiqBuilding get_building(id)
+
+Get a building by ID
+
+Get the building for the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.LocationApi(api_client)
+    id = 56 # int | The building ID
+
+    try:
+        # Get a building by ID
+        api_response = api_instance.get_building(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LocationApi->get_building: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The building ID | 
+
+### Return type
+
+[**XiqBuilding**](XiqBuilding.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_floor**
+> XiqFloor get_floor(id)
+
+Get a floor by ID
+
+Get the floor for the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.LocationApi(api_client)
+    id = 56 # int | The floor ID
+
+    try:
+        # Get a floor by ID
+        api_response = api_instance.get_floor(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LocationApi->get_floor: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The floor ID | 
+
+### Return type
+
+[**XiqFloor**](XiqFloor.md)
 
 ### Authorization
 
@@ -1021,9 +1171,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_buildings**
-> PagedXiqBuilding list_buildings(page=page, limit=limit, name=name, order=order)
+> PagedXiqBuilding list_buildings(page=page, limit=limit, order=order, name=name, ids=ids)
 
-List the buildings
+List buildings
 
 List a page of buildings by filter.
 
@@ -1058,12 +1208,13 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     api_instance = extremecloudiq.LocationApi(api_client)
     page = 1 # int | Page number, min = 1 (optional) (default to 1)
 limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
-name = 'name_example' # str | Name to search the buildings. It's case insensitive. (optional)
 order = extremecloudiq.XiqSortOrder() # XiqSortOrder | The sort order by name (ascending by default) (optional)
+name = 'name_example' # str | List buildings by name (case insensitive) (optional)
+ids = [56] # list[int] | List buildings by IDs (optional)
 
     try:
-        # List the buildings
-        api_response = api_instance.list_buildings(page=page, limit=limit, name=name, order=order)
+        # List buildings
+        api_response = api_instance.list_buildings(page=page, limit=limit, order=order, name=name, ids=ids)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling LocationApi->list_buildings: %s\n" % e)
@@ -1075,8 +1226,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
  **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
- **name** | **str**| Name to search the buildings. It&#39;s case insensitive. | [optional] 
  **order** | [**XiqSortOrder**](.md)| The sort order by name (ascending by default) | [optional] 
+ **name** | **str**| List buildings by name (case insensitive) | [optional] 
+ **ids** | [**list[int]**](int.md)| List buildings by IDs | [optional] 
 
 ### Return type
 
@@ -1102,9 +1254,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_floors**
-> PagedXiqFloor list_floors(page=page, limit=limit, name=name, order=order)
+> PagedXiqFloor list_floors(page=page, limit=limit, order=order, name=name, ids=ids)
 
-List the floors
+List floors
 
 List a page of floors by filter.
 
@@ -1139,12 +1291,13 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     api_instance = extremecloudiq.LocationApi(api_client)
     page = 1 # int | Page number, min = 1 (optional) (default to 1)
 limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
-name = 'name_example' # str | Name to search floors. It's case insensitive (optional)
 order = extremecloudiq.XiqSortOrder() # XiqSortOrder | The sort order by name (ascending by default) (optional)
+name = 'name_example' # str | List floors by name (case insensitive) (optional)
+ids = [56] # list[int] | List floors by IDs (optional)
 
     try:
-        # List the floors
-        api_response = api_instance.list_floors(page=page, limit=limit, name=name, order=order)
+        # List floors
+        api_response = api_instance.list_floors(page=page, limit=limit, order=order, name=name, ids=ids)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling LocationApi->list_floors: %s\n" % e)
@@ -1156,8 +1309,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
  **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
- **name** | **str**| Name to search floors. It&#39;s case insensitive | [optional] 
  **order** | [**XiqSortOrder**](.md)| The sort order by name (ascending by default) | [optional] 
+ **name** | **str**| List floors by name (case insensitive) | [optional] 
+ **ids** | [**list[int]**](int.md)| List floors by IDs | [optional] 
 
 ### Return type
 
@@ -1183,9 +1337,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_sites**
-> PagedXiqSite list_sites(page=page, limit=limit, name=name, order=order)
+> PagedXiqSite list_sites(page=page, limit=limit, order=order, name=name, ids=ids)
 
-List the sites
+List sites
 
 List a page of sites by filter.
 
@@ -1220,12 +1374,13 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     api_instance = extremecloudiq.LocationApi(api_client)
     page = 1 # int | Page number, min = 1 (optional) (default to 1)
 limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
-name = 'name_example' # str | Name to search the sites. It's case insensitive (optional)
 order = extremecloudiq.XiqSortOrder() # XiqSortOrder | The sort order by name (ascending by default) (optional)
+name = 'name_example' # str | List sites by name (case insensitive) (optional)
+ids = [56] # list[int] | List sites by IDs (optional)
 
     try:
-        # List the sites
-        api_response = api_instance.list_sites(page=page, limit=limit, name=name, order=order)
+        # List sites
+        api_response = api_instance.list_sites(page=page, limit=limit, order=order, name=name, ids=ids)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling LocationApi->list_sites: %s\n" % e)
@@ -1237,8 +1392,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
  **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
- **name** | **str**| Name to search the sites. It&#39;s case insensitive | [optional] 
  **order** | [**XiqSortOrder**](.md)| The sort order by name (ascending by default) | [optional] 
+ **name** | **str**| List sites by name (case insensitive) | [optional] 
+ **ids** | [**list[int]**](int.md)| List sites by IDs | [optional] 
 
 ### Return type
 

@@ -13,6 +13,7 @@ from extremecloudiq.api.configuration___authentication_api import ConfigurationA
 from extremecloudiq.api.configuration___basic_api import ConfigurationBasicApi
 from extremecloudiq.api.configuration___certificate_api import ConfigurationCertificateApi
 from extremecloudiq.api.configuration___deployment_api import ConfigurationDeploymentApi
+from extremecloudiq.api.configuration___network_api import ConfigurationNetworkApi
 from extremecloudiq.api.configuration___policy_api import ConfigurationPolicyApi
 from extremecloudiq.api.configuration___user_management_api import ConfigurationUserManagementApi
 from extremecloudiq.api.copilot___anomalies_api import CopilotAnomaliesApi
@@ -20,6 +21,7 @@ from extremecloudiq.api.copilot___connectivity_experience_api import CopilotConn
 from extremecloudiq.api.device_api import DeviceApi
 from extremecloudiq.api.essentials___extreme_location_api import EssentialsExtremeLocationApi
 from extremecloudiq.api.hiq_api import HIQApi
+from extremecloudiq.api.license_api import LicenseApi
 from extremecloudiq.api.location_api import LocationApi
 from extremecloudiq.api.log_api import LogApi
 from extremecloudiq.api.misc_api import MiscApi

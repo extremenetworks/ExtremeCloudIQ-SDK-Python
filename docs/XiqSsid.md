@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **broadcast_name** | **str** | The SSID broadcast name | 
 **description** | **str** | The SSID description | [optional] 
 **predefined** | **bool** | Whether it is predefined | 
+**advanced_settings_id** | **int** | The SSID advanced settings ID. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

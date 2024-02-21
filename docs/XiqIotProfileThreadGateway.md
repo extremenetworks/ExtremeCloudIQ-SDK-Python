@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **comm_timeout** | **int** | After this timeout the Commissioner will shutdown. The default is 120 sec. but the max is approximately 23 days. | [optional] 
 **enable_nat64** | **bool** | Enable NAT64 functions including the translator and the prefix publishing. | [optional] 
 **white_list** | [**list[XiqIotpTgWhiteListEntry]**](XiqIotpTgWhiteListEntry.md) |  | [optional] 
+**default_user_profile_id** | **int** | The default user-profile ID. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

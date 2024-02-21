@@ -35,7 +35,7 @@ Method | HTTP request | Description
 
 
 # **acknowledge_alerts**
-> acknowledge_alerts(xiq_acknowledge_alerts_request)
+> list[XiqAlert] acknowledge_alerts(xiq_acknowledge_alerts_request)
 
 Acknowledge the alerts
 
@@ -74,7 +74,8 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     try:
         # Acknowledge the alerts
-        api_instance.acknowledge_alerts(xiq_acknowledge_alerts_request)
+        api_response = api_instance.acknowledge_alerts(xiq_acknowledge_alerts_request)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling AlertApi->acknowledge_alerts: %s\n" % e)
 ```
@@ -87,7 +88,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**list[XiqAlert]**](XiqAlert.md)
 
 ### Authorization
 

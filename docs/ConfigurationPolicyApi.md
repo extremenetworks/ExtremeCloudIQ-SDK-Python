@@ -33,6 +33,7 @@ Method | HTTP request | Description
 [**get_rp_radio_usage_optimization**](ConfigurationPolicyApi.md#get_rp_radio_usage_optimization) | **GET** /radio-profiles/radio-usage-opt/{id} | Get radio usage optimization settings
 [**get_rp_sensor_scan_settings**](ConfigurationPolicyApi.md#get_rp_sensor_scan_settings) | **GET** /radio-profiles/sensor-scan/{id} | Get sensor scan settings
 [**get_rp_wmm_qos_settings**](ConfigurationPolicyApi.md#get_rp_wmm_qos_settings) | **GET** /radio-profiles/wmm-qos/{id} | Get Wmm QoS settings
+[**get_ssid_advanced_settings**](ConfigurationPolicyApi.md#get_ssid_advanced_settings) | **GET** /ssids/advanced-settings/{id} | Get SSID advanced settings
 [**get_user_profile**](ConfigurationPolicyApi.md#get_user_profile) | **GET** /user-profiles/{id} | Get user profile by ID
 [**list_classification_rules**](ConfigurationPolicyApi.md#list_classification_rules) | **GET** /classification-rules | List classification rules
 [**list_cloud_config_groups**](ConfigurationPolicyApi.md#list_cloud_config_groups) | **GET** /ccgs | List clould config groups
@@ -60,6 +61,7 @@ Method | HTTP request | Description
 [**update_rp_radio_usage_optimization**](ConfigurationPolicyApi.md#update_rp_radio_usage_optimization) | **PUT** /radio-profiles/radio-usage-opt/{id} | Update radio usage optimization settings
 [**update_rp_sensor_scan_settings**](ConfigurationPolicyApi.md#update_rp_sensor_scan_settings) | **PUT** /radio-profiles/sensor-scan/{id} | Update sensor scan settings
 [**update_rp_wmm_qos_settings**](ConfigurationPolicyApi.md#update_rp_wmm_qos_settings) | **PUT** /radio-profiles/wmm-qos/{id} | Update Wmm QoS settings
+[**update_ssid_advanced_settings**](ConfigurationPolicyApi.md#update_ssid_advanced_settings) | **PUT** /ssids/advanced-settings/{id} | Update SSID advanced settings
 
 
 # **attach_cwp_to_ssid**
@@ -2235,6 +2237,81 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_ssid_advanced_settings**
+> XiqSsidAdvancedSettings get_ssid_advanced_settings(id)
+
+Get SSID advanced settings
+
+Get the advanced settings belonging to the SSID.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The SSID's advanced settings ID
+
+    try:
+        # Get SSID advanced settings
+        api_response = api_instance.get_ssid_advanced_settings(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->get_ssid_advanced_settings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The SSID&#39;s advanced settings ID | 
+
+### Return type
+
+[**XiqSsidAdvancedSettings**](XiqSsidAdvancedSettings.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_user_profile**
 > XiqUserProfile get_user_profile(id)
 
@@ -4282,6 +4359,83 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XiqRpWmmQosSettings**](XiqRpWmmQosSettings.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_ssid_advanced_settings**
+> XiqSsidAdvancedSettings update_ssid_advanced_settings(id, xiq_update_ssid_advanced_settings_request)
+
+Update SSID advanced settings
+
+Update the advanced settings belonging to the SSID.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The SSID advanced settings ID.
+xiq_update_ssid_advanced_settings_request = extremecloudiq.XiqUpdateSsidAdvancedSettingsRequest() # XiqUpdateSsidAdvancedSettingsRequest | The payload of the update advanced settings request.
+
+    try:
+        # Update SSID advanced settings
+        api_response = api_instance.update_ssid_advanced_settings(id, xiq_update_ssid_advanced_settings_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->update_ssid_advanced_settings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The SSID advanced settings ID. | 
+ **xiq_update_ssid_advanced_settings_request** | [**XiqUpdateSsidAdvancedSettingsRequest**](XiqUpdateSsidAdvancedSettingsRequest.md)| The payload of the update advanced settings request. | 
+
+### Return type
+
+[**XiqSsidAdvancedSettings**](XiqSsidAdvancedSettings.md)
 
 ### Authorization
 

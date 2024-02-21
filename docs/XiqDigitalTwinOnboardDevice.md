@@ -5,7 +5,7 @@ The Digital Twin device to onboard.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **digital_twin_device** | [**XiqDigitalTwinDevice**](XiqDigitalTwinDevice.md) |  | 
-**location** | [**XiqDeviceLocationAssignment**](XiqDeviceLocationAssignment.md) |  | [optional] 
+**location** | [**XiqDeviceLocationAssignment**](XiqDeviceLocationAssignment.md) |  | 
 **network_policy_id** | **int** | The assigned network policy | [optional] 
 **hostname** | **str** | The device hostname | [optional] 
 

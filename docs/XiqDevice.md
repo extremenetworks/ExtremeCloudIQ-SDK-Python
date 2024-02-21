@@ -38,6 +38,8 @@ Name | Type | Description | Notes
 **system_up_time** | **int** | The device uptime | [optional] 
 **config_mismatch** | **bool** | Config audit status(MATCHED or UNMATCHED) | [optional] 
 **managed_by** | **str** | The managed application for the device | [optional] 
+**thread0_eui64** | **str** | Thread router EUI64 | [optional] 
+**thread0_ext_mac** | **str** | Thread router extended MAC address | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -21,8 +21,12 @@ Method | HTTP request | Description
 [**change_hostname**](DeviceApi.md#change_hostname) | **PUT** /devices/{id}/hostname | Change hostname for a device
 [**change_status_to_manage**](DeviceApi.md#change_status_to_manage) | **POST** /devices/:manage | Change status to Managed
 [**change_status_to_unmanage**](DeviceApi.md#change_status_to_unmanage) | **POST** /devices/:unmanage | Change status to Unmanaged
+[**configure_ftm_settings**](DeviceApi.md#configure_ftm_settings) | **PUT** /devices/{id}/ftm-settings | Configure (create / update) device FTM Settings
+[**create_device_vlan_attrs**](DeviceApi.md#create_device_vlan_attrs) | **POST** /devices/{id}/config/vlan-attributes | Create a Vlan attribute
 [**delete_device**](DeviceApi.md#delete_device) | **DELETE** /devices/{id} | Delete a device
+[**delete_device_vlan_attributes**](DeviceApi.md#delete_device_vlan_attributes) | **DELETE** /devices/{id}/config/vlan-attributes | Delete vlan attributes
 [**delete_devices**](DeviceApi.md#delete_devices) | **POST** /devices/:delete | Delete devices
+[**delete_ftm_settings**](DeviceApi.md#delete_ftm_settings) | **DELETE** /devices/{id}/ftm-settings | Delete FTM Settings by device ID
 [**download_device_gallery_image**](DeviceApi.md#download_device_gallery_image) | **GET** /devices/{id}/gallery-image | Download device gallery image.
 [**get_device**](DeviceApi.md#get_device) | **GET** /devices/{id} | Get device info for a specific device
 [**get_device_cpu_memory_history**](DeviceApi.md#get_device_cpu_memory_history) | **GET** /devices/{id}/history/cpu-mem | Get device CPU/memory usage history
@@ -32,8 +36,11 @@ Method | HTTP request | Description
 [**get_device_network_policy**](DeviceApi.md#get_device_network_policy) | **GET** /devices/{id}/network-policy | Get network policy for a device
 [**get_device_stats**](DeviceApi.md#get_device_stats) | **GET** /devices/stats | Get device stats
 [**get_device_wifi_interface**](DeviceApi.md#get_device_wifi_interface) | **GET** /devices/{id}/interfaces/wifi | Get the device WiFi interfaces stats
+[**get_ftm_settings**](DeviceApi.md#get_ftm_settings) | **GET** /devices/{id}/ftm-settings | Get FTM Settings by device ID
 [**get_xiq_device_installation_report**](DeviceApi.md#get_xiq_device_installation_report) | **GET** /devices/{id}/installation-report | Get device installation report
 [**list_device_alarm**](DeviceApi.md#list_device_alarm) | **GET** /devices/{id}/alarms | List alarms for a device
+[**list_device_monitor_vlan_attributes**](DeviceApi.md#list_device_monitor_vlan_attributes) | **GET** /devices/{id}/monitor/vlan-attr | Get VLAN attributes per VLAN for a device
+[**list_device_vlan_attrs**](DeviceApi.md#list_device_vlan_attrs) | **GET** /devices/{id}/config/vlan-attributes | List vlan attributes for a device
 [**list_devices**](DeviceApi.md#list_devices) | **GET** /devices | [LRO] List devices
 [**list_devices_by_network_policy**](DeviceApi.md#list_devices_by_network_policy) | **GET** /devices/network-policy/{policyId} | List assigned devices for network policy
 [**list_devices_radio_information**](DeviceApi.md#list_devices_radio_information) | **GET** /devices/radio-information | Get Devices Radio Information
@@ -54,6 +61,7 @@ Method | HTTP request | Description
 [**send_cli_to_devices**](DeviceApi.md#send_cli_to_devices) | **POST** /devices/:cli | [LRO] Send CLI to devices
 [**start_thread_commissioner**](DeviceApi.md#start_thread_commissioner) | **POST** /devices/{id}/thread/commissioner/:start | Start Thread Commissioner
 [**stop_thread_commissioner**](DeviceApi.md#stop_thread_commissioner) | **POST** /devices/{id}/thread/commissioner/:stop | Stop Thread Commissioner
+[**update_device_vlan_attributes**](DeviceApi.md#update_device_vlan_attributes) | **PATCH** /devices/{id}/config/vlan-attributes/{vlanId} | Change vlan attributes
 
 
 # **advanced_onboard_devices**
@@ -1332,8 +1340,161 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **configure_ftm_settings**
+> XiqFtmSettings configure_ftm_settings(id, xiq_ftm_settings_request)
+
+Configure (create / update) device FTM Settings
+
+Configure (create / update) device FTM Settings.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device ID
+xiq_ftm_settings_request = extremecloudiq.XiqFtmSettingsRequest() # XiqFtmSettingsRequest | The payload of the configure device FTM Settings request.
+
+    try:
+        # Configure (create / update) device FTM Settings
+        api_response = api_instance.configure_ftm_settings(id, xiq_ftm_settings_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->configure_ftm_settings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device ID | 
+ **xiq_ftm_settings_request** | [**XiqFtmSettingsRequest**](XiqFtmSettingsRequest.md)| The payload of the configure device FTM Settings request. | 
+
+### Return type
+
+[**XiqFtmSettings**](XiqFtmSettings.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_device_vlan_attrs**
+> create_device_vlan_attrs(id, xiq_device_create_vlan_attributes)
+
+Create a Vlan attribute
+
+Create a new VLAN attribute.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | id
+xiq_device_create_vlan_attributes = extremecloudiq.XiqDeviceCreateVlanAttributes() # XiqDeviceCreateVlanAttributes | The payload to create a new VLAN attribute
+
+    try:
+        # Create a Vlan attribute
+        api_instance.create_device_vlan_attrs(id, xiq_device_create_vlan_attributes)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->create_device_vlan_attrs: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| id | 
+ **xiq_device_create_vlan_attributes** | [**XiqDeviceCreateVlanAttributes**](XiqDeviceCreateVlanAttributes.md)| The payload to create a new VLAN attribute | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **delete_device**
-> delete_device(id)
+> delete_device(id, force_delete=force_delete)
 
 Delete a device
 
@@ -1369,10 +1530,11 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = extremecloudiq.DeviceApi(api_client)
     id = 56 # int | The device ID
+force_delete = False # bool | Force deletion of device (optional) (default to False)
 
     try:
         # Delete a device
-        api_instance.delete_device(id)
+        api_instance.delete_device(id, force_delete=force_delete)
     except ApiException as e:
         print("Exception when calling DeviceApi->delete_device: %s\n" % e)
 ```
@@ -1382,6 +1544,83 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The device ID | 
+ **force_delete** | **bool**| Force deletion of device | [optional] [default to False]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_device_vlan_attributes**
+> delete_device_vlan_attributes(id, vlan_ids)
+
+Delete vlan attributes
+
+Delete one or more VLAN attributes.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device id
+vlan_ids = [56] # list[int] | VLAN ids to be deleted
+
+    try:
+        # Delete vlan attributes
+        api_instance.delete_device_vlan_attributes(id, vlan_ids)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->delete_device_vlan_attributes: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device id | 
+ **vlan_ids** | [**list[int]**](int.md)| VLAN ids to be deleted | 
 
 ### Return type
 
@@ -1407,7 +1646,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_devices**
-> delete_devices(xiq_device_filter)
+> delete_devices(xiq_device_filter, force_delete=force_delete)
 
 Delete devices
 
@@ -1443,10 +1682,11 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = extremecloudiq.DeviceApi(api_client)
     xiq_device_filter = extremecloudiq.XiqDeviceFilter() # XiqDeviceFilter | 
+force_delete = False # bool | Force deletion of devices (optional) (default to False)
 
     try:
         # Delete devices
-        api_instance.delete_devices(xiq_device_filter)
+        api_instance.delete_devices(xiq_device_filter, force_delete=force_delete)
     except ApiException as e:
         print("Exception when calling DeviceApi->delete_devices: %s\n" % e)
 ```
@@ -1456,6 +1696,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xiq_device_filter** | [**XiqDeviceFilter**](XiqDeviceFilter.md)|  | 
+ **force_delete** | **bool**| Force deletion of devices | [optional] [default to False]
 
 ### Return type
 
@@ -1468,6 +1709,80 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_ftm_settings**
+> delete_ftm_settings(id)
+
+Delete FTM Settings by device ID
+
+Delete FTM Settings by device ID.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device ID
+
+    try:
+        # Delete FTM Settings by device ID
+        api_instance.delete_ftm_settings(id)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->delete_ftm_settings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device ID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -2171,6 +2486,81 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_ftm_settings**
+> XiqFtmSettings get_ftm_settings(id)
+
+Get FTM Settings by device ID
+
+Get FTM Settings for the specified device ID.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device ID
+
+    try:
+        # Get FTM Settings by device ID
+        api_response = api_instance.get_ftm_settings(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->get_ftm_settings: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device ID | 
+
+### Return type
+
+[**XiqFtmSettings**](XiqFtmSettings.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_xiq_device_installation_report**
 > XiqDeviceInstallationReport get_xiq_device_installation_report(id)
 
@@ -2309,6 +2699,168 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PagedXiqDeviceAlarm**](PagedXiqDeviceAlarm.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_device_monitor_vlan_attributes**
+> PagedXiqDeviceMonitorVlanAttributes list_device_monitor_vlan_attributes(id, page=page, limit=limit, sort_by=sort_by, sort_order=sort_order)
+
+Get VLAN attributes per VLAN for a device
+
+Get VLAN attributes that are monitored per VLAN for a device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | Device ID
+page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Page Size, min = 1, max = 4095 (optional) (default to 10)
+sort_by = extremecloudiq.XiqDeviceVlanSortField() # XiqDeviceVlanSortField | Sort field (VLAN_ID by default) (optional)
+sort_order = extremecloudiq.XiqSortOrder() # XiqSortOrder | Sort order (Ascending by default) (optional)
+
+    try:
+        # Get VLAN attributes per VLAN for a device
+        api_response = api_instance.list_device_monitor_vlan_attributes(id, page=page, limit=limit, sort_by=sort_by, sort_order=sort_order)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->list_device_monitor_vlan_attributes: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Device ID | 
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 4095 | [optional] [default to 10]
+ **sort_by** | [**XiqDeviceVlanSortField**](.md)| Sort field (VLAN_ID by default) | [optional] 
+ **sort_order** | [**XiqSortOrder**](.md)| Sort order (Ascending by default) | [optional] 
+
+### Return type
+
+[**PagedXiqDeviceMonitorVlanAttributes**](PagedXiqDeviceMonitorVlanAttributes.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_device_vlan_attrs**
+> PagedXiqDeviceVlanAttributes list_device_vlan_attrs(id, page=page, limit=limit)
+
+List vlan attributes for a device
+
+List vlan attributes for a specific device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device id
+page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+
+    try:
+        # List vlan attributes for a device
+        api_response = api_instance.list_device_vlan_attrs(id, page=page, limit=limit)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->list_device_vlan_attrs: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device id | 
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+
+### Return type
+
+[**PagedXiqDeviceVlanAttributes**](PagedXiqDeviceVlanAttributes.md)
 
 ### Authorization
 
@@ -3857,6 +4409,85 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_device_vlan_attributes**
+> XiqDeviceVlanAttributes update_device_vlan_attributes(id, vlan_id, xiq_device_update_vlan_attributes)
+
+Change vlan attributes
+
+Change one or more VLAN attributes.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device id
+vlan_id = 56 # int | VLAN id of the entry to be changed
+xiq_device_update_vlan_attributes = extremecloudiq.XiqDeviceUpdateVlanAttributes() # XiqDeviceUpdateVlanAttributes | The payload to update a VLAN attribute
+
+    try:
+        # Change vlan attributes
+        api_response = api_instance.update_device_vlan_attributes(id, vlan_id, xiq_device_update_vlan_attributes)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->update_device_vlan_attributes: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device id | 
+ **vlan_id** | **int**| VLAN id of the entry to be changed | 
+ **xiq_device_update_vlan_attributes** | [**XiqDeviceUpdateVlanAttributes**](XiqDeviceUpdateVlanAttributes.md)| The payload to update a VLAN attribute | 
+
+### Return type
+
+[**XiqDeviceVlanAttributes**](XiqDeviceVlanAttributes.md)
 
 ### Authorization
 
