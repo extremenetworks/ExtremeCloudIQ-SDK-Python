@@ -22,8 +22,12 @@ Method | HTTP request | Description
 [**change_status_to_manage**](DeviceApi.md#change_status_to_manage) | **POST** /devices/:manage | Change status to Managed
 [**change_status_to_unmanage**](DeviceApi.md#change_status_to_unmanage) | **POST** /devices/:unmanage | Change status to Unmanaged
 [**configure_ftm_settings**](DeviceApi.md#configure_ftm_settings) | **PUT** /devices/{id}/ftm-settings | Configure (create / update) device FTM Settings
+[**create_device_ipv4_interface**](DeviceApi.md#create_device_ipv4_interface) | **POST** /devices/{id}/config/vlan-ipv4-intf | Create an IPv4 Interface for a device
+[**create_device_ipv4_static_route**](DeviceApi.md#create_device_ipv4_static_route) | **POST** /devices/{id}/config/vlan-ipv4-static | Create an IPv4 Static Route for a device
 [**create_device_vlan_attrs**](DeviceApi.md#create_device_vlan_attrs) | **POST** /devices/{id}/config/vlan-attributes | Create a Vlan attribute
 [**delete_device**](DeviceApi.md#delete_device) | **DELETE** /devices/{id} | Delete a device
+[**delete_device_ipv4_interfaces**](DeviceApi.md#delete_device_ipv4_interfaces) | **DELETE** /devices/{id}/config/vlan-ipv4-intf | Delete one or more IPv4 Interfaces for a device
+[**delete_device_ipv4_static_routes**](DeviceApi.md#delete_device_ipv4_static_routes) | **DELETE** /devices/{id}/config/vlan-ipv4-static | Delete one or more IPv4 Static Routes for a device
 [**delete_device_vlan_attributes**](DeviceApi.md#delete_device_vlan_attributes) | **DELETE** /devices/{id}/config/vlan-attributes | Delete vlan attributes
 [**delete_devices**](DeviceApi.md#delete_devices) | **POST** /devices/:delete | Delete devices
 [**delete_ftm_settings**](DeviceApi.md#delete_ftm_settings) | **DELETE** /devices/{id}/ftm-settings | Delete FTM Settings by device ID
@@ -31,6 +35,8 @@ Method | HTTP request | Description
 [**get_device**](DeviceApi.md#get_device) | **GET** /devices/{id} | Get device info for a specific device
 [**get_device_cpu_memory_history**](DeviceApi.md#get_device_cpu_memory_history) | **GET** /devices/{id}/history/cpu-mem | Get device CPU/memory usage history
 [**get_device_ibeacon**](DeviceApi.md#get_device_ibeacon) | **GET** /devices/{id}/ibeacon | Get the device iBeacon setting
+[**get_device_ipv4_interfaces**](DeviceApi.md#get_device_ipv4_interfaces) | **GET** /devices/{id}/config/vlan-ipv4-intf | Get IPv4 Interfaces for a device
+[**get_device_ipv4_static_routes**](DeviceApi.md#get_device_ipv4_static_routes) | **GET** /devices/{id}/config/vlan-ipv4-static | Get IPv4 Static Route for a device
 [**get_device_level_ssid_status**](DeviceApi.md#get_device_level_ssid_status) | **GET** /devices/{id}/ssid/status | Get SSID status for a device
 [**get_device_location**](DeviceApi.md#get_device_location) | **GET** /devices/{id}/location | Get location for a device
 [**get_device_network_policy**](DeviceApi.md#get_device_network_policy) | **GET** /devices/{id}/network-policy | Get network policy for a device
@@ -39,7 +45,10 @@ Method | HTTP request | Description
 [**get_ftm_settings**](DeviceApi.md#get_ftm_settings) | **GET** /devices/{id}/ftm-settings | Get FTM Settings by device ID
 [**get_xiq_device_installation_report**](DeviceApi.md#get_xiq_device_installation_report) | **GET** /devices/{id}/installation-report | Get device installation report
 [**list_device_alarm**](DeviceApi.md#list_device_alarm) | **GET** /devices/{id}/alarms | List alarms for a device
+[**list_device_monitor_ipv4_routing**](DeviceApi.md#list_device_monitor_ipv4_routing) | **GET** /devices/{id}/monitor/ipv4-routing | Get IPv4 Routing information for a device
+[**list_device_monitor_ipv4_routing_timeline**](DeviceApi.md#list_device_monitor_ipv4_routing_timeline) | **GET** /devices/{id}/monitor/ipv4-routing-timeline | Get IPv4 Routing Timeline information per Routing Instance for a device
 [**list_device_monitor_vlan_attributes**](DeviceApi.md#list_device_monitor_vlan_attributes) | **GET** /devices/{id}/monitor/vlan-attr | Get VLAN attributes per VLAN for a device
+[**list_device_monitor_vlan_ipv4_interfaces**](DeviceApi.md#list_device_monitor_vlan_ipv4_interfaces) | **GET** /devices/{id}/monitor/vlan-ipv4-intf | Get VLAN IPv4 Interfaces per VLAN for a device
 [**list_device_vlan_attrs**](DeviceApi.md#list_device_vlan_attrs) | **GET** /devices/{id}/config/vlan-attributes | List vlan attributes for a device
 [**list_devices**](DeviceApi.md#list_devices) | **GET** /devices | [LRO] List devices
 [**list_devices_by_network_policy**](DeviceApi.md#list_devices_by_network_policy) | **GET** /devices/network-policy/{policyId} | List assigned devices for network policy
@@ -61,6 +70,8 @@ Method | HTTP request | Description
 [**send_cli_to_devices**](DeviceApi.md#send_cli_to_devices) | **POST** /devices/:cli | [LRO] Send CLI to devices
 [**start_thread_commissioner**](DeviceApi.md#start_thread_commissioner) | **POST** /devices/{id}/thread/commissioner/:start | Start Thread Commissioner
 [**stop_thread_commissioner**](DeviceApi.md#stop_thread_commissioner) | **POST** /devices/{id}/thread/commissioner/:stop | Stop Thread Commissioner
+[**update_device_ipv4_interface**](DeviceApi.md#update_device_ipv4_interface) | **PATCH** /devices/{id}/config/vlan-ipv4-intf/{ipv4InterfaceId} | Update an IPv4 Interface for a device
+[**update_device_ipv4_static_route**](DeviceApi.md#update_device_ipv4_static_route) | **PATCH** /devices/{id}/config/vlan-ipv4-static/{ipv4StaticRouteId} | Update an IPv4 Static Route for a device
 [**update_device_vlan_attributes**](DeviceApi.md#update_device_vlan_attributes) | **PATCH** /devices/{id}/config/vlan-attributes/{vlanId} | Change vlan attributes
 
 
@@ -1417,6 +1428,160 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_device_ipv4_interface**
+> XiqDeviceConfigureIpv4InterfaceResponse create_device_ipv4_interface(id, xiq_device_create_configure_ipv4_interface)
+
+Create an IPv4 Interface for a device
+
+Create the IPv4 Interface for a specific device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | Device ID
+xiq_device_create_configure_ipv4_interface = extremecloudiq.XiqDeviceCreateConfigureIpv4Interface() # XiqDeviceCreateConfigureIpv4Interface | The payload to create a new IPv4 Interface attribute
+
+    try:
+        # Create an IPv4 Interface for a device
+        api_response = api_instance.create_device_ipv4_interface(id, xiq_device_create_configure_ipv4_interface)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->create_device_ipv4_interface: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Device ID | 
+ **xiq_device_create_configure_ipv4_interface** | [**XiqDeviceCreateConfigureIpv4Interface**](XiqDeviceCreateConfigureIpv4Interface.md)| The payload to create a new IPv4 Interface attribute | 
+
+### Return type
+
+[**XiqDeviceConfigureIpv4InterfaceResponse**](XiqDeviceConfigureIpv4InterfaceResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_device_ipv4_static_route**
+> XiqDeviceUpdateConfigureIpv4StaticRoute create_device_ipv4_static_route(id, xiq_device_create_configure_ipv4_static_route)
+
+Create an IPv4 Static Route for a device
+
+Create the IPv4 Static Route for a specific device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | Device ID
+xiq_device_create_configure_ipv4_static_route = extremecloudiq.XiqDeviceCreateConfigureIpv4StaticRoute() # XiqDeviceCreateConfigureIpv4StaticRoute | The payload to create a new IPv4 Static Route attribute
+
+    try:
+        # Create an IPv4 Static Route for a device
+        api_response = api_instance.create_device_ipv4_static_route(id, xiq_device_create_configure_ipv4_static_route)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->create_device_ipv4_static_route: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Device ID | 
+ **xiq_device_create_configure_ipv4_static_route** | [**XiqDeviceCreateConfigureIpv4StaticRoute**](XiqDeviceCreateConfigureIpv4StaticRoute.md)| The payload to create a new IPv4 Static Route attribute | 
+
+### Return type
+
+[**XiqDeviceUpdateConfigureIpv4StaticRoute**](XiqDeviceUpdateConfigureIpv4StaticRoute.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **create_device_vlan_attrs**
 > create_device_vlan_attrs(id, xiq_device_create_vlan_attributes)
 
@@ -1545,6 +1710,158 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| The device ID | 
  **force_delete** | **bool**| Force deletion of device | [optional] [default to False]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_device_ipv4_interfaces**
+> delete_device_ipv4_interfaces(id, interface_ids)
+
+Delete one or more IPv4 Interfaces for a device
+
+Delete one or more IPv4 Interfaces for a specific device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | Device ID
+interface_ids = [56] # list[int] | IPv4 Interfaces IDs
+
+    try:
+        # Delete one or more IPv4 Interfaces for a device
+        api_instance.delete_device_ipv4_interfaces(id, interface_ids)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->delete_device_ipv4_interfaces: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Device ID | 
+ **interface_ids** | [**list[int]**](int.md)| IPv4 Interfaces IDs | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_device_ipv4_static_routes**
+> delete_device_ipv4_static_routes(id, static_route_ids)
+
+Delete one or more IPv4 Static Routes for a device
+
+Delete one or more IPv4 Static Routes for a specific device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | Device ID
+static_route_ids = [56] # list[int] | IPv4 Static Routes IDs
+
+    try:
+        # Delete one or more IPv4 Static Routes for a device
+        api_instance.delete_device_ipv4_static_routes(id, static_route_ids)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->delete_device_ipv4_static_routes: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Device ID | 
+ **static_route_ids** | [**list[int]**](int.md)| IPv4 Static Routes IDs | 
 
 ### Return type
 
@@ -2087,6 +2404,164 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XiqDeviceIbeacon**](XiqDeviceIbeacon.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_device_ipv4_interfaces**
+> PagedXiqDeviceConfigureIpv4Interface get_device_ipv4_interfaces(id, page=page, limit=limit)
+
+Get IPv4 Interfaces for a device
+
+Get the IPv4 Interfaces for a specific device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | Device ID
+page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+
+    try:
+        # Get IPv4 Interfaces for a device
+        api_response = api_instance.get_device_ipv4_interfaces(id, page=page, limit=limit)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->get_device_ipv4_interfaces: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Device ID | 
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+
+### Return type
+
+[**PagedXiqDeviceConfigureIpv4Interface**](PagedXiqDeviceConfigureIpv4Interface.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_device_ipv4_static_routes**
+> PagedXiqDeviceConfigureIpv4StaticRoute get_device_ipv4_static_routes(id, page=page, limit=limit)
+
+Get IPv4 Static Route for a device
+
+Get the IPv4 Static Route for a specific device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | Device ID
+page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+
+    try:
+        # Get IPv4 Static Route for a device
+        api_response = api_instance.get_device_ipv4_static_routes(id, page=page, limit=limit)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->get_device_ipv4_static_routes: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Device ID | 
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+
+### Return type
+
+[**PagedXiqDeviceConfigureIpv4StaticRoute**](PagedXiqDeviceConfigureIpv4StaticRoute.md)
 
 ### Authorization
 
@@ -2719,6 +3194,168 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_device_monitor_ipv4_routing**
+> PagedXiqDeviceMonitorIpv4Routing list_device_monitor_ipv4_routing(id, page=page, limit=limit, sort_by=sort_by, sort_order=sort_order, route_origin=route_origin, status=status)
+
+Get IPv4 Routing information for a device
+
+Get IPv4 Routing information that is monitored for a device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | Device ID
+page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+sort_by = extremecloudiq.XiqDeviceIpv4RoutingSortField() # XiqDeviceIpv4RoutingSortField | Sort field (DESTINATION by default) (optional)
+sort_order = extremecloudiq.XiqSortOrder() # XiqSortOrder | Sort order (Ascending by default) (optional)
+route_origin = extremecloudiq.XiqDeviceIpv4RoutingRouteOriginField() # XiqDeviceIpv4RoutingRouteOriginField | Route Origin (ALL by default) (optional)
+status = extremecloudiq.XiqDeviceIpv4RoutingStatusField() # XiqDeviceIpv4RoutingStatusField | Status (ALL by default) (optional)
+
+    try:
+        # Get IPv4 Routing information for a device
+        api_response = api_instance.list_device_monitor_ipv4_routing(id, page=page, limit=limit, sort_by=sort_by, sort_order=sort_order, route_origin=route_origin, status=status)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->list_device_monitor_ipv4_routing: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Device ID | 
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+ **sort_by** | [**XiqDeviceIpv4RoutingSortField**](.md)| Sort field (DESTINATION by default) | [optional] 
+ **sort_order** | [**XiqSortOrder**](.md)| Sort order (Ascending by default) | [optional] 
+ **route_origin** | [**XiqDeviceIpv4RoutingRouteOriginField**](.md)| Route Origin (ALL by default) | [optional] 
+ **status** | [**XiqDeviceIpv4RoutingStatusField**](.md)| Status (ALL by default) | [optional] 
+
+### Return type
+
+[**PagedXiqDeviceMonitorIpv4Routing**](PagedXiqDeviceMonitorIpv4Routing.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_device_monitor_ipv4_routing_timeline**
+> XiqDeviceMonitorIpv4RoutingTimeline list_device_monitor_ipv4_routing_timeline(id)
+
+Get IPv4 Routing Timeline information per Routing Instance for a device
+
+Get IPv4 Routing Summary Timeline information per Routing Instance that is monitored for a device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | Device ID
+
+    try:
+        # Get IPv4 Routing Timeline information per Routing Instance for a device
+        api_response = api_instance.list_device_monitor_ipv4_routing_timeline(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->list_device_monitor_ipv4_routing_timeline: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Device ID | 
+
+### Return type
+
+[**XiqDeviceMonitorIpv4RoutingTimeline**](XiqDeviceMonitorIpv4RoutingTimeline.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_device_monitor_vlan_attributes**
 > PagedXiqDeviceMonitorVlanAttributes list_device_monitor_vlan_attributes(id, page=page, limit=limit, sort_by=sort_by, sort_order=sort_order)
 
@@ -2782,6 +3419,89 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PagedXiqDeviceMonitorVlanAttributes**](PagedXiqDeviceMonitorVlanAttributes.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_device_monitor_vlan_ipv4_interfaces**
+> PagedXiqDeviceMonitorVlanIpv4Interfaces list_device_monitor_vlan_ipv4_interfaces(id, page=page, limit=limit, sort_by=sort_by, sort_order=sort_order)
+
+Get VLAN IPv4 Interfaces per VLAN for a device
+
+Get VLAN IPv4 Interfaces that are monitored per VLAN for a device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | Device ID
+page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Page Size, min = 1, max = 2048 (optional) (default to 10)
+sort_by = extremecloudiq.XiqDeviceVlanIpv4InterfacesSortField() # XiqDeviceVlanIpv4InterfacesSortField | Sort field (VLAN_ID by default) (optional)
+sort_order = extremecloudiq.XiqSortOrder() # XiqSortOrder | Sort order (Ascending by default) (optional)
+
+    try:
+        # Get VLAN IPv4 Interfaces per VLAN for a device
+        api_response = api_instance.list_device_monitor_vlan_ipv4_interfaces(id, page=page, limit=limit, sort_by=sort_by, sort_order=sort_order)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->list_device_monitor_vlan_ipv4_interfaces: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Device ID | 
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 2048 | [optional] [default to 10]
+ **sort_by** | [**XiqDeviceVlanIpv4InterfacesSortField**](.md)| Sort field (VLAN_ID by default) | [optional] 
+ **sort_order** | [**XiqSortOrder**](.md)| Sort order (Ascending by default) | [optional] 
+
+### Return type
+
+[**PagedXiqDeviceMonitorVlanIpv4Interfaces**](PagedXiqDeviceMonitorVlanIpv4Interfaces.md)
 
 ### Authorization
 
@@ -4409,6 +5129,164 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_device_ipv4_interface**
+> XiqDeviceConfigureIpv4InterfaceResponse update_device_ipv4_interface(id, ipv4_interface_id, xiq_device_update_configure_ipv4_interface)
+
+Update an IPv4 Interface for a device
+
+Update the IPv4 Interface for a specific device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | Device ID
+ipv4_interface_id = 56 # int | IPv4 Interface ID of the entry to be changed
+xiq_device_update_configure_ipv4_interface = extremecloudiq.XiqDeviceUpdateConfigureIpv4Interface() # XiqDeviceUpdateConfigureIpv4Interface | The payload to create a new IPv4 Interface attribute
+
+    try:
+        # Update an IPv4 Interface for a device
+        api_response = api_instance.update_device_ipv4_interface(id, ipv4_interface_id, xiq_device_update_configure_ipv4_interface)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->update_device_ipv4_interface: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Device ID | 
+ **ipv4_interface_id** | **int**| IPv4 Interface ID of the entry to be changed | 
+ **xiq_device_update_configure_ipv4_interface** | [**XiqDeviceUpdateConfigureIpv4Interface**](XiqDeviceUpdateConfigureIpv4Interface.md)| The payload to create a new IPv4 Interface attribute | 
+
+### Return type
+
+[**XiqDeviceConfigureIpv4InterfaceResponse**](XiqDeviceConfigureIpv4InterfaceResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_device_ipv4_static_route**
+> XiqDeviceUpdateConfigureIpv4StaticRoute update_device_ipv4_static_route(id, ipv4_static_route_id, xiq_device_update_configure_ipv4_static_route)
+
+Update an IPv4 Static Route for a device
+
+Update the IPv4 Static Route for a specific device.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | Device ID
+ipv4_static_route_id = 56 # int | IPv4 Static Route ID of the entry to be changed
+xiq_device_update_configure_ipv4_static_route = extremecloudiq.XiqDeviceUpdateConfigureIpv4StaticRoute() # XiqDeviceUpdateConfigureIpv4StaticRoute | The payload to create a new IPv4 Static Route attribute
+
+    try:
+        # Update an IPv4 Static Route for a device
+        api_response = api_instance.update_device_ipv4_static_route(id, ipv4_static_route_id, xiq_device_update_configure_ipv4_static_route)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->update_device_ipv4_static_route: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| Device ID | 
+ **ipv4_static_route_id** | **int**| IPv4 Static Route ID of the entry to be changed | 
+ **xiq_device_update_configure_ipv4_static_route** | [**XiqDeviceUpdateConfigureIpv4StaticRoute**](XiqDeviceUpdateConfigureIpv4StaticRoute.md)| The payload to create a new IPv4 Static Route attribute | 
+
+### Return type
+
+[**XiqDeviceUpdateConfigureIpv4StaticRoute**](XiqDeviceUpdateConfigureIpv4StaticRoute.md)
 
 ### Authorization
 
