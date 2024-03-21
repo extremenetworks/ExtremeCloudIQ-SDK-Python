@@ -97,7 +97,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_anomalies_report**
-> file get_anomalies_report(start_time, end_time, anomaly_type=anomaly_type, building_id=building_id, severity=severity, exclude_muted=exclude_muted, sort_field=sort_field, sort_order=sort_order, search_key=search_key, file_type=file_type, offset_time=offset_time)
+> file get_anomalies_report(start_time, end_time, offset_time, anomaly_type=anomaly_type, building_id=building_id, severity=severity, exclude_muted=exclude_muted, sort_field=sort_field, sort_order=sort_order, search_key=search_key, file_type=file_type)
 
 
 
@@ -132,6 +132,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     api_instance = extremecloudiq.CopilotAnomaliesApi(api_client)
     start_time = 56 # int | The start time to query, epoch time in milliseconds since 1/1/1970
 end_time = 56 # int | The end time to query, epoch time in milliseconds since 1/1/1970
+offset_time = 56 # int | The offset value
 anomaly_type = extremecloudiq.XiqAnomalyType() # XiqAnomalyType | The type of anomaly (optional)
 building_id = 56 # int | The location identifier (optional)
 severity = extremecloudiq.XiqAnomalySeverity() # XiqAnomalySeverity | The severity of anomaly (optional)
@@ -140,10 +141,9 @@ sort_field = extremecloudiq.XiqAnomalySortField() # XiqAnomalySortField | The so
 sort_order = extremecloudiq.XiqSortOrder() # XiqSortOrder | The sorting order (optional)
 search_key = '' # str | The search key (optional) (default to '')
 file_type = 'csv' # str | The file format (optional) (default to 'csv')
-offset_time = 56 # int | The offset value (optional)
 
     try:
-        api_response = api_instance.get_anomalies_report(start_time, end_time, anomaly_type=anomaly_type, building_id=building_id, severity=severity, exclude_muted=exclude_muted, sort_field=sort_field, sort_order=sort_order, search_key=search_key, file_type=file_type, offset_time=offset_time)
+        api_response = api_instance.get_anomalies_report(start_time, end_time, offset_time, anomaly_type=anomaly_type, building_id=building_id, severity=severity, exclude_muted=exclude_muted, sort_field=sort_field, sort_order=sort_order, search_key=search_key, file_type=file_type)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CopilotAnomaliesApi->get_anomalies_report: %s\n" % e)
@@ -155,6 +155,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start_time** | **int**| The start time to query, epoch time in milliseconds since 1/1/1970 | 
  **end_time** | **int**| The end time to query, epoch time in milliseconds since 1/1/1970 | 
+ **offset_time** | **int**| The offset value | 
  **anomaly_type** | [**XiqAnomalyType**](.md)| The type of anomaly | [optional] 
  **building_id** | **int**| The location identifier | [optional] 
  **severity** | [**XiqAnomalySeverity**](.md)| The severity of anomaly | [optional] 
@@ -163,7 +164,6 @@ Name | Type | Description  | Notes
  **sort_order** | [**XiqSortOrder**](.md)| The sorting order | [optional] 
  **search_key** | **str**| The search key | [optional] [default to &#39;&#39;]
  **file_type** | **str**| The file format | [optional] [default to &#39;csv&#39;]
- **offset_time** | **int**| The offset value | [optional] 
 
 ### Return type
 
