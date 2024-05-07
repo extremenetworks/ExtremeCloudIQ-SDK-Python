@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **transition_mode** | **bool** | Flag for enabling transition mode if using WPA3 as the key management type | [optional] 
 **radius_server_group_id** | **int** | The RADIUS server group ID if not using ExtremeCloud IQ Authentication Service | [optional] 
 **user_group_ids** | **list[int]** | The user group IDs if using ExtremeCloud IQ Authentication Service | [optional] 
+**enable_uztna** | **bool** | Flag for using Authentication with ExtremeCloud Universal ZTNA or not | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,6 @@
 # XiqApplicationDetectionProtocol
 
+The protocol of detection rule
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **id** | **int** | The unique identifier | 
 **create_time** | **datetime** | The create time | 
 **update_time** | **datetime** | The last update time | 
-**org_id** | **int** | The organization identifier, valid when enabling HIQ feature | [optional] 
 **classification_type** | [**XiqClassificationType**](XiqClassificationType.md) |  | 
 **match** | **bool** | Contains or not contains) | 
 **classification_id** | **int** | The ID of location, cloud config group, IP address, IP subnet or IP range. | 

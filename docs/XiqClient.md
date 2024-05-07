@@ -49,6 +49,15 @@ Name | Type | Description | Notes
 **locations** | [**list[XiqLocationLegend]**](XiqLocationLegend.md) | The detailed location | [optional] 
 **product_type** | **str** | The Category which describes the Extreme device types(For example:For example:SR_2208P, AP_4000, AP_5010) | [optional] 
 **alias** | **str** | The alias of the client | [optional] 
+**th_rloc16** | **str** | The thread client Rloc16 | [optional] 
+**th_child_id** | **int** | The thread client child ID | [optional] 
+**th_timeout** | **int** | The thread client timeout | [optional] 
+**th_supervision_interval** | **int** | The thread client Super vision interval | [optional] 
+**th_netdata_version** | **int** | The thread client netdata version | [optional] 
+**th_csl_synced** | **bool** | The thread client CSL synced | [optional] 
+**th_ip_addresses** | [**list[XiqThreadIpv6Setting]**](XiqThreadIpv6Setting.md) | The thread client IP addresses | [optional] 
+**th_router_last_reported** | **datetime** | The last reported datetime by thread router | [optional] 
+**thread_connected** | **bool** | Is client connected to thread network | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

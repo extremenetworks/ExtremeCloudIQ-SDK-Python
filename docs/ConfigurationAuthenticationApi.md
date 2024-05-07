@@ -45,7 +45,7 @@ Create a new external RADIUS server configuration.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -63,7 +63,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -120,7 +120,7 @@ Create a new internal RADIUS server configuration.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -138,7 +138,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -195,7 +195,7 @@ Create a new LDAP server.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -213,7 +213,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -270,7 +270,7 @@ Create a new RADIUS client object configuration.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -288,7 +288,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -345,7 +345,7 @@ Create a new RADIUS proxy configuration.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -363,7 +363,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -394,7 +394,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -420,7 +420,7 @@ Delete an existing internal RADIUS server configuration by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -438,7 +438,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -470,7 +470,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -496,7 +496,7 @@ Delete an existing external RADIUS server configuration by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -514,7 +514,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -544,7 +544,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -570,7 +570,7 @@ Delete an existing internal RADIUS server configuration by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -588,7 +588,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -618,7 +618,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -644,7 +644,7 @@ Delete a specific LDAP server by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -662,7 +662,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -692,7 +692,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -718,7 +718,7 @@ Delete an existing RADIUS client object configuration by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -736,7 +736,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -766,7 +766,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -792,7 +792,7 @@ Delete an existing RADIUS proxy configuration by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -810,7 +810,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -840,7 +840,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -866,7 +866,7 @@ Get detailed configuration for a specific external RADIUS server.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -884,7 +884,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -915,7 +915,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -941,7 +941,7 @@ Get detailed configuration for internal RADIUS server by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -959,7 +959,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -990,7 +990,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1016,7 +1016,7 @@ Get a specific LDAP server by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1034,7 +1034,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1065,7 +1065,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1091,7 +1091,7 @@ Get detailed configuration for a specific RADIUS client object.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1109,7 +1109,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1140,7 +1140,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1166,7 +1166,7 @@ Get an existing RADIUS proxy configuration by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1184,7 +1184,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1215,7 +1215,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1241,7 +1241,7 @@ List a page of active directory servers.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1259,7 +1259,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1292,7 +1292,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1318,7 +1318,7 @@ List a page of Captive Web Portals.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1336,7 +1336,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1369,7 +1369,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1395,7 +1395,7 @@ List a page of external RADIUS server configurations.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1413,7 +1413,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1446,7 +1446,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1472,7 +1472,7 @@ List all internal RADIUS devices fields.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1490,7 +1490,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1523,7 +1523,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1549,7 +1549,7 @@ List all internal RADIUS servers configurations.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1567,7 +1567,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1600,7 +1600,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1626,7 +1626,7 @@ List a page of LDAP servers.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1644,7 +1644,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1677,7 +1677,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1703,7 +1703,7 @@ List a page of RADIUS client object configurations.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1721,7 +1721,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1754,7 +1754,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1780,7 +1780,7 @@ List a page of RADIUS proxy configurations.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1798,7 +1798,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1831,7 +1831,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1857,7 +1857,7 @@ List devices for Radius Proxy.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1875,7 +1875,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1908,7 +1908,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1934,7 +1934,7 @@ Update external RADIUS server configuration by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1952,7 +1952,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1984,7 +1984,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2010,7 +2010,7 @@ Update internal RADIUS server configuration by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2028,7 +2028,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2061,7 +2061,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2087,7 +2087,7 @@ Update configuration for a specific LDAP server.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2105,7 +2105,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2138,7 +2138,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2164,7 +2164,7 @@ Update RADIUS client object configuration by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2182,7 +2182,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2214,7 +2214,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2240,7 +2240,7 @@ Update RADIUS proxy configuration by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2258,7 +2258,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2291,7 +2291,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

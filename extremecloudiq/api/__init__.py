@@ -21,12 +21,13 @@ from extremecloudiq.api.copilot___connectivity_experience_api import CopilotConn
 from extremecloudiq.api.device_api import DeviceApi
 from extremecloudiq.api.essentials___extreme_location_api import EssentialsExtremeLocationApi
 from extremecloudiq.api.hiq_api import HIQApi
-from extremecloudiq.api.license_api import LicenseApi
 from extremecloudiq.api.location_api import LocationApi
 from extremecloudiq.api.log_api import LogApi
 from extremecloudiq.api.misc_api import MiscApi
 from extremecloudiq.api.network_policy_api import NetworkPolicyApi
+from extremecloudiq.api.network_scorecard_api import NetworkScorecardApi
 from extremecloudiq.api.notification_api import NotificationApi
 from extremecloudiq.api.operation_api import OperationApi
 from extremecloudiq.api.packet_capture_api import PacketCaptureApi
+from extremecloudiq.api.thread_api import ThreadApi
 from extremecloudiq.api.user_api import UserApi

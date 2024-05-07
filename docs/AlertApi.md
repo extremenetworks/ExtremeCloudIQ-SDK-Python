@@ -43,7 +43,7 @@ acknowledge the alerts by alert ids.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -61,7 +61,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -118,7 +118,7 @@ Count the number of alerts and events based on Severity, Category, and Alert Typ
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -136,7 +136,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -201,7 +201,7 @@ Create alert email subscription.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -219,7 +219,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -276,7 +276,7 @@ Create a new site-based alert policy. The global policy for each account is crea
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -294,7 +294,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -351,7 +351,7 @@ Create the alerts by filter.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -369,7 +369,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -448,7 +448,7 @@ Create alert webhook subscription.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -466,7 +466,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -497,7 +497,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -523,7 +523,7 @@ Delete an exist alert email subscription.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -541,7 +541,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -571,7 +571,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -597,7 +597,7 @@ Modify a site-based alert policy's details, including the policy name and sites.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -615,7 +615,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -645,7 +645,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -671,7 +671,7 @@ Delete an exist alert webhook subscription.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -689,7 +689,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -719,7 +719,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -745,7 +745,7 @@ Delete alert email subscription in bulk.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -763,7 +763,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -796,7 +796,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -822,7 +822,7 @@ Delete alert webhook subscription in bulk.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -840,7 +840,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -873,7 +873,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -899,7 +899,7 @@ Set the status of a rule to disabled. Users can obtain a rule ID by calling #_ge
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -917,7 +917,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -950,7 +950,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -976,7 +976,7 @@ Download report of alerts.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -994,7 +994,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1025,7 +1025,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1051,7 +1051,7 @@ Set the status of a rule to enabled. Users can obtain a rule ID by calling #_get
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1069,7 +1069,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1102,7 +1102,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1128,7 +1128,7 @@ Get an exist alert email subscription.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1146,7 +1146,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1177,7 +1177,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1203,7 +1203,7 @@ Get the details related to a specific alert policy, given the policy's identifie
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1221,7 +1221,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1252,7 +1252,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1278,7 +1278,7 @@ Get the full details of an alert rule's state. Users can obtain a rule ID by cal
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1296,7 +1296,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1329,7 +1329,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1355,7 +1355,7 @@ Get an exist alert webhook subscription.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1373,7 +1373,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1404,7 +1404,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1430,7 +1430,7 @@ List all alert email subscriptions.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1448,7 +1448,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1475,7 +1475,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1501,7 +1501,7 @@ Get a list of all alert policies belonging to the current user and an overview  
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1519,7 +1519,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1552,7 +1552,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1578,7 +1578,7 @@ List all alert webhook subscriptions.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1596,7 +1596,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1623,7 +1623,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1649,7 +1649,7 @@ List a page of alerts by filter.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1667,7 +1667,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1720,7 +1720,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1746,7 +1746,7 @@ List all sites belonging to the current owner. If the site has been configured a
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1764,7 +1764,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1791,7 +1791,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1817,7 +1817,7 @@ Update alert email subscription.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1835,7 +1835,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1868,7 +1868,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1894,7 +1894,7 @@ Delete an alert policy. All the associated alert rules will be deleted as well. 
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1912,7 +1912,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1945,7 +1945,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1971,7 +1971,7 @@ Update the state of an alert rule. Users can obtain a rule ID by calling #_get_a
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1989,7 +1989,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2024,7 +2024,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2050,7 +2050,7 @@ Update alert webhook subscription.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2068,7 +2068,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2101,7 +2101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2127,7 +2127,7 @@ Send a request to verify an email
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2145,7 +2145,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2175,7 +2175,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

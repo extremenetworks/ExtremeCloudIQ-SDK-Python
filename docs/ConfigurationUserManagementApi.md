@@ -38,7 +38,7 @@ Add users to a PCG-enabled network policy.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -56,7 +56,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -88,7 +88,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -114,7 +114,7 @@ Assign ports for devices (currently support for AP150W & AP302W) in a network po
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -132,7 +132,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -191,7 +191,7 @@ Create a new end user.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -209,7 +209,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -266,7 +266,7 @@ Create a new user group.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -284,7 +284,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -341,7 +341,7 @@ Delete users from a PCG-enabled network policy.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -359,7 +359,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -391,7 +391,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -417,7 +417,7 @@ Delete Private Client Group settings from a network policy.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -435,7 +435,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -467,7 +467,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -493,7 +493,7 @@ Delete a specific end user.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -511,7 +511,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -541,7 +541,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -567,7 +567,7 @@ Delete the user-group for the specified ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -585,7 +585,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -615,7 +615,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -641,7 +641,7 @@ Send keys to specified users in PCG-enabled network policy via Email.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -659,7 +659,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -691,7 +691,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -717,7 +717,7 @@ Generate/regenerate shared keys for specified users in a specific PCG-enable net
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -735,7 +735,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -767,7 +767,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -793,7 +793,7 @@ Get users for a specific PCG-enabled network policy.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -811,7 +811,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -842,7 +842,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -868,7 +868,7 @@ Get port assignments for devices (currently support for AP150W & AP302W) in a ne
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -886,7 +886,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -917,7 +917,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -943,7 +943,7 @@ List all Email notification templates.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -961,7 +961,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -992,7 +992,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1018,7 +1018,7 @@ List a page of end users.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1036,7 +1036,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1073,7 +1073,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1099,7 +1099,7 @@ List all Key-based Private Client Groups.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1117,7 +1117,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1144,7 +1144,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1170,7 +1170,7 @@ List all SMS notification templates.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1188,7 +1188,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1219,7 +1219,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1245,7 +1245,7 @@ List a page of user groups.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1263,7 +1263,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1300,7 +1300,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1326,7 +1326,7 @@ Create a Key-based Private Client Group for a specific network policy.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1344,7 +1344,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1376,7 +1376,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1402,7 +1402,7 @@ Update the user's password with a system generated password.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1420,7 +1420,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1451,7 +1451,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1477,7 +1477,7 @@ Setup a Key-based Private Client Group, including network policy, user, user gro
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1495,7 +1495,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1525,7 +1525,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1551,7 +1551,7 @@ Update a specific end user.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1569,7 +1569,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1602,7 +1602,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1628,7 +1628,7 @@ Replace all users in a specific PCG-enabled network policy.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1646,7 +1646,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1678,7 +1678,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1704,7 +1704,7 @@ Update existing user group information.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1722,7 +1722,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1755,7 +1755,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

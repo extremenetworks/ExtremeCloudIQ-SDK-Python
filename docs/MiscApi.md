@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost:8081*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_country_list**](MiscApi.md#get_country_list) | **GET** /countries | Get country list
+[**get_state_list_by_country_code**](MiscApi.md#get_state_list_by_country_code) | **GET** /countries/{countryAlpha2Code}/states | Get state list in a country
 [**validate_country_code**](MiscApi.md#validate_country_code) | **GET** /countries/{countryCode}/:validate | Validate country code
 
 
@@ -17,7 +18,7 @@ Get list of countries and country codes.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -35,7 +36,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -62,7 +63,82 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_state_list_by_country_code**
+> list[XiqCountryState] get_state_list_by_country_code(country_alpha2_code)
+
+Get state list in a country
+
+Get list of states or provinces in a country with country alpha2 code.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.MiscApi(api_client)
+    country_alpha2_code = 'country_alpha2_code_example' # str | 
+
+    try:
+        # Get state list in a country
+        api_response = api_instance.get_state_list_by_country_code(country_alpha2_code)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MiscApi->get_state_list_by_country_code: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **country_alpha2_code** | **str**|  | 
+
+### Return type
+
+[**list[XiqCountryState]**](XiqCountryState.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -88,7 +164,7 @@ Validate whether the country code is a valid code or not.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -106,7 +182,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -137,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

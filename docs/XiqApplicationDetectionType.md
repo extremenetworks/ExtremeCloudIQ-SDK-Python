@@ -1,5 +1,6 @@
 # XiqApplicationDetectionType
 
+The type of detection rule
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

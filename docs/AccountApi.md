@@ -5,9 +5,13 @@ All URIs are relative to *http://localhost:8081*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**backup_viq**](AccountApi.md#backup_viq) | **POST** /account/viq/:backup | Backup VIQ
+[**download_viq_report**](AccountApi.md#download_viq_report) | **GET** /account/viq/download | Download VIQ data file and logs
+[**export_import_status**](AccountApi.md#export_import_status) | **GET** /account/viq/export-import-status | Get running export/import status 
+[**export_viq**](AccountApi.md#export_viq) | **POST** /account/viq/export | [LRO] Export VIQ data
 [**get_default_device_password**](AccountApi.md#get_default_device_password) | **GET** /account/viq/default-device-password | Get the default device password in the account
 [**get_home_account**](AccountApi.md#get_home_account) | **GET** /account/home | Get home ExtremeCloud IQ account info
 [**get_viq_info**](AccountApi.md#get_viq_info) | **GET** /account/viq | Get VIQ Info
+[**import_viq**](AccountApi.md#import_viq) | **POST** /account/viq/import | [LRO] Import VIQ data
 [**list_external_accounts**](AccountApi.md#list_external_accounts) | **GET** /account/external | List accessible external guest accounts
 [**switch_account**](AccountApi.md#switch_account) | **POST** /account/:switch | Switch to another ExtremeCloud IQ account
 [**update_default_device_password**](AccountApi.md#update_default_device_password) | **PUT** /account/viq/default-device-password | Update the default device password in the account
@@ -22,7 +26,7 @@ Backup VIQ in ExtremeCloud IQ.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -40,7 +44,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -66,7 +70,234 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **download_viq_report**
+> list[str] download_viq_report(report_name)
+
+Download VIQ data file and logs
+
+This is used to download the VIQ export data or export/import logs
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.AccountApi(api_client)
+    report_name = 'report_name_example' # str | The report full name
+
+    try:
+        # Download VIQ data file and logs
+        api_response = api_instance.download_viq_report(report_name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AccountApi->download_viq_report: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **report_name** | **str**| The report full name | 
+
+### Return type
+
+**list[str]**
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **export_import_status**
+> XiqViqExportImportStatusResponse export_import_status(viq_operation_type)
+
+Get running export/import status 
+
+This is used check the live status of VIQ export or import
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.AccountApi(api_client)
+    viq_operation_type = extremecloudiq.XiqViqOperationType() # XiqViqOperationType | Select the type of operation to get status 
+
+    try:
+        # Get running export/import status 
+        api_response = api_instance.export_import_status(viq_operation_type)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AccountApi->export_import_status: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **viq_operation_type** | [**XiqViqOperationType**](.md)| Select the type of operation to get status  | 
+
+### Return type
+
+[**XiqViqExportImportStatusResponse**](XiqViqExportImportStatusResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **export_viq**
+> XiqViqExportResponse export_viq(timeout_in_seconds=timeout_in_seconds, exclude_device_firmware=exclude_device_firmware)
+
+[LRO] Export VIQ data
+
+This is used to Export VIQ data. 
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.AccountApi(api_client)
+    timeout_in_seconds = 1800 # int | The maximum export duration (optional) (default to 1800)
+exclude_device_firmware = False # bool | Whether exclude device firmwares from VIQ export file or not (optional) (default to False)
+
+    try:
+        # [LRO] Export VIQ data
+        api_response = api_instance.export_viq(timeout_in_seconds=timeout_in_seconds, exclude_device_firmware=exclude_device_firmware)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AccountApi->export_viq: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **timeout_in_seconds** | **int**| The maximum export duration | [optional] [default to 1800]
+ **exclude_device_firmware** | **bool**| Whether exclude device firmwares from VIQ export file or not | [optional] [default to False]
+
+### Return type
+
+[**XiqViqExportResponse**](XiqViqExportResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -92,7 +323,7 @@ Get the default device password in the account.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -110,7 +341,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -137,7 +368,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -163,7 +394,7 @@ Get home ExtremeCloud IQ account info.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -181,7 +412,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -208,7 +439,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -234,7 +465,7 @@ Get account VIQ and license info.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -252,7 +483,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -279,11 +510,90 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **import_viq**
+> XiqViqImportResponse import_viq(import_file, timeout_in_seconds=timeout_in_seconds, resend_user_notifications=resend_user_notifications)
+
+[LRO] Import VIQ data
+
+This is used import VIQ details from a file
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.AccountApi(api_client)
+    import_file = '/path/to/file' # file | Select the file to import
+timeout_in_seconds = 1800 # int | The maximum import duration (optional) (default to 1800)
+resend_user_notifications = False # bool | Resend Cloud PPSK/RADIUS password through email/SMS (optional) (default to False)
+
+    try:
+        # [LRO] Import VIQ data
+        api_response = api_instance.import_viq(import_file, timeout_in_seconds=timeout_in_seconds, resend_user_notifications=resend_user_notifications)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AccountApi->import_viq: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **import_file** | **file**| Select the file to import | 
+ **timeout_in_seconds** | **int**| The maximum import duration | [optional] [default to 1800]
+ **resend_user_notifications** | **bool**| Resend Cloud PPSK/RADIUS password through email/SMS | [optional] [default to False]
+
+### Return type
+
+[**XiqViqImportResponse**](XiqViqImportResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
@@ -305,7 +615,7 @@ List accessible external ExtremeCloud IQ accounts.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -323,7 +633,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -350,7 +660,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -376,7 +686,7 @@ Switch to external ExtremeCloud IQ account or switch back to home ExtremeCloud I
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -394,7 +704,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -425,7 +735,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -451,7 +761,7 @@ Update the default device password in the global setting for accessing the conso
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -469,7 +779,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -499,7 +809,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

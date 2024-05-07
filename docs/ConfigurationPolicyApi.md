@@ -4,27 +4,55 @@ All URIs are relative to *http://localhost:8081*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**attach_client_monitor_profile_to_ssid**](ConfigurationPolicyApi.md#attach_client_monitor_profile_to_ssid) | **POST** /ssids/{id}/client-monitor-profile/:attach | Attach client monitor profile to an SSID
 [**attach_cwp_to_ssid**](ConfigurationPolicyApi.md#attach_cwp_to_ssid) | **POST** /ssids/{id}/cwp/:attach | Attach CWP to an SSID
+[**attach_ip_firewall_policy_to_user_profile**](ConfigurationPolicyApi.md#attach_ip_firewall_policy_to_user_profile) | **POST** /user-profiles/{id}/ip-firewall-policies/:attach | Attach IP Firewall Policy to an User Profile
+[**attach_mac_firewall_policy_to_user_profile**](ConfigurationPolicyApi.md#attach_mac_firewall_policy_to_user_profile) | **POST** /user-profiles/{id}/mac-firewall-policies/:attach | Attach MAC Firewall Policy to an User Profile
+[**attach_radius_client_profile_to_ssid**](ConfigurationPolicyApi.md#attach_radius_client_profile_to_ssid) | **POST** /ssids/{id}/radius-client-profile/:attach | Attach RADIUS client profile to an SSID
 [**attach_radius_server_group_to_ssid**](ConfigurationPolicyApi.md#attach_radius_server_group_to_ssid) | **POST** /ssids/{id}/radius-server-group/:attach | Attach radius server group to an SSID
+[**attach_service_to_ip_firewall_policy**](ConfigurationPolicyApi.md#attach_service_to_ip_firewall_policy) | **POST** /ip-firewall-policies/{id}/ip-firewall-rule/:attach | Attach IP Firewall Rule to IP Firewall policy
+[**attach_service_to_mac_firewall_policy**](ConfigurationPolicyApi.md#attach_service_to_mac_firewall_policy) | **POST** /mac-firewall-policies/{id}/mac-firewall-rule/:attach | Attach MAC Firewall Rule to MAC Firewall policy
+[**attach_user_profile_assignment_to_ssid**](ConfigurationPolicyApi.md#attach_user_profile_assignment_to_ssid) | **POST** /ssids/{id}/user-profile-assignment/:attach | Attach user profile assignment to an SSID
 [**attach_user_profile_to_ssid**](ConfigurationPolicyApi.md#attach_user_profile_to_ssid) | **POST** /ssids/{id}/user-profile/:attach | Attach user profile to an SSID
 [**change_psk_password**](ConfigurationPolicyApi.md#change_psk_password) | **PUT** /ssids/{id}/psk/password | Change the SSID PSK password
 [**create_classification_rule**](ConfigurationPolicyApi.md#create_classification_rule) | **POST** /classification-rules | Create classification rule
+[**create_client_monitor_profile**](ConfigurationPolicyApi.md#create_client_monitor_profile) | **POST** /client-monitor-profiles | Create a client monitor profile
 [**create_cloud_config_group**](ConfigurationPolicyApi.md#create_cloud_config_group) | **POST** /ccgs | Create new cloud config group
 [**create_iot_profile**](ConfigurationPolicyApi.md#create_iot_profile) | **POST** /iot-profiles | Create a IoT profile
+[**create_ip_firewall_policy**](ConfigurationPolicyApi.md#create_ip_firewall_policy) | **POST** /ip-firewall-policies | Create IP Firewall policy
+[**create_l3_address_profile**](ConfigurationPolicyApi.md#create_l3_address_profile) | **POST** /l3-address-profiles | Create a L3 address profile
+[**create_mac_firewall_policy**](ConfigurationPolicyApi.md#create_mac_firewall_policy) | **POST** /mac-firewall-policies | Create MAC Firewall policy
+[**create_mac_object**](ConfigurationPolicyApi.md#create_mac_object) | **POST** /mac-object-profiles | Create a mac object
 [**create_mac_oui_profile**](ConfigurationPolicyApi.md#create_mac_oui_profile) | **POST** /radio-profiles/mac-ouis | Create a MAC OUI profile
 [**create_radio_profile**](ConfigurationPolicyApi.md#create_radio_profile) | **POST** /radio-profiles | Create a radio profile
 [**create_user_profile**](ConfigurationPolicyApi.md#create_user_profile) | **POST** /user-profiles | Create a user profile
+[**create_user_profile_assignment**](ConfigurationPolicyApi.md#create_user_profile_assignment) | **POST** /user-profile-assignments | Create a user profile assignment
 [**delete_classification_rule**](ConfigurationPolicyApi.md#delete_classification_rule) | **DELETE** /classification-rules/{id} | Delete classification rule by ID
+[**delete_client_monitor_profile**](ConfigurationPolicyApi.md#delete_client_monitor_profile) | **DELETE** /client-monitor-profiles/{id} | Delete an client monitor profile by ID
 [**delete_cloud_config_group**](ConfigurationPolicyApi.md#delete_cloud_config_group) | **DELETE** /ccgs/{id} | Delete a cloud config group
 [**delete_co_user_profile**](ConfigurationPolicyApi.md#delete_co_user_profile) | **DELETE** /user-profiles/{id} | Delete an user profile by ID
 [**delete_iot_profile**](ConfigurationPolicyApi.md#delete_iot_profile) | **DELETE** /iot-profiles/{id} | Delete IoT profile by ID
+[**delete_ip_firewall_policy**](ConfigurationPolicyApi.md#delete_ip_firewall_policy) | **DELETE** /ip-firewall-policies/{id} | Delete IP Firewall policy by ID
+[**delete_l3_address_profile**](ConfigurationPolicyApi.md#delete_l3_address_profile) | **DELETE** /l3-address-profiles/{id} | Delete a L3 address profile by ID
+[**delete_mac_firewall_policy**](ConfigurationPolicyApi.md#delete_mac_firewall_policy) | **DELETE** /mac-firewall-policies/{id} | Delete MAC Firewall policy by ID
+[**delete_mac_object_profiles**](ConfigurationPolicyApi.md#delete_mac_object_profiles) | **DELETE** /mac-object-profiles/{id} | Delete a MAC object by ID
 [**delete_radio_profile**](ConfigurationPolicyApi.md#delete_radio_profile) | **DELETE** /radio-profiles/{id} | Delete radio profile by ID
 [**delete_rp_mac_oui_profile**](ConfigurationPolicyApi.md#delete_rp_mac_oui_profile) | **DELETE** /radio-profiles/mac-ouis/{id} | Delete MAC OUI profile
+[**delete_user_profile_assignment**](ConfigurationPolicyApi.md#delete_user_profile_assignment) | **DELETE** /user-profile-assignments/{id} | Delete an user profile assignment by ID
+[**detach_ip_firewall_policy_from_user_profile**](ConfigurationPolicyApi.md#detach_ip_firewall_policy_from_user_profile) | **POST** /user-profiles/{id}/ip-firewall-policies/:detach | Detach IP Firewall Policy from an User Profile
+[**detach_mac_firewall_policy_from_user_profile**](ConfigurationPolicyApi.md#detach_mac_firewall_policy_from_user_profile) | **POST** /user-profiles/{id}/mac-firewall-policies/:detach | Detach MAC Firewall Policy from an User Profile
+[**detach_service_to_ip_firewall_policy**](ConfigurationPolicyApi.md#detach_service_to_ip_firewall_policy) | **POST** /ip-firewall-policies/{id}/ip-firewall-rule/:detach | Detach IP Firewall Rule from IP Firewall policy
+[**detach_service_to_mac_firewall_policy**](ConfigurationPolicyApi.md#detach_service_to_mac_firewall_policy) | **POST** /mac-firewall-policies/{id}/mac-firewall-rule/:detach | Detach MAC Firewall Rule from MAC Firewall policy
 [**disable_ssid_cwp**](ConfigurationPolicyApi.md#disable_ssid_cwp) | **POST** /ssids/{id}/cwp/:disable | Disable the CWP on the SSID
 [**enable_ssid_cwp**](ConfigurationPolicyApi.md#enable_ssid_cwp) | **POST** /ssids/{id}/cwp/:enable | Enable and attach the CWP on the SSID
 [**get_classification_rule**](ConfigurationPolicyApi.md#get_classification_rule) | **GET** /classification-rules/{id} | Get a classification rule by ID
+[**get_client_monitor_profile**](ConfigurationPolicyApi.md#get_client_monitor_profile) | **GET** /client-monitor-profiles/{id} | Get client monitor profile by ID
 [**get_cloud_config_group**](ConfigurationPolicyApi.md#get_cloud_config_group) | **GET** /ccgs/{id} | Get a cloud config group
 [**get_iot_profile**](ConfigurationPolicyApi.md#get_iot_profile) | **GET** /iot-profiles/{id} | Get IoT profile by ID
+[**get_ip_firewall_policy**](ConfigurationPolicyApi.md#get_ip_firewall_policy) | **GET** /ip-firewall-policies/{id} | Get IP Firewall Policy by ID
+[**get_l3_address_profile**](ConfigurationPolicyApi.md#get_l3_address_profile) | **GET** /l3-address-profiles/{id} | Get a L3 address profile by ID
+[**get_mac_firewall_policy**](ConfigurationPolicyApi.md#get_mac_firewall_policy) | **GET** /mac-firewall-policies/{id} | Get MAC Firewall Policy by ID
+[**get_mac_object**](ConfigurationPolicyApi.md#get_mac_object) | **GET** /mac-object-profiles/{id} | Get MAC Object by ID
 [**get_neighborhood_analysis**](ConfigurationPolicyApi.md#get_neighborhood_analysis) | **GET** /radio-profiles/neighborhood-analysis/{id} | Get neighborhood analysis settings
 [**get_radio_profile**](ConfigurationPolicyApi.md#get_radio_profile) | **GET** /radio-profiles/{id} | Get radio profile by ID
 [**get_rp_channel_selection**](ConfigurationPolicyApi.md#get_rp_channel_selection) | **GET** /radio-profiles/channel-selection/{id} | Get channel selection settings
@@ -35,13 +63,19 @@ Method | HTTP request | Description
 [**get_rp_wmm_qos_settings**](ConfigurationPolicyApi.md#get_rp_wmm_qos_settings) | **GET** /radio-profiles/wmm-qos/{id} | Get Wmm QoS settings
 [**get_ssid_advanced_settings**](ConfigurationPolicyApi.md#get_ssid_advanced_settings) | **GET** /ssids/advanced-settings/{id} | Get SSID advanced settings
 [**get_user_profile**](ConfigurationPolicyApi.md#get_user_profile) | **GET** /user-profiles/{id} | Get user profile by ID
+[**get_user_profile_assignment**](ConfigurationPolicyApi.md#get_user_profile_assignment) | **GET** /user-profile-assignments/{id} | Get user profile assignment by ID
 [**list_classification_rules**](ConfigurationPolicyApi.md#list_classification_rules) | **GET** /classification-rules | List classification rules
+[**list_client_monitor_profiles**](ConfigurationPolicyApi.md#list_client_monitor_profiles) | **GET** /client-monitor-profiles | List client monitor profiles
 [**list_cloud_config_groups**](ConfigurationPolicyApi.md#list_cloud_config_groups) | **GET** /ccgs | List clould config groups
 [**list_iot_profiles**](ConfigurationPolicyApi.md#list_iot_profiles) | **GET** /iot-profiles | List IoT profiles
+[**list_ip_firewall_policies**](ConfigurationPolicyApi.md#list_ip_firewall_policies) | **GET** /ip-firewall-policies | List IP Firewall policies
 [**list_l3_address_profiles**](ConfigurationPolicyApi.md#list_l3_address_profiles) | **GET** /l3-address-profiles | List L3 address profiles
+[**list_mac_firewall_policies**](ConfigurationPolicyApi.md#list_mac_firewall_policies) | **GET** /mac-firewall-policies | List MAC Firewall policies
+[**list_mac_object_profiles**](ConfigurationPolicyApi.md#list_mac_object_profiles) | **GET** /mac-object-profiles | List mac object profiles
 [**list_radio_profiles**](ConfigurationPolicyApi.md#list_radio_profiles) | **GET** /radio-profiles | List radio profiles
 [**list_rp_mac_oui_profiles**](ConfigurationPolicyApi.md#list_rp_mac_oui_profiles) | **GET** /radio-profiles/mac-ouis | List MAC OUI profiles
 [**list_ssids**](ConfigurationPolicyApi.md#list_ssids) | **GET** /ssids | List SSIDs
+[**list_user_profile_assignments**](ConfigurationPolicyApi.md#list_user_profile_assignments) | **GET** /user-profile-assignments | List user profile assignments
 [**list_user_profiles**](ConfigurationPolicyApi.md#list_user_profiles) | **GET** /user-profiles | List user profiles
 [**rename_ssid**](ConfigurationPolicyApi.md#rename_ssid) | **POST** /ssids/{id}/:rename | Rename SSID (Wireless name)
 [**set_ssid_mode_dot1x**](ConfigurationPolicyApi.md#set_ssid_mode_dot1x) | **PUT** /ssids/{id}/mode/dot1x | Change the SSID mode to 802.1x
@@ -50,9 +84,14 @@ Method | HTTP request | Description
 [**set_ssid_mode_psk**](ConfigurationPolicyApi.md#set_ssid_mode_psk) | **PUT** /ssids/{id}/mode/psk | Change the SSID mode to PSK
 [**set_ssid_mode_wep**](ConfigurationPolicyApi.md#set_ssid_mode_wep) | **PUT** /ssids/{id}/mode/wep | Change the SSID mode to WEP
 [**update_classification_rule**](ConfigurationPolicyApi.md#update_classification_rule) | **PUT** /classification-rules/{id} | Update classification rule
+[**update_client_monitor_profile**](ConfigurationPolicyApi.md#update_client_monitor_profile) | **PUT** /client-monitor-profiles/{id} | Update client monitor profile
 [**update_cloud_config_group**](ConfigurationPolicyApi.md#update_cloud_config_group) | **PUT** /ccgs/{id} | Update cloud config group information
 [**update_co_user_profile**](ConfigurationPolicyApi.md#update_co_user_profile) | **PUT** /user-profiles/{id} | Update user profile
 [**update_iot_profile**](ConfigurationPolicyApi.md#update_iot_profile) | **PUT** /iot-profiles/{id} | Update IoT profile by ID
+[**update_ip_policy_request**](ConfigurationPolicyApi.md#update_ip_policy_request) | **PUT** /ip-firewall-policies/{id} | Update IP Firewall policy by ID
+[**update_l3_address_profile**](ConfigurationPolicyApi.md#update_l3_address_profile) | **PUT** /l3-address-profiles/{id} | Update a L3 address profile
+[**update_mac_firewall_policy**](ConfigurationPolicyApi.md#update_mac_firewall_policy) | **PUT** /mac-firewall-policies/{id} | Update MAC Firewall policy by ID
+[**update_mac_object**](ConfigurationPolicyApi.md#update_mac_object) | **PUT** /mac-object-profiles/{id} | Update MAC Object by ID
 [**update_neighborhood_analysis**](ConfigurationPolicyApi.md#update_neighborhood_analysis) | **PUT** /radio-profiles/neighborhood-analysis/{id} | Update neighborhood analysis settings
 [**update_radio_profile**](ConfigurationPolicyApi.md#update_radio_profile) | **PUT** /radio-profiles/{id} | Update radio profile by ID
 [**update_rp_channel_selection**](ConfigurationPolicyApi.md#update_rp_channel_selection) | **PUT** /radio-profiles/channel-selection/{id} | Update channel selection settings
@@ -64,16 +103,16 @@ Method | HTTP request | Description
 [**update_ssid_advanced_settings**](ConfigurationPolicyApi.md#update_ssid_advanced_settings) | **PUT** /ssids/advanced-settings/{id} | Update SSID advanced settings
 
 
-# **attach_cwp_to_ssid**
-> attach_cwp_to_ssid(id, body)
+# **attach_client_monitor_profile_to_ssid**
+> attach_client_monitor_profile_to_ssid(id, xiq_attach_client_monitor_profile_request)
 
-Attach CWP to an SSID
+Attach client monitor profile to an SSID
 
-Attach CWP to an SSID.
+Attach client monitor profile to an SSID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -91,7 +130,83 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The SSID ID
+xiq_attach_client_monitor_profile_request = extremecloudiq.XiqAttachClientMonitorProfileRequest() # XiqAttachClientMonitorProfileRequest | The client monitor profile ID to be attached to the SSID
+
+    try:
+        # Attach client monitor profile to an SSID
+        api_instance.attach_client_monitor_profile_to_ssid(id, xiq_attach_client_monitor_profile_request)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->attach_client_monitor_profile_to_ssid: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The SSID ID | 
+ **xiq_attach_client_monitor_profile_request** | [**XiqAttachClientMonitorProfileRequest**](XiqAttachClientMonitorProfileRequest.md)| The client monitor profile ID to be attached to the SSID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **attach_cwp_to_ssid**
+> attach_cwp_to_ssid(id, body)
+
+Attach CWP to an SSID
+
+Attach CWP to an SSID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -123,7 +238,235 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **attach_ip_firewall_policy_to_user_profile**
+> attach_ip_firewall_policy_to_user_profile(id, xiq_attach_ip_firewall_policy_to_user_profile_request)
+
+Attach IP Firewall Policy to an User Profile
+
+Attach IP Firewall to an User Profile.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The User Profile ID
+xiq_attach_ip_firewall_policy_to_user_profile_request = extremecloudiq.XiqAttachIpFirewallPolicyToUserProfileRequest() # XiqAttachIpFirewallPolicyToUserProfileRequest | The IP Firewall Policy ID to be attached to the User Profile
+
+    try:
+        # Attach IP Firewall Policy to an User Profile
+        api_instance.attach_ip_firewall_policy_to_user_profile(id, xiq_attach_ip_firewall_policy_to_user_profile_request)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->attach_ip_firewall_policy_to_user_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The User Profile ID | 
+ **xiq_attach_ip_firewall_policy_to_user_profile_request** | [**XiqAttachIpFirewallPolicyToUserProfileRequest**](XiqAttachIpFirewallPolicyToUserProfileRequest.md)| The IP Firewall Policy ID to be attached to the User Profile | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **attach_mac_firewall_policy_to_user_profile**
+> attach_mac_firewall_policy_to_user_profile(id, xiq_attach_mac_firewall_policy_to_user_profile_request)
+
+Attach MAC Firewall Policy to an User Profile
+
+Attach MAC Firewall to an User Profile.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The User Profile ID
+xiq_attach_mac_firewall_policy_to_user_profile_request = extremecloudiq.XiqAttachMacFirewallPolicyToUserProfileRequest() # XiqAttachMacFirewallPolicyToUserProfileRequest | The MAC Firewall Policy ID to be attached to the User Profile
+
+    try:
+        # Attach MAC Firewall Policy to an User Profile
+        api_instance.attach_mac_firewall_policy_to_user_profile(id, xiq_attach_mac_firewall_policy_to_user_profile_request)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->attach_mac_firewall_policy_to_user_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The User Profile ID | 
+ **xiq_attach_mac_firewall_policy_to_user_profile_request** | [**XiqAttachMacFirewallPolicyToUserProfileRequest**](XiqAttachMacFirewallPolicyToUserProfileRequest.md)| The MAC Firewall Policy ID to be attached to the User Profile | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **attach_radius_client_profile_to_ssid**
+> attach_radius_client_profile_to_ssid(id, body)
+
+Attach RADIUS client profile to an SSID
+
+Attach RADIUS client profile to an SSID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The SSID ID
+body = 56 # int | The radius client profile to be attached to the SSID
+
+    try:
+        # Attach RADIUS client profile to an SSID
+        api_instance.attach_radius_client_profile_to_ssid(id, body)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->attach_radius_client_profile_to_ssid: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The SSID ID | 
+ **body** | **int**| The radius client profile to be attached to the SSID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -149,7 +492,7 @@ Attach radius server group to an SSID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -167,7 +510,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -199,7 +542,235 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **attach_service_to_ip_firewall_policy**
+> attach_service_to_ip_firewall_policy(id, xiq_ip_firewall_rule_request)
+
+Attach IP Firewall Rule to IP Firewall policy
+
+Attach IP Firewall Rule to IP Firewall policy.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The IP Firewall Policy ID
+xiq_ip_firewall_rule_request = extremecloudiq.XiqIpFirewallRuleRequest() # XiqIpFirewallRuleRequest | The IP Firewall Rule to be attached to the IP Firewall Policy.
+
+    try:
+        # Attach IP Firewall Rule to IP Firewall policy
+        api_instance.attach_service_to_ip_firewall_policy(id, xiq_ip_firewall_rule_request)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->attach_service_to_ip_firewall_policy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The IP Firewall Policy ID | 
+ **xiq_ip_firewall_rule_request** | [**XiqIpFirewallRuleRequest**](XiqIpFirewallRuleRequest.md)| The IP Firewall Rule to be attached to the IP Firewall Policy. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **attach_service_to_mac_firewall_policy**
+> attach_service_to_mac_firewall_policy(id, xiq_mac_firewall_rule_request)
+
+Attach MAC Firewall Rule to MAC Firewall policy
+
+Attach MAC Firewall Rule to MAC Firewall policy.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The MAC Firewall Policy ID
+xiq_mac_firewall_rule_request = extremecloudiq.XiqMacFirewallRuleRequest() # XiqMacFirewallRuleRequest | The MAC Firewall Rule to be attached to the MAC Firewall Policy.
+
+    try:
+        # Attach MAC Firewall Rule to MAC Firewall policy
+        api_instance.attach_service_to_mac_firewall_policy(id, xiq_mac_firewall_rule_request)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->attach_service_to_mac_firewall_policy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The MAC Firewall Policy ID | 
+ **xiq_mac_firewall_rule_request** | [**XiqMacFirewallRuleRequest**](XiqMacFirewallRuleRequest.md)| The MAC Firewall Rule to be attached to the MAC Firewall Policy. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **attach_user_profile_assignment_to_ssid**
+> attach_user_profile_assignment_to_ssid(id, xiq_attach_up_assignment_request)
+
+Attach user profile assignment to an SSID
+
+Attach user profile assignment to an SSID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The SSID ID
+xiq_attach_up_assignment_request = extremecloudiq.XiqAttachUPAssignmentRequest() # XiqAttachUPAssignmentRequest | The user profile assignment ID to be attached to the SSID
+
+    try:
+        # Attach user profile assignment to an SSID
+        api_instance.attach_user_profile_assignment_to_ssid(id, xiq_attach_up_assignment_request)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->attach_user_profile_assignment_to_ssid: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The SSID ID | 
+ **xiq_attach_up_assignment_request** | [**XiqAttachUPAssignmentRequest**](XiqAttachUPAssignmentRequest.md)| The user profile assignment ID to be attached to the SSID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -225,7 +796,7 @@ Attach user profile to an SSID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -243,7 +814,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -275,7 +846,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -301,7 +872,7 @@ Change the SSID PSK password.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -319,7 +890,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -351,7 +922,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -377,7 +948,7 @@ Create a new classification rule.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -395,7 +966,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -426,7 +997,82 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_client_monitor_profile**
+> XiqClientMonitorProfile create_client_monitor_profile(xiq_client_monitor_profile_request)
+
+Create a client monitor profile
+
+Create a new client monitor profile.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    xiq_client_monitor_profile_request = extremecloudiq.XiqClientMonitorProfileRequest() # XiqClientMonitorProfileRequest | The request body to create new client monitor profile.
+
+    try:
+        # Create a client monitor profile
+        api_response = api_instance.create_client_monitor_profile(xiq_client_monitor_profile_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->create_client_monitor_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xiq_client_monitor_profile_request** | [**XiqClientMonitorProfileRequest**](XiqClientMonitorProfileRequest.md)| The request body to create new client monitor profile. | 
+
+### Return type
+
+[**XiqClientMonitorProfile**](XiqClientMonitorProfile.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -452,7 +1098,7 @@ Create a new cloud config group.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -470,7 +1116,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -501,7 +1147,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -527,7 +1173,7 @@ Create a new IoT profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -545,7 +1191,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -576,7 +1222,307 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_ip_firewall_policy**
+> XiqIpFirewall create_ip_firewall_policy(xiq_ip_firewall_policy_request)
+
+Create IP Firewall policy
+
+Create a new IP Firewall policy.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    xiq_ip_firewall_policy_request = extremecloudiq.XiqIpFirewallPolicyRequest() # XiqIpFirewallPolicyRequest | The payload to create a new IP Firewall policy.
+
+    try:
+        # Create IP Firewall policy
+        api_response = api_instance.create_ip_firewall_policy(xiq_ip_firewall_policy_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->create_ip_firewall_policy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xiq_ip_firewall_policy_request** | [**XiqIpFirewallPolicyRequest**](XiqIpFirewallPolicyRequest.md)| The payload to create a new IP Firewall policy. | 
+
+### Return type
+
+[**XiqIpFirewall**](XiqIpFirewall.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_l3_address_profile**
+> XiqL3AddressProfileResponse create_l3_address_profile(xiq_create_l3_address_profile_request)
+
+Create a L3 address profile
+
+Create a new L3 address profile.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    xiq_create_l3_address_profile_request = extremecloudiq.XiqCreateL3AddressProfileRequest() # XiqCreateL3AddressProfileRequest | The request body to create new L3 address profile.
+
+    try:
+        # Create a L3 address profile
+        api_response = api_instance.create_l3_address_profile(xiq_create_l3_address_profile_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->create_l3_address_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xiq_create_l3_address_profile_request** | [**XiqCreateL3AddressProfileRequest**](XiqCreateL3AddressProfileRequest.md)| The request body to create new L3 address profile. | 
+
+### Return type
+
+[**XiqL3AddressProfileResponse**](XiqL3AddressProfileResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_mac_firewall_policy**
+> XiqMacFirewall create_mac_firewall_policy(xiq_mac_firewall_policy_request)
+
+Create MAC Firewall policy
+
+Create a new MAC Firewall policy.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    xiq_mac_firewall_policy_request = extremecloudiq.XiqMacFirewallPolicyRequest() # XiqMacFirewallPolicyRequest | The payload to create a new MAC Firewall policy.
+
+    try:
+        # Create MAC Firewall policy
+        api_response = api_instance.create_mac_firewall_policy(xiq_mac_firewall_policy_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->create_mac_firewall_policy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xiq_mac_firewall_policy_request** | [**XiqMacFirewallPolicyRequest**](XiqMacFirewallPolicyRequest.md)| The payload to create a new MAC Firewall policy. | 
+
+### Return type
+
+[**XiqMacFirewall**](XiqMacFirewall.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_mac_object**
+> XiqMacObject create_mac_object(xiq_create_mac_object_request)
+
+Create a mac object
+
+Create a new mac object
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    xiq_create_mac_object_request = extremecloudiq.XiqCreateMacObjectRequest() # XiqCreateMacObjectRequest | The request body to create new mac object.
+
+    try:
+        # Create a mac object
+        api_response = api_instance.create_mac_object(xiq_create_mac_object_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->create_mac_object: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xiq_create_mac_object_request** | [**XiqCreateMacObjectRequest**](XiqCreateMacObjectRequest.md)| The request body to create new mac object. | 
+
+### Return type
+
+[**XiqMacObject**](XiqMacObject.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -602,7 +1548,7 @@ Create a new MAC OUI profile for radio usage optimization.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -620,7 +1566,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -651,7 +1597,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -677,7 +1623,7 @@ Create a new radio profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -695,7 +1641,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -726,7 +1672,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -752,7 +1698,7 @@ Create a new user profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -770,7 +1716,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -801,7 +1747,82 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_user_profile_assignment**
+> XiqUserProfileAssignment create_user_profile_assignment(xiq_create_user_profile_assignment_request)
+
+Create a user profile assignment
+
+Create a new user profile assignment.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    xiq_create_user_profile_assignment_request = extremecloudiq.XiqCreateUserProfileAssignmentRequest() # XiqCreateUserProfileAssignmentRequest | The request body to create new user profile.
+
+    try:
+        # Create a user profile assignment
+        api_response = api_instance.create_user_profile_assignment(xiq_create_user_profile_assignment_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->create_user_profile_assignment: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xiq_create_user_profile_assignment_request** | [**XiqCreateUserProfileAssignmentRequest**](XiqCreateUserProfileAssignmentRequest.md)| The request body to create new user profile. | 
+
+### Return type
+
+[**XiqUserProfileAssignment**](XiqUserProfileAssignment.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -827,7 +1848,7 @@ Delete an existing classification rule by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -845,7 +1866,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -875,7 +1896,81 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_client_monitor_profile**
+> delete_client_monitor_profile(id)
+
+Delete an client monitor profile by ID
+
+Delete an existing client monitor profile by ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The client monitor profile ID
+
+    try:
+        # Delete an client monitor profile by ID
+        api_instance.delete_client_monitor_profile(id)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->delete_client_monitor_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The client monitor profile ID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -901,7 +1996,7 @@ Delete a specific cloud config group by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -919,7 +2014,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -949,7 +2044,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -975,7 +2070,7 @@ Delete an existing user profile by ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -993,7 +2088,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1023,7 +2118,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1049,7 +2144,7 @@ Delete the existing IoT profile by the profile ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1067,7 +2162,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1097,7 +2192,303 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_ip_firewall_policy**
+> delete_ip_firewall_policy(id)
+
+Delete IP Firewall policy by ID
+
+Delete an existing IP Firewall policy by the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The Ip Firewall Policy ID
+
+    try:
+        # Delete IP Firewall policy by ID
+        api_instance.delete_ip_firewall_policy(id)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->delete_ip_firewall_policy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The Ip Firewall Policy ID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_l3_address_profile**
+> delete_l3_address_profile(id)
+
+Delete a L3 address profile by ID
+
+Delete an existing L3 address profile by ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The L3 address profile ID
+
+    try:
+        # Delete a L3 address profile by ID
+        api_instance.delete_l3_address_profile(id)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->delete_l3_address_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The L3 address profile ID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_mac_firewall_policy**
+> delete_mac_firewall_policy(id)
+
+Delete MAC Firewall policy by ID
+
+Delete an existing MAC Firewall policy by the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The MAC Firewall Policy ID
+
+    try:
+        # Delete MAC Firewall policy by ID
+        api_instance.delete_mac_firewall_policy(id)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->delete_mac_firewall_policy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The MAC Firewall Policy ID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_mac_object_profiles**
+> delete_mac_object_profiles(id)
+
+Delete a MAC object by ID
+
+Delete an existing MAC object by the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The Mac object ID
+
+    try:
+        # Delete a MAC object by ID
+        api_instance.delete_mac_object_profiles(id)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->delete_mac_object_profiles: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The Mac object ID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1123,7 +2514,7 @@ Delete the existing radio profile by the profile ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1141,7 +2532,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1171,7 +2562,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1197,7 +2588,7 @@ Delete the existing MAC OUI profile for radio usage optimization.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1215,7 +2606,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1245,11 +2636,389 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_user_profile_assignment**
+> delete_user_profile_assignment(id)
+
+Delete an user profile assignment by ID
+
+Delete an existing user profile assignment by ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The user profile ID
+
+    try:
+        # Delete an user profile assignment by ID
+        api_instance.delete_user_profile_assignment(id)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->delete_user_profile_assignment: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The user profile ID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **detach_ip_firewall_policy_from_user_profile**
+> detach_ip_firewall_policy_from_user_profile(id, xiq_attach_ip_firewall_policy_to_user_profile_request)
+
+Detach IP Firewall Policy from an User Profile
+
+Detach IP Firewall from an User Profile.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The User Profile ID
+xiq_attach_ip_firewall_policy_to_user_profile_request = extremecloudiq.XiqAttachIpFirewallPolicyToUserProfileRequest() # XiqAttachIpFirewallPolicyToUserProfileRequest | The IP Firewall Policy ID to be detached from the User Profile
+
+    try:
+        # Detach IP Firewall Policy from an User Profile
+        api_instance.detach_ip_firewall_policy_from_user_profile(id, xiq_attach_ip_firewall_policy_to_user_profile_request)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->detach_ip_firewall_policy_from_user_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The User Profile ID | 
+ **xiq_attach_ip_firewall_policy_to_user_profile_request** | [**XiqAttachIpFirewallPolicyToUserProfileRequest**](XiqAttachIpFirewallPolicyToUserProfileRequest.md)| The IP Firewall Policy ID to be detached from the User Profile | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **detach_mac_firewall_policy_from_user_profile**
+> detach_mac_firewall_policy_from_user_profile(id, xiq_attach_mac_firewall_policy_to_user_profile_request)
+
+Detach MAC Firewall Policy from an User Profile
+
+Detach MAC Firewall from an User Profile.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The User Profile ID
+xiq_attach_mac_firewall_policy_to_user_profile_request = extremecloudiq.XiqAttachMacFirewallPolicyToUserProfileRequest() # XiqAttachMacFirewallPolicyToUserProfileRequest | The MAC Firewall Policy ID to be detached from the User Profile
+
+    try:
+        # Detach MAC Firewall Policy from an User Profile
+        api_instance.detach_mac_firewall_policy_from_user_profile(id, xiq_attach_mac_firewall_policy_to_user_profile_request)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->detach_mac_firewall_policy_from_user_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The User Profile ID | 
+ **xiq_attach_mac_firewall_policy_to_user_profile_request** | [**XiqAttachMacFirewallPolicyToUserProfileRequest**](XiqAttachMacFirewallPolicyToUserProfileRequest.md)| The MAC Firewall Policy ID to be detached from the User Profile | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **detach_service_to_ip_firewall_policy**
+> detach_service_to_ip_firewall_policy(id, body)
+
+Detach IP Firewall Rule from IP Firewall policy
+
+Detach IP Firewall Rule from IP Firewall policy.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The IP Firewall Policy ID
+body = 56 # int | The IP Firewall Rule to be detached from the IP Firewall Policy.
+
+    try:
+        # Detach IP Firewall Rule from IP Firewall policy
+        api_instance.detach_service_to_ip_firewall_policy(id, body)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->detach_service_to_ip_firewall_policy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The IP Firewall Policy ID | 
+ **body** | **int**| The IP Firewall Rule to be detached from the IP Firewall Policy. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **detach_service_to_mac_firewall_policy**
+> detach_service_to_mac_firewall_policy(id, body)
+
+Detach MAC Firewall Rule from MAC Firewall policy
+
+Detach MAC Firewall Rule from MAC Firewall policy.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The MAC Firewall Policy ID
+body = 56 # int | The MAC Firewall Rule to be detached from the MAC Firewall Policy.
+
+    try:
+        # Detach MAC Firewall Rule from MAC Firewall policy
+        api_instance.detach_service_to_mac_firewall_policy(id, body)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->detach_service_to_mac_firewall_policy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The MAC Firewall Policy ID | 
+ **body** | **int**| The MAC Firewall Rule to be detached from the MAC Firewall Policy. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -1271,7 +3040,7 @@ Disable the CWP on the SSID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1289,7 +3058,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1319,7 +3088,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1345,7 +3114,7 @@ Enable and attach the CWP on the SSID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1363,7 +3132,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1395,7 +3164,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1421,7 +3190,7 @@ Get a specific classification rule.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1439,7 +3208,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1470,7 +3239,82 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_client_monitor_profile**
+> XiqClientMonitorProfile get_client_monitor_profile(id)
+
+Get client monitor profile by ID
+
+Get client monitor profile details for the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The client monitor profile ID
+
+    try:
+        # Get client monitor profile by ID
+        api_response = api_instance.get_client_monitor_profile(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->get_client_monitor_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The client monitor profile ID | 
+
+### Return type
+
+[**XiqClientMonitorProfile**](XiqClientMonitorProfile.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1496,7 +3340,7 @@ Get cloud config group info for the specified ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1514,7 +3358,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1545,7 +3389,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1571,7 +3415,7 @@ Get IoT profile details for the specified ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1589,7 +3433,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1620,7 +3464,307 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_ip_firewall_policy**
+> XiqIpFirewall get_ip_firewall_policy(id)
+
+Get IP Firewall Policy by ID
+
+Get an existing IP Firewall policy by the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The ip firewall policy ID
+
+    try:
+        # Get IP Firewall Policy by ID
+        api_response = api_instance.get_ip_firewall_policy(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->get_ip_firewall_policy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ip firewall policy ID | 
+
+### Return type
+
+[**XiqIpFirewall**](XiqIpFirewall.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_l3_address_profile**
+> XiqL3AddressProfileResponse get_l3_address_profile(id)
+
+Get a L3 address profile by ID
+
+Get L3 address profile details for the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The L3 address profile ID
+
+    try:
+        # Get a L3 address profile by ID
+        api_response = api_instance.get_l3_address_profile(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->get_l3_address_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The L3 address profile ID | 
+
+### Return type
+
+[**XiqL3AddressProfileResponse**](XiqL3AddressProfileResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_mac_firewall_policy**
+> XiqMacFirewall get_mac_firewall_policy(id)
+
+Get MAC Firewall Policy by ID
+
+Get an existing MAC Firewall policy by the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The MAC firewall policy ID
+
+    try:
+        # Get MAC Firewall Policy by ID
+        api_response = api_instance.get_mac_firewall_policy(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->get_mac_firewall_policy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The MAC firewall policy ID | 
+
+### Return type
+
+[**XiqMacFirewall**](XiqMacFirewall.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_mac_object**
+> XiqMacObject get_mac_object(id)
+
+Get MAC Object by ID
+
+Get an existing MAC object by the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The MAC Object ID
+
+    try:
+        # Get MAC Object by ID
+        api_response = api_instance.get_mac_object(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->get_mac_object: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The MAC Object ID | 
+
+### Return type
+
+[**XiqMacObject**](XiqMacObject.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1646,7 +3790,7 @@ Get the neighborhood analysis settings belonging to a radio profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1664,7 +3808,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1695,7 +3839,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1721,7 +3865,7 @@ Get radio profile details for the specified ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1739,7 +3883,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1770,7 +3914,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1796,7 +3940,7 @@ Get the channel selection settings belonging to a radio profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1814,7 +3958,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1845,7 +3989,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1871,7 +4015,7 @@ Get the MAC OUI profile belonging the radio optimization settings.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1889,7 +4033,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1920,7 +4064,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1946,7 +4090,7 @@ Get the radio miscellaneous settings belonging to a radio profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -1964,7 +4108,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -1995,7 +4139,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2021,7 +4165,7 @@ Get the radio usage optimization settings belonging to a radio profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2039,7 +4183,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2070,7 +4214,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2096,7 +4240,7 @@ Get the sensor scan settings belonging to a radio profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2114,7 +4258,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2145,7 +4289,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2171,7 +4315,7 @@ Get the Wi-Fi Multimedia (WMM) QoS settings belonging to a radio profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2189,7 +4333,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2220,7 +4364,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2246,7 +4390,7 @@ Get the advanced settings belonging to the SSID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2264,7 +4408,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2295,7 +4439,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2321,7 +4465,7 @@ Get user profile details for the specified ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2339,7 +4483,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2370,7 +4514,82 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_user_profile_assignment**
+> XiqUserProfileAssignment get_user_profile_assignment(id)
+
+Get user profile assignment by ID
+
+Get user profile assignment details for the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The user profile assignment ID
+
+    try:
+        # Get user profile assignment by ID
+        api_response = api_instance.get_user_profile_assignment(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->get_user_profile_assignment: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The user profile assignment ID | 
+
+### Return type
+
+[**XiqUserProfileAssignment**](XiqUserProfileAssignment.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2396,7 +4615,7 @@ List a page of classification rules.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2414,7 +4633,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2447,7 +4666,84 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_client_monitor_profiles**
+> PagedXiqClientMonitorProfile list_client_monitor_profiles(page=page, limit=limit)
+
+List client monitor profiles
+
+List a page of client monitor profiles.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+
+    try:
+        # List client monitor profiles
+        api_response = api_instance.list_client_monitor_profiles(page=page, limit=limit)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->list_client_monitor_profiles: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+
+### Return type
+
+[**PagedXiqClientMonitorProfile**](PagedXiqClientMonitorProfile.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2473,7 +4769,7 @@ List a papge of cloud config groups.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2491,7 +4787,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2524,7 +4820,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2550,7 +4846,7 @@ List a page of IoT profiles.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2568,7 +4864,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2601,7 +4897,84 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_ip_firewall_policies**
+> PagedXiqIpFirewall list_ip_firewall_policies(page=page, limit=limit)
+
+List IP Firewall policies
+
+List a page of IP Firewall policies.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+
+    try:
+        # List IP Firewall policies
+        api_response = api_instance.list_ip_firewall_policies(page=page, limit=limit)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->list_ip_firewall_policies: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+
+### Return type
+
+[**PagedXiqIpFirewall**](PagedXiqIpFirewall.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2627,7 +5000,7 @@ List all L3 Address Profiles.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2645,7 +5018,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2676,7 +5049,161 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_mac_firewall_policies**
+> PagedXiqMacFirewall list_mac_firewall_policies(page=page, limit=limit)
+
+List MAC Firewall policies
+
+List a page of MAC Firewall policies.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+
+    try:
+        # List MAC Firewall policies
+        api_response = api_instance.list_mac_firewall_policies(page=page, limit=limit)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->list_mac_firewall_policies: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+
+### Return type
+
+[**PagedXiqMacFirewall**](PagedXiqMacFirewall.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_mac_object_profiles**
+> PagedXiqMacObject list_mac_object_profiles(page=page, limit=limit)
+
+List mac object profiles
+
+List a page of mac object profiles.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+
+    try:
+        # List mac object profiles
+        api_response = api_instance.list_mac_object_profiles(page=page, limit=limit)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->list_mac_object_profiles: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+
+### Return type
+
+[**PagedXiqMacObject**](PagedXiqMacObject.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2702,7 +5229,7 @@ List a page of radio profiles.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2720,7 +5247,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2753,7 +5280,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2779,7 +5306,7 @@ List a page of MAC OUI profiles.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2797,7 +5324,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2830,7 +5357,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2856,7 +5383,7 @@ List SSIDs with filter and pagination.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2874,7 +5401,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2907,7 +5434,84 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_user_profile_assignments**
+> PagedXiqUserProfileAssignment list_user_profile_assignments(page=page, limit=limit)
+
+List user profile assignments
+
+List a page of user profile assignments.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    page = 1 # int | Page number, min = 1 (optional) (default to 1)
+limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+
+    try:
+        # List user profile assignments
+        api_response = api_instance.list_user_profile_assignments(page=page, limit=limit)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->list_user_profile_assignments: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
+ **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+
+### Return type
+
+[**PagedXiqUserProfileAssignment**](PagedXiqUserProfileAssignment.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -2933,7 +5537,7 @@ List a page of user profiles.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -2951,7 +5555,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -2984,7 +5588,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -3010,7 +5614,7 @@ Change SSID broadcast name (Wireless name).
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -3028,7 +5632,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -3060,7 +5664,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -3086,7 +5690,7 @@ Change the SSID mode to 802.1x.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -3104,7 +5708,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -3136,7 +5740,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -3162,7 +5766,7 @@ Change the SSID mode to open access.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -3180,7 +5784,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -3210,7 +5814,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -3236,7 +5840,7 @@ Change the SSID mode to PPSK.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -3254,7 +5858,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -3286,7 +5890,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -3312,7 +5916,7 @@ Change the SSID mode to PSK.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -3330,7 +5934,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -3362,7 +5966,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -3388,7 +5992,7 @@ Change the SSID mode to WEP.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -3406,7 +6010,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -3438,7 +6042,7 @@ void (empty response body)
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -3464,7 +6068,7 @@ Update the exist classification rule.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -3482,7 +6086,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -3515,7 +6119,84 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_client_monitor_profile**
+> XiqClientMonitorProfile update_client_monitor_profile(id, xiq_update_client_monitor_profile_request)
+
+Update client monitor profile
+
+Update an existing client monitor profile.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The client monitor profile ID.
+xiq_update_client_monitor_profile_request = extremecloudiq.XiqUpdateClientMonitorProfileRequest() # XiqUpdateClientMonitorProfileRequest | The payload of client monitor profile.
+
+    try:
+        # Update client monitor profile
+        api_response = api_instance.update_client_monitor_profile(id, xiq_update_client_monitor_profile_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->update_client_monitor_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The client monitor profile ID. | 
+ **xiq_update_client_monitor_profile_request** | [**XiqUpdateClientMonitorProfileRequest**](XiqUpdateClientMonitorProfileRequest.md)| The payload of client monitor profile. | 
+
+### Return type
+
+[**XiqClientMonitorProfile**](XiqClientMonitorProfile.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -3541,7 +6222,7 @@ Update the cloud config group details having the specified ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -3559,7 +6240,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -3592,7 +6273,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -3618,7 +6299,7 @@ Update an existing user profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -3636,7 +6317,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -3669,7 +6350,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -3695,7 +6376,7 @@ Update the existing IoT profile by the profile ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -3713,7 +6394,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -3746,7 +6427,315 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_ip_policy_request**
+> XiqIpFirewall update_ip_policy_request(id, xiq_ip_firewall_policy_request)
+
+Update IP Firewall policy by ID
+
+Update an existing IP Firewall policy by the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The Ip Firewall Policy ID.
+xiq_ip_firewall_policy_request = extremecloudiq.XiqIpFirewallPolicyRequest() # XiqIpFirewallPolicyRequest | The payload of the update IP Firewall policy request.
+
+    try:
+        # Update IP Firewall policy by ID
+        api_response = api_instance.update_ip_policy_request(id, xiq_ip_firewall_policy_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->update_ip_policy_request: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The Ip Firewall Policy ID. | 
+ **xiq_ip_firewall_policy_request** | [**XiqIpFirewallPolicyRequest**](XiqIpFirewallPolicyRequest.md)| The payload of the update IP Firewall policy request. | 
+
+### Return type
+
+[**XiqIpFirewall**](XiqIpFirewall.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_l3_address_profile**
+> XiqL3AddressProfileResponse update_l3_address_profile(id, xiq_update_l3_address_profile_request)
+
+Update a L3 address profile
+
+Update an existing address profile.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The L3 address profile ID.
+xiq_update_l3_address_profile_request = extremecloudiq.XiqUpdateL3AddressProfileRequest() # XiqUpdateL3AddressProfileRequest | The payload of L3 address profile.
+
+    try:
+        # Update a L3 address profile
+        api_response = api_instance.update_l3_address_profile(id, xiq_update_l3_address_profile_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->update_l3_address_profile: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The L3 address profile ID. | 
+ **xiq_update_l3_address_profile_request** | [**XiqUpdateL3AddressProfileRequest**](XiqUpdateL3AddressProfileRequest.md)| The payload of L3 address profile. | 
+
+### Return type
+
+[**XiqL3AddressProfileResponse**](XiqL3AddressProfileResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_mac_firewall_policy**
+> XiqMacFirewall update_mac_firewall_policy(id, xiq_mac_firewall_policy_request)
+
+Update MAC Firewall policy by ID
+
+Update an existing MAC Firewall policy by the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The MAC Firewall Policy ID.
+xiq_mac_firewall_policy_request = extremecloudiq.XiqMacFirewallPolicyRequest() # XiqMacFirewallPolicyRequest | The payload of the update MAC Firewall policy request.
+
+    try:
+        # Update MAC Firewall policy by ID
+        api_response = api_instance.update_mac_firewall_policy(id, xiq_mac_firewall_policy_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->update_mac_firewall_policy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The MAC Firewall Policy ID. | 
+ **xiq_mac_firewall_policy_request** | [**XiqMacFirewallPolicyRequest**](XiqMacFirewallPolicyRequest.md)| The payload of the update MAC Firewall policy request. | 
+
+### Return type
+
+[**XiqMacFirewall**](XiqMacFirewall.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_mac_object**
+> XiqMacObject update_mac_object(id, xiq_update_mac_object_request)
+
+Update MAC Object by ID
+
+Update an existing MAC object by the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    id = 56 # int | The MAC Object ID.
+xiq_update_mac_object_request = extremecloudiq.XiqUpdateMacObjectRequest() # XiqUpdateMacObjectRequest | The payload of the update MAC Object request.
+
+    try:
+        # Update MAC Object by ID
+        api_response = api_instance.update_mac_object(id, xiq_update_mac_object_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->update_mac_object: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The MAC Object ID. | 
+ **xiq_update_mac_object_request** | [**XiqUpdateMacObjectRequest**](XiqUpdateMacObjectRequest.md)| The payload of the update MAC Object request. | 
+
+### Return type
+
+[**XiqMacObject**](XiqMacObject.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -3772,7 +6761,7 @@ Update the neighborhood analysis settings belonging to a radio profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -3790,7 +6779,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -3823,7 +6812,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -3849,7 +6838,7 @@ Update the existing radio profile by the profile ID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -3867,7 +6856,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -3900,7 +6889,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -3926,7 +6915,7 @@ Update the channel selection settings belonging to a radio profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -3944,7 +6933,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -3977,7 +6966,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -4003,7 +6992,7 @@ Update the existing MAC OUI profile for radio usage optimization.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -4021,7 +7010,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -4054,7 +7043,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -4080,7 +7069,7 @@ Update the radio miscellaneous settings belonging to a radio profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -4098,7 +7087,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -4131,7 +7120,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -4157,7 +7146,7 @@ Update the radio usage optimization settings belonging to a radio profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -4175,7 +7164,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -4208,7 +7197,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -4234,7 +7223,7 @@ Update the sensor scan settings belonging to a radio profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -4252,7 +7241,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -4285,7 +7274,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -4311,7 +7300,7 @@ Update the Wi-Fi Multimedia (WMM) QoS settings belonging to a radio profile.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -4329,7 +7318,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -4362,7 +7351,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -4388,7 +7377,7 @@ Update the advanced settings belonging to the SSID.
 
 ### Example
 
-* Bearer (JWT) Authentication (BearerAuth):
+* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -4406,7 +7395,7 @@ configuration = extremecloudiq.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): BearerAuth
+# Configure Bearer authorization (JWT): Bearer
 configuration = extremecloudiq.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
@@ -4439,7 +7428,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
