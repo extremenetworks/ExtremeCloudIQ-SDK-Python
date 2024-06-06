@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**list_buildings**](LocationApi.md#list_buildings) | **GET** /locations/building | List buildings
 [**list_floors**](LocationApi.md#list_floors) | **GET** /locations/floor | List floors
 [**list_sites**](LocationApi.md#list_sites) | **GET** /locations/site | List sites
+[**start_ekahau_import**](LocationApi.md#start_ekahau_import) | **POST** /locations/import/ekahau | [LRO] Import one or more floors from an Ekahau archive
 [**update_building**](LocationApi.md#update_building) | **PUT** /locations/building/{id} | Update a building
 [**update_floor**](LocationApi.md#update_floor) | **PUT** /locations/floor/{id} | Update a floor
 [**update_location**](LocationApi.md#update_location) | **PUT** /locations/{id} | Update a location
@@ -1407,6 +1408,87 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_ekahau_import**
+> XiqEkahauImportDetails start_ekahau_import(associations, file, _async=_async, import_custom_ap_configurations=import_custom_ap_configurations)
+
+[LRO] Import one or more floors from an Ekahau archive
+
+Import the specified Ekahau floor(s) from the provided archive.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.LocationApi(api_client)
+    associations = {'key': 56} # dict(str, int) | Describes how imported floors are associated with buildings.
+file = '/path/to/file' # file | The Ekahau archive to import floors from.
+_async = False # bool | Whether to enable async mode. (optional) (default to False)
+import_custom_ap_configurations = True # bool | Whether to also import or not the custom AP configurations such as: Hostname, TX Power & Channel. (optional) (default to True)
+
+    try:
+        # [LRO] Import one or more floors from an Ekahau archive
+        api_response = api_instance.start_ekahau_import(associations, file, _async=_async, import_custom_ap_configurations=import_custom_ap_configurations)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LocationApi->start_ekahau_import: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **associations** | [**dict(str, int)**](int.md)| Describes how imported floors are associated with buildings. | 
+ **file** | **file**| The Ekahau archive to import floors from. | 
+ **_async** | **bool**| Whether to enable async mode. | [optional] [default to False]
+ **import_custom_ap_configurations** | **bool**| Whether to also import or not the custom AP configurations such as: Hostname, TX Power &amp; Channel. | [optional] [default to True]
+
+### Return type
+
+[**XiqEkahauImportDetails**](XiqEkahauImportDetails.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details

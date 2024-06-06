@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**audit_logs_report**](LogApi.md#audit_logs_report) | **POST** /logs/audit/reports | [LRO] Create audit logs report
 [**download_audit_logs_report**](LogApi.md#download_audit_logs_report) | **GET** /logs/audit/reports/{id} | Download audit logs
+[**get_audit_log_full_descriptions**](LogApi.md#get_audit_log_full_descriptions) | **GET** /logs/audit/full-descriptions/{id} | Get audit log full descriptions
 [**list_accounting_logs**](LogApi.md#list_accounting_logs) | **GET** /logs/accounting | List accounting logs
 [**list_audit_logs**](LogApi.md#list_audit_logs) | **GET** /logs/audit | List audit logs
 [**list_auth_logs**](LogApi.md#list_auth_logs) | **GET** /logs/auth | List auth logs
@@ -160,6 +161,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 **list[str]**
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_audit_log_full_descriptions**
+> XiqAuditLogFullDescriptions get_audit_log_full_descriptions(id)
+
+Get audit log full descriptions
+
+Get audit log full descriptions by ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.LogApi(api_client)
+    id = 56 # int | The audit log full description ID
+
+    try:
+        # Get audit log full descriptions
+        api_response = api_instance.get_audit_log_full_descriptions(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LogApi->get_audit_log_full_descriptions: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The audit log full description ID | 
+
+### Return type
+
+[**XiqAuditLogFullDescriptions**](XiqAuditLogFullDescriptions.md)
 
 ### Authorization
 

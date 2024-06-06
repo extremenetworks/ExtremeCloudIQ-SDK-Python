@@ -300,8 +300,8 @@ This endpoint does not need any parameter.
 **401** | UNAUTHORIZED |  -  |
 **400** | Bad request |  -  |
 **500** | Internal Server Error |  -  |
-**403** | Access denied |  -  |
 **200** | Successful operation |  -  |
+**403** | Access denied |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**assign_device_client_monitor**](DeviceApi.md#assign_device_client_monitor) | **PUT** /devices/{id}/client-monitor | Assign client monitor setting to a device
 [**assign_device_location**](DeviceApi.md#assign_device_location) | **PUT** /devices/{id}/location | Assign location to a device
 [**assign_device_network_policy**](DeviceApi.md#assign_device_network_policy) | **PUT** /devices/{id}/network-policy | Assign network policy to a device
-[**assign_devices_client_monitor**](DeviceApi.md#assign_devices_client_monitor) | **POST** /devices/client-monitor:assign | Assign client monitor setting to multiple devices
+[**assign_devices_client_monitor**](DeviceApi.md#assign_devices_client_monitor) | **POST** /devices/client-monitor/:assign | Assign client monitor setting to multiple devices
 [**assign_devices_country_code**](DeviceApi.md#assign_devices_country_code) | **POST** /devices/country-code/:assign | Assign a country code to devices
 [**assign_devices_location**](DeviceApi.md#assign_devices_location) | **POST** /devices/location/:assign | Assign location to multiple devices
 [**assign_devices_network_policy**](DeviceApi.md#assign_devices_network_policy) | **POST** /devices/network-policy/:assign | Assign network policy to multiple devices
@@ -33,11 +33,14 @@ Method | HTTP request | Description
 [**delete_device_vlan_attributes**](DeviceApi.md#delete_device_vlan_attributes) | **DELETE** /devices/{id}/config/vlan-attributes | Delete vlan attributes
 [**delete_devices**](DeviceApi.md#delete_devices) | **POST** /devices/:delete | Delete devices
 [**delete_ftm_settings**](DeviceApi.md#delete_ftm_settings) | **DELETE** /devices/{id}/ftm-settings | Delete FTM Settings by device ID
+[**disable_iot_on_device**](DeviceApi.md#disable_iot_on_device) | **POST** /devices/{id}/iot/:disable | Disable IoT Wireless Interface settings on device
 [**download_device_gallery_image**](DeviceApi.md#download_device_gallery_image) | **GET** /devices/{id}/gallery-image | Download device gallery image.
+[**enable_iot_on_device**](DeviceApi.md#enable_iot_on_device) | **POST** /devices/{id}/iot/:enable | Enable IoT Wireless Interface settings on device
 [**get_device**](DeviceApi.md#get_device) | **GET** /devices/{id} | Get device info for a specific device
 [**get_device_client_monitor**](DeviceApi.md#get_device_client_monitor) | **GET** /devices/{id}/client-monitor | Get client monitor setting for a device
 [**get_device_cpu_memory_history**](DeviceApi.md#get_device_cpu_memory_history) | **GET** /devices/{id}/history/cpu-mem | Get device CPU/memory usage history
 [**get_device_ibeacon**](DeviceApi.md#get_device_ibeacon) | **GET** /devices/{id}/ibeacon | Get the device iBeacon setting
+[**get_device_iot**](DeviceApi.md#get_device_iot) | **GET** /devices/{id}/iot | Get the device IoT Wireless Interface settings
 [**get_device_ipv4_interfaces**](DeviceApi.md#get_device_ipv4_interfaces) | **GET** /devices/{id}/config/vlan-ipv4-intf | Get IPv4 Interfaces for a device
 [**get_device_ipv4_static_routes**](DeviceApi.md#get_device_ipv4_static_routes) | **GET** /devices/{id}/config/vlan-ipv4-static | Get IPv4 Static Route for a device
 [**get_device_level_ssid_status**](DeviceApi.md#get_device_level_ssid_status) | **GET** /devices/{id}/ssid/status | Get SSID status for a device
@@ -70,7 +73,7 @@ Method | HTTP request | Description
 [**revoke_device_client_monitor**](DeviceApi.md#revoke_device_client_monitor) | **DELETE** /devices/{id}/client-monitor | Revoke client monitor setting for a device
 [**revoke_device_location**](DeviceApi.md#revoke_device_location) | **DELETE** /devices/{id}/location | Revoke location for a device
 [**revoke_device_network_policy**](DeviceApi.md#revoke_device_network_policy) | **DELETE** /devices/{id}/network-policy | Revoke network policy for a device
-[**revoke_devices_client_monitor**](DeviceApi.md#revoke_devices_client_monitor) | **POST** /devices/client-monitor:revoke | Revoke client monitor setting for multiple devices
+[**revoke_devices_client_monitor**](DeviceApi.md#revoke_devices_client_monitor) | **POST** /devices/client-monitor/:revoke | Revoke client monitor setting for multiple devices
 [**revoke_devices_location**](DeviceApi.md#revoke_devices_location) | **POST** /devices/location/:revoke | Revoke location for multiple devices
 [**revoke_devices_network_policy**](DeviceApi.md#revoke_devices_network_policy) | **POST** /devices/network-policy/:revoke | Revoke network policy for multiple devices
 [**revoke_devices_radius_proxy**](DeviceApi.md#revoke_devices_radius_proxy) | **DELETE** /devices/radius-proxy/:revoke | Revoke RADIUS proxy from multiple devices
@@ -2270,6 +2273,80 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **disable_iot_on_device**
+> disable_iot_on_device(id)
+
+Disable IoT Wireless Interface settings on device
+
+Disable and detach IoT profile Wireless Interface settings by device ID and IoT profile ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device ID
+
+    try:
+        # Disable IoT Wireless Interface settings on device
+        api_instance.disable_iot_on_device(id)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->disable_iot_on_device: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device ID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **download_device_gallery_image**
 > file download_device_gallery_image(id, image_name)
 
@@ -2336,6 +2413,82 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json, application/octet-stream
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **enable_iot_on_device**
+> enable_iot_on_device(id, body)
+
+Enable IoT Wireless Interface settings on device
+
+Enable and attach IoT profile Wireless Interface settings by device ID and IoT profile ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device ID
+body = 56 # int | The IoT profile ID to be attached to the device
+
+    try:
+        # Enable IoT Wireless Interface settings on device
+        api_instance.enable_iot_on_device(id, body)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->enable_iot_on_device: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device ID | 
+ **body** | **int**| The IoT profile ID to be attached to the device | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -2637,6 +2790,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XiqDeviceIbeacon**](XiqDeviceIbeacon.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_device_iot**
+> XiqDeviceIotInterfaceSettingsEntry get_device_iot(id)
+
+Get the device IoT Wireless Interface settings
+
+Get the device IoT profile Wireless Interface settings by device ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device ID
+
+    try:
+        # Get the device IoT Wireless Interface settings
+        api_response = api_instance.get_device_iot(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->get_device_iot: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device ID | 
+
+### Return type
+
+[**XiqDeviceIotInterfaceSettingsEntry**](XiqDeviceIotInterfaceSettingsEntry.md)
 
 ### Authorization
 

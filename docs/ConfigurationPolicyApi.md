@@ -54,6 +54,7 @@ Method | HTTP request | Description
 [**get_mac_firewall_policy**](ConfigurationPolicyApi.md#get_mac_firewall_policy) | **GET** /mac-firewall-policies/{id} | Get MAC Firewall Policy by ID
 [**get_mac_object**](ConfigurationPolicyApi.md#get_mac_object) | **GET** /mac-object-profiles/{id} | Get MAC Object by ID
 [**get_neighborhood_analysis**](ConfigurationPolicyApi.md#get_neighborhood_analysis) | **GET** /radio-profiles/neighborhood-analysis/{id} | Get neighborhood analysis settings
+[**get_radio_operating_modes**](ConfigurationPolicyApi.md#get_radio_operating_modes) | **GET** /radio-operating-modes/{productType} | Get Radio Operating Modes by product tyoe
 [**get_radio_profile**](ConfigurationPolicyApi.md#get_radio_profile) | **GET** /radio-profiles/{id} | Get radio profile by ID
 [**get_rp_channel_selection**](ConfigurationPolicyApi.md#get_rp_channel_selection) | **GET** /radio-profiles/channel-selection/{id} | Get channel selection settings
 [**get_rp_mac_oui_profile**](ConfigurationPolicyApi.md#get_rp_mac_oui_profile) | **GET** /radio-profiles/mac-ouis/{id} | Get MAC OUI profile
@@ -3856,6 +3857,81 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_radio_operating_modes**
+> list[XiqRadioOperatingModes] get_radio_operating_modes(product_type)
+
+Get Radio Operating Modes by product tyoe
+
+.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
+    product_type = 'product_type_example' # str | radio op mode
+
+    try:
+        # Get Radio Operating Modes by product tyoe
+        api_response = api_instance.get_radio_operating_modes(product_type)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationPolicyApi->get_radio_operating_modes: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **product_type** | **str**| radio op mode | 
+
+### Return type
+
+[**list[XiqRadioOperatingModes]**](XiqRadioOperatingModes.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_radio_profile**
 > XiqRadioProfile get_radio_profile(id)
 
@@ -4838,7 +4914,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_iot_profiles**
-> PagedXiqIotProfile list_iot_profiles(page=page, limit=limit)
+> PagedXiqIotProfile list_iot_profiles(page=page, limit=limit, app_id=app_id, app_supported=app_supported)
 
 List IoT profiles
 
@@ -4875,10 +4951,12 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
     page = 1 # int | Page number, min = 1 (optional) (default to 1)
 limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+app_id = extremecloudiq.XiqIotApplicationId() # XiqIotApplicationId | Application ID, e.g. THREAD_GATEWAY (optional)
+app_supported = extremecloudiq.XiqIotApplicationSupported() # XiqIotApplicationSupported | Application Supported, e.g. SINGLE or MULTI (optional)
 
     try:
         # List IoT profiles
-        api_response = api_instance.list_iot_profiles(page=page, limit=limit)
+        api_response = api_instance.list_iot_profiles(page=page, limit=limit, app_id=app_id, app_supported=app_supported)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ConfigurationPolicyApi->list_iot_profiles: %s\n" % e)
@@ -4890,6 +4968,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
  **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+ **app_id** | [**XiqIotApplicationId**](.md)| Application ID, e.g. THREAD_GATEWAY | [optional] 
+ **app_supported** | [**XiqIotApplicationSupported**](.md)| Application Supported, e.g. SINGLE or MULTI | [optional] 
 
 ### Return type
 

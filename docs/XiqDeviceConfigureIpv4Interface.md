@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **subnetwork** | [**XiqDeviceSubnetworkIpv4**](XiqDeviceSubnetworkIpv4.md) |  | [optional] 
 **vlan_attribute** | [**XiqDeviceVlanAttributes**](XiqDeviceVlanAttributes.md) |  | 
 **ip_address** | **str** | The IPv4 address set on the interface | 
+**ip_address_to_int** | **int** | The IPv4 address set on the interface to numeric format | [optional] 
 **routing_instance** | **str** | The Routing Instance | 
 **enable_forwarding** | **bool** | Indicates whether or not IPv4 is forwarding on the VLAN | 
 **enable_vlan_loopback** | **bool** | Indicates whether or not Vlan Loopback is enabled on the interface | 

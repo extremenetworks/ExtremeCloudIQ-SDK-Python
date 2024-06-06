@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **nexthop_host_name** | **str** | The host name of the Nexthop | [optional] 
 **ping_protection_enabled** | **bool** | Indicates whether or not ping route protection is enabled for Static Routes | [optional] 
 **ping_protection_state** | **str** | The state of the IPv4 ping protection gateway | [optional] 
-**ping_protection_last_uptime** | **str** | The last time the gateway transitioned to the UP state | [optional] 
-**ping_protection_last_downtime** | **str** | The last time the gateway transitioned to the DOWN state | [optional] 
+**ping_protection_last_uptime** | **int** | The last time the gateway transitioned to the UP state | [optional] 
+**ping_protection_last_downtime** | **int** | The last time the gateway transitioned to the DOWN state | [optional] 
 **routing_instance** | **str** | The Routing Instance of the Nexthop | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

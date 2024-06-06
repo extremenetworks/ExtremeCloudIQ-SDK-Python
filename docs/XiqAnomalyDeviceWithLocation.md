@@ -24,6 +24,8 @@ Name | Type | Description | Notes
 **channel_mode** | **str** | The channel mode | [optional] 
 **recommended_action** | **str** | The recommended action | [optional] 
 **issue** | **str** | The issue | [optional] 
+**current_poe_mode** | **str** | The current poe mode | [optional] 
+**device_status** | **bool** | The device status | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

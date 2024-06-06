@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **org_id** | **int** | The org id | [optional] 
 **timestamp** | **int** | The audit log timestamp | [optional] 
 **description** | **str** | The audit log summary | [optional] 
+**full_description_id** | **int** | The audit log full description ID | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

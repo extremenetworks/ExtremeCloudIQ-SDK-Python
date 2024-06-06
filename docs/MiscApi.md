@@ -18,7 +18,6 @@ Get list of countries and country codes.
 
 ### Example
 
-* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -31,18 +30,9 @@ configuration = extremecloudiq.Configuration(
     host = "http://localhost:8081"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): Bearer
-configuration = extremecloudiq.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
 
 # Enter a context with an instance of the API client
-with extremecloudiq.ApiClient(configuration) as api_client:
+with extremecloudiq.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = extremecloudiq.MiscApi(api_client)
     
@@ -63,7 +53,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -89,7 +79,6 @@ Get list of states or provinces in a country with country alpha2 code.
 
 ### Example
 
-* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -102,18 +91,9 @@ configuration = extremecloudiq.Configuration(
     host = "http://localhost:8081"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): Bearer
-configuration = extremecloudiq.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
 
 # Enter a context with an instance of the API client
-with extremecloudiq.ApiClient(configuration) as api_client:
+with extremecloudiq.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = extremecloudiq.MiscApi(api_client)
     country_alpha2_code = 'country_alpha2_code_example' # str | 
@@ -138,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -164,7 +144,6 @@ Validate whether the country code is a valid code or not.
 
 ### Example
 
-* Bearer (JWT) Authentication (Bearer):
 ```python
 from __future__ import print_function
 import time
@@ -177,18 +156,9 @@ configuration = extremecloudiq.Configuration(
     host = "http://localhost:8081"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): Bearer
-configuration = extremecloudiq.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
 
 # Enter a context with an instance of the API client
-with extremecloudiq.ApiClient(configuration) as api_client:
+with extremecloudiq.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = extremecloudiq.MiscApi(api_client)
     country_code = 56 # int | The country code.
@@ -213,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
