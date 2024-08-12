@@ -24,6 +24,7 @@ from extremecloudiq.api.hiq_api import HIQApi
 from extremecloudiq.api.location_api import LocationApi
 from extremecloudiq.api.log_api import LogApi
 from extremecloudiq.api.misc_api import MiscApi
+from extremecloudiq.api.nos_api import NOSApi
 from extremecloudiq.api.network_policy_api import NetworkPolicyApi
 from extremecloudiq.api.network_scorecard_api import NetworkScorecardApi
 from extremecloudiq.api.notification_api import NotificationApi
@@ -31,3 +32,4 @@ from extremecloudiq.api.operation_api import OperationApi
 from extremecloudiq.api.packet_capture_api import PacketCaptureApi
 from extremecloudiq.api.thread_api import ThreadApi
 from extremecloudiq.api.user_api import UserApi
+from extremecloudiq.api.afc_endpoint_api import AfcEndpointApi

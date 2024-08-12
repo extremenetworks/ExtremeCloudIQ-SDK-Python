@@ -1421,7 +1421,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_ekahau_import**
-> XiqEkahauImportDetails start_ekahau_import(associations, file, _async=_async, import_custom_ap_configurations=import_custom_ap_configurations)
+> XiqEkahauImportDetails start_ekahau_import(floor_associations, outdoor_site_associations, file, _async=_async, import_custom_ap_configurations=import_custom_ap_configurations)
 
 [LRO] Import one or more floors from an Ekahau archive
 
@@ -1456,14 +1456,15 @@ configuration = extremecloudiq.Configuration(
 with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = extremecloudiq.LocationApi(api_client)
-    associations = {'key': 56} # dict(str, int) | Describes how imported floors are associated with buildings.
+    floor_associations = [extremecloudiq.XiqEkahauFloorToFloorAssociation()] # list[XiqEkahauFloorToFloorAssociation] | Describes how Ekahau floors are imported into XIQ as floors in buildings.
+outdoor_site_associations = [extremecloudiq.XiqEkahauFloorToOutdoorSiteAssociation()] # list[XiqEkahauFloorToOutdoorSiteAssociation] | Describes how Ekahau floors are Imported into XIQ as outdoor sites in site groups.
 file = '/path/to/file' # file | The Ekahau archive to import floors from.
 _async = False # bool | Whether to enable async mode. (optional) (default to False)
 import_custom_ap_configurations = True # bool | Whether to also import or not the custom AP configurations such as: Hostname, TX Power & Channel. (optional) (default to True)
 
     try:
         # [LRO] Import one or more floors from an Ekahau archive
-        api_response = api_instance.start_ekahau_import(associations, file, _async=_async, import_custom_ap_configurations=import_custom_ap_configurations)
+        api_response = api_instance.start_ekahau_import(floor_associations, outdoor_site_associations, file, _async=_async, import_custom_ap_configurations=import_custom_ap_configurations)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling LocationApi->start_ekahau_import: %s\n" % e)
@@ -1473,7 +1474,8 @@ import_custom_ap_configurations = True # bool | Whether to also import or not th
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **associations** | [**dict(str, int)**](int.md)| Describes how imported floors are associated with buildings. | 
+ **floor_associations** | [**list[XiqEkahauFloorToFloorAssociation]**](XiqEkahauFloorToFloorAssociation.md)| Describes how Ekahau floors are imported into XIQ as floors in buildings. | 
+ **outdoor_site_associations** | [**list[XiqEkahauFloorToOutdoorSiteAssociation]**](XiqEkahauFloorToOutdoorSiteAssociation.md)| Describes how Ekahau floors are Imported into XIQ as outdoor sites in site groups. | 
  **file** | **file**| The Ekahau archive to import floors from. | 
  **_async** | **bool**| Whether to enable async mode. | [optional] [default to False]
  **import_custom_ap_configurations** | **bool**| Whether to also import or not the custom AP configurations such as: Hostname, TX Power &amp; Channel. | [optional] [default to True]

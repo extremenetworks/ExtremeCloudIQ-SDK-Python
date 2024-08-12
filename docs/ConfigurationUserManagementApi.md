@@ -4,9 +4,10 @@ All URIs are relative to *http://localhost:8081*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_key_based_pcg_users**](ConfigurationUserManagementApi.md#add_key_based_pcg_users) | **POST** /pcgs/key-based/network-policy-{policyId}/users | Add users to a PCG-enabled network policy
+[**add_key_based_pcg_users**](ConfigurationUserManagementApi.md#add_key_based_pcg_users) | **POST** /pcgs/key-based/network-policy-{policyId}/users | [LRO] Add users to a PCG-enabled network policy
 [**assign_ports**](ConfigurationUserManagementApi.md#assign_ports) | **POST** /pcgs/key-based/network-policy-{policyId}/port-assignments | Assign ports to devices in network policy
 [**create_end_user**](ConfigurationUserManagementApi.md#create_end_user) | **POST** /endusers | Create an end user
+[**create_key_based_pcg_network_policy**](ConfigurationUserManagementApi.md#create_key_based_pcg_network_policy) | **POST** /pcgs/key-based | [LRO] Create a Key-based Private Client Group
 [**create_user_group**](ConfigurationUserManagementApi.md#create_user_group) | **POST** /usergroups | Create user group
 [**delete_key_based_pcg_users**](ConfigurationUserManagementApi.md#delete_key_based_pcg_users) | **DELETE** /pcgs/key-based/network-policy-{policyId}/users | Delete users from a PCG-enabled network policy
 [**delete_pcg**](ConfigurationUserManagementApi.md#delete_pcg) | **DELETE** /pcgs/key-based/network-policy-{policyId} | Delete Private Client Group from a network policy
@@ -21,18 +22,17 @@ Method | HTTP request | Description
 [**list_key_based_private_client_groups**](ConfigurationUserManagementApi.md#list_key_based_private_client_groups) | **GET** /pcgs/key-based | List Key-based Private Client Groups
 [**list_sms_templates**](ConfigurationUserManagementApi.md#list_sms_templates) | **GET** /sms-templates | List SMS templates
 [**list_user_groups**](ConfigurationUserManagementApi.md#list_user_groups) | **GET** /usergroups | List user groups
-[**onboard_key_based_private_client_group**](ConfigurationUserManagementApi.md#onboard_key_based_private_client_group) | **POST** /pcgs/key-based/network-policy-{policyId}/:onboard | Create Key-based PCG in network policy
+[**onboard_key_based_private_client_group**](ConfigurationUserManagementApi.md#onboard_key_based_private_client_group) | **POST** /pcgs/key-based/network-policy-{policyId}/:onboard | [LRO] Onboard Key-based PCG in network policy
 [**regenerate_end_user_password**](ConfigurationUserManagementApi.md#regenerate_end_user_password) | **POST** /endusers/{id}/:regenerate-password | Regenerate a new password for the end user
-[**setup_key_based_private_client_group_network_policy**](ConfigurationUserManagementApi.md#setup_key_based_private_client_group_network_policy) | **POST** /pcgs/key-based | Setup a Key-based Private Client Group
 [**update_end_user**](ConfigurationUserManagementApi.md#update_end_user) | **PUT** /endusers/{id} | Update an end user
 [**update_key_based_pcg_users**](ConfigurationUserManagementApi.md#update_key_based_pcg_users) | **PUT** /pcgs/key-based/network-policy-{policyId}/users | Replace all users in a PCG-enabled network policy
 [**update_user_group**](ConfigurationUserManagementApi.md#update_user_group) | **PUT** /usergroups/{id} | Update user group
 
 
 # **add_key_based_pcg_users**
-> add_key_based_pcg_users(policy_id, xiq_create_key_based_pcg_users_request)
+> XiqCreateKeyBasedPcgUsersResponse add_key_based_pcg_users(policy_id, xiq_create_key_based_pcg_users_request, _async=_async)
 
-Add users to a PCG-enabled network policy
+[LRO] Add users to a PCG-enabled network policy
 
 Add users to a PCG-enabled network policy.
 
@@ -67,10 +67,12 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     api_instance = extremecloudiq.ConfigurationUserManagementApi(api_client)
     policy_id = 56 # int | The network policy ID
 xiq_create_key_based_pcg_users_request = extremecloudiq.XiqCreateKeyBasedPcgUsersRequest() # XiqCreateKeyBasedPcgUsersRequest | The payload of add users to PCG-enabled network policy
+_async = False # bool | Whether to enable async mode (optional) (default to False)
 
     try:
-        # Add users to a PCG-enabled network policy
-        api_instance.add_key_based_pcg_users(policy_id, xiq_create_key_based_pcg_users_request)
+        # [LRO] Add users to a PCG-enabled network policy
+        api_response = api_instance.add_key_based_pcg_users(policy_id, xiq_create_key_based_pcg_users_request, _async=_async)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ConfigurationUserManagementApi->add_key_based_pcg_users: %s\n" % e)
 ```
@@ -81,10 +83,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **policy_id** | **int**| The network policy ID | 
  **xiq_create_key_based_pcg_users_request** | [**XiqCreateKeyBasedPcgUsersRequest**](XiqCreateKeyBasedPcgUsersRequest.md)| The payload of add users to PCG-enabled network policy | 
+ **_async** | **bool**| Whether to enable async mode | [optional] [default to False]
 
 ### Return type
 
-void (empty response body)
+[**XiqCreateKeyBasedPcgUsersResponse**](XiqCreateKeyBasedPcgUsersResponse.md)
 
 ### Authorization
 
@@ -101,7 +104,7 @@ void (empty response body)
 **401** | Unauthorized |  -  |
 **400** | Bad Request |  -  |
 **500** | Internal Server Error |  -  |
-**202** | Accepted |  -  |
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -237,6 +240,83 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XiqEndUser**](XiqEndUser.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_key_based_pcg_network_policy**
+> XiqKeyBasedPcg create_key_based_pcg_network_policy(xiq_init_key_based_pcg_network_policy_request, _async=_async)
+
+[LRO] Create a Key-based Private Client Group
+
+Create a Key-based Private Client Group, including network policy, user, user group, SSID, etc.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.ConfigurationUserManagementApi(api_client)
+    xiq_init_key_based_pcg_network_policy_request = extremecloudiq.XiqInitKeyBasedPcgNetworkPolicyRequest() # XiqInitKeyBasedPcgNetworkPolicyRequest | The request to create Key-based PCG network policy
+_async = False # bool | Whether to enable async mode (optional) (default to False)
+
+    try:
+        # [LRO] Create a Key-based Private Client Group
+        api_response = api_instance.create_key_based_pcg_network_policy(xiq_init_key_based_pcg_network_policy_request, _async=_async)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ConfigurationUserManagementApi->create_key_based_pcg_network_policy: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xiq_init_key_based_pcg_network_policy_request** | [**XiqInitKeyBasedPcgNetworkPolicyRequest**](XiqInitKeyBasedPcgNetworkPolicyRequest.md)| The request to create Key-based PCG network policy | 
+ **_async** | **bool**| Whether to enable async mode | [optional] [default to False]
+
+### Return type
+
+[**XiqKeyBasedPcg**](XiqKeyBasedPcg.md)
 
 ### Authorization
 
@@ -1318,11 +1398,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **onboard_key_based_private_client_group**
-> onboard_key_based_private_client_group(policy_id, xiq_onboard_key_based_pcg_request)
+> XiqOnboardKeyBasedPcgResponse onboard_key_based_private_client_group(policy_id, xiq_onboard_key_based_pcg_request, _async=_async)
 
-Create Key-based PCG in network policy
+[LRO] Onboard Key-based PCG in network policy
 
-Create a Key-based Private Client Group for a specific network policy.
+Onboard a Key-based Private Client Group for a specific network policy.
 
 ### Example
 
@@ -1355,10 +1435,12 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     api_instance = extremecloudiq.ConfigurationUserManagementApi(api_client)
     policy_id = 56 # int | The network policy ID
 xiq_onboard_key_based_pcg_request = extremecloudiq.XiqOnboardKeyBasedPcgRequest() # XiqOnboardKeyBasedPcgRequest | 
+_async = False # bool | Whether to enable async mode (optional) (default to False)
 
     try:
-        # Create Key-based PCG in network policy
-        api_instance.onboard_key_based_private_client_group(policy_id, xiq_onboard_key_based_pcg_request)
+        # [LRO] Onboard Key-based PCG in network policy
+        api_response = api_instance.onboard_key_based_private_client_group(policy_id, xiq_onboard_key_based_pcg_request, _async=_async)
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ConfigurationUserManagementApi->onboard_key_based_private_client_group: %s\n" % e)
 ```
@@ -1369,10 +1451,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **policy_id** | **int**| The network policy ID | 
  **xiq_onboard_key_based_pcg_request** | [**XiqOnboardKeyBasedPcgRequest**](XiqOnboardKeyBasedPcgRequest.md)|  | 
+ **_async** | **bool**| Whether to enable async mode | [optional] [default to False]
 
 ### Return type
 
-void (empty response body)
+[**XiqOnboardKeyBasedPcgResponse**](XiqOnboardKeyBasedPcgResponse.md)
 
 ### Authorization
 
@@ -1389,7 +1472,7 @@ void (empty response body)
 **401** | Unauthorized |  -  |
 **400** | Bad Request |  -  |
 **500** | Internal Server Error |  -  |
-**202** | Accepted |  -  |
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1465,80 +1548,6 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **500** | Internal Server Error |  -  |
 **200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **setup_key_based_private_client_group_network_policy**
-> setup_key_based_private_client_group_network_policy(xiq_init_key_based_pcg_network_policy_request)
-
-Setup a Key-based Private Client Group
-
-Setup a Key-based Private Client Group, including network policy, user, user group, SSID, etc.
-
-### Example
-
-* Bearer (JWT) Authentication (Bearer):
-```python
-from __future__ import print_function
-import time
-import extremecloudiq
-from extremecloudiq.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost:8081
-# See configuration.py for a list of all supported configuration parameters.
-configuration = extremecloudiq.Configuration(
-    host = "http://localhost:8081"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): Bearer
-configuration = extremecloudiq.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with extremecloudiq.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = extremecloudiq.ConfigurationUserManagementApi(api_client)
-    xiq_init_key_based_pcg_network_policy_request = extremecloudiq.XiqInitKeyBasedPcgNetworkPolicyRequest() # XiqInitKeyBasedPcgNetworkPolicyRequest | The request to setup Key-based PCG network policy
-
-    try:
-        # Setup a Key-based Private Client Group
-        api_instance.setup_key_based_private_client_group_network_policy(xiq_init_key_based_pcg_network_policy_request)
-    except ApiException as e:
-        print("Exception when calling ConfigurationUserManagementApi->setup_key_based_private_client_group_network_policy: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xiq_init_key_based_pcg_network_policy_request** | [**XiqInitKeyBasedPcgNetworkPolicyRequest**](XiqInitKeyBasedPcgNetworkPolicyRequest.md)| The request to setup Key-based PCG network policy | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**400** | Bad Request |  -  |
-**500** | Internal Server Error |  -  |
-**202** | Accepted |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

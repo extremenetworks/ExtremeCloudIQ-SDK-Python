@@ -1,6 +1,6 @@
 # XiqInitKeyBasedPcgNetworkPolicyRequest
 
-The request to initiate Key-based Private Client Group
+The request to create Key-based Private Client Group
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -24,6 +24,10 @@ Name | Type | Description | Notes
 **alert_policy_name** | **str** | The policy name of alert | [optional] 
 **alert_rule_id** | **int** | The rule id of alert | [optional] 
 **acknowledged_username** | **str** | The user&#39;s email who acknowledged | [optional] 
+**floor_id** | **int** | The floor id of alert | [optional] 
+**floor_name** | **str** | The floor name of alert | [optional] 
+**building_id** | **int** | The buiding id of alert | [optional] 
+**building_name** | **str** | The building name of alert | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

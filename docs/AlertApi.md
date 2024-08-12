@@ -1641,7 +1641,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_alerts**
-> PagedXiqAlert list_alerts(start_time, end_time, page=page, limit=limit, severity_ids=severity_ids, category_ids=category_ids, message_metadata_ids=message_metadata_ids, acknowledged=acknowledged, site_id=site_id, keyword=keyword, sort_field=sort_field, order=order)
+> PagedXiqAlert list_alerts(start_time, end_time, page=page, limit=limit, severity_ids=severity_ids, category_ids=category_ids, message_metadata_ids=message_metadata_ids, acknowledged=acknowledged, site_id=site_id, floor_id=floor_id, building_id=building_id, keyword=keyword, sort_field=sort_field, order=order)
 
 List the alerts
 
@@ -1685,13 +1685,15 @@ category_ids = [56] # list[int] | The alert category ID to filter (optional)
 message_metadata_ids = [56] # list[int] | The message metadata ID list to filter (optional)
 acknowledged = True # bool | The acknowledged to filter, return global data if not specified (optional)
 site_id = 56 # int | The site id to filter (optional)
+floor_id = 56 # int | The floor id to filter (optional)
+building_id = 56 # int | The building id to filter (optional)
 keyword = 'keyword_example' # str | The keyword to filter, such as summary, severity, source, etc. (optional)
 sort_field = extremecloudiq.XiqAlertSortField() # XiqAlertSortField | The sort field (optional)
 order = extremecloudiq.XiqSortOrder() # XiqSortOrder | The sort order (descending by default) (optional)
 
     try:
         # List the alerts
-        api_response = api_instance.list_alerts(start_time, end_time, page=page, limit=limit, severity_ids=severity_ids, category_ids=category_ids, message_metadata_ids=message_metadata_ids, acknowledged=acknowledged, site_id=site_id, keyword=keyword, sort_field=sort_field, order=order)
+        api_response = api_instance.list_alerts(start_time, end_time, page=page, limit=limit, severity_ids=severity_ids, category_ids=category_ids, message_metadata_ids=message_metadata_ids, acknowledged=acknowledged, site_id=site_id, floor_id=floor_id, building_id=building_id, keyword=keyword, sort_field=sort_field, order=order)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling AlertApi->list_alerts: %s\n" % e)
@@ -1710,6 +1712,8 @@ Name | Type | Description  | Notes
  **message_metadata_ids** | [**list[int]**](int.md)| The message metadata ID list to filter | [optional] 
  **acknowledged** | **bool**| The acknowledged to filter, return global data if not specified | [optional] 
  **site_id** | **int**| The site id to filter | [optional] 
+ **floor_id** | **int**| The floor id to filter | [optional] 
+ **building_id** | **int**| The building id to filter | [optional] 
  **keyword** | **str**| The keyword to filter, such as summary, severity, source, etc. | [optional] 
  **sort_field** | [**XiqAlertSortField**](.md)| The sort field | [optional] 
  **order** | [**XiqSortOrder**](.md)| The sort order (descending by default) | [optional] 

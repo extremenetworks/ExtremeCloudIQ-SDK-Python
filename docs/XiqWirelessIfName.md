@@ -1,6 +1,6 @@
 # XiqWirelessIfName
 
-The one or multiple ssid on wifi interfaces (example:wifi0 or wifi1) to be disabled/enabled, cannot be empty or no SSID will be disabled or enabled.
+The Wireless Interface name e.g. wifi0, wifi1, wifi2
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

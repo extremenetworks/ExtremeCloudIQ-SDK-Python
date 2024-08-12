@@ -54,7 +54,7 @@ Method | HTTP request | Description
 [**get_mac_firewall_policy**](ConfigurationPolicyApi.md#get_mac_firewall_policy) | **GET** /mac-firewall-policies/{id} | Get MAC Firewall Policy by ID
 [**get_mac_object**](ConfigurationPolicyApi.md#get_mac_object) | **GET** /mac-object-profiles/{id} | Get MAC Object by ID
 [**get_neighborhood_analysis**](ConfigurationPolicyApi.md#get_neighborhood_analysis) | **GET** /radio-profiles/neighborhood-analysis/{id} | Get neighborhood analysis settings
-[**get_radio_operating_modes**](ConfigurationPolicyApi.md#get_radio_operating_modes) | **GET** /radio-operating-modes/{productType} | Get Radio Operating Modes by product tyoe
+[**get_radio_operating_modes**](ConfigurationPolicyApi.md#get_radio_operating_modes) | **GET** /radio-operating-modes/{productType} | Get Radio Operating Modes by product type
 [**get_radio_profile**](ConfigurationPolicyApi.md#get_radio_profile) | **GET** /radio-profiles/{id} | Get radio profile by ID
 [**get_rp_channel_selection**](ConfigurationPolicyApi.md#get_rp_channel_selection) | **GET** /radio-profiles/channel-selection/{id} | Get channel selection settings
 [**get_rp_mac_oui_profile**](ConfigurationPolicyApi.md#get_rp_mac_oui_profile) | **GET** /radio-profiles/mac-ouis/{id} | Get MAC OUI profile
@@ -3860,9 +3860,9 @@ Name | Type | Description  | Notes
 # **get_radio_operating_modes**
 > list[XiqRadioOperatingModes] get_radio_operating_modes(product_type)
 
-Get Radio Operating Modes by product tyoe
+Get Radio Operating Modes by product type
 
-.
+Modern AP hardware types include dual or triple band radios.         A limited subset of band combinations are supported.         Operating mode defines the supported band combinations per radio.             Access Points with fixed band radios use GENERIC operating mode.           SERVICE_2_5_6:   wifi0-2.4Ghz, wifi1-5Ghz, wifi2-6Ghz         SENSOR_SERVICE_5_6: wifi0-Tri-band sensor, wifi1-5Ghz, wifi2-6Ghz         SERVICE_5L_5H_6: wifi0-5G Low, wifi1-5G High, wifi2-6Ghz         SENSOR_SERVICE_5_2: wifi0-Tri-band sensor, wifi1-5GHz, wifi2-2.4Ghz         SERVICE_5L_5H_2: wifi0-5G Low, wifi1-5G High, wifi2-2.4Ghz         SERVICE_6L_5_6H: wifi0-6G Low, wifi1-5GHz, wifi2-6Ghz.
 
 ### Example
 
@@ -3893,10 +3893,10 @@ configuration = extremecloudiq.Configuration(
 with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
-    product_type = 'product_type_example' # str | radio op mode
+    product_type = 'product_type_example' # str | Product Type/Model
 
     try:
-        # Get Radio Operating Modes by product tyoe
+        # Get Radio Operating Modes by product type
         api_response = api_instance.get_radio_operating_modes(product_type)
         pprint(api_response)
     except ApiException as e:
@@ -3907,7 +3907,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product_type** | **str**| radio op mode | 
+ **product_type** | **str**| Product Type/Model | 
 
 ### Return type
 

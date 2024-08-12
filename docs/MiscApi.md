@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost:8081*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_country_list**](MiscApi.md#get_country_list) | **GET** /countries | Get country list
-[**get_state_list_by_country_code**](MiscApi.md#get_state_list_by_country_code) | **GET** /countries/{countryAlpha2Code}/states | Get state list in a country
+[**get_state_list_by_country_code**](MiscApi.md#get_state_list_by_country_code) | **GET** /countries/{countryAlpha2Code}/states | Get state list by country code
 [**validate_country_code**](MiscApi.md#validate_country_code) | **GET** /countries/{countryCode}/:validate | Validate country code
 
 
@@ -73,7 +73,7 @@ No authorization required
 # **get_state_list_by_country_code**
 > list[XiqCountryState] get_state_list_by_country_code(country_alpha2_code)
 
-Get state list in a country
+Get state list by country code
 
 Get list of states or provinces in a country with country alpha2 code.
 
@@ -99,7 +99,7 @@ with extremecloudiq.ApiClient() as api_client:
     country_alpha2_code = 'country_alpha2_code_example' # str | 
 
     try:
-        # Get state list in a country
+        # Get state list by country code
         api_response = api_instance.get_state_list_by_country_code(country_alpha2_code)
         pprint(api_response)
     except ApiException as e:

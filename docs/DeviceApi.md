@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**change_hostname**](DeviceApi.md#change_hostname) | **PUT** /devices/{id}/hostname | Change hostname for a device
 [**change_status_to_manage**](DeviceApi.md#change_status_to_manage) | **POST** /devices/:manage | Change status to Managed
 [**change_status_to_unmanage**](DeviceApi.md#change_status_to_unmanage) | **POST** /devices/:unmanage | Change status to Unmanaged
+[**configure_device_radio_operating_mode**](DeviceApi.md#configure_device_radio_operating_mode) | **PUT** /devices/{id}/radio-operating-mode | Configure radio operating mode of a device
 [**configure_ftm_settings**](DeviceApi.md#configure_ftm_settings) | **PUT** /devices/{id}/ftm-settings | Configure (create / update) device FTM Settings
 [**create_device_ipv4_interface**](DeviceApi.md#create_device_ipv4_interface) | **POST** /devices/{id}/config/vlan-ipv4-intf | Create an IPv4 Interface for a device
 [**create_device_ipv4_static_route**](DeviceApi.md#create_device_ipv4_static_route) | **POST** /devices/{id}/config/vlan-ipv4-static | Create an IPv4 Static Route for a device
@@ -36,9 +37,10 @@ Method | HTTP request | Description
 [**disable_iot_on_device**](DeviceApi.md#disable_iot_on_device) | **POST** /devices/{id}/iot/:disable | Disable IoT Wireless Interface settings on device
 [**download_device_gallery_image**](DeviceApi.md#download_device_gallery_image) | **GET** /devices/{id}/gallery-image | Download device gallery image.
 [**enable_iot_on_device**](DeviceApi.md#enable_iot_on_device) | **POST** /devices/{id}/iot/:enable | Enable IoT Wireless Interface settings on device
-[**get_device**](DeviceApi.md#get_device) | **GET** /devices/{id} | Get device info for a specific device
+[**get_device1**](DeviceApi.md#get_device1) | **GET** /devices/{id} | Get device info for a specific device
 [**get_device_client_monitor**](DeviceApi.md#get_device_client_monitor) | **GET** /devices/{id}/client-monitor | Get client monitor setting for a device
 [**get_device_cpu_memory_history**](DeviceApi.md#get_device_cpu_memory_history) | **GET** /devices/{id}/history/cpu-mem | Get device CPU/memory usage history
+[**get_device_geolocation**](DeviceApi.md#get_device_geolocation) | **GET** /devices/{id}/geolocation | Get Geolocation for a device
 [**get_device_ibeacon**](DeviceApi.md#get_device_ibeacon) | **GET** /devices/{id}/ibeacon | Get the device iBeacon setting
 [**get_device_iot**](DeviceApi.md#get_device_iot) | **GET** /devices/{id}/iot | Get the device IoT Wireless Interface settings
 [**get_device_ipv4_interfaces**](DeviceApi.md#get_device_ipv4_interfaces) | **GET** /devices/{id}/config/vlan-ipv4-intf | Get IPv4 Interfaces for a device
@@ -46,6 +48,7 @@ Method | HTTP request | Description
 [**get_device_level_ssid_status**](DeviceApi.md#get_device_level_ssid_status) | **GET** /devices/{id}/ssid/status | Get SSID status for a device
 [**get_device_location**](DeviceApi.md#get_device_location) | **GET** /devices/{id}/location | Get location for a device
 [**get_device_network_policy**](DeviceApi.md#get_device_network_policy) | **GET** /devices/{id}/network-policy | Get network policy for a device
+[**get_device_radio_operating_mode**](DeviceApi.md#get_device_radio_operating_mode) | **GET** /devices/{id}/radio-operating-mode | Get the device radio operating mode
 [**get_device_stats**](DeviceApi.md#get_device_stats) | **GET** /devices/stats | Get device stats
 [**get_device_wifi_interface**](DeviceApi.md#get_device_wifi_interface) | **GET** /devices/{id}/interfaces/wifi | Get the device WiFi interfaces stats
 [**get_ftm_settings**](DeviceApi.md#get_ftm_settings) | **GET** /devices/{id}/ftm-settings | Get FTM Settings by device ID
@@ -1512,6 +1515,82 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **configure_device_radio_operating_mode**
+> configure_device_radio_operating_mode(id, xiq_device_radio_operating_mode)
+
+Configure radio operating mode of a device
+
+Configure the device-specific radio operating mode settings at device level
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device ID
+xiq_device_radio_operating_mode = extremecloudiq.XiqDeviceRadioOperatingMode() # XiqDeviceRadioOperatingMode | 
+
+    try:
+        # Configure radio operating mode of a device
+        api_instance.configure_device_radio_operating_mode(id, xiq_device_radio_operating_mode)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->configure_device_radio_operating_mode: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device ID | 
+ **xiq_device_radio_operating_mode** | [**XiqDeviceRadioOperatingMode**](XiqDeviceRadioOperatingMode.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **configure_ftm_settings**
 > XiqFtmSettings configure_ftm_settings(id, xiq_ftm_settings_request)
 
@@ -2500,8 +2579,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_device**
-> XiqDevice get_device(id, views=views, fields=fields)
+# **get_device1**
+> XiqDevice get_device1(id, views=views, fields=fields)
 
 Get device info for a specific device
 
@@ -2542,10 +2621,10 @@ fields = [extremecloudiq.XiqDeviceField()] # list[XiqDeviceField] | The device f
 
     try:
         # Get device info for a specific device
-        api_response = api_instance.get_device(id, views=views, fields=fields)
+        api_response = api_instance.get_device1(id, views=views, fields=fields)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling DeviceApi->get_device: %s\n" % e)
+        print("Exception when calling DeviceApi->get_device1: %s\n" % e)
 ```
 
 ### Parameters
@@ -2715,6 +2794,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**list[XiqDeviceCpuMemoryUsage]**](XiqDeviceCpuMemoryUsage.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_device_geolocation**
+> XiqDeviceGeolocation get_device_geolocation(id)
+
+Get Geolocation for a device
+
+Get the Geolocation info for a specific device.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device ID
+
+    try:
+        # Get Geolocation for a device
+        api_response = api_instance.get_device_geolocation(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->get_device_geolocation: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device ID | 
+
+### Return type
+
+[**XiqDeviceGeolocation**](XiqDeviceGeolocation.md)
 
 ### Authorization
 
@@ -3248,6 +3402,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**XiqNetworkPolicy**](XiqNetworkPolicy.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_device_radio_operating_mode**
+> XiqDeviceRadioOperatingMode get_device_radio_operating_mode(id)
+
+Get the device radio operating mode
+
+Get the device radio operating mode by device ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    id = 56 # int | The device ID
+
+    try:
+        # Get the device radio operating mode
+        api_response = api_instance.get_device_radio_operating_mode(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->get_device_radio_operating_mode: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The device ID | 
+
+### Return type
+
+[**XiqDeviceRadioOperatingMode**](XiqDeviceRadioOperatingMode.md)
 
 ### Authorization
 

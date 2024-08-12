@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **minor** | **int** | Identification of a beacon in a specific location. Default to 1 for newly enabled device. | [optional] 
 **power** | **int** | The transmission power in dBm. Default to -59 for newly enabled device. | [optional] 
 **enable_monitoring** | **bool** | Whether to enable iBeacon monitoring. Default to true for newly enabled device. | [optional] 
+**enable_cloud_reporting** | **bool** | Whether the device iBeacon Cloud Reporting is enabled. Default to true for newly enabled device. | [optional] 
+**enable_batch_reporting** | **bool** | Whether the device iBeacon Batch Reporting is enabled. Default to false for newly enabled device. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
