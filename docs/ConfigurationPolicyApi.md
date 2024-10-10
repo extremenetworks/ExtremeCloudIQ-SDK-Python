@@ -4837,7 +4837,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_cloud_config_groups**
-> PagedXiqCloudConfigGroup list_cloud_config_groups(page=page, limit=limit)
+> PagedXiqCloudConfigGroup list_cloud_config_groups(page=page, limit=limit, sort_field=sort_field, order=order)
 
 List clould config groups
 
@@ -4874,10 +4874,12 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     api_instance = extremecloudiq.ConfigurationPolicyApi(api_client)
     page = 1 # int | Page number, min = 1 (optional) (default to 1)
 limit = 10 # int | Page Size, min = 1, max = 100 (optional) (default to 10)
+sort_field = extremecloudiq.XiqCloudConfigGroupSortField() # XiqCloudConfigGroupSortField | The Sort field (Name by default) (optional)
+order = extremecloudiq.XiqSortOrder() # XiqSortOrder | The Sort order (ascending by default) (optional)
 
     try:
         # List clould config groups
-        api_response = api_instance.list_cloud_config_groups(page=page, limit=limit)
+        api_response = api_instance.list_cloud_config_groups(page=page, limit=limit, sort_field=sort_field, order=order)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ConfigurationPolicyApi->list_cloud_config_groups: %s\n" % e)
@@ -4889,6 +4891,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number, min &#x3D; 1 | [optional] [default to 1]
  **limit** | **int**| Page Size, min &#x3D; 1, max &#x3D; 100 | [optional] [default to 10]
+ **sort_field** | [**XiqCloudConfigGroupSortField**](.md)| The Sort field (Name by default) | [optional] 
+ **order** | [**XiqSortOrder**](.md)| The Sort order (ascending by default) | [optional] 
 
 ### Return type
 

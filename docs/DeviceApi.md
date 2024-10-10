@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**change_hostname**](DeviceApi.md#change_hostname) | **PUT** /devices/{id}/hostname | Change hostname for a device
 [**change_status_to_manage**](DeviceApi.md#change_status_to_manage) | **POST** /devices/:manage | Change status to Managed
 [**change_status_to_unmanage**](DeviceApi.md#change_status_to_unmanage) | **POST** /devices/:unmanage | Change status to Unmanaged
+[**check_device_ownership**](DeviceApi.md#check_device_ownership) | **POST** /devices/:check-ownership | Check caller is allowed to access the device
 [**configure_device_radio_operating_mode**](DeviceApi.md#configure_device_radio_operating_mode) | **PUT** /devices/{id}/radio-operating-mode | Configure radio operating mode of a device
 [**configure_ftm_settings**](DeviceApi.md#configure_ftm_settings) | **PUT** /devices/{id}/ftm-settings | Configure (create / update) device FTM Settings
 [**create_device_ipv4_interface**](DeviceApi.md#create_device_ipv4_interface) | **POST** /devices/{id}/config/vlan-ipv4-intf | Create an IPv4 Interface for a device
@@ -1515,6 +1516,81 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **check_device_ownership**
+> bool check_device_ownership(body)
+
+Check caller is allowed to access the device
+
+Check caller is allowed to access the device.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.DeviceApi(api_client)
+    body = 'body_example' # str | 
+
+    try:
+        # Check caller is allowed to access the device
+        api_response = api_instance.check_device_ownership(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DeviceApi->check_device_ownership: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **str**|  | 
+
+### Return type
+
+**bool**
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **configure_device_radio_operating_mode**
 > configure_device_radio_operating_mode(id, xiq_device_radio_operating_mode)
 
@@ -2734,7 +2810,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_device_cpu_memory_history**
-> list[XiqDeviceCpuMemoryUsage] get_device_cpu_memory_history(id, start_time, end_time, interval)
+> list[XiqDeviceCpuMemoryUsage] get_device_cpu_memory_history(id, start_time, end_time, interval=interval)
 
 Get device CPU/memory usage history
 
@@ -2772,11 +2848,11 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     id = 56 # int | Device ID
 start_time = 56 # int | The start time to query, epoch time in milliseconds since 1/1/1970
 end_time = 56 # int | The end time to query, epoch time in milliseconds since 1/1/1970
-interval = 56 # int | The aggregate interval in milliseconds
+interval = 10 # int | The aggregate interval in milliseconds, min = 10 (optional) (default to 10)
 
     try:
         # Get device CPU/memory usage history
-        api_response = api_instance.get_device_cpu_memory_history(id, start_time, end_time, interval)
+        api_response = api_instance.get_device_cpu_memory_history(id, start_time, end_time, interval=interval)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DeviceApi->get_device_cpu_memory_history: %s\n" % e)
@@ -2789,7 +2865,7 @@ Name | Type | Description  | Notes
  **id** | **int**| Device ID | 
  **start_time** | **int**| The start time to query, epoch time in milliseconds since 1/1/1970 | 
  **end_time** | **int**| The end time to query, epoch time in milliseconds since 1/1/1970 | 
- **interval** | **int**| The aggregate interval in milliseconds | 
+ **interval** | **int**| The aggregate interval in milliseconds, min &#x3D; 10 | [optional] [default to 10]
 
 ### Return type
 

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **received** | **int** |  | [optional] 
 **reason** | **str** |  | [optional] 
 **spectrum** | [**XiqAfcAvailableSpectrum**](XiqAfcAvailableSpectrum.md) |  | [optional] 
+**band_width** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

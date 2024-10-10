@@ -1065,7 +1065,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_wireless_performance_by_location**
-> XiqWirelessConnectivityPerformanceResponse get_wireless_performance_by_location(location_id, start_time, end_time, ssid=ssid, os_type=os_type, forensic_bucket=forensic_bucket)
+> XiqWirelessConnectivityPerformanceResponse get_wireless_performance_by_location(building_id, start_time, end_time, ssid=ssid, os_type=os_type, forensic_bucket=forensic_bucket)
 
 
 
@@ -1098,7 +1098,7 @@ configuration = extremecloudiq.Configuration(
 with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = extremecloudiq.CopilotConnectivityExperienceApi(api_client)
-    location_id = 'location_id_example' # str | The location identifier
+    building_id = 'building_id_example' # str | The location identifier for building
 start_time = 56 # int | The start time to query, epoch time in milliseconds since 1/1/1970
 end_time = 56 # int | The end time to query, epoch time in milliseconds since 1/1/1970
 ssid = '' # str | The ssid (optional) (default to '')
@@ -1106,7 +1106,7 @@ os_type = '' # str | The client type (optional) (default to '')
 forensic_bucket = extremecloudiq.XiqForensicBucket() # XiqForensicBucket | The time period bucket detected (optional)
 
     try:
-        api_response = api_instance.get_wireless_performance_by_location(location_id, start_time, end_time, ssid=ssid, os_type=os_type, forensic_bucket=forensic_bucket)
+        api_response = api_instance.get_wireless_performance_by_location(building_id, start_time, end_time, ssid=ssid, os_type=os_type, forensic_bucket=forensic_bucket)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CopilotConnectivityExperienceApi->get_wireless_performance_by_location: %s\n" % e)
@@ -1116,7 +1116,7 @@ forensic_bucket = extremecloudiq.XiqForensicBucket() # XiqForensicBucket | The t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **location_id** | **str**| The location identifier | 
+ **building_id** | **str**| The location identifier for building | 
  **start_time** | **int**| The start time to query, epoch time in milliseconds since 1/1/1970 | 
  **end_time** | **int**| The end time to query, epoch time in milliseconds since 1/1/1970 | 
  **ssid** | **str**| The ssid | [optional] [default to &#39;&#39;]
@@ -1231,7 +1231,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_wireless_quality_index_by_location**
-> XiqWirelessQualityIndexByLocationResponse get_wireless_quality_index_by_location(location_id, start_time, end_time, ssid=ssid, os_type=os_type, forensic_bucket=forensic_bucket)
+> XiqWirelessQualityIndexByLocationResponse get_wireless_quality_index_by_location(building_id, start_time, end_time, ssid=ssid, os_type=os_type, forensic_bucket=forensic_bucket)
 
 
 
@@ -1264,7 +1264,7 @@ configuration = extremecloudiq.Configuration(
 with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = extremecloudiq.CopilotConnectivityExperienceApi(api_client)
-    location_id = 'location_id_example' # str | The location identifier
+    building_id = 'building_id_example' # str | The location identifier for building
 start_time = 56 # int | The start time to query, epoch time in milliseconds since 1/1/1970
 end_time = 56 # int | The end time to query, epoch time in milliseconds since 1/1/1970
 ssid = '' # str | The ssid (optional) (default to '')
@@ -1272,7 +1272,7 @@ os_type = '' # str | The os type (optional) (default to '')
 forensic_bucket = extremecloudiq.XiqForensicBucket() # XiqForensicBucket | The time period bucket detected (optional)
 
     try:
-        api_response = api_instance.get_wireless_quality_index_by_location(location_id, start_time, end_time, ssid=ssid, os_type=os_type, forensic_bucket=forensic_bucket)
+        api_response = api_instance.get_wireless_quality_index_by_location(building_id, start_time, end_time, ssid=ssid, os_type=os_type, forensic_bucket=forensic_bucket)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CopilotConnectivityExperienceApi->get_wireless_quality_index_by_location: %s\n" % e)
@@ -1282,7 +1282,7 @@ forensic_bucket = extremecloudiq.XiqForensicBucket() # XiqForensicBucket | The t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **location_id** | **str**| The location identifier | 
+ **building_id** | **str**| The location identifier for building | 
  **start_time** | **int**| The start time to query, epoch time in milliseconds since 1/1/1970 | 
  **end_time** | **int**| The end time to query, epoch time in milliseconds since 1/1/1970 | 
  **ssid** | **str**| The ssid | [optional] [default to &#39;&#39;]
@@ -1397,7 +1397,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_wireless_time_to_connect_by_location**
-> XiqWirelessTimeToConnectResponse get_wireless_time_to_connect_by_location(location_id, start_time, end_time, ssid=ssid, os_type=os_type, forensic_bucket=forensic_bucket)
+> XiqWirelessTimeToConnectResponse get_wireless_time_to_connect_by_location(building_id, start_time, end_time, ssid=ssid, os_type=os_type, forensic_bucket=forensic_bucket)
 
 
 
@@ -1430,7 +1430,7 @@ configuration = extremecloudiq.Configuration(
 with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = extremecloudiq.CopilotConnectivityExperienceApi(api_client)
-    location_id = 'location_id_example' # str | The location identifier
+    building_id = 'building_id_example' # str | The location identifier for building
 start_time = 56 # int | The start time to query, epoch time in milliseconds since 1/1/1970
 end_time = 56 # int | The end time to query, epoch time in milliseconds since 1/1/1970
 ssid = '' # str | The ssid (optional) (default to '')
@@ -1438,7 +1438,7 @@ os_type = '' # str | The client type (optional) (default to '')
 forensic_bucket = extremecloudiq.XiqForensicBucket() # XiqForensicBucket | The time period bucket detected (optional)
 
     try:
-        api_response = api_instance.get_wireless_time_to_connect_by_location(location_id, start_time, end_time, ssid=ssid, os_type=os_type, forensic_bucket=forensic_bucket)
+        api_response = api_instance.get_wireless_time_to_connect_by_location(building_id, start_time, end_time, ssid=ssid, os_type=os_type, forensic_bucket=forensic_bucket)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CopilotConnectivityExperienceApi->get_wireless_time_to_connect_by_location: %s\n" % e)
@@ -1448,7 +1448,7 @@ forensic_bucket = extremecloudiq.XiqForensicBucket() # XiqForensicBucket | The t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **location_id** | **str**| The location identifier | 
+ **building_id** | **str**| The location identifier for building | 
  **start_time** | **int**| The start time to query, epoch time in milliseconds since 1/1/1970 | 
  **end_time** | **int**| The end time to query, epoch time in milliseconds since 1/1/1970 | 
  **ssid** | **str**| The ssid | [optional] [default to &#39;&#39;]

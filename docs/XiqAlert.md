@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **org_id** | **int** | The organization identifier, valid when enabling HIQ feature | [optional] 
 **message_metadata_id** | **int** | The message metadata id | [optional] 
 **message_metadata_type** | **str** | The message metadata type | [optional] 
+**message_metadata_name** | **str** | The message metadata name | [optional] 
 **summary** | **str** | A high-level, text summary message of the event. Will be used to construct an alert&#39;s description. | [optional] 
 **severity_name** | **str** | The severity name of the alert | [optional] 
 **category_name** | **str** | The alert category name | [optional] 

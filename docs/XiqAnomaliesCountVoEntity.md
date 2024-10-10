@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **pe_count** | **int** | The port efficiency count | [optional] 
 **dfs_count** | **int** | The dfs recurrece count | [optional] 
 **mb_cast_count** | **int** | The multibroadcast count | [optional] 
+**hardware_health_count** | **int** | The hardware health count | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

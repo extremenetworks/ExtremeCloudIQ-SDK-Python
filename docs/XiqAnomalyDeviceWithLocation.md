@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **issue** | **str** | The issue | [optional] 
 **current_poe_mode** | **str** | The current poe mode | [optional] 
 **device_status** | **bool** | The device status | [optional] 
+**anomaly_subtypes** | **str** | The Anomaly Subtypes | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

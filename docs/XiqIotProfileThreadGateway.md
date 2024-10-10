@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **comm_credentials** | **str** | The Commissioner Credential is used along with the Extended PAN ID and Network Name to create the PSKc (Pre-Shared Key for the Commissioner). | [optional] 
 **comm_timeout** | **int** | After this timeout the Commissioner will shutdown. The default is 120 sec. but the max is approximately 23 days. | [optional] 
 **enable_nat64** | **bool** | Enable NAT64 functions including the translator and the prefix publishing. | [optional] 
+**enable_dns_search_domain** | **bool** | Enable adding DNS search domain to unqualified host lookups forwarded by upstream DNS (in the thread border router). | [optional] 
 **white_list** | [**list[XiqIotpTgWhiteListEntry]**](XiqIotpTgWhiteListEntry.md) |  | [optional] 
 **default_user_profile_id** | **int** | The default user-profile ID. | [optional] 
 

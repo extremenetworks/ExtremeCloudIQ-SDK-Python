@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**get_devices_by_location**](CopilotAnomaliesApi.md#get_devices_by_location) | **GET** /copilot/anomalies/devices-by-location | 
 [**get_dfs_recurrence_channel_stats**](CopilotAnomaliesApi.md#get_dfs_recurrence_channel_stats) | **GET** /copilot/anomalies/dfs-recurrence/channel-stats | 
 [**get_dfs_recurrence_count_stats**](CopilotAnomaliesApi.md#get_dfs_recurrence_count_stats) | **GET** /copilot/anomalies/dfs-recurrence/count-stats | 
+[**get_hardware_health_client_list**](CopilotAnomaliesApi.md#get_hardware_health_client_list) | **GET** /copilot/anomalies/hardware-health/client-list | 
+[**get_hardware_health_stats**](CopilotAnomaliesApi.md#get_hardware_health_stats) | **GET** /copilot/anomalies/hardware-health/stats | 
 [**get_lldp_cdp_info**](CopilotAnomaliesApi.md#get_lldp_cdp_info) | **GET** /copilot/anomalies/poeflapping/lldp-cdp-info | 
 [**get_poe_flapping_stats**](CopilotAnomaliesApi.md#get_poe_flapping_stats) | **GET** /copilot/anomalies/poeflapping/stats | 
 [**get_poe_flapping_trends**](CopilotAnomaliesApi.md#get_poe_flapping_trends) | **GET** /copilot/anomalies/poeflapping/trends | 
@@ -794,8 +796,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_lldp_cdp_info**
-> XiqCopilotLldpCdpInfo get_lldp_cdp_info(anomaly_id, device_id, last_detected_time)
+# **get_hardware_health_client_list**
+> XiqHardwareHealthClientListResponse get_hardware_health_client_list(timestamp, device_id)
 
 
 
@@ -828,12 +830,159 @@ configuration = extremecloudiq.Configuration(
 with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = extremecloudiq.CopilotAnomaliesApi(api_client)
-    anomaly_id = 'anomaly_id_example' # str | The anomaly ID
+    timestamp = 56 # int | The device id
+device_id = 56 # int | The timestamp
+
+    try:
+        api_response = api_instance.get_hardware_health_client_list(timestamp, device_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CopilotAnomaliesApi->get_hardware_health_client_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **timestamp** | **int**| The device id | 
+ **device_id** | **int**| The timestamp | 
+
+### Return type
+
+[**XiqHardwareHealthClientListResponse**](XiqHardwareHealthClientListResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_hardware_health_stats**
+> XiqHardwareHealthStatsResponse get_hardware_health_stats(anomaly_id)
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.CopilotAnomaliesApi(api_client)
+    anomaly_id = 'anomaly_id_example' # str | The anomaly id
+
+    try:
+        api_response = api_instance.get_hardware_health_stats(anomaly_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling CopilotAnomaliesApi->get_hardware_health_stats: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **anomaly_id** | **str**| The anomaly id | 
+
+### Return type
+
+[**XiqHardwareHealthStatsResponse**](XiqHardwareHealthStatsResponse.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**400** | Bad Request |  -  |
+**500** | Internal Server Error |  -  |
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_lldp_cdp_info**
+> XiqCopilotLldpCdpInfo get_lldp_cdp_info(anomaly_type, anomaly_id, device_id, last_detected_time)
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+from __future__ import print_function
+import time
+import extremecloudiq
+from extremecloudiq.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = extremecloudiq.CopilotAnomaliesApi(api_client)
+    anomaly_type = extremecloudiq.XiqAnomalyType() # XiqAnomalyType | The anomaly Type
+anomaly_id = 'anomaly_id_example' # str | The anomaly ID
 device_id = 56 # int | The device ID
 last_detected_time = 56 # int | The last detected timestamp of anomaly
 
     try:
-        api_response = api_instance.get_lldp_cdp_info(anomaly_id, device_id, last_detected_time)
+        api_response = api_instance.get_lldp_cdp_info(anomaly_type, anomaly_id, device_id, last_detected_time)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CopilotAnomaliesApi->get_lldp_cdp_info: %s\n" % e)
@@ -843,6 +992,7 @@ last_detected_time = 56 # int | The last detected timestamp of anomaly
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **anomaly_type** | [**XiqAnomalyType**](.md)| The anomaly Type | 
  **anomaly_id** | **str**| The anomaly ID | 
  **device_id** | **int**| The device ID | 
  **last_detected_time** | **int**| The last detected timestamp of anomaly | 
