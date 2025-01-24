@@ -1,0 +1,21 @@
+# extremecloudiq.model.xiq_update_radius_client_object_request.XiqUpdateRadiusClientObjectRequest
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**enable_permit_dynamic_authorization_message_change** | bool,  | BoolClass,  | The flag for enable permit dynamic authorization message change | 
+**enable_inject_operator_name_attribute** | bool,  | BoolClass,  | The flag for enable Inject Operator Name Attribute | 
+**accounting_interim_update_interval** | decimal.Decimal, int,  | decimal.Decimal,  | The accounting interim update interval, 60 - 100000000 seconds | value must be a 32 bit integer
+**enable_message_authenticator_attribute** | bool,  | BoolClass,  | The flag for enable message authenticator attribute | 
+**name** | str,  | str,  | The RADIUS client object name. | 
+**retry_interval** | decimal.Decimal, int,  | decimal.Decimal,  | The retry interval, 60 - 100000000 seconds | value must be a 32 bit integer
+**description** | str,  | str,  | The RADIUS client object description. | [optional] 
+**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+

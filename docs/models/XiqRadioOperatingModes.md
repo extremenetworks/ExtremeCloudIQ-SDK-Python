@@ -1,0 +1,30 @@
+# extremecloudiq.model.xiq_radio_operating_modes.XiqRadioOperatingModes
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**key** | [**XiqRadioBands**](XiqRadioBands.md) | [**XiqRadioBands**](XiqRadioBands.md) |  | [optional] 
+**[wireless_interfaces_list](#wireless_interfaces_list)** | list, tuple,  | tuple,  | Wireless Interface list | [optional] 
+**any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# wireless_interfaces_list
+
+Wireless Interface list
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | Wireless Interface list | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqDeviceInterfaceRadioMode**](XiqDeviceInterfaceRadioMode.md) | [**XiqDeviceInterfaceRadioMode**](XiqDeviceInterfaceRadioMode.md) | [**XiqDeviceInterfaceRadioMode**](XiqDeviceInterfaceRadioMode.md) |  | 
+
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+
