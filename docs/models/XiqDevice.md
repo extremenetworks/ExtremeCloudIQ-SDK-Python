@@ -46,6 +46,9 @@ Key | Input Type | Accessed Type | Description | Notes
 **managed_by** | str,  | str,  | The managed application for the device | [optional] 
 **thread0_eui64** | str,  | str,  | Thread router EUI64 | [optional] 
 **thread0_ext_mac** | str,  | str,  | Thread router extended MAC address | [optional] 
+**mgt_vlan** | decimal.Decimal, int,  | decimal.Decimal,  | Management VLAN | [optional] value must be a 32 bit integer
+**[images_names](#images_names)** | list, tuple,  | tuple,  | List of images assigned to this device | [optional] 
+**visible** | bool,  | BoolClass,  | The visible status of a device in a floor. | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # locations
@@ -75,6 +78,20 @@ list, tuple,  | tuple,  | The device LLDP/CDP information |
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**XiqDeviceLldpCdpInfo**](XiqDeviceLldpCdpInfo.md) | [**XiqDeviceLldpCdpInfo**](XiqDeviceLldpCdpInfo.md) | [**XiqDeviceLldpCdpInfo**](XiqDeviceLldpCdpInfo.md) |  | 
+
+# images_names
+
+List of images assigned to this device
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | List of images assigned to this device | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | List of images assigned to this device | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -107,6 +107,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_certificates.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_certificates.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_certificates.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_certificates.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_certificates.ApiResponseFor200) | OK
 
@@ -131,6 +132,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_certificates.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 

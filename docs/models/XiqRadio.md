@@ -16,6 +16,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **channel_number** | decimal.Decimal, int,  | decimal.Decimal,  | the channel number | [optional] value must be a 32 bit integer
 **mac_address** | str,  | str,  | the radio MAC address | [optional] 
 **power** | decimal.Decimal, int,  | decimal.Decimal,  | the radio power | [optional] value must be a 32 bit integer
+**frequency** | str,  | str,  | WIFI Frequency 2.4GHz,5GHz,6GHz | [optional] 
 **[clients](#clients)** | list, tuple,  | tuple,  | the clients and SSID details | [optional] 
 **[wlans](#wlans)** | list, tuple,  | tuple,  | the radios WLAN details | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]

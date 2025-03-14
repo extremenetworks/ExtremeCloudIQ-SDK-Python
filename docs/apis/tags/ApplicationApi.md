@@ -128,6 +128,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_application_top_clients_usage.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_application_top_clients_usage.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_application_top_clients_usage.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_application_top_clients_usage.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_application_top_clients_usage.ApiResponseFor200) | OK
 
@@ -152,6 +153,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_application_top_clients_usage.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -340,6 +354,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_applications.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_applications.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_applications.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_applications.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_applications.ApiResponseFor200) | OK
 
@@ -364,6 +379,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_applications.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -511,6 +539,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_top_applications_usage.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_top_applications_usage.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_top_applications_usage.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_top_applications_usage.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_top_applications_usage.ApiResponseFor200) | OK
 
@@ -535,6 +564,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_top_applications_usage.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 

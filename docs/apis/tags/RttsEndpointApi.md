@@ -109,6 +109,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#create_rtts_session.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#create_rtts_session.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#create_rtts_session.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#create_rtts_session.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#create_rtts_session.ApiResponseFor200) | OK
 
@@ -133,6 +134,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### create_rtts_session.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -266,6 +280,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#delete_rtts_session.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#delete_rtts_session.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#delete_rtts_session.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#delete_rtts_session.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_rtts_session.ApiResponseFor200) | OK
 
@@ -290,6 +305,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### delete_rtts_session.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 

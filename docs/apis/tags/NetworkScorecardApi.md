@@ -137,6 +137,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_client_health.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_client_health.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_client_health.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_client_health.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_health.ApiResponseFor200) | OK
 
@@ -161,6 +162,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_client_health.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -324,6 +338,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_device_health.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_device_health.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_device_health.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_device_health.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_health.ApiResponseFor200) | OK
 
@@ -348,6 +363,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_health.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -511,6 +539,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_network_health.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_network_health.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_network_health.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_network_health.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_network_health.ApiResponseFor200) | OK
 
@@ -535,6 +564,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_network_health.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -698,6 +740,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_services_health.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_services_health.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_services_health.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_services_health.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_services_health.ApiResponseFor200) | OK
 
@@ -722,6 +765,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_services_health.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -885,6 +941,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_wifi_health.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_wifi_health.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_wifi_health.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_wifi_health.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wifi_health.ApiResponseFor200) | OK
 
@@ -909,6 +966,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_wifi_health.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 

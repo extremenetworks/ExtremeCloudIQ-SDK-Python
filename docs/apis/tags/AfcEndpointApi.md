@@ -93,6 +93,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#create_site_afc_schedule.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#create_site_afc_schedule.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#create_site_afc_schedule.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#create_site_afc_schedule.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#create_site_afc_schedule.ApiResponseFor200) | OK
 
@@ -117,6 +118,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### create_site_afc_schedule.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -229,6 +243,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_afc_server.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_afc_server.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_afc_server.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_afc_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_afc_server.ApiResponseFor200) | OK
 
@@ -253,6 +268,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_afc_server.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -427,6 +455,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_afc_server_statistics.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_afc_server_statistics.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_afc_server_statistics.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_afc_server_statistics.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_afc_server_statistics.ApiResponseFor200) | OK
 
@@ -451,6 +480,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_afc_server_statistics.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -605,6 +647,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_afc_spectrum_per_ap.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_afc_spectrum_per_ap.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_afc_spectrum_per_ap.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_afc_spectrum_per_ap.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_afc_spectrum_per_ap.ApiResponseFor200) | OK
 
@@ -629,6 +672,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_afc_spectrum_per_ap.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -789,6 +845,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_afc_spectrum_per_site.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_afc_spectrum_per_site.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_afc_spectrum_per_site.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_afc_spectrum_per_site.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_afc_spectrum_per_site.ApiResponseFor200) | OK
 
@@ -813,6 +870,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_afc_spectrum_per_site.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -954,6 +1024,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_aps_afc_diagnostics.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_aps_afc_diagnostics.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_aps_afc_diagnostics.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_aps_afc_diagnostics.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_aps_afc_diagnostics.ApiResponseFor200) | OK
 
@@ -978,6 +1049,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_aps_afc_diagnostics.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1096,6 +1180,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_aps_afc_info.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_aps_afc_info.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_aps_afc_info.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_aps_afc_info.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_aps_afc_info.ApiResponseFor200) | OK
 
@@ -1120,6 +1205,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_aps_afc_info.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1236,6 +1334,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_aps_afc_summary_info.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_aps_afc_summary_info.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_aps_afc_summary_info.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_aps_afc_summary_info.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_aps_afc_summary_info.ApiResponseFor200) | OK
 
@@ -1260,6 +1359,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_aps_afc_summary_info.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1385,6 +1497,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_site_afc_schedule.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_site_afc_schedule.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_site_afc_schedule.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_site_afc_schedule.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_site_afc_schedule.ApiResponseFor200) | OK
 
@@ -1409,6 +1522,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_site_afc_schedule.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1528,6 +1654,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_afc_servers.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_afc_servers.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_afc_servers.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_afc_servers.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_afc_servers.ApiResponseFor200) | OK
 
@@ -1552,6 +1679,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_afc_servers.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1666,6 +1806,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#post_aps_manual_afc_spectrum.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#post_aps_manual_afc_spectrum.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#post_aps_manual_afc_spectrum.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#post_aps_manual_afc_spectrum.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#post_aps_manual_afc_spectrum.ApiResponseFor200) | OK
 
@@ -1690,6 +1831,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### post_aps_manual_afc_spectrum.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1796,6 +1950,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#update_site_afc_schedule.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#update_site_afc_schedule.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#update_site_afc_schedule.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#update_site_afc_schedule.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_site_afc_schedule.ApiResponseFor200) | OK
 
@@ -1820,6 +1975,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### update_site_afc_schedule.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 

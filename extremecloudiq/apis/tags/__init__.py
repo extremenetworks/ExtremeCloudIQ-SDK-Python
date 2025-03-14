@@ -6,7 +6,6 @@ import enum
 
 
 class TagValues(str, enum.Enum):
-    UNIVERSAL_COMPUTE_PLATFORM = "Universal Compute Platform"
     AUTHENTICATION = "Authentication"
     AUTHORIZATION = "Authorization"
     OPERATION = "Operation"
@@ -17,10 +16,18 @@ class TagValues(str, enum.Enum):
     DEVICE = "Device"
     NETWORK_POLICY = "Network Policy"
     CLIENT = "Client"
+    CLIENT__DETAILS = "Client - Details"
+    D360 = "D360"
+    DASHBOARD = "Dashboard"
+    DASHBOARD_WIRELESS_USAGE_AND_CAPACITY = "Dashboard Wireless Usage and Capacity"
+    DASHBOARD_WIRELESS_CLIENT_HEALTH = "Dashboard Wireless Client Health"
+    DASHBOARD_WIRELESS_DEVICE_HEALTH = "Dashboard Wireless Device Health"
+    GEO_VIEW = "Geo View"
     APPLICATION = "Application"
     ALERT = "Alert"
     LOG = "Log"
     NOTIFICATION = "Notification"
+    ADMINISTRATION = "Administration"
     NOS = "NOS"
     CONFIGURATION__DEPLOYMENT = "Configuration - Deployment"
     CONFIGURATION__BASIC = "Configuration - Basic"
@@ -36,5 +43,6 @@ class TagValues(str, enum.Enum):
     ESSENTIALS__EXTREME_LOCATION = "Essentials - ExtremeLocation"
     MISC = "Misc"
     THREAD = "Thread"
+    UNIVERSAL_COMPUTE_PLATFORM = "Universal Compute Platform"
     AFCENDPOINT = "afc-endpoint"
     RTTSENDPOINT = "rtts-endpoint"

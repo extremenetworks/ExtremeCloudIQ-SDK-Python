@@ -25,11 +25,81 @@ import frozendict  # noqa: F401
 
 from extremecloudiq import schemas  # noqa: F401
 
-from extremecloudiq.model.xiq_webhook_subscription import XiqWebhookSubscription
+from extremecloudiq.model.xiq_sort_order import XiqSortOrder
+from extremecloudiq.model.paged_xiq_webhook_subscription import PagedXiqWebhookSubscription
 from extremecloudiq.model.xiq_error import XiqError
 
 from . import path
 
+# Query params
+
+
+class PageSchema(
+    schemas.Int32Schema
+):
+
+
+    class MetaOapg:
+        format = 'int32'
+        inclusive_minimum = 1
+
+
+class LimitSchema(
+    schemas.Int32Schema
+):
+
+
+    class MetaOapg:
+        format = 'int32'
+        inclusive_maximum = 100
+        inclusive_minimum = 1
+OrderSchema = XiqSortOrder
+KeywordSchema = schemas.StrSchema
+RequestRequiredQueryParams = typing_extensions.TypedDict(
+    'RequestRequiredQueryParams',
+    {
+    }
+)
+RequestOptionalQueryParams = typing_extensions.TypedDict(
+    'RequestOptionalQueryParams',
+    {
+        'page': typing.Union[PageSchema, decimal.Decimal, int, ],
+        'limit': typing.Union[LimitSchema, decimal.Decimal, int, ],
+        'order': typing.Union[OrderSchema, ],
+        'keyword': typing.Union[KeywordSchema, str, ],
+    },
+    total=False
+)
+
+
+class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams):
+    pass
+
+
+request_query_page = api_client.QueryParameter(
+    name="page",
+    style=api_client.ParameterStyle.FORM,
+    schema=PageSchema,
+    explode=True,
+)
+request_query_limit = api_client.QueryParameter(
+    name="limit",
+    style=api_client.ParameterStyle.FORM,
+    schema=LimitSchema,
+    explode=True,
+)
+request_query_order = api_client.QueryParameter(
+    name="order",
+    style=api_client.ParameterStyle.FORM,
+    schema=OrderSchema,
+    explode=True,
+)
+request_query_keyword = api_client.QueryParameter(
+    name="keyword",
+    style=api_client.ParameterStyle.FORM,
+    schema=KeywordSchema,
+    explode=True,
+)
 _auth = [
     'Bearer',
 ]
@@ -71,6 +141,25 @@ _response_for_400 = api_client.OpenApiResponse(
             schema=SchemaFor400ResponseBodyApplicationJson),
     },
 )
+SchemaFor503ResponseBodyApplicationJson = XiqError
+
+
+@dataclass
+class ApiResponseFor503(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor503ResponseBodyApplicationJson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_503 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor503,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor503ResponseBodyApplicationJson),
+    },
+)
 SchemaFor500ResponseBodyApplicationJson = XiqError
 
 
@@ -90,32 +179,7 @@ _response_for_500 = api_client.OpenApiResponse(
             schema=SchemaFor500ResponseBodyApplicationJson),
     },
 )
-
-
-class SchemaFor200ResponseBodyApplicationJson(
-    schemas.ListSchema
-):
-
-
-    class MetaOapg:
-        
-        @staticmethod
-        def items() -> typing.Type['XiqWebhookSubscription']:
-            return XiqWebhookSubscription
-
-    def __new__(
-        cls,
-        _arg: typing.Union[typing.Tuple['XiqWebhookSubscription'], typing.List['XiqWebhookSubscription']],
-        _configuration: typing.Optional[schemas.Configuration] = None,
-    ) -> 'SchemaFor200ResponseBodyApplicationJson':
-        return super().__new__(
-            cls,
-            _arg,
-            _configuration=_configuration,
-        )
-
-    def __getitem__(self, i: int) -> 'XiqWebhookSubscription':
-        return super().__getitem__(i)
+SchemaFor200ResponseBodyApplicationJson = PagedXiqWebhookSubscription
 
 
 @dataclass
@@ -137,6 +201,7 @@ _response_for_200 = api_client.OpenApiResponse(
 _status_code_to_response = {
     '401': _response_for_401,
     '400': _response_for_400,
+    '503': _response_for_503,
     '500': _response_for_500,
     '200': _response_for_200,
 }
@@ -149,6 +214,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _call_list_oapg(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -161,6 +227,7 @@ class BaseApi(api_client.Api):
     def _call_list_oapg(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -169,6 +236,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _call_list_oapg(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -180,6 +248,7 @@ class BaseApi(api_client.Api):
 
     def _call_list_oapg(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -191,7 +260,24 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
+        self._verify_typed_dict_inputs_oapg(RequestQueryParams, query_params)
         used_path = path.value
+
+        prefix_separator_iterator = None
+        for parameter in (
+            request_query_page,
+            request_query_limit,
+            request_query_order,
+            request_query_keyword,
+        ):
+            parameter_data = query_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
+                continue
+            if prefix_separator_iterator is None:
+                prefix_separator_iterator = parameter.get_prefix_separator_iterator()
+            serialized_data = parameter.serialize(parameter_data, prefix_separator_iterator)
+            for serialized_value in serialized_data.values():
+                used_path += serialized_value
 
         _headers = HTTPHeaderDict()
         # TODO add cookie handling
@@ -233,6 +319,7 @@ class CallList(BaseApi):
     @typing.overload
     def call_list(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -245,6 +332,7 @@ class CallList(BaseApi):
     def call_list(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -253,6 +341,7 @@ class CallList(BaseApi):
     @typing.overload
     def call_list(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -264,12 +353,14 @@ class CallList(BaseApi):
 
     def call_list(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         return self._call_list_oapg(
+            query_params=query_params,
             accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,
@@ -283,6 +374,7 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -295,6 +387,7 @@ class ApiForget(BaseApi):
     def get(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -303,6 +396,7 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -314,12 +408,14 @@ class ApiForget(BaseApi):
 
     def get(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         return self._call_list_oapg(
+            query_params=query_params,
             accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,

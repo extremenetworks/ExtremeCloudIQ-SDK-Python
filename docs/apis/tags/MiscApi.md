@@ -54,6 +54,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_country_list.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_country_list.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_country_list.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_country_list.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_country_list.ApiResponseFor200) | OK
 
@@ -78,6 +79,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_country_list.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -192,6 +206,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_state_list_by_country_code.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_state_list_by_country_code.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_state_list_by_country_code.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_state_list_by_country_code.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_state_list_by_country_code.ApiResponseFor200) | OK
 
@@ -216,6 +231,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_state_list_by_country_code.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -329,6 +357,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#validate_country_code.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#validate_country_code.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#validate_country_code.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#validate_country_code.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#validate_country_code.ApiResponseFor200) | OK
 
@@ -353,6 +382,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### validate_country_code.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 

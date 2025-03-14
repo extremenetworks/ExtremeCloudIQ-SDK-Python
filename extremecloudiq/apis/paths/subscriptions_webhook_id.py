@@ -1,7 +1,7 @@
-from extremecloudiq.paths.subscriptions_webhook_id.delete import ApiFordelete
+from extremecloudiq.paths.subscriptions_webhook_id.put import ApiForput
 
 
 class SubscriptionsWebhookId(
-    ApiFordelete,
+    ApiForput,
 ):
     pass

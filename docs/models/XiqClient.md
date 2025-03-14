@@ -65,6 +65,11 @@ Key | Input Type | Accessed Type | Description | Notes
 **[th_ip_addresses](#th_ip_addresses)** | list, tuple,  | tuple,  | The thread client IP addresses | [optional] 
 **th_router_last_reported** | str, datetime,  | str,  | The last reported datetime by thread router | [optional] value must conform to RFC-3339 date-time
 **thread_connected** | bool,  | BoolClass,  | Is client connected to thread network | [optional] 
+**make** | str,  | str,  | The Manufacturer of the client associated device | [optional] 
+**os_version** | str,  | str,  | The OS version of the client associated device | [optional] 
+**connected_to** | str,  | str,  | The device name which client is connected to | [optional] 
+**connection_duration** | decimal.Decimal, int,  | decimal.Decimal,  | The client&#x27;s connection duration | [optional] value must be a 64 bit integer
+**captive_web_portal** | str,  | str,  | Captive Web Portal | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # locations

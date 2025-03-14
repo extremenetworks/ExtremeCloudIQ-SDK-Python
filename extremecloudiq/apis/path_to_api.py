@@ -1,9 +1,12 @@
 import typing_extensions
 
 from extremecloudiq.paths import PathValues
+from extremecloudiq.apis.paths.v1_account_viq_default_device_password import V1AccountViqDefaultDevicePassword
 from extremecloudiq.apis.paths.usergroups_id import UsergroupsId
 from extremecloudiq.apis.paths.user_profiles_id import UserProfilesId
 from extremecloudiq.apis.paths.tunnel_concentrators_id import TunnelConcentratorsId
+from extremecloudiq.apis.paths.third_party_api_connection import ThirdPartyApiConnection
+from extremecloudiq.apis.paths.subscriptions_webhook_id import SubscriptionsWebhookId
 from extremecloudiq.apis.paths.ssids_id_psk_password import SsidsIdPskPassword
 from extremecloudiq.apis.paths.ssids_id_mode_wep import SsidsIdModeWep
 from extremecloudiq.apis.paths.ssids_id_mode_psk import SsidsIdModePsk
@@ -42,6 +45,7 @@ from extremecloudiq.apis.paths.hiq_context import HiqContext
 from extremecloudiq.apis.paths.hiq_context_reading import HiqContextReading
 from extremecloudiq.apis.paths.hiq_context_creating import HiqContextCreating
 from extremecloudiq.apis.paths.endusers_id import EndusersId
+from extremecloudiq.apis.paths.devices_id_visible import DevicesIdVisible
 from extremecloudiq.apis.paths.devices_id_radio_operating_mode import DevicesIdRadioOperatingMode
 from extremecloudiq.apis.paths.devices_id_network_policy import DevicesIdNetworkPolicy
 from extremecloudiq.apis.paths.devices_id_location import DevicesIdLocation
@@ -52,6 +56,7 @@ from extremecloudiq.apis.paths.devices_id_client_monitor import DevicesIdClientM
 from extremecloudiq.apis.paths.devices_radius_proxy_assign import DevicesRadiusProxyAssign
 from extremecloudiq.apis.paths.devices_ibeacon import DevicesIbeacon
 from extremecloudiq.apis.paths.deployments_deployment_id import DeploymentsDeploymentId
+from extremecloudiq.apis.paths.credential_distribution_groups_id import CredentialDistributionGroupsId
 from extremecloudiq.apis.paths.copilot_anomalies_update_device_action import CopilotAnomaliesUpdateDeviceAction
 from extremecloudiq.apis.paths.copilot_anomalies_update_action import CopilotAnomaliesUpdateAction
 from extremecloudiq.apis.paths.copilot_anomalies_devices_update_action import CopilotAnomaliesDevicesUpdateAction
@@ -61,10 +66,12 @@ from extremecloudiq.apis.paths.client_monitor_profiles_id import ClientMonitorPr
 from extremecloudiq.apis.paths.classification_rules_id import ClassificationRulesId
 from extremecloudiq.apis.paths.ccgs_id import CcgsId
 from extremecloudiq.apis.paths.alert_subscriptions_webhooks_id import AlertSubscriptionsWebhooksId
+from extremecloudiq.apis.paths.alert_subscriptions_servicenow_id import AlertSubscriptionsServicenowId
 from extremecloudiq.apis.paths.alert_subscriptions_emails_id import AlertSubscriptionsEmailsId
 from extremecloudiq.apis.paths.alert_policies_policy_id_rules_rule_id import AlertPoliciesPolicyIdRulesRuleId
 from extremecloudiq.apis.paths.alert_policies_id import AlertPoliciesId
 from extremecloudiq.apis.paths.account_viq_default_device_password import AccountViqDefaultDevicePassword
+from extremecloudiq.apis.paths.account_vhm_setting_id import AccountVhmSettingId
 from extremecloudiq.apis.paths.vlan_profiles import VlanProfiles
 from extremecloudiq.apis.paths.vlan_profiles_delete import VlanProfilesDelete
 from extremecloudiq.apis.paths.users import Users
@@ -148,6 +155,10 @@ from extremecloudiq.apis.paths.devices_id_reset import DevicesIdReset
 from extremecloudiq.apis.paths.devices_id_reboot import DevicesIdReboot
 from extremecloudiq.apis.paths.devices_id_manage import DevicesIdManage
 from extremecloudiq.apis.paths.devices_id_cli import DevicesIdCli
+from extremecloudiq.apis.paths.devices_rm_devices_page import DevicesRmDevicesPage
+from extremecloudiq.apis.paths.devices_rm_devices_page_export import DevicesRmDevicesPageExport
+from extremecloudiq.apis.paths.devices_rm_devices_metadata import DevicesRmDevicesMetadata
+from extremecloudiq.apis.paths.devices_rm_devices_connection_status import DevicesRmDevicesConnectionStatus
 from extremecloudiq.apis.paths.devices_os_change import DevicesOsChange
 from extremecloudiq.apis.paths.devices_network_policy_revoke import DevicesNetworkPolicyRevoke
 from extremecloudiq.apis.paths.devices_network_policy_query import DevicesNetworkPolicyQuery
@@ -169,11 +180,45 @@ from extremecloudiq.apis.paths.devices_check_ownership import DevicesCheckOwners
 from extremecloudiq.apis.paths.devices_advanced_onboard import DevicesAdvancedOnboard
 from extremecloudiq.apis.paths.deployments import Deployments
 from extremecloudiq.apis.paths.deployments_firmware_metadatas import DeploymentsFirmwareMetadatas
+from extremecloudiq.apis.paths.dashboard_wireless_usage_capacity_grid import DashboardWirelessUsageCapacityGrid
+from extremecloudiq.apis.paths.dashboard_wireless_usage_capacity_export import DashboardWirelessUsageCapacityExport
+from extremecloudiq.apis.paths.dashboard_wireless_usage_capacity_excessive_utilization import DashboardWirelessUsageCapacityExcessiveUtilization
+from extremecloudiq.apis.paths.dashboard_wireless_usage_capacity_excessive_retries import DashboardWirelessUsageCapacityExcessiveRetries
+from extremecloudiq.apis.paths.dashboard_wireless_usage_capacity_excessive_packet_loss import DashboardWirelessUsageCapacityExcessivePacketLoss
+from extremecloudiq.apis.paths.dashboard_wireless_device_health_summary import DashboardWirelessDeviceHealthSummary
+from extremecloudiq.apis.paths.dashboard_wireless_device_health_issues_poe_usage_issues import DashboardWirelessDeviceHealthIssuesPoeUsageIssues
+from extremecloudiq.apis.paths.dashboard_wireless_device_health_issues_memory_usage_issues import DashboardWirelessDeviceHealthIssuesMemoryUsageIssues
+from extremecloudiq.apis.paths.dashboard_wireless_device_health_issues_cpu_usage_issues import DashboardWirelessDeviceHealthIssuesCpuUsageIssues
+from extremecloudiq.apis.paths.dashboard_wireless_device_health_grid import DashboardWirelessDeviceHealthGrid
+from extremecloudiq.apis.paths.dashboard_wireless_device_health_export import DashboardWirelessDeviceHealthExport
+from extremecloudiq.apis.paths.dashboard_wireless_dashboard_criteria import DashboardWirelessDashboardCriteria
+from extremecloudiq.apis.paths.dashboard_wireless_client_health_roaming_issues import DashboardWirelessClientHealthRoamingIssues
+from extremecloudiq.apis.paths.dashboard_wireless_client_health_issue_roaming import DashboardWirelessClientHealthIssueRoaming
+from extremecloudiq.apis.paths.dashboard_wireless_client_health_issue_ipaddress import DashboardWirelessClientHealthIssueIpaddress
+from extremecloudiq.apis.paths.dashboard_wireless_client_health_issue_authentication import DashboardWirelessClientHealthIssueAuthentication
+from extremecloudiq.apis.paths.dashboard_wireless_client_health_issue_association import DashboardWirelessClientHealthIssueAssociation
+from extremecloudiq.apis.paths.dashboard_wireless_client_health_grid import DashboardWirelessClientHealthGrid
+from extremecloudiq.apis.paths.dashboard_wireless_client_health_frequency_distribution import DashboardWirelessClientHealthFrequencyDistribution
+from extremecloudiq.apis.paths.dashboard_wireless_client_health_filter_metadata import DashboardWirelessClientHealthFilterMetadata
+from extremecloudiq.apis.paths.dashboard_wireless_client_health_export import DashboardWirelessClientHealthExport
+from extremecloudiq.apis.paths.dashboard_wireless_client_health_connectivity_issues import DashboardWirelessClientHealthConnectivityIssues
+from extremecloudiq.apis.paths.dashboard_usage_capacity import DashboardUsageCapacity
+from extremecloudiq.apis.paths.dashboard_sites_with_issues import DashboardSitesWithIssues
+from extremecloudiq.apis.paths.dashboard_export import DashboardExport
+from extremecloudiq.apis.paths.dashboard_devices import DashboardDevices
+from extremecloudiq.apis.paths.dashboard_clients import DashboardClients
+from extremecloudiq.apis.paths.dashboard_assets import DashboardAssets
+from extremecloudiq.apis.paths.dashboard_alerts import DashboardAlerts
+from extremecloudiq.apis.paths.d360_wireless_surrounding_aps import D360WirelessSurroundingAps
+from extremecloudiq.apis.paths.d360_client_grid import D360ClientGrid
+from extremecloudiq.apis.paths.d360_client_graph import D360ClientGraph
+from extremecloudiq.apis.paths.credential_distribution_groups import CredentialDistributionGroups
 from extremecloudiq.apis.paths.copilot_anomalies_exclude_vlans import CopilotAnomaliesExcludeVlans
 from extremecloudiq.apis.paths.copilot_anomalies_exclude_vlans_csv import CopilotAnomaliesExcludeVlansCsv
 from extremecloudiq.apis.paths.client_monitor_profiles import ClientMonitorProfiles
 from extremecloudiq.apis.paths.classification_rules import ClassificationRules
 from extremecloudiq.apis.paths.ccgs import Ccgs
+from extremecloudiq.apis.paths.backup_history_restore import BackupHistoryRestore
 from extremecloudiq.apis.paths.auth_permissions_check import AuthPermissionsCheck
 from extremecloudiq.apis.paths.auth_apitoken import AuthApitoken
 from extremecloudiq.apis.paths.auth_apitoken_validate import AuthApitokenValidate
@@ -183,25 +228,32 @@ from extremecloudiq.apis.paths.alerts_reports import AlertsReports
 from extremecloudiq.apis.paths.alerts_acknowledge import AlertsAcknowledge
 from extremecloudiq.apis.paths.alert_subscriptions_webhooks import AlertSubscriptionsWebhooks
 from extremecloudiq.apis.paths.alert_subscriptions_webhooks_delete import AlertSubscriptionsWebhooksDelete
+from extremecloudiq.apis.paths.alert_subscriptions_servicenow import AlertSubscriptionsServicenow
+from extremecloudiq.apis.paths.alert_subscriptions_servicenow_delete import AlertSubscriptionsServicenowDelete
 from extremecloudiq.apis.paths.alert_subscriptions_emails import AlertSubscriptionsEmails
 from extremecloudiq.apis.paths.alert_subscriptions_emails_id_verify import AlertSubscriptionsEmailsIdVerify
 from extremecloudiq.apis.paths.alert_subscriptions_emails_delete import AlertSubscriptionsEmailsDelete
 from extremecloudiq.apis.paths.alert_policies import AlertPolicies
 from extremecloudiq.apis.paths.alert_policies_policy_id_rules_rule_id_enable import AlertPoliciesPolicyIdRulesRuleIdEnable
 from extremecloudiq.apis.paths.alert_policies_policy_id_rules_rule_id_disable import AlertPoliciesPolicyIdRulesRuleIdDisable
+from extremecloudiq.apis.paths.acct_api_token import AcctApiToken
 from extremecloudiq.apis.paths.account_viq_import import AccountViqImport
 from extremecloudiq.apis.paths.account_viq_export import AccountViqExport
+from extremecloudiq.apis.paths.account_viq_reset import AccountViqReset
 from extremecloudiq.apis.paths.account_viq_backup import AccountViqBackup
 from extremecloudiq.apis.paths.account_switch import AccountSwitch
 from extremecloudiq.apis.paths.vlan_profiles_id import VlanProfilesId
 from extremecloudiq.apis.paths.users_id import UsersId
 from extremecloudiq.apis.paths.users_external_id import UsersExternalId
+from extremecloudiq.apis.paths.acct_api_token_id import AcctApiTokenId
 from extremecloudiq.apis.paths.users_me import UsersMe
+from extremecloudiq.apis.paths.usergroups_unique import UsergroupsUnique
 from extremecloudiq.apis.paths.user_profile_assignments_id import UserProfileAssignmentsId
 from extremecloudiq.apis.paths.ucp_id_engines_installed import UcpIdEnginesInstalled
 from extremecloudiq.apis.paths.thread_topology import ThreadTopology
 from extremecloudiq.apis.paths.thread_routers import ThreadRouters
 from extremecloudiq.apis.paths.thread_networks import ThreadNetworks
+from extremecloudiq.apis.paths.subscriptions_webhook_export import SubscriptionsWebhookExport
 from extremecloudiq.apis.paths.ssids import Ssids
 from extremecloudiq.apis.paths.sms_templates import SmsTemplates
 from extremecloudiq.apis.paths.radius_servers_internal_devices import RadiusServersInternalDevices
@@ -228,6 +280,7 @@ from extremecloudiq.apis.paths.locations_tree import LocationsTree
 from extremecloudiq.apis.paths.locations_tree_maps import LocationsTreeMaps
 from extremecloudiq.apis.paths.locations_tree_devices import LocationsTreeDevices
 from extremecloudiq.apis.paths.hiq_status import HiqStatus
+from extremecloudiq.apis.paths.geo_view import GeoView
 from extremecloudiq.apis.paths.essentials_eloc_clients_client_mac_last_known_location import EssentialsElocClientsClientMacLastKnownLocation
 from extremecloudiq.apis.paths.email_templates import EmailTemplates
 from extremecloudiq.apis.paths.devices import Devices
@@ -243,12 +296,25 @@ from extremecloudiq.apis.paths.devices_id_geolocation import DevicesIdGeolocatio
 from extremecloudiq.apis.paths.devices_id_gallery_image import DevicesIdGalleryImage
 from extremecloudiq.apis.paths.devices_id_alarms import DevicesIdAlarms
 from extremecloudiq.apis.paths.devices_stats import DevicesStats
+from extremecloudiq.apis.paths.devices_rm_devices_stack_stack_id import DevicesRmDevicesStackStackId
 from extremecloudiq.apis.paths.devices_radio_information import DevicesRadioInformation
 from extremecloudiq.apis.paths.devices_network_policy_policy_id import DevicesNetworkPolicyPolicyId
 from extremecloudiq.apis.paths.devices_digital_twin import DevicesDigitalTwin
 from extremecloudiq.apis.paths.deployments_deployment_id_status import DeploymentsDeploymentIdStatus
 from extremecloudiq.apis.paths.deployments_status import DeploymentsStatus
 from extremecloudiq.apis.paths.deployments_overview import DeploymentsOverview
+from extremecloudiq.apis.paths.dashboard_wireless_device_health_reboot_summary import DashboardWirelessDeviceHealthRebootSummary
+from extremecloudiq.apis.paths.dashboard_device_types import DashboardDeviceTypes
+from extremecloudiq.apis.paths.d360_wireless_interfaces_stats import D360WirelessInterfacesStats
+from extremecloudiq.apis.paths.d360_wireless_interfaces_graph import D360WirelessInterfacesGraph
+from extremecloudiq.apis.paths.d360_ssid_metadata import D360SsidMetadata
+from extremecloudiq.apis.paths.d360_overview_devices_summary import D360OverviewDevicesSummary
+from extremecloudiq.apis.paths.d360_device_stats import D360DeviceStats
+from extremecloudiq.apis.paths.d360_device_metadata import D360DeviceMetadata
+from extremecloudiq.apis.paths.d360_device_issues import D360DeviceIssues
+from extremecloudiq.apis.paths.d360_device_interfaces import D360DeviceInterfaces
+from extremecloudiq.apis.paths.d360_client_stats import D360ClientStats
+from extremecloudiq.apis.paths.d360_client_grid_metadata import D360ClientGridMetadata
 from extremecloudiq.apis.paths.cwps import Cwps
 from extremecloudiq.apis.paths.countries import Countries
 from extremecloudiq.apis.paths.countries_country_code_validate import CountriesCountryCodeValidate
@@ -302,7 +368,10 @@ from extremecloudiq.apis.paths.clients_summary import ClientsSummary
 from extremecloudiq.apis.paths.clients_by_mac_client_mac import ClientsByMacClientMac
 from extremecloudiq.apis.paths.clients_active import ClientsActive
 from extremecloudiq.apis.paths.clients_active_count import ClientsActiveCount
+from extremecloudiq.apis.paths.client_details_overview_info_client_id import ClientDetailsOverviewInfoClientId
+from extremecloudiq.apis.paths.client_details_overview_chart_data_client_id import ClientDetailsOverviewChartDataClientId
 from extremecloudiq.apis.paths.certificates import Certificates
+from extremecloudiq.apis.paths.backup_history_grid import BackupHistoryGrid
 from extremecloudiq.apis.paths.auth_permissions import AuthPermissions
 from extremecloudiq.apis.paths.auth_apitoken_info import AuthApitokenInfo
 from extremecloudiq.apis.paths.aps_afc_query_ import ApsAfcQuery
@@ -319,24 +388,33 @@ from extremecloudiq.apis.paths.afcserver import Afcserver
 from extremecloudiq.apis.paths.afcserver_server_id import AfcserverServerId
 from extremecloudiq.apis.paths.afcserver_statistics_server_id import AfcserverStatisticsServerId
 from extremecloudiq.apis.paths.ad_servers import AdServers
+from extremecloudiq.apis.paths.acct_api_token_export import AcctApiTokenExport
 from extremecloudiq.apis.paths.account_viq import AccountViq
 from extremecloudiq.apis.paths.account_viq_export_import_status import AccountViqExportImportStatus
 from extremecloudiq.apis.paths.account_viq_download import AccountViqDownload
+from extremecloudiq.apis.paths.account_vhm_status import AccountVhmStatus
+from extremecloudiq.apis.paths.account_vhm_setting import AccountVhmSetting
+from extremecloudiq.apis.paths.account_third_party_applications import AccountThirdPartyApplications
 from extremecloudiq.apis.paths.account_home import AccountHome
 from extremecloudiq.apis.paths.account_external import AccountExternal
-from extremecloudiq.apis.paths.subscriptions_webhook_id import SubscriptionsWebhookId
+from extremecloudiq.apis.paths.subscriptions_webhook_delete import SubscriptionsWebhookDelete
 from extremecloudiq.apis.paths.rtts_id import RttsId
 from extremecloudiq.apis.paths.pcgs_key_based_network_policy_policy_id import PcgsKeyBasedNetworkPolicyPolicyId
 from extremecloudiq.apis.paths.network_services_id import NetworkServicesId
 from extremecloudiq.apis.paths.hiq_organizations_id import HiqOrganizationsId
 from extremecloudiq.apis.paths.devices_radius_proxy_revoke import DevicesRadiusProxyRevoke
+from extremecloudiq.apis.paths.backup_history_delete import BackupHistoryDelete
+from extremecloudiq.apis.paths.acct_api_token_delete import AcctApiTokenDelete
 
 PathToApi = typing_extensions.TypedDict(
     'PathToApi',
     {
+        PathValues.V1_ACCOUNT_VIQ_DEFAULTDEVICEPASSWORD: V1AccountViqDefaultDevicePassword,
         PathValues.USERGROUPS_ID: UsergroupsId,
         PathValues.USERPROFILES_ID: UserProfilesId,
         PathValues.TUNNELCONCENTRATORS_ID: TunnelConcentratorsId,
+        PathValues.THIRDPARTYAPICONNECTION: ThirdPartyApiConnection,
+        PathValues.SUBSCRIPTIONS_WEBHOOK_ID: SubscriptionsWebhookId,
         PathValues.SSIDS_ID_PSK_PASSWORD: SsidsIdPskPassword,
         PathValues.SSIDS_ID_MODE_WEP: SsidsIdModeWep,
         PathValues.SSIDS_ID_MODE_PSK: SsidsIdModePsk,
@@ -375,6 +453,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.HIQ_CONTEXT_READING: HiqContextReading,
         PathValues.HIQ_CONTEXT_CREATING: HiqContextCreating,
         PathValues.ENDUSERS_ID: EndusersId,
+        PathValues.DEVICES_ID_VISIBLE: DevicesIdVisible,
         PathValues.DEVICES_ID_RADIOOPERATINGMODE: DevicesIdRadioOperatingMode,
         PathValues.DEVICES_ID_NETWORKPOLICY: DevicesIdNetworkPolicy,
         PathValues.DEVICES_ID_LOCATION: DevicesIdLocation,
@@ -385,6 +464,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.DEVICES_RADIUSPROXY_ASSIGN: DevicesRadiusProxyAssign,
         PathValues.DEVICES_IBEACON: DevicesIbeacon,
         PathValues.DEPLOYMENTS_DEPLOYMENT_ID: DeploymentsDeploymentId,
+        PathValues.CREDENTIALDISTRIBUTIONGROUPS_ID: CredentialDistributionGroupsId,
         PathValues.COPILOT_ANOMALIES_UPDATEDEVICEACTION: CopilotAnomaliesUpdateDeviceAction,
         PathValues.COPILOT_ANOMALIES_UPDATEACTION: CopilotAnomaliesUpdateAction,
         PathValues.COPILOT_ANOMALIES_DEVICES_UPDATEACTION: CopilotAnomaliesDevicesUpdateAction,
@@ -394,10 +474,12 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.CLASSIFICATIONRULES_ID: ClassificationRulesId,
         PathValues.CCGS_ID: CcgsId,
         PathValues.ALERTSUBSCRIPTIONS_WEBHOOKS_ID: AlertSubscriptionsWebhooksId,
+        PathValues.ALERTSUBSCRIPTIONS_SERVICENOW_ID: AlertSubscriptionsServicenowId,
         PathValues.ALERTSUBSCRIPTIONS_EMAILS_ID: AlertSubscriptionsEmailsId,
         PathValues.ALERTPOLICIES_POLICY_ID_RULES_RULE_ID: AlertPoliciesPolicyIdRulesRuleId,
         PathValues.ALERTPOLICIES_ID: AlertPoliciesId,
         PathValues.ACCOUNT_VIQ_DEFAULTDEVICEPASSWORD: AccountViqDefaultDevicePassword,
+        PathValues.ACCOUNT_VHM_SETTING_ID: AccountVhmSettingId,
         PathValues.VLANPROFILES: VlanProfiles,
         PathValues.VLANPROFILES_DELETE: VlanProfilesDelete,
         PathValues.USERS: Users,
@@ -481,6 +563,10 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.DEVICES_ID_REBOOT: DevicesIdReboot,
         PathValues.DEVICES_ID_MANAGE: DevicesIdManage,
         PathValues.DEVICES_ID_CLI: DevicesIdCli,
+        PathValues.DEVICES_RMDEVICESPAGE: DevicesRmDevicesPage,
+        PathValues.DEVICES_RMDEVICESPAGE_EXPORT: DevicesRmDevicesPageExport,
+        PathValues.DEVICES_RMDEVICESMETADATA: DevicesRmDevicesMetadata,
+        PathValues.DEVICES_RMDEVICESCONNECTIONSTATUS: DevicesRmDevicesConnectionStatus,
         PathValues.DEVICES_OS_CHANGE: DevicesOsChange,
         PathValues.DEVICES_NETWORKPOLICY_REVOKE: DevicesNetworkPolicyRevoke,
         PathValues.DEVICES_NETWORKPOLICY_QUERY: DevicesNetworkPolicyQuery,
@@ -502,11 +588,45 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.DEVICES_ADVANCEDONBOARD: DevicesAdvancedOnboard,
         PathValues.DEPLOYMENTS: Deployments,
         PathValues.DEPLOYMENTS_FIRMWAREMETADATAS: DeploymentsFirmwareMetadatas,
+        PathValues.DASHBOARD_WIRELESS_USAGECAPACITY_GRID: DashboardWirelessUsageCapacityGrid,
+        PathValues.DASHBOARD_WIRELESS_USAGECAPACITY_EXPORT: DashboardWirelessUsageCapacityExport,
+        PathValues.DASHBOARD_WIRELESS_USAGECAPACITY_EXCESSIVEUTILIZATION: DashboardWirelessUsageCapacityExcessiveUtilization,
+        PathValues.DASHBOARD_WIRELESS_USAGECAPACITY_EXCESSIVERETRIES: DashboardWirelessUsageCapacityExcessiveRetries,
+        PathValues.DASHBOARD_WIRELESS_USAGECAPACITY_EXCESSIVEPACKETLOSS: DashboardWirelessUsageCapacityExcessivePacketLoss,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_SUMMARY: DashboardWirelessDeviceHealthSummary,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_ISSUES_POEUSAGEISSUES: DashboardWirelessDeviceHealthIssuesPoeUsageIssues,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_ISSUES_MEMORYUSAGEISSUES: DashboardWirelessDeviceHealthIssuesMemoryUsageIssues,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_ISSUES_CPUUSAGEISSUES: DashboardWirelessDeviceHealthIssuesCpuUsageIssues,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_GRID: DashboardWirelessDeviceHealthGrid,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_EXPORT: DashboardWirelessDeviceHealthExport,
+        PathValues.DASHBOARD_WIRELESS_DASHBOARD_CRITERIA: DashboardWirelessDashboardCriteria,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_ROAMINGISSUES: DashboardWirelessClientHealthRoamingIssues,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_ISSUE_ROAMING: DashboardWirelessClientHealthIssueRoaming,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_ISSUE_IPADDRESS: DashboardWirelessClientHealthIssueIpaddress,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_ISSUE_AUTHENTICATION: DashboardWirelessClientHealthIssueAuthentication,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_ISSUE_ASSOCIATION: DashboardWirelessClientHealthIssueAssociation,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_GRID: DashboardWirelessClientHealthGrid,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_FREQUENCYDISTRIBUTION: DashboardWirelessClientHealthFrequencyDistribution,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_FILTERMETADATA: DashboardWirelessClientHealthFilterMetadata,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_EXPORT: DashboardWirelessClientHealthExport,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_CONNECTIVITYISSUES: DashboardWirelessClientHealthConnectivityIssues,
+        PathValues.DASHBOARD_USAGECAPACITY: DashboardUsageCapacity,
+        PathValues.DASHBOARD_SITESWITHISSUES: DashboardSitesWithIssues,
+        PathValues.DASHBOARD_EXPORT: DashboardExport,
+        PathValues.DASHBOARD_DEVICES: DashboardDevices,
+        PathValues.DASHBOARD_CLIENTS: DashboardClients,
+        PathValues.DASHBOARD_ASSETS: DashboardAssets,
+        PathValues.DASHBOARD_ALERTS: DashboardAlerts,
+        PathValues.D360_WIRELESS_SURROUNDINGAPS: D360WirelessSurroundingAps,
+        PathValues.D360_CLIENT_GRID: D360ClientGrid,
+        PathValues.D360_CLIENT_GRAPH: D360ClientGraph,
+        PathValues.CREDENTIALDISTRIBUTIONGROUPS: CredentialDistributionGroups,
         PathValues.COPILOT_ANOMALIES_EXCLUDEVLANS: CopilotAnomaliesExcludeVlans,
         PathValues.COPILOT_ANOMALIES_EXCLUDEVLANSCSV: CopilotAnomaliesExcludeVlansCsv,
         PathValues.CLIENTMONITORPROFILES: ClientMonitorProfiles,
         PathValues.CLASSIFICATIONRULES: ClassificationRules,
         PathValues.CCGS: Ccgs,
+        PathValues.BACKUP_HISTORY_RESTORE: BackupHistoryRestore,
         PathValues.AUTH_PERMISSIONS_CHECK: AuthPermissionsCheck,
         PathValues.AUTH_APITOKEN: AuthApitoken,
         PathValues.AUTH_APITOKEN_VALIDATE: AuthApitokenValidate,
@@ -516,25 +636,32 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.ALERTS_ACKNOWLEDGE: AlertsAcknowledge,
         PathValues.ALERTSUBSCRIPTIONS_WEBHOOKS: AlertSubscriptionsWebhooks,
         PathValues.ALERTSUBSCRIPTIONS_WEBHOOKS_DELETE: AlertSubscriptionsWebhooksDelete,
+        PathValues.ALERTSUBSCRIPTIONS_SERVICENOW: AlertSubscriptionsServicenow,
+        PathValues.ALERTSUBSCRIPTIONS_SERVICENOW_DELETE: AlertSubscriptionsServicenowDelete,
         PathValues.ALERTSUBSCRIPTIONS_EMAILS: AlertSubscriptionsEmails,
         PathValues.ALERTSUBSCRIPTIONS_EMAILS_ID_VERIFY: AlertSubscriptionsEmailsIdVerify,
         PathValues.ALERTSUBSCRIPTIONS_EMAILS_DELETE: AlertSubscriptionsEmailsDelete,
         PathValues.ALERTPOLICIES: AlertPolicies,
         PathValues.ALERTPOLICIES_POLICY_ID_RULES_RULE_ID_ENABLE: AlertPoliciesPolicyIdRulesRuleIdEnable,
         PathValues.ALERTPOLICIES_POLICY_ID_RULES_RULE_ID_DISABLE: AlertPoliciesPolicyIdRulesRuleIdDisable,
+        PathValues.ACCTAPITOKEN: AcctApiToken,
         PathValues.ACCOUNT_VIQ_IMPORT: AccountViqImport,
         PathValues.ACCOUNT_VIQ_EXPORT: AccountViqExport,
+        PathValues.ACCOUNT_VIQ_RESET: AccountViqReset,
         PathValues.ACCOUNT_VIQ_BACKUP: AccountViqBackup,
         PathValues.ACCOUNT_SWITCH: AccountSwitch,
         PathValues.VLANPROFILES_ID: VlanProfilesId,
         PathValues.USERS_ID: UsersId,
         PathValues.USERS_EXTERNAL_ID: UsersExternalId,
+        PathValues.ACCTAPITOKEN_ID: AcctApiTokenId,
         PathValues.USERS_ME: UsersMe,
+        PathValues.USERGROUPS_UNIQUE: UsergroupsUnique,
         PathValues.USERPROFILEASSIGNMENTS_ID: UserProfileAssignmentsId,
         PathValues.UCP_ID_ENGINES_INSTALLED: UcpIdEnginesInstalled,
         PathValues.THREAD_TOPOLOGY: ThreadTopology,
         PathValues.THREAD_ROUTERS: ThreadRouters,
         PathValues.THREAD_NETWORKS: ThreadNetworks,
+        PathValues.SUBSCRIPTIONS_WEBHOOK_EXPORT: SubscriptionsWebhookExport,
         PathValues.SSIDS: Ssids,
         PathValues.SMSTEMPLATES: SmsTemplates,
         PathValues.RADIUSSERVERS_INTERNAL_DEVICES: RadiusServersInternalDevices,
@@ -561,6 +688,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.LOCATIONS_TREE_MAPS: LocationsTreeMaps,
         PathValues.LOCATIONS_TREE_DEVICES: LocationsTreeDevices,
         PathValues.HIQ_STATUS: HiqStatus,
+        PathValues.GEOVIEW: GeoView,
         PathValues.ESSENTIALS_ELOC_CLIENTS_CLIENT_MAC_LASTKNOWNLOCATION: EssentialsElocClientsClientMacLastKnownLocation,
         PathValues.EMAILTEMPLATES: EmailTemplates,
         PathValues.DEVICES: Devices,
@@ -576,12 +704,25 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.DEVICES_ID_GALLERYIMAGE: DevicesIdGalleryImage,
         PathValues.DEVICES_ID_ALARMS: DevicesIdAlarms,
         PathValues.DEVICES_STATS: DevicesStats,
+        PathValues.DEVICES_RMDEVICESSTACK_STACK_ID: DevicesRmDevicesStackStackId,
         PathValues.DEVICES_RADIOINFORMATION: DevicesRadioInformation,
         PathValues.DEVICES_NETWORKPOLICY_POLICY_ID: DevicesNetworkPolicyPolicyId,
         PathValues.DEVICES_DIGITALTWIN: DevicesDigitalTwin,
         PathValues.DEPLOYMENTS_DEPLOYMENT_ID_STATUS: DeploymentsDeploymentIdStatus,
         PathValues.DEPLOYMENTS_STATUS: DeploymentsStatus,
         PathValues.DEPLOYMENTS_OVERVIEW: DeploymentsOverview,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_REBOOT_SUMMARY: DashboardWirelessDeviceHealthRebootSummary,
+        PathValues.DASHBOARD_DEVICETYPES: DashboardDeviceTypes,
+        PathValues.D360_WIRELESS_INTERFACESSTATS: D360WirelessInterfacesStats,
+        PathValues.D360_WIRELESS_INTERFACESGRAPH: D360WirelessInterfacesGraph,
+        PathValues.D360_SSIDMETADATA: D360SsidMetadata,
+        PathValues.D360_OVERVIEW_DEVICESSUMMARY: D360OverviewDevicesSummary,
+        PathValues.D360_DEVICE_STATS: D360DeviceStats,
+        PathValues.D360_DEVICE_METADATA: D360DeviceMetadata,
+        PathValues.D360_DEVICE_ISSUES: D360DeviceIssues,
+        PathValues.D360_DEVICE_INTERFACES: D360DeviceInterfaces,
+        PathValues.D360_CLIENT_STATS: D360ClientStats,
+        PathValues.D360_CLIENT_GRID_METADATA: D360ClientGridMetadata,
         PathValues.CWPS: Cwps,
         PathValues.COUNTRIES: Countries,
         PathValues.COUNTRIES_COUNTRY_CODE_VALIDATE: CountriesCountryCodeValidate,
@@ -635,7 +776,10 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.CLIENTS_BY_MAC_CLIENT_MAC: ClientsByMacClientMac,
         PathValues.CLIENTS_ACTIVE: ClientsActive,
         PathValues.CLIENTS_ACTIVE_COUNT: ClientsActiveCount,
+        PathValues.CLIENTDETAILS_OVERVIEW_INFO_CLIENT_ID: ClientDetailsOverviewInfoClientId,
+        PathValues.CLIENTDETAILS_OVERVIEW_CHARTDATA_CLIENT_ID: ClientDetailsOverviewChartDataClientId,
         PathValues.CERTIFICATES: Certificates,
+        PathValues.BACKUP_HISTORY_GRID: BackupHistoryGrid,
         PathValues.AUTH_PERMISSIONS: AuthPermissions,
         PathValues.AUTH_APITOKEN_INFO: AuthApitokenInfo,
         PathValues.APS_AFC_QUERY_: ApsAfcQuery,
@@ -652,25 +796,34 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.AFCSERVER_SERVER_ID: AfcserverServerId,
         PathValues.AFCSERVER_STATISTICS_SERVER_ID: AfcserverStatisticsServerId,
         PathValues.ADSERVERS: AdServers,
+        PathValues.ACCTAPITOKEN_EXPORT: AcctApiTokenExport,
         PathValues.ACCOUNT_VIQ: AccountViq,
         PathValues.ACCOUNT_VIQ_EXPORTIMPORTSTATUS: AccountViqExportImportStatus,
         PathValues.ACCOUNT_VIQ_DOWNLOAD: AccountViqDownload,
+        PathValues.ACCOUNT_VHM_STATUS: AccountVhmStatus,
+        PathValues.ACCOUNT_VHM_SETTING: AccountVhmSetting,
+        PathValues.ACCOUNT_THIRDPARTYAPPLICATIONS: AccountThirdPartyApplications,
         PathValues.ACCOUNT_HOME: AccountHome,
         PathValues.ACCOUNT_EXTERNAL: AccountExternal,
-        PathValues.SUBSCRIPTIONS_WEBHOOK_ID: SubscriptionsWebhookId,
+        PathValues.SUBSCRIPTIONS_WEBHOOK_DELETE: SubscriptionsWebhookDelete,
         PathValues.RTTS_ID: RttsId,
         PathValues.PCGS_KEYBASED_NETWORKPOLICYPOLICY_ID: PcgsKeyBasedNetworkPolicyPolicyId,
         PathValues.NETWORKSERVICES_ID: NetworkServicesId,
         PathValues.HIQ_ORGANIZATIONS_ID: HiqOrganizationsId,
         PathValues.DEVICES_RADIUSPROXY_REVOKE: DevicesRadiusProxyRevoke,
+        PathValues.BACKUP_HISTORY_DELETE: BackupHistoryDelete,
+        PathValues.ACCTAPITOKEN_DELETE: AcctApiTokenDelete,
     }
 )
 
 path_to_api = PathToApi(
     {
+        PathValues.V1_ACCOUNT_VIQ_DEFAULTDEVICEPASSWORD: V1AccountViqDefaultDevicePassword,
         PathValues.USERGROUPS_ID: UsergroupsId,
         PathValues.USERPROFILES_ID: UserProfilesId,
         PathValues.TUNNELCONCENTRATORS_ID: TunnelConcentratorsId,
+        PathValues.THIRDPARTYAPICONNECTION: ThirdPartyApiConnection,
+        PathValues.SUBSCRIPTIONS_WEBHOOK_ID: SubscriptionsWebhookId,
         PathValues.SSIDS_ID_PSK_PASSWORD: SsidsIdPskPassword,
         PathValues.SSIDS_ID_MODE_WEP: SsidsIdModeWep,
         PathValues.SSIDS_ID_MODE_PSK: SsidsIdModePsk,
@@ -709,6 +862,7 @@ path_to_api = PathToApi(
         PathValues.HIQ_CONTEXT_READING: HiqContextReading,
         PathValues.HIQ_CONTEXT_CREATING: HiqContextCreating,
         PathValues.ENDUSERS_ID: EndusersId,
+        PathValues.DEVICES_ID_VISIBLE: DevicesIdVisible,
         PathValues.DEVICES_ID_RADIOOPERATINGMODE: DevicesIdRadioOperatingMode,
         PathValues.DEVICES_ID_NETWORKPOLICY: DevicesIdNetworkPolicy,
         PathValues.DEVICES_ID_LOCATION: DevicesIdLocation,
@@ -719,6 +873,7 @@ path_to_api = PathToApi(
         PathValues.DEVICES_RADIUSPROXY_ASSIGN: DevicesRadiusProxyAssign,
         PathValues.DEVICES_IBEACON: DevicesIbeacon,
         PathValues.DEPLOYMENTS_DEPLOYMENT_ID: DeploymentsDeploymentId,
+        PathValues.CREDENTIALDISTRIBUTIONGROUPS_ID: CredentialDistributionGroupsId,
         PathValues.COPILOT_ANOMALIES_UPDATEDEVICEACTION: CopilotAnomaliesUpdateDeviceAction,
         PathValues.COPILOT_ANOMALIES_UPDATEACTION: CopilotAnomaliesUpdateAction,
         PathValues.COPILOT_ANOMALIES_DEVICES_UPDATEACTION: CopilotAnomaliesDevicesUpdateAction,
@@ -728,10 +883,12 @@ path_to_api = PathToApi(
         PathValues.CLASSIFICATIONRULES_ID: ClassificationRulesId,
         PathValues.CCGS_ID: CcgsId,
         PathValues.ALERTSUBSCRIPTIONS_WEBHOOKS_ID: AlertSubscriptionsWebhooksId,
+        PathValues.ALERTSUBSCRIPTIONS_SERVICENOW_ID: AlertSubscriptionsServicenowId,
         PathValues.ALERTSUBSCRIPTIONS_EMAILS_ID: AlertSubscriptionsEmailsId,
         PathValues.ALERTPOLICIES_POLICY_ID_RULES_RULE_ID: AlertPoliciesPolicyIdRulesRuleId,
         PathValues.ALERTPOLICIES_ID: AlertPoliciesId,
         PathValues.ACCOUNT_VIQ_DEFAULTDEVICEPASSWORD: AccountViqDefaultDevicePassword,
+        PathValues.ACCOUNT_VHM_SETTING_ID: AccountVhmSettingId,
         PathValues.VLANPROFILES: VlanProfiles,
         PathValues.VLANPROFILES_DELETE: VlanProfilesDelete,
         PathValues.USERS: Users,
@@ -815,6 +972,10 @@ path_to_api = PathToApi(
         PathValues.DEVICES_ID_REBOOT: DevicesIdReboot,
         PathValues.DEVICES_ID_MANAGE: DevicesIdManage,
         PathValues.DEVICES_ID_CLI: DevicesIdCli,
+        PathValues.DEVICES_RMDEVICESPAGE: DevicesRmDevicesPage,
+        PathValues.DEVICES_RMDEVICESPAGE_EXPORT: DevicesRmDevicesPageExport,
+        PathValues.DEVICES_RMDEVICESMETADATA: DevicesRmDevicesMetadata,
+        PathValues.DEVICES_RMDEVICESCONNECTIONSTATUS: DevicesRmDevicesConnectionStatus,
         PathValues.DEVICES_OS_CHANGE: DevicesOsChange,
         PathValues.DEVICES_NETWORKPOLICY_REVOKE: DevicesNetworkPolicyRevoke,
         PathValues.DEVICES_NETWORKPOLICY_QUERY: DevicesNetworkPolicyQuery,
@@ -836,11 +997,45 @@ path_to_api = PathToApi(
         PathValues.DEVICES_ADVANCEDONBOARD: DevicesAdvancedOnboard,
         PathValues.DEPLOYMENTS: Deployments,
         PathValues.DEPLOYMENTS_FIRMWAREMETADATAS: DeploymentsFirmwareMetadatas,
+        PathValues.DASHBOARD_WIRELESS_USAGECAPACITY_GRID: DashboardWirelessUsageCapacityGrid,
+        PathValues.DASHBOARD_WIRELESS_USAGECAPACITY_EXPORT: DashboardWirelessUsageCapacityExport,
+        PathValues.DASHBOARD_WIRELESS_USAGECAPACITY_EXCESSIVEUTILIZATION: DashboardWirelessUsageCapacityExcessiveUtilization,
+        PathValues.DASHBOARD_WIRELESS_USAGECAPACITY_EXCESSIVERETRIES: DashboardWirelessUsageCapacityExcessiveRetries,
+        PathValues.DASHBOARD_WIRELESS_USAGECAPACITY_EXCESSIVEPACKETLOSS: DashboardWirelessUsageCapacityExcessivePacketLoss,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_SUMMARY: DashboardWirelessDeviceHealthSummary,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_ISSUES_POEUSAGEISSUES: DashboardWirelessDeviceHealthIssuesPoeUsageIssues,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_ISSUES_MEMORYUSAGEISSUES: DashboardWirelessDeviceHealthIssuesMemoryUsageIssues,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_ISSUES_CPUUSAGEISSUES: DashboardWirelessDeviceHealthIssuesCpuUsageIssues,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_GRID: DashboardWirelessDeviceHealthGrid,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_EXPORT: DashboardWirelessDeviceHealthExport,
+        PathValues.DASHBOARD_WIRELESS_DASHBOARD_CRITERIA: DashboardWirelessDashboardCriteria,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_ROAMINGISSUES: DashboardWirelessClientHealthRoamingIssues,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_ISSUE_ROAMING: DashboardWirelessClientHealthIssueRoaming,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_ISSUE_IPADDRESS: DashboardWirelessClientHealthIssueIpaddress,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_ISSUE_AUTHENTICATION: DashboardWirelessClientHealthIssueAuthentication,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_ISSUE_ASSOCIATION: DashboardWirelessClientHealthIssueAssociation,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_GRID: DashboardWirelessClientHealthGrid,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_FREQUENCYDISTRIBUTION: DashboardWirelessClientHealthFrequencyDistribution,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_FILTERMETADATA: DashboardWirelessClientHealthFilterMetadata,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_EXPORT: DashboardWirelessClientHealthExport,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_CONNECTIVITYISSUES: DashboardWirelessClientHealthConnectivityIssues,
+        PathValues.DASHBOARD_USAGECAPACITY: DashboardUsageCapacity,
+        PathValues.DASHBOARD_SITESWITHISSUES: DashboardSitesWithIssues,
+        PathValues.DASHBOARD_EXPORT: DashboardExport,
+        PathValues.DASHBOARD_DEVICES: DashboardDevices,
+        PathValues.DASHBOARD_CLIENTS: DashboardClients,
+        PathValues.DASHBOARD_ASSETS: DashboardAssets,
+        PathValues.DASHBOARD_ALERTS: DashboardAlerts,
+        PathValues.D360_WIRELESS_SURROUNDINGAPS: D360WirelessSurroundingAps,
+        PathValues.D360_CLIENT_GRID: D360ClientGrid,
+        PathValues.D360_CLIENT_GRAPH: D360ClientGraph,
+        PathValues.CREDENTIALDISTRIBUTIONGROUPS: CredentialDistributionGroups,
         PathValues.COPILOT_ANOMALIES_EXCLUDEVLANS: CopilotAnomaliesExcludeVlans,
         PathValues.COPILOT_ANOMALIES_EXCLUDEVLANSCSV: CopilotAnomaliesExcludeVlansCsv,
         PathValues.CLIENTMONITORPROFILES: ClientMonitorProfiles,
         PathValues.CLASSIFICATIONRULES: ClassificationRules,
         PathValues.CCGS: Ccgs,
+        PathValues.BACKUP_HISTORY_RESTORE: BackupHistoryRestore,
         PathValues.AUTH_PERMISSIONS_CHECK: AuthPermissionsCheck,
         PathValues.AUTH_APITOKEN: AuthApitoken,
         PathValues.AUTH_APITOKEN_VALIDATE: AuthApitokenValidate,
@@ -850,25 +1045,32 @@ path_to_api = PathToApi(
         PathValues.ALERTS_ACKNOWLEDGE: AlertsAcknowledge,
         PathValues.ALERTSUBSCRIPTIONS_WEBHOOKS: AlertSubscriptionsWebhooks,
         PathValues.ALERTSUBSCRIPTIONS_WEBHOOKS_DELETE: AlertSubscriptionsWebhooksDelete,
+        PathValues.ALERTSUBSCRIPTIONS_SERVICENOW: AlertSubscriptionsServicenow,
+        PathValues.ALERTSUBSCRIPTIONS_SERVICENOW_DELETE: AlertSubscriptionsServicenowDelete,
         PathValues.ALERTSUBSCRIPTIONS_EMAILS: AlertSubscriptionsEmails,
         PathValues.ALERTSUBSCRIPTIONS_EMAILS_ID_VERIFY: AlertSubscriptionsEmailsIdVerify,
         PathValues.ALERTSUBSCRIPTIONS_EMAILS_DELETE: AlertSubscriptionsEmailsDelete,
         PathValues.ALERTPOLICIES: AlertPolicies,
         PathValues.ALERTPOLICIES_POLICY_ID_RULES_RULE_ID_ENABLE: AlertPoliciesPolicyIdRulesRuleIdEnable,
         PathValues.ALERTPOLICIES_POLICY_ID_RULES_RULE_ID_DISABLE: AlertPoliciesPolicyIdRulesRuleIdDisable,
+        PathValues.ACCTAPITOKEN: AcctApiToken,
         PathValues.ACCOUNT_VIQ_IMPORT: AccountViqImport,
         PathValues.ACCOUNT_VIQ_EXPORT: AccountViqExport,
+        PathValues.ACCOUNT_VIQ_RESET: AccountViqReset,
         PathValues.ACCOUNT_VIQ_BACKUP: AccountViqBackup,
         PathValues.ACCOUNT_SWITCH: AccountSwitch,
         PathValues.VLANPROFILES_ID: VlanProfilesId,
         PathValues.USERS_ID: UsersId,
         PathValues.USERS_EXTERNAL_ID: UsersExternalId,
+        PathValues.ACCTAPITOKEN_ID: AcctApiTokenId,
         PathValues.USERS_ME: UsersMe,
+        PathValues.USERGROUPS_UNIQUE: UsergroupsUnique,
         PathValues.USERPROFILEASSIGNMENTS_ID: UserProfileAssignmentsId,
         PathValues.UCP_ID_ENGINES_INSTALLED: UcpIdEnginesInstalled,
         PathValues.THREAD_TOPOLOGY: ThreadTopology,
         PathValues.THREAD_ROUTERS: ThreadRouters,
         PathValues.THREAD_NETWORKS: ThreadNetworks,
+        PathValues.SUBSCRIPTIONS_WEBHOOK_EXPORT: SubscriptionsWebhookExport,
         PathValues.SSIDS: Ssids,
         PathValues.SMSTEMPLATES: SmsTemplates,
         PathValues.RADIUSSERVERS_INTERNAL_DEVICES: RadiusServersInternalDevices,
@@ -895,6 +1097,7 @@ path_to_api = PathToApi(
         PathValues.LOCATIONS_TREE_MAPS: LocationsTreeMaps,
         PathValues.LOCATIONS_TREE_DEVICES: LocationsTreeDevices,
         PathValues.HIQ_STATUS: HiqStatus,
+        PathValues.GEOVIEW: GeoView,
         PathValues.ESSENTIALS_ELOC_CLIENTS_CLIENT_MAC_LASTKNOWNLOCATION: EssentialsElocClientsClientMacLastKnownLocation,
         PathValues.EMAILTEMPLATES: EmailTemplates,
         PathValues.DEVICES: Devices,
@@ -910,12 +1113,25 @@ path_to_api = PathToApi(
         PathValues.DEVICES_ID_GALLERYIMAGE: DevicesIdGalleryImage,
         PathValues.DEVICES_ID_ALARMS: DevicesIdAlarms,
         PathValues.DEVICES_STATS: DevicesStats,
+        PathValues.DEVICES_RMDEVICESSTACK_STACK_ID: DevicesRmDevicesStackStackId,
         PathValues.DEVICES_RADIOINFORMATION: DevicesRadioInformation,
         PathValues.DEVICES_NETWORKPOLICY_POLICY_ID: DevicesNetworkPolicyPolicyId,
         PathValues.DEVICES_DIGITALTWIN: DevicesDigitalTwin,
         PathValues.DEPLOYMENTS_DEPLOYMENT_ID_STATUS: DeploymentsDeploymentIdStatus,
         PathValues.DEPLOYMENTS_STATUS: DeploymentsStatus,
         PathValues.DEPLOYMENTS_OVERVIEW: DeploymentsOverview,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_REBOOT_SUMMARY: DashboardWirelessDeviceHealthRebootSummary,
+        PathValues.DASHBOARD_DEVICETYPES: DashboardDeviceTypes,
+        PathValues.D360_WIRELESS_INTERFACESSTATS: D360WirelessInterfacesStats,
+        PathValues.D360_WIRELESS_INTERFACESGRAPH: D360WirelessInterfacesGraph,
+        PathValues.D360_SSIDMETADATA: D360SsidMetadata,
+        PathValues.D360_OVERVIEW_DEVICESSUMMARY: D360OverviewDevicesSummary,
+        PathValues.D360_DEVICE_STATS: D360DeviceStats,
+        PathValues.D360_DEVICE_METADATA: D360DeviceMetadata,
+        PathValues.D360_DEVICE_ISSUES: D360DeviceIssues,
+        PathValues.D360_DEVICE_INTERFACES: D360DeviceInterfaces,
+        PathValues.D360_CLIENT_STATS: D360ClientStats,
+        PathValues.D360_CLIENT_GRID_METADATA: D360ClientGridMetadata,
         PathValues.CWPS: Cwps,
         PathValues.COUNTRIES: Countries,
         PathValues.COUNTRIES_COUNTRY_CODE_VALIDATE: CountriesCountryCodeValidate,
@@ -969,7 +1185,10 @@ path_to_api = PathToApi(
         PathValues.CLIENTS_BY_MAC_CLIENT_MAC: ClientsByMacClientMac,
         PathValues.CLIENTS_ACTIVE: ClientsActive,
         PathValues.CLIENTS_ACTIVE_COUNT: ClientsActiveCount,
+        PathValues.CLIENTDETAILS_OVERVIEW_INFO_CLIENT_ID: ClientDetailsOverviewInfoClientId,
+        PathValues.CLIENTDETAILS_OVERVIEW_CHARTDATA_CLIENT_ID: ClientDetailsOverviewChartDataClientId,
         PathValues.CERTIFICATES: Certificates,
+        PathValues.BACKUP_HISTORY_GRID: BackupHistoryGrid,
         PathValues.AUTH_PERMISSIONS: AuthPermissions,
         PathValues.AUTH_APITOKEN_INFO: AuthApitokenInfo,
         PathValues.APS_AFC_QUERY_: ApsAfcQuery,
@@ -986,16 +1205,22 @@ path_to_api = PathToApi(
         PathValues.AFCSERVER_SERVER_ID: AfcserverServerId,
         PathValues.AFCSERVER_STATISTICS_SERVER_ID: AfcserverStatisticsServerId,
         PathValues.ADSERVERS: AdServers,
+        PathValues.ACCTAPITOKEN_EXPORT: AcctApiTokenExport,
         PathValues.ACCOUNT_VIQ: AccountViq,
         PathValues.ACCOUNT_VIQ_EXPORTIMPORTSTATUS: AccountViqExportImportStatus,
         PathValues.ACCOUNT_VIQ_DOWNLOAD: AccountViqDownload,
+        PathValues.ACCOUNT_VHM_STATUS: AccountVhmStatus,
+        PathValues.ACCOUNT_VHM_SETTING: AccountVhmSetting,
+        PathValues.ACCOUNT_THIRDPARTYAPPLICATIONS: AccountThirdPartyApplications,
         PathValues.ACCOUNT_HOME: AccountHome,
         PathValues.ACCOUNT_EXTERNAL: AccountExternal,
-        PathValues.SUBSCRIPTIONS_WEBHOOK_ID: SubscriptionsWebhookId,
+        PathValues.SUBSCRIPTIONS_WEBHOOK_DELETE: SubscriptionsWebhookDelete,
         PathValues.RTTS_ID: RttsId,
         PathValues.PCGS_KEYBASED_NETWORKPOLICYPOLICY_ID: PcgsKeyBasedNetworkPolicyPolicyId,
         PathValues.NETWORKSERVICES_ID: NetworkServicesId,
         PathValues.HIQ_ORGANIZATIONS_ID: HiqOrganizationsId,
         PathValues.DEVICES_RADIUSPROXY_REVOKE: DevicesRadiusProxyRevoke,
+        PathValues.BACKUP_HISTORY_DELETE: BackupHistoryDelete,
+        PathValues.ACCTAPITOKEN_DELETE: AcctApiTokenDelete,
     }
 )

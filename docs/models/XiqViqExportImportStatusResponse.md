@@ -10,11 +10,17 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | ExtremeCloud IQ Viq Ex
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
+**export_file_name** | str,  | str,  | The exported file name | 
+**log_file_name** | str,  | str,  | The export log file name | 
 **user_name** | str,  | str,  | Name of the user | [optional] 
 **vhm_id** | str,  | str,  | VHM ID of the user | [optional] 
 **operation** | str,  | str,  | Type of operation | [optional] 
 **status** | str,  | str,  | Current status of operation | [optional] 
 **total_finish_percentage** | decimal.Decimal, int,  | decimal.Decimal,  | Total finish percentage | [optional] value must be a 64 bit integer
+**export_time** | decimal.Decimal, int,  | decimal.Decimal,  | The last backed up time. | [optional] value must be a 64 bit integer
+**start_time** | decimal.Decimal, int,  | decimal.Decimal,  | The start time. | [optional] value must be a 64 bit integer
+**end_time** | decimal.Decimal, int,  | decimal.Decimal,  | The end time. | [optional] value must be a 64 bit integer
+**remain_time** | decimal.Decimal, int,  | decimal.Decimal,  | The remaining time. | [optional] value must be a 64 bit integer
 **[viq_task_progresses](#viq_task_progresses)** | list, tuple,  | tuple,  |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 

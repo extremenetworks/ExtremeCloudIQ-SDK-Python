@@ -33,19 +33,23 @@ Method | HTTP request | Description
 [**disable_iot_on_device**](#disable_iot_on_device) | **post** /devices/{id}/iot/:disable | Disable IoT Wireless Interface settings on device
 [**download_device_gallery_image**](#download_device_gallery_image) | **get** /devices/{id}/gallery-image | Download device gallery image.
 [**enable_iot_on_device**](#enable_iot_on_device) | **post** /devices/{id}/iot/:enable | Enable IoT Wireless Interface settings on device
+[**export_rm_devices_to_csv**](#export_rm_devices_to_csv) | **post** /devices/rm-devices-page/export | Export RM devices data to CSV
 [**get_device1**](#get_device1) | **get** /devices/{id} | Get device info for a specific device
 [**get_device_client_monitor**](#get_device_client_monitor) | **get** /devices/{id}/client-monitor | Get client monitor setting for a device
+[**get_device_connection_status**](#get_device_connection_status) | **post** /devices/rm-devices-connection-status | Get Device Connection Status
 [**get_device_cpu_memory_history**](#get_device_cpu_memory_history) | **get** /devices/{id}/history/cpu-mem | Get device CPU/memory usage history
 [**get_device_geolocation**](#get_device_geolocation) | **get** /devices/{id}/geolocation | Get Geolocation for a device
 [**get_device_ibeacon**](#get_device_ibeacon) | **get** /devices/{id}/ibeacon | Get the device iBeacon setting
 [**get_device_iot**](#get_device_iot) | **get** /devices/{id}/iot | Get the device IoT Wireless Interface settings
 [**get_device_level_ssid_status**](#get_device_level_ssid_status) | **get** /devices/{id}/ssid/status | Get SSID status for a device
+[**get_device_list_metadata**](#get_device_list_metadata) | **post** /devices/rm-devices-metadata | Get Device List Metadata
 [**get_device_location**](#get_device_location) | **get** /devices/{id}/location | Get location for a device
 [**get_device_network_policy**](#get_device_network_policy) | **get** /devices/{id}/network-policy | Get network policy for a device
 [**get_device_radio_operating_mode**](#get_device_radio_operating_mode) | **get** /devices/{id}/radio-operating-mode | Get the device radio operating mode
 [**get_device_stats**](#get_device_stats) | **get** /devices/stats | Get device stats
 [**get_device_wifi_interface**](#get_device_wifi_interface) | **get** /devices/{id}/interfaces/wifi | Get the device WiFi interfaces stats
 [**get_ftm_settings**](#get_ftm_settings) | **get** /devices/{id}/ftm-settings | Get FTM Settings by device ID
+[**get_stack_member_info**](#get_stack_member_info) | **get** /devices/rm-devices-stack/{stackId} | Get Stack Member Info for a given stack id
 [**get_xiq_device_installation_report**](#get_xiq_device_installation_report) | **get** /devices/{id}/installation-report | Get device installation report
 [**list_device_alarm**](#list_device_alarm) | **get** /devices/{id}/alarms | List alarms for a device
 [**list_devices**](#list_devices) | **get** /devices | [LRO] List devices
@@ -69,10 +73,12 @@ Method | HTTP request | Description
 [**revoke_devices_location**](#revoke_devices_location) | **post** /devices/location/:revoke | Revoke location for multiple devices
 [**revoke_devices_network_policy**](#revoke_devices_network_policy) | **post** /devices/network-policy/:revoke | Revoke network policy for multiple devices
 [**revoke_devices_radius_proxy**](#revoke_devices_radius_proxy) | **delete** /devices/radius-proxy/:revoke | Revoke RADIUS proxy from multiple devices
+[**rm_device_list**](#rm_device_list) | **post** /devices/rm-devices-page | RM Device Page
 [**send_cli_to_device**](#send_cli_to_device) | **post** /devices/{id}/:cli | Send CLI to a device
 [**send_cli_to_devices**](#send_cli_to_devices) | **post** /devices/:cli | [LRO] Send CLI to devices
 [**start_thread_commissioner**](#start_thread_commissioner) | **post** /devices/{id}/thread/commissioner/:start | Start Thread Commissioner
 [**stop_thread_commissioner**](#stop_thread_commissioner) | **post** /devices/{id}/thread/commissioner/:stop | Stop Thread Commissioner
+[**update_device_visible**](#update_device_visible) | **put** /devices/{id}/visible | Update the visible status of a device in a floor
 
 # **advanced_onboard_devices**
 <a id="advanced_onboard_devices"></a>
@@ -321,6 +327,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#advanced_onboard_devices.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#advanced_onboard_devices.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#advanced_onboard_devices.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#advanced_onboard_devices.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#advanced_onboard_devices.ApiResponseFor200) | OK
 
@@ -345,6 +352,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### advanced_onboard_devices.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -477,6 +497,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#assign_device_client_monitor.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#assign_device_client_monitor.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#assign_device_client_monitor.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#assign_device_client_monitor.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#assign_device_client_monitor.ApiResponseFor200) | OK
 
@@ -501,6 +522,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### assign_device_client_monitor.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -630,6 +664,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#assign_device_location.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#assign_device_location.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#assign_device_location.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#assign_device_location.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#assign_device_location.ApiResponseFor200) | OK
 
@@ -654,6 +689,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### assign_device_location.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -784,6 +832,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#assign_device_network_policy.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#assign_device_network_policy.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#assign_device_network_policy.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#assign_device_network_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#assign_device_network_policy.ApiResponseFor200) | OK
 
@@ -808,6 +857,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### assign_device_network_policy.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -922,6 +984,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#assign_devices_client_monitor.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#assign_devices_client_monitor.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#assign_devices_client_monitor.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#assign_devices_client_monitor.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#assign_devices_client_monitor.ApiResponseFor200) | OK
 
@@ -946,6 +1009,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### assign_devices_client_monitor.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1057,6 +1133,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#assign_devices_country_code.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#assign_devices_country_code.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#assign_devices_country_code.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#assign_devices_country_code.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#assign_devices_country_code.ApiResponseFor200) | OK
 
@@ -1081,6 +1158,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### assign_devices_country_code.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1198,6 +1288,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#assign_devices_location.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#assign_devices_location.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#assign_devices_location.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#assign_devices_location.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#assign_devices_location.ApiResponseFor200) | OK
 
@@ -1222,6 +1313,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### assign_devices_location.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1333,6 +1437,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#assign_devices_network_policy.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#assign_devices_network_policy.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#assign_devices_network_policy.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#assign_devices_network_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#assign_devices_network_policy.ApiResponseFor200) | OK
 
@@ -1357,6 +1462,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### assign_devices_network_policy.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1484,6 +1602,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#assign_devices_radius_proxy.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#assign_devices_radius_proxy.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#assign_devices_radius_proxy.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#assign_devices_radius_proxy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#assign_devices_radius_proxy.ApiResponseFor200) | OK
 
@@ -1508,6 +1627,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### assign_devices_radius_proxy.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1637,6 +1769,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#bounce_device_port.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#bounce_device_port.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#bounce_device_port.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#bounce_device_port.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#bounce_device_port.ApiResponseFor200) | OK
 
@@ -1661,6 +1794,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### bounce_device_port.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1790,6 +1936,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#change_device_description.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#change_device_description.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#change_device_description.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#change_device_description.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#change_device_description.ApiResponseFor200) | OK
 
@@ -1814,6 +1961,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### change_device_description.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1945,6 +2105,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#change_device_level_ssid_status.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#change_device_level_ssid_status.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#change_device_level_ssid_status.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#change_device_level_ssid_status.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#change_device_level_ssid_status.ApiResponseFor200) | OK
 
@@ -1969,6 +2130,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### change_device_level_ssid_status.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -2079,6 +2253,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#change_device_status_to_manage.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#change_device_status_to_manage.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#change_device_status_to_manage.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#change_device_status_to_manage.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#change_device_status_to_manage.ApiResponseFor200) | OK
 
@@ -2103,6 +2278,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### change_device_status_to_manage.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -2213,6 +2401,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#change_device_status_to_unmanage.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#change_device_status_to_unmanage.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#change_device_status_to_unmanage.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#change_device_status_to_unmanage.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#change_device_status_to_unmanage.ApiResponseFor200) | OK
 
@@ -2237,6 +2426,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### change_device_status_to_unmanage.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -2354,6 +2556,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#change_devices_ibeacon.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#change_devices_ibeacon.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#change_devices_ibeacon.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#change_devices_ibeacon.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#change_devices_ibeacon.ApiResponseFor200) | OK
 
@@ -2378,6 +2581,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### change_devices_ibeacon.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -2487,6 +2703,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#change_devices_os_mode.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#change_devices_os_mode.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#change_devices_os_mode.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#change_devices_os_mode.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#change_devices_os_mode.ApiResponseFor200) | OK
 
@@ -2511,6 +2728,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### change_devices_os_mode.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -2641,6 +2871,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#change_hostname.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#change_hostname.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#change_hostname.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#change_hostname.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#change_hostname.ApiResponseFor200) | OK
 
@@ -2665,6 +2896,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### change_hostname.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -2773,6 +3017,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#change_status_to_manage.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#change_status_to_manage.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#change_status_to_manage.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#change_status_to_manage.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#change_status_to_manage.ApiResponseFor200) | OK
 
@@ -2797,6 +3042,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### change_status_to_manage.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -2905,6 +3163,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#change_status_to_unmanage.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#change_status_to_unmanage.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#change_status_to_unmanage.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#change_status_to_unmanage.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#change_status_to_unmanage.ApiResponseFor200) | OK
 
@@ -2929,6 +3188,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### change_status_to_unmanage.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -3036,6 +3308,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#check_device_ownership.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#check_device_ownership.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#check_device_ownership.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#check_device_ownership.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#check_device_ownership.ApiResponseFor200) | OK
 
@@ -3060,6 +3333,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### check_device_ownership.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -3198,6 +3484,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#configure_device_radio_operating_mode.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#configure_device_radio_operating_mode.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#configure_device_radio_operating_mode.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#configure_device_radio_operating_mode.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#configure_device_radio_operating_mode.ApiResponseFor200) | OK
 
@@ -3222,6 +3509,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### configure_device_radio_operating_mode.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -3365,6 +3665,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#configure_ftm_settings.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#configure_ftm_settings.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#configure_ftm_settings.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#configure_ftm_settings.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#configure_ftm_settings.ApiResponseFor200) | OK
 
@@ -3389,6 +3690,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### configure_ftm_settings.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -3540,6 +3854,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#delete_device.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#delete_device.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#delete_device.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#delete_device.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_device.ApiResponseFor200) | OK
 
@@ -3564,6 +3879,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### delete_device.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -3709,6 +4037,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#delete_devices.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#delete_devices.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#delete_devices.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#delete_devices.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_devices.ApiResponseFor200) | OK
 
@@ -3733,6 +4062,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### delete_devices.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -3843,6 +4185,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#delete_ftm_settings.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#delete_ftm_settings.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#delete_ftm_settings.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#delete_ftm_settings.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_ftm_settings.ApiResponseFor200) | OK
 
@@ -3867,6 +4210,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### delete_ftm_settings.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -3977,6 +4333,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#disable_iot_on_device.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#disable_iot_on_device.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#disable_iot_on_device.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#disable_iot_on_device.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#disable_iot_on_device.ApiResponseFor200) | OK
 
@@ -4001,6 +4358,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### disable_iot_on_device.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -4132,6 +4502,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#download_device_gallery_image.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#download_device_gallery_image.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#download_device_gallery_image.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#download_device_gallery_image.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#download_device_gallery_image.ApiResponseFor200) | OK
 
@@ -4156,6 +4527,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### download_device_gallery_image.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -4286,6 +4670,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#enable_iot_on_device.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#enable_iot_on_device.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#enable_iot_on_device.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#enable_iot_on_device.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#enable_iot_on_device.ApiResponseFor200) | OK
 
@@ -4315,6 +4700,19 @@ Type | Description  | Notes
 [**XiqError**](../../models/XiqError.md) |  | 
 
 
+#### enable_iot_on_device.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
 #### enable_iot_on_device.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4334,6 +4732,297 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **export_rm_devices_to_csv**
+<a id="export_rm_devices_to_csv"></a>
+> [str] export_rm_devices_to_csv()
+
+Export RM devices data to CSV
+
+Export RM devices data to a CSV file.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import device_api
+from extremecloudiq.model.xiq_sort_order import XiqSortOrder
+from extremecloudiq.model.xiq_error import XiqError
+from extremecloudiq.model.xiq_device_category import XiqDeviceCategory
+from extremecloudiq.model.xiq_device_admin_state import XiqDeviceAdminState
+from extremecloudiq.model.xiq_rm_device_sort_field import XiqRmDeviceSortField
+from extremecloudiq.model.xiq_rm_device_list_request import XiqRmDeviceListRequest
+from extremecloudiq.model.xiq_device_type import XiqDeviceType
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = device_api.DeviceApi(api_client)
+
+    # example passing only optional values
+    query_params = {
+        'keyword': "keyword_example",
+        'connected': True,
+        'adminStates': [
+        XiqDeviceAdminState("NEW")
+    ],
+        'deviceCategory': XiqDeviceCategory("WIRED"),
+        'sortField': XiqRmDeviceSortField("HOSTNAME"),
+        'sortOrder': XiqSortOrder("ASC"),
+        'deviceTypes': [
+        XiqDeviceType("REAL")
+    ],
+        'configMismatch': True,
+        'async': False,
+    }
+    body = XiqRmDeviceListRequest(
+        site_ids=[
+            1
+        ],
+        sns=[
+            "sns_example"
+        ],
+        mac_addresses=[
+            "mac_addresses_example"
+        ],
+        hostnames=[
+            "hostnames_example"
+        ],
+        default_gateway_ips=[
+            "default_gateway_ips_example"
+        ],
+        product_types=[
+            "product_types_example"
+        ],
+        firmware_versions=[
+            "firmware_versions_example"
+        ],
+        country_codes=[
+            1
+        ],
+        managed_by=[
+            "managed_by_example"
+        ],
+    )
+    try:
+        # Export RM devices data to CSV
+        api_response = api_instance.export_rm_devices_to_csv(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DeviceApi->export_rm_devices_to_csv: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+query_params | RequestQueryParams | |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqRmDeviceListRequest**](../../models/XiqRmDeviceListRequest.md) |  | 
+
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+keyword | KeywordSchema | | optional
+connected | ConnectedSchema | | optional
+adminStates | AdminStatesSchema | | optional
+deviceCategory | DeviceCategorySchema | | optional
+sortField | SortFieldSchema | | optional
+sortOrder | SortOrderSchema | | optional
+deviceTypes | DeviceTypesSchema | | optional
+configMismatch | ConfigMismatchSchema | | optional
+async | ModelAsyncSchema | | optional
+
+
+# KeywordSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# ConnectedSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | 
+
+# AdminStatesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqDeviceAdminState**]({{complexTypePrefix}}XiqDeviceAdminState.md) | [**XiqDeviceAdminState**]({{complexTypePrefix}}XiqDeviceAdminState.md) | [**XiqDeviceAdminState**]({{complexTypePrefix}}XiqDeviceAdminState.md) |  | 
+
+# DeviceCategorySchema
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqDeviceCategory**](../../models/XiqDeviceCategory.md) |  | 
+
+
+# SortFieldSchema
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqRmDeviceSortField**](../../models/XiqRmDeviceSortField.md) |  | 
+
+
+# SortOrderSchema
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqSortOrder**](../../models/XiqSortOrder.md) |  | 
+
+
+# DeviceTypesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) | [**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) | [**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) |  | 
+
+# ConfigMismatchSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | 
+
+# ModelAsyncSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+401 | [ApiResponseFor401](#export_rm_devices_to_csv.ApiResponseFor401) | Unauthorized
+400 | [ApiResponseFor400](#export_rm_devices_to_csv.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#export_rm_devices_to_csv.ApiResponseFor503) | Service Unavailable
+500 | [ApiResponseFor500](#export_rm_devices_to_csv.ApiResponseFor500) | Internal Server Error
+200 | [ApiResponseFor200](#export_rm_devices_to_csv.ApiResponseFor200) | OK
+
+#### export_rm_devices_to_csv.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### export_rm_devices_to_csv.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### export_rm_devices_to_csv.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### export_rm_devices_to_csv.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### export_rm_devices_to_csv.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
 
 ### Authorization
 
@@ -4483,6 +5172,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_device1.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_device1.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_device1.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_device1.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device1.ApiResponseFor200) | OK
 
@@ -4507,6 +5197,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device1.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -4625,6 +5328,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_device_client_monitor.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_device_client_monitor.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_device_client_monitor.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_device_client_monitor.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_client_monitor.ApiResponseFor200) | OK
 
@@ -4654,6 +5358,19 @@ Type | Description  | Notes
 [**XiqError**](../../models/XiqError.md) |  | 
 
 
+#### get_device_client_monitor.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
 #### get_device_client_monitor.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -4678,6 +5395,197 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqDeviceClientMonitor**](../../models/XiqDeviceClientMonitor.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **get_device_connection_status**
+<a id="get_device_connection_status"></a>
+> XiqRmDeviceConnectionStatus get_device_connection_status()
+
+Get Device Connection Status
+
+Retrieve the connection status of devices for given site IDs.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import device_api
+from extremecloudiq.model.xiq_rm_device_connection_status import XiqRmDeviceConnectionStatus
+from extremecloudiq.model.xiq_error import XiqError
+from extremecloudiq.model.xiq_rm_site_ids_request import XiqRmSiteIdsRequest
+from extremecloudiq.model.xiq_device_category import XiqDeviceCategory
+from extremecloudiq.model.xiq_device_type import XiqDeviceType
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = device_api.DeviceApi(api_client)
+
+    # example passing only optional values
+    query_params = {
+        'deviceCategory': XiqDeviceCategory("WIRED"),
+        'deviceTypes': [
+        XiqDeviceType("REAL")
+    ],
+    }
+    body = XiqRmSiteIdsRequest(
+        site_ids=[
+            1
+        ],
+    )
+    try:
+        # Get Device Connection Status
+        api_response = api_instance.get_device_connection_status(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DeviceApi->get_device_connection_status: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+query_params | RequestQueryParams | |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqRmSiteIdsRequest**](../../models/XiqRmSiteIdsRequest.md) |  | 
+
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+deviceCategory | DeviceCategorySchema | | optional
+deviceTypes | DeviceTypesSchema | | optional
+
+
+# DeviceCategorySchema
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqDeviceCategory**](../../models/XiqDeviceCategory.md) |  | 
+
+
+# DeviceTypesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) | [**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) | [**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+401 | [ApiResponseFor401](#get_device_connection_status.ApiResponseFor401) | Unauthorized
+400 | [ApiResponseFor400](#get_device_connection_status.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_device_connection_status.ApiResponseFor503) | Service Unavailable
+500 | [ApiResponseFor500](#get_device_connection_status.ApiResponseFor500) | Internal Server Error
+200 | [ApiResponseFor200](#get_device_connection_status.ApiResponseFor200) | OK
+
+#### get_device_connection_status.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_connection_status.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_connection_status.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_connection_status.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_connection_status.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqRmDeviceConnectionStatus**](../../models/XiqRmDeviceConnectionStatus.md) |  | 
 
 
 ### Authorization
@@ -4823,6 +5731,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_device_cpu_memory_history.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_device_cpu_memory_history.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_device_cpu_memory_history.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_device_cpu_memory_history.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_cpu_memory_history.ApiResponseFor200) | OK
 
@@ -4847,6 +5756,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_cpu_memory_history.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -4971,6 +5893,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_device_geolocation.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_device_geolocation.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_device_geolocation.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_device_geolocation.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_geolocation.ApiResponseFor200) | OK
 
@@ -4995,6 +5918,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_geolocation.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -5113,6 +6049,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_device_ibeacon.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_device_ibeacon.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_device_ibeacon.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_device_ibeacon.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_ibeacon.ApiResponseFor200) | OK
 
@@ -5137,6 +6074,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_ibeacon.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -5255,6 +6205,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_device_iot.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_device_iot.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_device_iot.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_device_iot.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_iot.ApiResponseFor200) | OK
 
@@ -5279,6 +6230,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_iot.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -5397,6 +6361,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_device_level_ssid_status.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_device_level_ssid_status.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_device_level_ssid_status.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_device_level_ssid_status.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_level_ssid_status.ApiResponseFor200) | OK
 
@@ -5421,6 +6386,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_level_ssid_status.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -5457,6 +6435,214 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | [**XiqDeviceLevelSsidStatus**]({{complexTypePrefix}}XiqDeviceLevelSsidStatus.md) | [**XiqDeviceLevelSsidStatus**]({{complexTypePrefix}}XiqDeviceLevelSsidStatus.md) | any string name can be used but the value must be the correct type | [optional] 
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **get_device_list_metadata**
+<a id="get_device_list_metadata"></a>
+> XiqRmDeviceMetdataResponse get_device_list_metadata()
+
+Get Device List Metadata
+
+Retrieve metadata information about devices.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import device_api
+from extremecloudiq.model.xiq_error import XiqError
+from extremecloudiq.model.xiq_rm_site_ids_request import XiqRmSiteIdsRequest
+from extremecloudiq.model.xiq_device_category import XiqDeviceCategory
+from extremecloudiq.model.xiq_rm_device_metdata_response import XiqRmDeviceMetdataResponse
+from extremecloudiq.model.xiq_device_admin_state import XiqDeviceAdminState
+from extremecloudiq.model.xiq_device_type import XiqDeviceType
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = device_api.DeviceApi(api_client)
+
+    # example passing only optional values
+    query_params = {
+        'deviceCategory': XiqDeviceCategory("WIRED"),
+        'adminStates': [
+        XiqDeviceAdminState("NEW")
+    ],
+        'deviceTypes': [
+        XiqDeviceType("REAL")
+    ],
+    }
+    body = XiqRmSiteIdsRequest(
+        site_ids=[
+            1
+        ],
+    )
+    try:
+        # Get Device List Metadata
+        api_response = api_instance.get_device_list_metadata(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DeviceApi->get_device_list_metadata: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+query_params | RequestQueryParams | |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqRmSiteIdsRequest**](../../models/XiqRmSiteIdsRequest.md) |  | 
+
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+deviceCategory | DeviceCategorySchema | | optional
+adminStates | AdminStatesSchema | | optional
+deviceTypes | DeviceTypesSchema | | optional
+
+
+# DeviceCategorySchema
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqDeviceCategory**](../../models/XiqDeviceCategory.md) |  | 
+
+
+# AdminStatesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqDeviceAdminState**]({{complexTypePrefix}}XiqDeviceAdminState.md) | [**XiqDeviceAdminState**]({{complexTypePrefix}}XiqDeviceAdminState.md) | [**XiqDeviceAdminState**]({{complexTypePrefix}}XiqDeviceAdminState.md) |  | 
+
+# DeviceTypesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) | [**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) | [**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+401 | [ApiResponseFor401](#get_device_list_metadata.ApiResponseFor401) | Unauthorized
+400 | [ApiResponseFor400](#get_device_list_metadata.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_device_list_metadata.ApiResponseFor503) | Service Unavailable
+500 | [ApiResponseFor500](#get_device_list_metadata.ApiResponseFor500) | Internal Server Error
+200 | [ApiResponseFor200](#get_device_list_metadata.ApiResponseFor200) | OK
+
+#### get_device_list_metadata.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_list_metadata.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_list_metadata.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_list_metadata.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_list_metadata.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqRmDeviceMetdataResponse**](../../models/XiqRmDeviceMetdataResponse.md) |  | 
+
 
 ### Authorization
 
@@ -5545,6 +6731,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_device_location.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_device_location.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_device_location.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_device_location.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_location.ApiResponseFor200) | OK
 
@@ -5569,6 +6756,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_location.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -5687,6 +6887,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_device_network_policy.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_device_network_policy.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_device_network_policy.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_device_network_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_network_policy.ApiResponseFor200) | OK
 
@@ -5711,6 +6912,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_network_policy.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -5829,6 +7043,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_device_radio_operating_mode.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_device_radio_operating_mode.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_device_radio_operating_mode.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_device_radio_operating_mode.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_radio_operating_mode.ApiResponseFor200) | OK
 
@@ -5853,6 +7068,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_radio_operating_mode.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -5972,6 +7200,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_device_stats.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_device_stats.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_device_stats.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_device_stats.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_stats.ApiResponseFor200) | OK
 
@@ -5996,6 +7225,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_stats.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -6143,6 +7385,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_device_wifi_interface.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_device_wifi_interface.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_device_wifi_interface.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_device_wifi_interface.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_wifi_interface.ApiResponseFor200) | OK
 
@@ -6167,6 +7410,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_device_wifi_interface.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -6291,6 +7547,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_ftm_settings.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_ftm_settings.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_ftm_settings.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_ftm_settings.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_ftm_settings.ApiResponseFor200) | OK
 
@@ -6315,6 +7572,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_ftm_settings.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -6345,6 +7615,168 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqFtmSettings**](../../models/XiqFtmSettings.md) |  | 
 
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **get_stack_member_info**
+<a id="get_stack_member_info"></a>
+> [XiqRmStackMemberInfo] get_stack_member_info(stack_id)
+
+Get Stack Member Info for a given stack id
+
+Retrieve information about stack members.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import device_api
+from extremecloudiq.model.xiq_rm_stack_member_info import XiqRmStackMemberInfo
+from extremecloudiq.model.xiq_error import XiqError
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = device_api.DeviceApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'stackId': 1,
+    }
+    try:
+        # Get Stack Member Info for a given stack id
+        api_response = api_instance.get_stack_member_info(
+            path_params=path_params,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DeviceApi->get_stack_member_info: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+stackId | StackIdSchema | | 
+
+# StackIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+401 | [ApiResponseFor401](#get_stack_member_info.ApiResponseFor401) | Unauthorized
+400 | [ApiResponseFor400](#get_stack_member_info.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_stack_member_info.ApiResponseFor503) | Service Unavailable
+500 | [ApiResponseFor500](#get_stack_member_info.ApiResponseFor500) | Internal Server Error
+200 | [ApiResponseFor200](#get_stack_member_info.ApiResponseFor200) | OK
+
+#### get_stack_member_info.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_stack_member_info.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_stack_member_info.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_stack_member_info.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_stack_member_info.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqRmStackMemberInfo**]({{complexTypePrefix}}XiqRmStackMemberInfo.md) | [**XiqRmStackMemberInfo**]({{complexTypePrefix}}XiqRmStackMemberInfo.md) | [**XiqRmStackMemberInfo**]({{complexTypePrefix}}XiqRmStackMemberInfo.md) |  | 
 
 ### Authorization
 
@@ -6433,6 +7865,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_xiq_device_installation_report.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_xiq_device_installation_report.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_xiq_device_installation_report.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_xiq_device_installation_report.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_xiq_device_installation_report.ApiResponseFor200) | OK
 
@@ -6457,6 +7890,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_xiq_device_installation_report.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -6640,6 +8086,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_device_alarm.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_device_alarm.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_device_alarm.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_device_alarm.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_device_alarm.ApiResponseFor200) | OK
 
@@ -6664,6 +8111,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_device_alarm.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -6985,6 +8445,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_devices.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_devices.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_devices.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_devices.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_devices.ApiResponseFor200) | OK
 
@@ -7009,6 +8470,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_devices.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -7172,6 +8646,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_devices_by_network_policy.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_devices_by_network_policy.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_devices_by_network_policy.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_devices_by_network_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_devices_by_network_policy.ApiResponseFor200) | OK
 
@@ -7196,6 +8671,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_devices_by_network_policy.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -7364,6 +8852,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_devices_radio_information.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_devices_radio_information.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_devices_radio_information.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_devices_radio_information.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_devices_radio_information.ApiResponseFor200) | OK
 
@@ -7388,6 +8877,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_devices_radio_information.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -7550,6 +9052,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_digital_twin_products.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_digital_twin_products.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_digital_twin_products.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_digital_twin_products.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_digital_twin_products.ApiResponseFor200) | OK
 
@@ -7574,6 +9077,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_digital_twin_products.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -7728,6 +9244,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#monitor_refresh_device.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#monitor_refresh_device.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#monitor_refresh_device.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#monitor_refresh_device.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#monitor_refresh_device.ApiResponseFor200) | OK
 
@@ -7752,6 +9269,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### monitor_refresh_device.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -7890,6 +9420,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#monitor_refresh_device_status.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#monitor_refresh_device_status.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#monitor_refresh_device_status.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#monitor_refresh_device_status.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#monitor_refresh_device_status.ApiResponseFor200) | OK
 
@@ -7914,6 +9445,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### monitor_refresh_device_status.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -8062,6 +9606,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#onboard_devices.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#onboard_devices.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#onboard_devices.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#onboard_devices.ApiResponseFor500) | Internal Server Error
 202 | [ApiResponseFor202](#onboard_devices.ApiResponseFor202) | Accepted
 
@@ -8086,6 +9631,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### onboard_devices.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -8213,6 +9771,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#override_device_level_ssid.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#override_device_level_ssid.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#override_device_level_ssid.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#override_device_level_ssid.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#override_device_level_ssid.ApiResponseFor200) | OK
 
@@ -8237,6 +9796,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### override_device_level_ssid.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -8347,6 +9919,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#query_devices_client_monitor.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#query_devices_client_monitor.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#query_devices_client_monitor.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#query_devices_client_monitor.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#query_devices_client_monitor.ApiResponseFor200) | OK
 
@@ -8371,6 +9944,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### query_devices_client_monitor.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -8493,6 +10079,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#query_devices_location.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#query_devices_location.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#query_devices_location.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#query_devices_location.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#query_devices_location.ApiResponseFor200) | OK
 
@@ -8517,6 +10104,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### query_devices_location.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -8639,6 +10239,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#query_devices_network_policy.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#query_devices_network_policy.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#query_devices_network_policy.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#query_devices_network_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#query_devices_network_policy.ApiResponseFor200) | OK
 
@@ -8663,6 +10264,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### query_devices_network_policy.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -8785,6 +10399,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#reboot_device.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#reboot_device.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#reboot_device.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#reboot_device.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#reboot_device.ApiResponseFor200) | OK
 
@@ -8809,6 +10424,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### reboot_device.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -8917,6 +10545,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#reboot_devices.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#reboot_devices.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#reboot_devices.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#reboot_devices.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#reboot_devices.ApiResponseFor200) | OK
 
@@ -8941,6 +10570,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### reboot_devices.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -9086,6 +10728,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#reset_device.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#reset_device.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#reset_device.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#reset_device.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#reset_device.ApiResponseFor200) | OK
 
@@ -9110,6 +10753,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### reset_device.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -9220,6 +10876,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#revoke_device_client_monitor.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#revoke_device_client_monitor.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#revoke_device_client_monitor.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#revoke_device_client_monitor.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#revoke_device_client_monitor.ApiResponseFor200) | OK
 
@@ -9244,6 +10901,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### revoke_device_client_monitor.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -9354,6 +11024,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#revoke_device_location.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#revoke_device_location.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#revoke_device_location.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#revoke_device_location.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#revoke_device_location.ApiResponseFor200) | OK
 
@@ -9378,6 +11049,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### revoke_device_location.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -9488,6 +11172,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#revoke_device_network_policy.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#revoke_device_network_policy.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#revoke_device_network_policy.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#revoke_device_network_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#revoke_device_network_policy.ApiResponseFor200) | OK
 
@@ -9512,6 +11197,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### revoke_device_network_policy.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -9620,6 +11318,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#revoke_devices_client_monitor.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#revoke_devices_client_monitor.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#revoke_devices_client_monitor.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#revoke_devices_client_monitor.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#revoke_devices_client_monitor.ApiResponseFor200) | OK
 
@@ -9644,6 +11343,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### revoke_devices_client_monitor.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -9752,6 +11464,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#revoke_devices_location.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#revoke_devices_location.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#revoke_devices_location.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#revoke_devices_location.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#revoke_devices_location.ApiResponseFor200) | OK
 
@@ -9776,6 +11489,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### revoke_devices_location.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -9884,6 +11610,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#revoke_devices_network_policy.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#revoke_devices_network_policy.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#revoke_devices_network_policy.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#revoke_devices_network_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#revoke_devices_network_policy.ApiResponseFor200) | OK
 
@@ -9908,6 +11635,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### revoke_devices_network_policy.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -10026,6 +11766,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#revoke_devices_radius_proxy.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#revoke_devices_radius_proxy.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#revoke_devices_radius_proxy.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#revoke_devices_radius_proxy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#revoke_devices_radius_proxy.ApiResponseFor200) | OK
 
@@ -10055,6 +11796,19 @@ Type | Description  | Notes
 [**XiqError**](../../models/XiqError.md) |  | 
 
 
+#### revoke_devices_radius_proxy.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
 #### revoke_devices_radius_proxy.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -10074,6 +11828,310 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **rm_device_list**
+<a id="rm_device_list"></a>
+> PagedXiqRmDevice rm_device_list()
+
+RM Device Page
+
+Device List with pagination.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import device_api
+from extremecloudiq.model.xiq_sort_order import XiqSortOrder
+from extremecloudiq.model.xiq_error import XiqError
+from extremecloudiq.model.xiq_device_category import XiqDeviceCategory
+from extremecloudiq.model.xiq_device_admin_state import XiqDeviceAdminState
+from extremecloudiq.model.xiq_rm_device_sort_field import XiqRmDeviceSortField
+from extremecloudiq.model.xiq_rm_device_list_request import XiqRmDeviceListRequest
+from extremecloudiq.model.paged_xiq_rm_device import PagedXiqRmDevice
+from extremecloudiq.model.xiq_device_type import XiqDeviceType
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = device_api.DeviceApi(api_client)
+
+    # example passing only optional values
+    query_params = {
+        'page': 1,
+        'limit': 10,
+        'keyword': "keyword_example",
+        'connected': True,
+        'adminStates': [
+        XiqDeviceAdminState("NEW")
+    ],
+        'deviceCategory': XiqDeviceCategory("WIRED"),
+        'sortField': XiqRmDeviceSortField("HOSTNAME"),
+        'order': XiqSortOrder("ASC"),
+        'deviceTypes': [
+        XiqDeviceType("REAL")
+    ],
+        'configMismatch': True,
+        'async': False,
+    }
+    body = XiqRmDeviceListRequest(
+        site_ids=[
+            1
+        ],
+        sns=[
+            "sns_example"
+        ],
+        mac_addresses=[
+            "mac_addresses_example"
+        ],
+        hostnames=[
+            "hostnames_example"
+        ],
+        default_gateway_ips=[
+            "default_gateway_ips_example"
+        ],
+        product_types=[
+            "product_types_example"
+        ],
+        firmware_versions=[
+            "firmware_versions_example"
+        ],
+        country_codes=[
+            1
+        ],
+        managed_by=[
+            "managed_by_example"
+        ],
+    )
+    try:
+        # RM Device Page
+        api_response = api_instance.rm_device_list(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DeviceApi->rm_device_list: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+query_params | RequestQueryParams | |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqRmDeviceListRequest**](../../models/XiqRmDeviceListRequest.md) |  | 
+
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+page | PageSchema | | optional
+limit | LimitSchema | | optional
+keyword | KeywordSchema | | optional
+connected | ConnectedSchema | | optional
+adminStates | AdminStatesSchema | | optional
+deviceCategory | DeviceCategorySchema | | optional
+sortField | SortFieldSchema | | optional
+order | OrderSchema | | optional
+deviceTypes | DeviceTypesSchema | | optional
+configMismatch | ConfigMismatchSchema | | optional
+async | ModelAsyncSchema | | optional
+
+
+# PageSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 1value must be a 32 bit integer
+
+# LimitSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 10value must be a 32 bit integer
+
+# KeywordSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+# ConnectedSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | 
+
+# AdminStatesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqDeviceAdminState**]({{complexTypePrefix}}XiqDeviceAdminState.md) | [**XiqDeviceAdminState**]({{complexTypePrefix}}XiqDeviceAdminState.md) | [**XiqDeviceAdminState**]({{complexTypePrefix}}XiqDeviceAdminState.md) |  | 
+
+# DeviceCategorySchema
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqDeviceCategory**](../../models/XiqDeviceCategory.md) |  | 
+
+
+# SortFieldSchema
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqRmDeviceSortField**](../../models/XiqRmDeviceSortField.md) |  | 
+
+
+# OrderSchema
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqSortOrder**](../../models/XiqSortOrder.md) |  | 
+
+
+# DeviceTypesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) | [**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) | [**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) |  | 
+
+# ConfigMismatchSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | 
+
+# ModelAsyncSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+401 | [ApiResponseFor401](#rm_device_list.ApiResponseFor401) | Unauthorized
+400 | [ApiResponseFor400](#rm_device_list.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#rm_device_list.ApiResponseFor503) | Service Unavailable
+500 | [ApiResponseFor500](#rm_device_list.ApiResponseFor500) | Internal Server Error
+200 | [ApiResponseFor200](#rm_device_list.ApiResponseFor200) | OK
+
+#### rm_device_list.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### rm_device_list.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### rm_device_list.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### rm_device_list.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### rm_device_list.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**PagedXiqRmDevice**](../../models/PagedXiqRmDevice.md) |  | 
+
 
 ### Authorization
 
@@ -10182,6 +12240,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#send_cli_to_device.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#send_cli_to_device.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#send_cli_to_device.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#send_cli_to_device.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#send_cli_to_device.ApiResponseFor200) | OK
 
@@ -10206,6 +12265,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### send_cli_to_device.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -10370,6 +12442,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#send_cli_to_devices.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#send_cli_to_devices.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#send_cli_to_devices.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#send_cli_to_devices.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#send_cli_to_devices.ApiResponseFor200) | OK
 
@@ -10394,6 +12467,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### send_cli_to_devices.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -10527,6 +12613,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#start_thread_commissioner.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#start_thread_commissioner.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#start_thread_commissioner.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#start_thread_commissioner.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#start_thread_commissioner.ApiResponseFor200) | OK
 
@@ -10551,6 +12638,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### start_thread_commissioner.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -10677,6 +12777,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#stop_thread_commissioner.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#stop_thread_commissioner.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#stop_thread_commissioner.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#stop_thread_commissioner.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#stop_thread_commissioner.ApiResponseFor200) | OK
 
@@ -10706,6 +12807,19 @@ Type | Description  | Notes
 [**XiqError**](../../models/XiqError.md) |  | 
 
 
+#### stop_thread_commissioner.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
 #### stop_thread_commissioner.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -10720,6 +12834,174 @@ Type | Description  | Notes
 
 
 #### stop_thread_commissioner.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **update_device_visible**
+<a id="update_device_visible"></a>
+> update_device_visible(idvisible)
+
+Update the visible status of a device in a floor
+
+Update the visible status of a device in a floor
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import device_api
+from extremecloudiq.model.xiq_error import XiqError
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = device_api.DeviceApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': 1,
+    }
+    query_params = {
+        'visible': True,
+    }
+    try:
+        # Update the visible status of a device in a floor
+        api_response = api_instance.update_device_visible(
+            path_params=path_params,
+            query_params=query_params,
+        )
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DeviceApi->update_device_visible: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+query_params | RequestQueryParams | |
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+visible | VisibleSchema | | 
+
+
+# VisibleSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | 
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+401 | [ApiResponseFor401](#update_device_visible.ApiResponseFor401) | Unauthorized
+400 | [ApiResponseFor400](#update_device_visible.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#update_device_visible.ApiResponseFor503) | Service Unavailable
+500 | [ApiResponseFor500](#update_device_visible.ApiResponseFor500) | Internal Server Error
+200 | [ApiResponseFor200](#update_device_visible.ApiResponseFor200) | OK
+
+#### update_device_visible.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### update_device_visible.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### update_device_visible.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### update_device_visible.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### update_device_visible.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

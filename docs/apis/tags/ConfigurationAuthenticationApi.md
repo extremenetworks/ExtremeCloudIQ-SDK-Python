@@ -119,6 +119,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#create_external_radius_server.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#create_external_radius_server.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#create_external_radius_server.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#create_external_radius_server.ApiResponseFor500) | Internal Server Error
 201 | [ApiResponseFor201](#create_external_radius_server.ApiResponseFor201) | Created
 
@@ -143,6 +144,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### create_external_radius_server.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -300,6 +314,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#create_internal_radius_server.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#create_internal_radius_server.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#create_internal_radius_server.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#create_internal_radius_server.ApiResponseFor500) | Internal Server Error
 201 | [ApiResponseFor201](#create_internal_radius_server.ApiResponseFor201) | Created
 
@@ -324,6 +339,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### create_internal_radius_server.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -452,6 +480,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#create_ldap_server.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#create_ldap_server.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#create_ldap_server.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#create_ldap_server.ApiResponseFor500) | Internal Server Error
 201 | [ApiResponseFor201](#create_ldap_server.ApiResponseFor201) | Created
 
@@ -476,6 +505,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### create_ldap_server.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -603,6 +645,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#create_radius_client_object.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#create_radius_client_object.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#create_radius_client_object.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#create_radius_client_object.ApiResponseFor500) | Internal Server Error
 201 | [ApiResponseFor201](#create_radius_client_object.ApiResponseFor201) | Created
 
@@ -627,6 +670,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### create_radius_client_object.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -764,6 +820,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#create_radius_proxy.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#create_radius_proxy.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#create_radius_proxy.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#create_radius_proxy.ApiResponseFor500) | Internal Server Error
 201 | [ApiResponseFor201](#create_radius_proxy.ApiResponseFor201) | Created
 
@@ -788,6 +845,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### create_radius_proxy.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -935,6 +1005,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#delete_bulk_internal_radius_server.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#delete_bulk_internal_radius_server.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#delete_bulk_internal_radius_server.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#delete_bulk_internal_radius_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_bulk_internal_radius_server.ApiResponseFor200) | OK
 
@@ -959,6 +1030,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### delete_bulk_internal_radius_server.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1069,6 +1153,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#delete_external_radius_server.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#delete_external_radius_server.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#delete_external_radius_server.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#delete_external_radius_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_external_radius_server.ApiResponseFor200) | OK
 
@@ -1093,6 +1178,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### delete_external_radius_server.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1203,6 +1301,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#delete_internal_radius_server.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#delete_internal_radius_server.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#delete_internal_radius_server.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#delete_internal_radius_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_internal_radius_server.ApiResponseFor200) | OK
 
@@ -1227,6 +1326,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### delete_internal_radius_server.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1337,6 +1449,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#delete_ldap_server.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#delete_ldap_server.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#delete_ldap_server.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#delete_ldap_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_ldap_server.ApiResponseFor200) | OK
 
@@ -1361,6 +1474,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### delete_ldap_server.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1471,6 +1597,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#delete_radius_client_object.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#delete_radius_client_object.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#delete_radius_client_object.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#delete_radius_client_object.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_radius_client_object.ApiResponseFor200) | OK
 
@@ -1495,6 +1622,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### delete_radius_client_object.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1605,6 +1745,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#delete_radius_proxy.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#delete_radius_proxy.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#delete_radius_proxy.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#delete_radius_proxy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_radius_proxy.ApiResponseFor200) | OK
 
@@ -1629,6 +1770,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### delete_radius_proxy.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1741,6 +1895,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_external_radius_server.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_external_radius_server.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_external_radius_server.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_external_radius_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_external_radius_server.ApiResponseFor200) | OK
 
@@ -1765,6 +1920,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_external_radius_server.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -1883,6 +2051,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_internal_radius_server.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_internal_radius_server.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_internal_radius_server.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_internal_radius_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_internal_radius_server.ApiResponseFor200) | OK
 
@@ -1907,6 +2076,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_internal_radius_server.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -2025,6 +2207,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_ldap_server.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_ldap_server.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_ldap_server.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_ldap_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_ldap_server.ApiResponseFor200) | OK
 
@@ -2049,6 +2232,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_ldap_server.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -2167,6 +2363,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_radius_client_object.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_radius_client_object.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_radius_client_object.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_radius_client_object.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_radius_client_object.ApiResponseFor200) | OK
 
@@ -2191,6 +2388,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_radius_client_object.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -2309,6 +2519,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#get_radius_proxy.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#get_radius_proxy.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_radius_proxy.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#get_radius_proxy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_radius_proxy.ApiResponseFor200) | OK
 
@@ -2333,6 +2544,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_radius_proxy.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -2461,6 +2685,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_active_directory_servers.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_active_directory_servers.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_active_directory_servers.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_active_directory_servers.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_active_directory_servers.ApiResponseFor200) | OK
 
@@ -2485,6 +2710,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_active_directory_servers.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -2613,6 +2851,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_captive_web_portals.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_captive_web_portals.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_captive_web_portals.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_captive_web_portals.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_captive_web_portals.ApiResponseFor200) | OK
 
@@ -2637,6 +2876,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_captive_web_portals.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -2765,6 +3017,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_external_radius_servers.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_external_radius_servers.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_external_radius_servers.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_external_radius_servers.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_external_radius_servers.ApiResponseFor200) | OK
 
@@ -2789,6 +3042,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_external_radius_servers.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -2917,6 +3183,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_internal_radius_devices.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_internal_radius_devices.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_internal_radius_devices.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_internal_radius_devices.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_internal_radius_devices.ApiResponseFor200) | OK
 
@@ -2941,6 +3208,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_internal_radius_devices.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -3069,6 +3349,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_internal_radius_servers.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_internal_radius_servers.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_internal_radius_servers.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_internal_radius_servers.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_internal_radius_servers.ApiResponseFor200) | OK
 
@@ -3093,6 +3374,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_internal_radius_servers.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -3221,6 +3515,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_ldap_servers.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_ldap_servers.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_ldap_servers.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_ldap_servers.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_ldap_servers.ApiResponseFor200) | OK
 
@@ -3245,6 +3540,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_ldap_servers.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -3373,6 +3681,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_radius_client_objects.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_radius_client_objects.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_radius_client_objects.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_radius_client_objects.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_radius_client_objects.ApiResponseFor200) | OK
 
@@ -3397,6 +3706,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_radius_client_objects.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -3525,6 +3847,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_radius_proxies.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_radius_proxies.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_radius_proxies.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_radius_proxies.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_radius_proxies.ApiResponseFor200) | OK
 
@@ -3549,6 +3872,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_radius_proxies.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -3677,6 +4013,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#list_radius_proxy_devices.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#list_radius_proxy_devices.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#list_radius_proxy_devices.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_radius_proxy_devices.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_radius_proxy_devices.ApiResponseFor200) | OK
 
@@ -3701,6 +4038,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### list_radius_proxy_devices.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -3837,6 +4187,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#update_external_radius_server.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#update_external_radius_server.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#update_external_radius_server.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#update_external_radius_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_external_radius_server.ApiResponseFor200) | OK
 
@@ -3861,6 +4212,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### update_external_radius_server.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -4013,6 +4377,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#update_internal_radius_server.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#update_internal_radius_server.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#update_internal_radius_server.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#update_internal_radius_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_internal_radius_server.ApiResponseFor200) | OK
 
@@ -4037,6 +4402,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### update_internal_radius_server.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -4183,6 +4561,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#update_ldap_server.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#update_ldap_server.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#update_ldap_server.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#update_ldap_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_ldap_server.ApiResponseFor200) | OK
 
@@ -4207,6 +4586,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### update_ldap_server.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -4344,6 +4736,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#update_radius_client_object.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#update_radius_client_object.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#update_radius_client_object.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#update_radius_client_object.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_radius_client_object.ApiResponseFor200) | OK
 
@@ -4368,6 +4761,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### update_radius_client_object.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -4517,6 +4923,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#update_radius_proxy.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#update_radius_proxy.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#update_radius_proxy.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#update_radius_proxy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_radius_proxy.ApiResponseFor200) | OK
 
@@ -4541,6 +4948,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### update_radius_proxy.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 

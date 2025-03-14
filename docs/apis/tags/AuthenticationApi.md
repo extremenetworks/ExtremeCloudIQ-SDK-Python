@@ -76,6 +76,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#login.ApiResponseFor401) | UNAUTHORIZED
 400 | [ApiResponseFor400](#login.ApiResponseFor400) | Bad request
+503 | [ApiResponseFor503](#login.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#login.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#login.ApiResponseFor200) | Successful operation
 
@@ -100,6 +101,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### login.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -190,6 +204,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 401 | [ApiResponseFor401](#logout.ApiResponseFor401) | Unauthorized
 400 | [ApiResponseFor400](#logout.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#logout.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#logout.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#logout.ApiResponseFor200) | OK
 
@@ -214,6 +229,19 @@ body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### logout.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
