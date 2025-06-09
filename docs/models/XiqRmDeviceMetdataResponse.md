@@ -12,7 +12,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **[default_gateway](#default_gateway)** | list, tuple,  | tuple,  | The device default gateway | [optional] 
 **[software_version](#software_version)** | list, tuple,  | tuple,  | The device OS software version | [optional] 
-**[product_type](#product_type)** | list, tuple,  | tuple,  | The product type, such as AP_230, BR_100, NX9600, etc. | [optional] 
+**[product_type](#product_type)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | The product type map, eg. Key - AP_350, Value(displayed on UI) - AP350 | [optional] 
 **[device_admin_state](#device_admin_state)** | list, tuple,  | tuple,  | The device admin state | [optional] 
 **[country_code](#country_code)** | list, tuple,  | tuple,  | The assigned country code on the device | [optional] 
 **[managed_by](#managed_by)** | list, tuple,  | tuple,  | The managed application for the device | [optional] 
@@ -49,17 +49,17 @@ items | str,  | str,  | The device OS software version |
 
 # product_type
 
-The product type, such as AP_230, BR_100, NX9600, etc.
+The product type map, eg. Key - AP_350, Value(displayed on UI) - AP350
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple,  | tuple,  | The product type, such as AP_230, BR_100, NX9600, etc. | 
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The product type map, eg. Key - AP_350, Value(displayed on UI) - AP350 | 
 
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  | The product type, such as AP_230, BR_100, NX9600, etc. | 
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type The product type map, eg. Key - AP_350, Value(displayed on UI) - AP350 | [optional] 
 
 # device_admin_state
 

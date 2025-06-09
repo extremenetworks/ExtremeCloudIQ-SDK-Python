@@ -91,8 +91,8 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 400 | [ApiResponseFor400](#check_permissions.ApiResponseFor400) | Bad Request
 503 | [ApiResponseFor503](#check_permissions.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#check_permissions.ApiResponseFor500) | Internal Server Error
-403 | [ApiResponseFor403](#check_permissions.ApiResponseFor403) | Access Denied
 200 | [ApiResponseFor200](#check_permissions.ApiResponseFor200) | Successful operation
+403 | [ApiResponseFor403](#check_permissions.ApiResponseFor403) | Access Denied
 
 #### check_permissions.ApiResponseFor401
 Name | Type | Description  | Notes
@@ -146,19 +146,6 @@ Type | Description  | Notes
 [**XiqError**](../../models/XiqError.md) |  | 
 
 
-#### check_permissions.ApiResponseFor403
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor403ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
 #### check_permissions.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -170,6 +157,19 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqCheckPermissionResponse**](../../models/XiqCheckPermissionResponse.md) |  | 
+
+
+#### check_permissions.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
 
 
 ### Authorization
@@ -520,8 +520,8 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 400 | [ApiResponseFor400](#list_permissions.ApiResponseFor400) | Bad request
 503 | [ApiResponseFor503](#list_permissions.ApiResponseFor503) | Service Unavailable
 500 | [ApiResponseFor500](#list_permissions.ApiResponseFor500) | Internal Server Error
-200 | [ApiResponseFor200](#list_permissions.ApiResponseFor200) | Successful operation
 403 | [ApiResponseFor403](#list_permissions.ApiResponseFor403) | Access denied
+200 | [ApiResponseFor200](#list_permissions.ApiResponseFor200) | Successful operation
 
 #### list_permissions.ApiResponseFor401
 Name | Type | Description  | Notes
@@ -575,6 +575,19 @@ Type | Description  | Notes
 [**XiqError**](../../models/XiqError.md) |  | 
 
 
+#### list_permissions.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
 #### list_permissions.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -588,19 +601,6 @@ headers | Unset | headers were not defined |
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
-
-#### list_permissions.ApiResponseFor403
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor403ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor403ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 ### Authorization
 

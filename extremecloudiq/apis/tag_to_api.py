@@ -14,6 +14,9 @@ from extremecloudiq.apis.tags.client_api import ClientApi
 from extremecloudiq.apis.tags.client_details_api import ClientDetailsApi
 from extremecloudiq.apis.tags.d360_api import D360Api
 from extremecloudiq.apis.tags.dashboard_api import DashboardApi
+from extremecloudiq.apis.tags.dashboard_wired_usage_and_capacity_api import DashboardWiredUsageAndCapacityApi
+from extremecloudiq.apis.tags.dashboard_wired_client_health_api import DashboardWiredClientHealthApi
+from extremecloudiq.apis.tags.dashboard_wired_device_health_api import DashboardWiredDeviceHealthApi
 from extremecloudiq.apis.tags.dashboard_wireless_usage_and_capacity_api import DashboardWirelessUsageAndCapacityApi
 from extremecloudiq.apis.tags.dashboard_wireless_client_health_api import DashboardWirelessClientHealthApi
 from extremecloudiq.apis.tags.dashboard_wireless_device_health_api import DashboardWirelessDeviceHealthApi
@@ -58,6 +61,9 @@ TagToApi = typing_extensions.TypedDict(
         TagValues.CLIENT__DETAILS: ClientDetailsApi,
         TagValues.D360: D360Api,
         TagValues.DASHBOARD: DashboardApi,
+        TagValues.DASHBOARD_WIRED_USAGE_AND_CAPACITY: DashboardWiredUsageAndCapacityApi,
+        TagValues.DASHBOARD_WIRED_CLIENT_HEALTH: DashboardWiredClientHealthApi,
+        TagValues.DASHBOARD_WIRED_DEVICE_HEALTH: DashboardWiredDeviceHealthApi,
         TagValues.DASHBOARD_WIRELESS_USAGE_AND_CAPACITY: DashboardWirelessUsageAndCapacityApi,
         TagValues.DASHBOARD_WIRELESS_CLIENT_HEALTH: DashboardWirelessClientHealthApi,
         TagValues.DASHBOARD_WIRELESS_DEVICE_HEALTH: DashboardWirelessDeviceHealthApi,
@@ -103,6 +109,9 @@ tag_to_api = TagToApi(
         TagValues.CLIENT__DETAILS: ClientDetailsApi,
         TagValues.D360: D360Api,
         TagValues.DASHBOARD: DashboardApi,
+        TagValues.DASHBOARD_WIRED_USAGE_AND_CAPACITY: DashboardWiredUsageAndCapacityApi,
+        TagValues.DASHBOARD_WIRED_CLIENT_HEALTH: DashboardWiredClientHealthApi,
+        TagValues.DASHBOARD_WIRED_DEVICE_HEALTH: DashboardWiredDeviceHealthApi,
         TagValues.DASHBOARD_WIRELESS_USAGE_AND_CAPACITY: DashboardWirelessUsageAndCapacityApi,
         TagValues.DASHBOARD_WIRELESS_CLIENT_HEALTH: DashboardWirelessClientHealthApi,
         TagValues.DASHBOARD_WIRELESS_DEVICE_HEALTH: DashboardWirelessDeviceHealthApi,

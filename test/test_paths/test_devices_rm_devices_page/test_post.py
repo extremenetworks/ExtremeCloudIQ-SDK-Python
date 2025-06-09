@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestDevicesRmDevicesPage(ApiTestMixin, unittest.TestCase):
     """
     DevicesRmDevicesPage unit test stubs
-        RM Device Page  # noqa: E501
+        [LRO] RM Device Page  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

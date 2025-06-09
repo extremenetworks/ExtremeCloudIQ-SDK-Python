@@ -9,16 +9,20 @@ Method | HTTP request | Description
 [**create_floor**](#create_floor) | **post** /locations/floor | Create a floor
 [**create_location**](#create_location) | **post** /locations | Create a location
 [**create_site**](#create_site) | **post** /locations/site | Create a site
+[**create_wall_type**](#create_wall_type) | **post** /locations/wall/type | Create a wall type
 [**delete_building**](#delete_building) | **delete** /locations/building/{id} | Delete a building by ID
 [**delete_floor**](#delete_floor) | **delete** /locations/floor/{id} | Delete a floor by ID
 [**delete_location**](#delete_location) | **delete** /locations/{id} | Delete a location by ID
 [**delete_site**](#delete_site) | **delete** /locations/site/{id} | Delete a site by ID
+[**delete_wall_type**](#delete_wall_type) | **delete** /locations/wall/type/{id} | Delete a wall type
+[**find_wall_type_references**](#find_wall_type_references) | **get** /locations/wall/type/references/{id} | Find references of a wall type
 [**get_building**](#get_building) | **get** /locations/building/{id} | Get a building by ID
 [**get_floor**](#get_floor) | **get** /locations/floor/{id} | Get a floor by ID
 [**get_location_devices_list**](#get_location_devices_list) | **get** /locations/tree/devices | Get devices on the location hierarchy.
 [**get_location_maps_list**](#get_location_maps_list) | **get** /locations/tree/maps | Get maps on the location hierarchy.
 [**get_location_tree**](#get_location_tree) | **get** /locations/tree | Get location tree
 [**get_site**](#get_site) | **get** /locations/site/{id} | Get a site by ID
+[**get_wall_type**](#get_wall_type) | **get** /locations/wall/type | Get wall types
 [**initialize_location**](#initialize_location) | **post** /locations/:init | Initialize organization location
 [**list_buildings**](#list_buildings) | **get** /locations/building | List buildings
 [**list_floors**](#list_floors) | **get** /locations/floor | List floors
@@ -28,6 +32,7 @@ Method | HTTP request | Description
 [**update_floor**](#update_floor) | **put** /locations/floor/{id} | Update a floor
 [**update_location**](#update_location) | **put** /locations/{id} | Update a location
 [**update_site**](#update_site) | **put** /locations/site/{id} | Update a site by ID
+[**update_wall_type**](#update_wall_type) | **put** /locations/wall/type/{id} | Update a wall type
 [**upload_floorplan**](#upload_floorplan) | **post** /locations/floorplan | Upload floorplan
 
 # **create_building**
@@ -660,6 +665,160 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqSite**](../../models/XiqSite.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **create_wall_type**
+<a id="create_wall_type"></a>
+> XiqWallType create_wall_type(xiq_create_type_request)
+
+Create a wall type
+
+Create a custom wall type.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import location_api
+from extremecloudiq.model.xiq_error import XiqError
+from extremecloudiq.model.xiq_wall_type import XiqWallType
+from extremecloudiq.model.xiq_create_type_request import XiqCreateTypeRequest
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = location_api.LocationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = XiqCreateTypeRequest(
+        name="name_example",
+        attenuation=-999,
+        color="#2ECB0208",
+    )
+    try:
+        # Create a wall type
+        api_response = api_instance.create_wall_type(
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling LocationApi->create_wall_type: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqCreateTypeRequest**](../../models/XiqCreateTypeRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+401 | [ApiResponseFor401](#create_wall_type.ApiResponseFor401) | Unauthorized
+400 | [ApiResponseFor400](#create_wall_type.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#create_wall_type.ApiResponseFor503) | Service Unavailable
+500 | [ApiResponseFor500](#create_wall_type.ApiResponseFor500) | Internal Server Error
+201 | [ApiResponseFor201](#create_wall_type.ApiResponseFor201) | Created
+
+#### create_wall_type.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### create_wall_type.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### create_wall_type.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### create_wall_type.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### create_wall_type.ApiResponseFor201
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor201ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor201ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqWallType**](../../models/XiqWallType.md) |  | 
 
 
 ### Authorization
@@ -1358,6 +1517,316 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **delete_wall_type**
+<a id="delete_wall_type"></a>
+> delete_wall_type(id)
+
+Delete a wall type
+
+Delete a wall type for the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import location_api
+from extremecloudiq.model.xiq_error import XiqError
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = location_api.LocationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': 1,
+    }
+    try:
+        # Delete a wall type
+        api_response = api_instance.delete_wall_type(
+            path_params=path_params,
+        )
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling LocationApi->delete_wall_type: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+401 | [ApiResponseFor401](#delete_wall_type.ApiResponseFor401) | Unauthorized
+400 | [ApiResponseFor400](#delete_wall_type.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#delete_wall_type.ApiResponseFor503) | Service Unavailable
+500 | [ApiResponseFor500](#delete_wall_type.ApiResponseFor500) | Internal Server Error
+204 | [ApiResponseFor204](#delete_wall_type.ApiResponseFor204) | No Content
+
+#### delete_wall_type.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### delete_wall_type.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### delete_wall_type.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### delete_wall_type.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### delete_wall_type.ApiResponseFor204
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **find_wall_type_references**
+<a id="find_wall_type_references"></a>
+> [XiqWallTypeReference] find_wall_type_references(id)
+
+Find references of a wall type
+
+Find all floors a/o sites referencing a wall type by its ID
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import location_api
+from extremecloudiq.model.xiq_error import XiqError
+from extremecloudiq.model.xiq_wall_type_reference import XiqWallTypeReference
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = location_api.LocationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': 1,
+    }
+    try:
+        # Find references of a wall type
+        api_response = api_instance.find_wall_type_references(
+            path_params=path_params,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling LocationApi->find_wall_type_references: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+401 | [ApiResponseFor401](#find_wall_type_references.ApiResponseFor401) | Unauthorized
+400 | [ApiResponseFor400](#find_wall_type_references.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#find_wall_type_references.ApiResponseFor503) | Service Unavailable
+500 | [ApiResponseFor500](#find_wall_type_references.ApiResponseFor500) | Internal Server Error
+200 | [ApiResponseFor200](#find_wall_type_references.ApiResponseFor200) | OK
+
+#### find_wall_type_references.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### find_wall_type_references.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### find_wall_type_references.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### find_wall_type_references.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### find_wall_type_references.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqWallTypeReference**]({{complexTypePrefix}}XiqWallTypeReference.md) | [**XiqWallTypeReference**]({{complexTypePrefix}}XiqWallTypeReference.md) | [**XiqWallTypeReference**]({{complexTypePrefix}}XiqWallTypeReference.md) |  | 
 
 ### Authorization
 
@@ -2366,6 +2835,142 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqSite**](../../models/XiqSite.md) |  | 
 
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **get_wall_type**
+<a id="get_wall_type"></a>
+> [XiqWallType] get_wall_type()
+
+Get wall types
+
+Retrieve the list of wall types, including both predefined and custom ones.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import location_api
+from extremecloudiq.model.xiq_error import XiqError
+from extremecloudiq.model.xiq_wall_type import XiqWallType
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = location_api.LocationApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Get wall types
+        api_response = api_instance.get_wall_type()
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling LocationApi->get_wall_type: %s\n" % e)
+```
+### Parameters
+This endpoint does not need any parameter.
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+401 | [ApiResponseFor401](#get_wall_type.ApiResponseFor401) | Unauthorized
+400 | [ApiResponseFor400](#get_wall_type.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#get_wall_type.ApiResponseFor503) | Service Unavailable
+500 | [ApiResponseFor500](#get_wall_type.ApiResponseFor500) | Internal Server Error
+200 | [ApiResponseFor200](#get_wall_type.ApiResponseFor200) | OK
+
+#### get_wall_type.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_wall_type.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_wall_type.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_wall_type.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### get_wall_type.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqWallType**]({{complexTypePrefix}}XiqWallType.md) | [**XiqWallType**]({{complexTypePrefix}}XiqWallType.md) | [**XiqWallType**]({{complexTypePrefix}}XiqWallType.md) |  | 
 
 ### Authorization
 
@@ -4085,6 +4690,179 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqSite**](../../models/XiqSite.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **update_wall_type**
+<a id="update_wall_type"></a>
+> XiqWallType update_wall_type(idxiq_update_type_request)
+
+Update a wall type
+
+Update the custom wall type with the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import location_api
+from extremecloudiq.model.xiq_error import XiqError
+from extremecloudiq.model.xiq_wall_type import XiqWallType
+from extremecloudiq.model.xiq_update_type_request import XiqUpdateTypeRequest
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = location_api.LocationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': 1,
+    }
+    body = XiqUpdateTypeRequest(
+        name="name_example",
+        attenuation=-999,
+        color="#2ECB0208",
+    )
+    try:
+        # Update a wall type
+        api_response = api_instance.update_wall_type(
+            path_params=path_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling LocationApi->update_wall_type: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+path_params | RequestPathParams | |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqUpdateTypeRequest**](../../models/XiqUpdateTypeRequest.md) |  | 
+
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+401 | [ApiResponseFor401](#update_wall_type.ApiResponseFor401) | Unauthorized
+400 | [ApiResponseFor400](#update_wall_type.ApiResponseFor400) | Bad Request
+503 | [ApiResponseFor503](#update_wall_type.ApiResponseFor503) | Service Unavailable
+500 | [ApiResponseFor500](#update_wall_type.ApiResponseFor500) | Internal Server Error
+200 | [ApiResponseFor200](#update_wall_type.ApiResponseFor200) | OK
+
+#### update_wall_type.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### update_wall_type.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### update_wall_type.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### update_wall_type.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
+
+#### update_wall_type.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqWallType**](../../models/XiqWallType.md) |  | 
 
 
 ### Authorization

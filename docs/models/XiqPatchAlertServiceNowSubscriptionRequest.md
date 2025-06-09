@@ -10,10 +10,10 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | The payload of Service
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**[alert_policy_ids](#alert_policy_ids)** | list, tuple,  | tuple,  | The selected alert policy list. | 
 **servicenow_account_email** | str,  | str,  | The servicenow email address. | [optional] 
 **is_enabled** | bool,  | BoolClass,  | Enable/disable servicenow notification. | [optional] 
 **is_subscribe_all** | bool,  | BoolClass,  | The all alert policy selected flag. | [optional] 
+**[alert_policy_ids](#alert_policy_ids)** | list, tuple,  | tuple,  | The selected alert policy list. | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # alert_policy_ids

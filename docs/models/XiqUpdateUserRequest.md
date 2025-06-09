@@ -13,6 +13,8 @@ Key | Input Type | Accessed Type | Description | Notes
 **idle_timeout** | decimal.Decimal, int,  | decimal.Decimal,  | The idle timeout in minutes. | [optional] value must be a 32 bit integer
 **user_role** | [**XiqUserRole**](XiqUserRole.md) | [**XiqUserRole**](XiqUserRole.md) |  | [optional] 
 **[location_ids](#location_ids)** | list, tuple,  | tuple,  | The location IDs to reassign. | [optional] 
+**access_scope** | decimal.Decimal, int,  | decimal.Decimal,  | The user has access on all sites / the authorized sites. 0: VIQ_SCOPE, 1: SITE_SCOPE. | [optional] value must be a 32 bit integer
+**viq_access_control** | decimal.Decimal, int,  | decimal.Decimal,  | The permissions for Site Scope user on Global Scope resources. 0: READ_WRITE, 1: READ_ONLY. | [optional] value must be a 32 bit integer
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # location_ids

@@ -73,7 +73,7 @@ Method | HTTP request | Description
 [**revoke_devices_location**](#revoke_devices_location) | **post** /devices/location/:revoke | Revoke location for multiple devices
 [**revoke_devices_network_policy**](#revoke_devices_network_policy) | **post** /devices/network-policy/:revoke | Revoke network policy for multiple devices
 [**revoke_devices_radius_proxy**](#revoke_devices_radius_proxy) | **delete** /devices/radius-proxy/:revoke | Revoke RADIUS proxy from multiple devices
-[**rm_device_list**](#rm_device_list) | **post** /devices/rm-devices-page | RM Device Page
+[**rm_device_list**](#rm_device_list) | **post** /devices/rm-devices-page | [LRO] RM Device Page
 [**send_cli_to_device**](#send_cli_to_device) | **post** /devices/{id}/:cli | Send CLI to a device
 [**send_cli_to_devices**](#send_cli_to_devices) | **post** /devices/:cli | [LRO] Send CLI to devices
 [**start_thread_commissioner**](#start_thread_commissioner) | **post** /devices/{id}/thread/commissioner/:start | Start Thread Commissioner
@@ -11839,7 +11839,7 @@ headers | Unset | headers were not defined |
 <a id="rm_device_list"></a>
 > PagedXiqRmDevice rm_device_list()
 
-RM Device Page
+[LRO] RM Device Page
 
 Device List with pagination.
 
@@ -11926,7 +11926,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         ],
     )
     try:
-        # RM Device Page
+        # [LRO] RM Device Page
         api_response = api_instance.rm_device_list(
             query_params=query_params,
             body=body,

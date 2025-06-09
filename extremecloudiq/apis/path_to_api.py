@@ -32,6 +32,7 @@ from extremecloudiq.apis.paths.network_policies_id import NetworkPoliciesId
 from extremecloudiq.apis.paths.mac_object_profiles_id import MacObjectProfilesId
 from extremecloudiq.apis.paths.mac_firewall_policies_id import MacFirewallPoliciesId
 from extremecloudiq.apis.paths.locations_id import LocationsId
+from extremecloudiq.apis.paths.locations_wall_type_id import LocationsWallTypeId
 from extremecloudiq.apis.paths.locations_site_id import LocationsSiteId
 from extremecloudiq.apis.paths.locations_floor_id import LocationsFloorId
 from extremecloudiq.apis.paths.locations_building_id import LocationsBuildingId
@@ -124,6 +125,7 @@ from extremecloudiq.apis.paths.logs_audit_reports import LogsAuditReports
 from extremecloudiq.apis.paths.logout import Logout
 from extremecloudiq.apis.paths.login import Login
 from extremecloudiq.apis.paths.locations import Locations
+from extremecloudiq.apis.paths.locations_wall_type import LocationsWallType
 from extremecloudiq.apis.paths.locations_site import LocationsSite
 from extremecloudiq.apis.paths.locations_import_ekahau import LocationsImportEkahau
 from extremecloudiq.apis.paths.locations_floorplan import LocationsFloorplan
@@ -202,6 +204,27 @@ from extremecloudiq.apis.paths.dashboard_wireless_client_health_frequency_distri
 from extremecloudiq.apis.paths.dashboard_wireless_client_health_filter_metadata import DashboardWirelessClientHealthFilterMetadata
 from extremecloudiq.apis.paths.dashboard_wireless_client_health_export import DashboardWirelessClientHealthExport
 from extremecloudiq.apis.paths.dashboard_wireless_client_health_connectivity_issues import DashboardWirelessClientHealthConnectivityIssues
+from extremecloudiq.apis.paths.dashboard_wired_usage_capacity_wired_throughput import DashboardWiredUsageCapacityWiredThroughput
+from extremecloudiq.apis.paths.dashboard_wired_usage_capacity_wired_congestion import DashboardWiredUsageCapacityWiredCongestion
+from extremecloudiq.apis.paths.dashboard_wired_usage_capacity_usage_utilization import DashboardWiredUsageCapacityUsageUtilization
+from extremecloudiq.apis.paths.dashboard_wired_usage_capacity_grid import DashboardWiredUsageCapacityGrid
+from extremecloudiq.apis.paths.dashboard_wired_device_health_temperature_status import DashboardWiredDeviceHealthTemperatureStatus
+from extremecloudiq.apis.paths.dashboard_wired_device_health_temperature_issues import DashboardWiredDeviceHealthTemperatureIssues
+from extremecloudiq.apis.paths.dashboard_wired_device_health_summary import DashboardWiredDeviceHealthSummary
+from extremecloudiq.apis.paths.dashboard_wired_device_health_psu_status import DashboardWiredDeviceHealthPsuStatus
+from extremecloudiq.apis.paths.dashboard_wired_device_health_psu_issues import DashboardWiredDeviceHealthPsuIssues
+from extremecloudiq.apis.paths.dashboard_wired_device_health_poe_usage_status import DashboardWiredDeviceHealthPoeUsageStatus
+from extremecloudiq.apis.paths.dashboard_wired_device_health_poe_usage_issues import DashboardWiredDeviceHealthPoeUsageIssues
+from extremecloudiq.apis.paths.dashboard_wired_device_health_memory_usage_issues import DashboardWiredDeviceHealthMemoryUsageIssues
+from extremecloudiq.apis.paths.dashboard_wired_device_health_grid import DashboardWiredDeviceHealthGrid
+from extremecloudiq.apis.paths.dashboard_wired_device_health_fan_status import DashboardWiredDeviceHealthFanStatus
+from extremecloudiq.apis.paths.dashboard_wired_device_health_fan_issues import DashboardWiredDeviceHealthFanIssues
+from extremecloudiq.apis.paths.dashboard_wired_device_health_cpu_usage_issues import DashboardWiredDeviceHealthCpuUsageIssues
+from extremecloudiq.apis.paths.dashboard_wired_client_health_traffic_anomalies import DashboardWiredClientHealthTrafficAnomalies
+from extremecloudiq.apis.paths.dashboard_wired_client_health_port_errors import DashboardWiredClientHealthPortErrors
+from extremecloudiq.apis.paths.dashboard_wired_client_health_port_congestion import DashboardWiredClientHealthPortCongestion
+from extremecloudiq.apis.paths.dashboard_wired_client_health_ip_connectivity_issues import DashboardWiredClientHealthIpConnectivityIssues
+from extremecloudiq.apis.paths.dashboard_wired_client_health_grid import DashboardWiredClientHealthGrid
 from extremecloudiq.apis.paths.dashboard_usage_capacity import DashboardUsageCapacity
 from extremecloudiq.apis.paths.dashboard_sites_with_issues import DashboardSitesWithIssues
 from extremecloudiq.apis.paths.dashboard_export import DashboardExport
@@ -276,6 +299,7 @@ from extremecloudiq.apis.paths.logs_audit import LogsAudit
 from extremecloudiq.apis.paths.logs_audit_reports_id import LogsAuditReportsId
 from extremecloudiq.apis.paths.logs_audit_full_descriptions_id import LogsAuditFullDescriptionsId
 from extremecloudiq.apis.paths.logs_accounting import LogsAccounting
+from extremecloudiq.apis.paths.locations_wall_type_references_id import LocationsWallTypeReferencesId
 from extremecloudiq.apis.paths.locations_tree import LocationsTree
 from extremecloudiq.apis.paths.locations_tree_maps import LocationsTreeMaps
 from extremecloudiq.apis.paths.locations_tree_devices import LocationsTreeDevices
@@ -370,6 +394,9 @@ from extremecloudiq.apis.paths.clients_active import ClientsActive
 from extremecloudiq.apis.paths.clients_active_count import ClientsActiveCount
 from extremecloudiq.apis.paths.client_details_overview_info_client_id import ClientDetailsOverviewInfoClientId
 from extremecloudiq.apis.paths.client_details_overview_chart_data_client_id import ClientDetailsOverviewChartDataClientId
+from extremecloudiq.apis.paths.client_details_client_trail_roaming_trail_grid_client_id import ClientDetailsClientTrailRoamingTrailGridClientId
+from extremecloudiq.apis.paths.client_details_client_trail_roaming_trail_count_client_id import ClientDetailsClientTrailRoamingTrailCountClientId
+from extremecloudiq.apis.paths.client_details_client_trail_connectivity_experience_client_id import ClientDetailsClientTrailConnectivityExperienceClientId
 from extremecloudiq.apis.paths.certificates import Certificates
 from extremecloudiq.apis.paths.backup_history_grid import BackupHistoryGrid
 from extremecloudiq.apis.paths.auth_permissions import AuthPermissions
@@ -440,6 +467,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.MACOBJECTPROFILES_ID: MacObjectProfilesId,
         PathValues.MACFIREWALLPOLICIES_ID: MacFirewallPoliciesId,
         PathValues.LOCATIONS_ID: LocationsId,
+        PathValues.LOCATIONS_WALL_TYPE_ID: LocationsWallTypeId,
         PathValues.LOCATIONS_SITE_ID: LocationsSiteId,
         PathValues.LOCATIONS_FLOOR_ID: LocationsFloorId,
         PathValues.LOCATIONS_BUILDING_ID: LocationsBuildingId,
@@ -532,6 +560,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.LOGOUT: Logout,
         PathValues.LOGIN: Login,
         PathValues.LOCATIONS: Locations,
+        PathValues.LOCATIONS_WALL_TYPE: LocationsWallType,
         PathValues.LOCATIONS_SITE: LocationsSite,
         PathValues.LOCATIONS_IMPORT_EKAHAU: LocationsImportEkahau,
         PathValues.LOCATIONS_FLOORPLAN: LocationsFloorplan,
@@ -610,6 +639,27 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_FILTERMETADATA: DashboardWirelessClientHealthFilterMetadata,
         PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_EXPORT: DashboardWirelessClientHealthExport,
         PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_CONNECTIVITYISSUES: DashboardWirelessClientHealthConnectivityIssues,
+        PathValues.DASHBOARD_WIRED_USAGECAPACITY_WIREDTHROUGHPUT: DashboardWiredUsageCapacityWiredThroughput,
+        PathValues.DASHBOARD_WIRED_USAGECAPACITY_WIREDCONGESTION: DashboardWiredUsageCapacityWiredCongestion,
+        PathValues.DASHBOARD_WIRED_USAGECAPACITY_USAGEUTILIZATION: DashboardWiredUsageCapacityUsageUtilization,
+        PathValues.DASHBOARD_WIRED_USAGECAPACITY_GRID: DashboardWiredUsageCapacityGrid,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_TEMPERATURESTATUS: DashboardWiredDeviceHealthTemperatureStatus,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_TEMPERATUREISSUES: DashboardWiredDeviceHealthTemperatureIssues,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_SUMMARY: DashboardWiredDeviceHealthSummary,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_PSUSTATUS: DashboardWiredDeviceHealthPsuStatus,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_PSUISSUES: DashboardWiredDeviceHealthPsuIssues,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_POEUSAGESTATUS: DashboardWiredDeviceHealthPoeUsageStatus,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_POEUSAGEISSUES: DashboardWiredDeviceHealthPoeUsageIssues,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_MEMORYUSAGEISSUES: DashboardWiredDeviceHealthMemoryUsageIssues,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_GRID: DashboardWiredDeviceHealthGrid,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_FANSTATUS: DashboardWiredDeviceHealthFanStatus,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_FANISSUES: DashboardWiredDeviceHealthFanIssues,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_CPUUSAGEISSUES: DashboardWiredDeviceHealthCpuUsageIssues,
+        PathValues.DASHBOARD_WIRED_CLIENTHEALTH_TRAFFICANOMALIES: DashboardWiredClientHealthTrafficAnomalies,
+        PathValues.DASHBOARD_WIRED_CLIENTHEALTH_PORTERRORS: DashboardWiredClientHealthPortErrors,
+        PathValues.DASHBOARD_WIRED_CLIENTHEALTH_PORTCONGESTION: DashboardWiredClientHealthPortCongestion,
+        PathValues.DASHBOARD_WIRED_CLIENTHEALTH_IPCONNECTIVITYISSUES: DashboardWiredClientHealthIpConnectivityIssues,
+        PathValues.DASHBOARD_WIRED_CLIENTHEALTH_GRID: DashboardWiredClientHealthGrid,
         PathValues.DASHBOARD_USAGECAPACITY: DashboardUsageCapacity,
         PathValues.DASHBOARD_SITESWITHISSUES: DashboardSitesWithIssues,
         PathValues.DASHBOARD_EXPORT: DashboardExport,
@@ -684,6 +734,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.LOGS_AUDIT_REPORTS_ID: LogsAuditReportsId,
         PathValues.LOGS_AUDIT_FULLDESCRIPTIONS_ID: LogsAuditFullDescriptionsId,
         PathValues.LOGS_ACCOUNTING: LogsAccounting,
+        PathValues.LOCATIONS_WALL_TYPE_REFERENCES_ID: LocationsWallTypeReferencesId,
         PathValues.LOCATIONS_TREE: LocationsTree,
         PathValues.LOCATIONS_TREE_MAPS: LocationsTreeMaps,
         PathValues.LOCATIONS_TREE_DEVICES: LocationsTreeDevices,
@@ -778,6 +829,9 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.CLIENTS_ACTIVE_COUNT: ClientsActiveCount,
         PathValues.CLIENTDETAILS_OVERVIEW_INFO_CLIENT_ID: ClientDetailsOverviewInfoClientId,
         PathValues.CLIENTDETAILS_OVERVIEW_CHARTDATA_CLIENT_ID: ClientDetailsOverviewChartDataClientId,
+        PathValues.CLIENTDETAILS_CLIENTTRAIL_ROAMINGTRAIL_GRID_CLIENT_ID: ClientDetailsClientTrailRoamingTrailGridClientId,
+        PathValues.CLIENTDETAILS_CLIENTTRAIL_ROAMINGTRAIL_COUNT_CLIENT_ID: ClientDetailsClientTrailRoamingTrailCountClientId,
+        PathValues.CLIENTDETAILS_CLIENTTRAIL_CONNECTIVITYEXPERIENCE_CLIENT_ID: ClientDetailsClientTrailConnectivityExperienceClientId,
         PathValues.CERTIFICATES: Certificates,
         PathValues.BACKUP_HISTORY_GRID: BackupHistoryGrid,
         PathValues.AUTH_PERMISSIONS: AuthPermissions,
@@ -849,6 +903,7 @@ path_to_api = PathToApi(
         PathValues.MACOBJECTPROFILES_ID: MacObjectProfilesId,
         PathValues.MACFIREWALLPOLICIES_ID: MacFirewallPoliciesId,
         PathValues.LOCATIONS_ID: LocationsId,
+        PathValues.LOCATIONS_WALL_TYPE_ID: LocationsWallTypeId,
         PathValues.LOCATIONS_SITE_ID: LocationsSiteId,
         PathValues.LOCATIONS_FLOOR_ID: LocationsFloorId,
         PathValues.LOCATIONS_BUILDING_ID: LocationsBuildingId,
@@ -941,6 +996,7 @@ path_to_api = PathToApi(
         PathValues.LOGOUT: Logout,
         PathValues.LOGIN: Login,
         PathValues.LOCATIONS: Locations,
+        PathValues.LOCATIONS_WALL_TYPE: LocationsWallType,
         PathValues.LOCATIONS_SITE: LocationsSite,
         PathValues.LOCATIONS_IMPORT_EKAHAU: LocationsImportEkahau,
         PathValues.LOCATIONS_FLOORPLAN: LocationsFloorplan,
@@ -1019,6 +1075,27 @@ path_to_api = PathToApi(
         PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_FILTERMETADATA: DashboardWirelessClientHealthFilterMetadata,
         PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_EXPORT: DashboardWirelessClientHealthExport,
         PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_CONNECTIVITYISSUES: DashboardWirelessClientHealthConnectivityIssues,
+        PathValues.DASHBOARD_WIRED_USAGECAPACITY_WIREDTHROUGHPUT: DashboardWiredUsageCapacityWiredThroughput,
+        PathValues.DASHBOARD_WIRED_USAGECAPACITY_WIREDCONGESTION: DashboardWiredUsageCapacityWiredCongestion,
+        PathValues.DASHBOARD_WIRED_USAGECAPACITY_USAGEUTILIZATION: DashboardWiredUsageCapacityUsageUtilization,
+        PathValues.DASHBOARD_WIRED_USAGECAPACITY_GRID: DashboardWiredUsageCapacityGrid,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_TEMPERATURESTATUS: DashboardWiredDeviceHealthTemperatureStatus,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_TEMPERATUREISSUES: DashboardWiredDeviceHealthTemperatureIssues,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_SUMMARY: DashboardWiredDeviceHealthSummary,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_PSUSTATUS: DashboardWiredDeviceHealthPsuStatus,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_PSUISSUES: DashboardWiredDeviceHealthPsuIssues,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_POEUSAGESTATUS: DashboardWiredDeviceHealthPoeUsageStatus,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_POEUSAGEISSUES: DashboardWiredDeviceHealthPoeUsageIssues,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_MEMORYUSAGEISSUES: DashboardWiredDeviceHealthMemoryUsageIssues,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_GRID: DashboardWiredDeviceHealthGrid,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_FANSTATUS: DashboardWiredDeviceHealthFanStatus,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_FANISSUES: DashboardWiredDeviceHealthFanIssues,
+        PathValues.DASHBOARD_WIRED_DEVICEHEALTH_CPUUSAGEISSUES: DashboardWiredDeviceHealthCpuUsageIssues,
+        PathValues.DASHBOARD_WIRED_CLIENTHEALTH_TRAFFICANOMALIES: DashboardWiredClientHealthTrafficAnomalies,
+        PathValues.DASHBOARD_WIRED_CLIENTHEALTH_PORTERRORS: DashboardWiredClientHealthPortErrors,
+        PathValues.DASHBOARD_WIRED_CLIENTHEALTH_PORTCONGESTION: DashboardWiredClientHealthPortCongestion,
+        PathValues.DASHBOARD_WIRED_CLIENTHEALTH_IPCONNECTIVITYISSUES: DashboardWiredClientHealthIpConnectivityIssues,
+        PathValues.DASHBOARD_WIRED_CLIENTHEALTH_GRID: DashboardWiredClientHealthGrid,
         PathValues.DASHBOARD_USAGECAPACITY: DashboardUsageCapacity,
         PathValues.DASHBOARD_SITESWITHISSUES: DashboardSitesWithIssues,
         PathValues.DASHBOARD_EXPORT: DashboardExport,
@@ -1093,6 +1170,7 @@ path_to_api = PathToApi(
         PathValues.LOGS_AUDIT_REPORTS_ID: LogsAuditReportsId,
         PathValues.LOGS_AUDIT_FULLDESCRIPTIONS_ID: LogsAuditFullDescriptionsId,
         PathValues.LOGS_ACCOUNTING: LogsAccounting,
+        PathValues.LOCATIONS_WALL_TYPE_REFERENCES_ID: LocationsWallTypeReferencesId,
         PathValues.LOCATIONS_TREE: LocationsTree,
         PathValues.LOCATIONS_TREE_MAPS: LocationsTreeMaps,
         PathValues.LOCATIONS_TREE_DEVICES: LocationsTreeDevices,
@@ -1187,6 +1265,9 @@ path_to_api = PathToApi(
         PathValues.CLIENTS_ACTIVE_COUNT: ClientsActiveCount,
         PathValues.CLIENTDETAILS_OVERVIEW_INFO_CLIENT_ID: ClientDetailsOverviewInfoClientId,
         PathValues.CLIENTDETAILS_OVERVIEW_CHARTDATA_CLIENT_ID: ClientDetailsOverviewChartDataClientId,
+        PathValues.CLIENTDETAILS_CLIENTTRAIL_ROAMINGTRAIL_GRID_CLIENT_ID: ClientDetailsClientTrailRoamingTrailGridClientId,
+        PathValues.CLIENTDETAILS_CLIENTTRAIL_ROAMINGTRAIL_COUNT_CLIENT_ID: ClientDetailsClientTrailRoamingTrailCountClientId,
+        PathValues.CLIENTDETAILS_CLIENTTRAIL_CONNECTIVITYEXPERIENCE_CLIENT_ID: ClientDetailsClientTrailConnectivityExperienceClientId,
         PathValues.CERTIFICATES: Certificates,
         PathValues.BACKUP_HISTORY_GRID: BackupHistoryGrid,
         PathValues.AUTH_PERMISSIONS: AuthPermissions,

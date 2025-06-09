@@ -26,10 +26,63 @@ import frozendict  # noqa: F401
 from extremecloudiq import schemas  # noqa: F401
 
 from extremecloudiq.model.xiq_error import XiqError
-from extremecloudiq.model.xiq_key_based_pcg_user import XiqKeyBasedPcgUser
+from extremecloudiq.model.paged_xiq_key_based_pcg_user import PagedXiqKeyBasedPcgUser
 
 from . import path
 
+# Query params
+
+
+class PageSchema(
+    schemas.Int32Schema
+):
+
+
+    class MetaOapg:
+        format = 'int32'
+        inclusive_minimum = 1
+
+
+class LimitSchema(
+    schemas.Int32Schema
+):
+
+
+    class MetaOapg:
+        format = 'int32'
+        inclusive_maximum = 100
+        inclusive_minimum = 1
+RequestRequiredQueryParams = typing_extensions.TypedDict(
+    'RequestRequiredQueryParams',
+    {
+    }
+)
+RequestOptionalQueryParams = typing_extensions.TypedDict(
+    'RequestOptionalQueryParams',
+    {
+        'page': typing.Union[PageSchema, decimal.Decimal, int, ],
+        'limit': typing.Union[LimitSchema, decimal.Decimal, int, ],
+    },
+    total=False
+)
+
+
+class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams):
+    pass
+
+
+request_query_page = api_client.QueryParameter(
+    name="page",
+    style=api_client.ParameterStyle.FORM,
+    schema=PageSchema,
+    explode=True,
+)
+request_query_limit = api_client.QueryParameter(
+    name="limit",
+    style=api_client.ParameterStyle.FORM,
+    schema=LimitSchema,
+    explode=True,
+)
 # Path params
 PolicyIdSchema = schemas.Int64Schema
 RequestRequiredPathParams = typing_extensions.TypedDict(
@@ -135,32 +188,7 @@ _response_for_500 = api_client.OpenApiResponse(
             schema=SchemaFor500ResponseBodyApplicationJson),
     },
 )
-
-
-class SchemaFor200ResponseBodyApplicationJson(
-    schemas.ListSchema
-):
-
-
-    class MetaOapg:
-        
-        @staticmethod
-        def items() -> typing.Type['XiqKeyBasedPcgUser']:
-            return XiqKeyBasedPcgUser
-
-    def __new__(
-        cls,
-        _arg: typing.Union[typing.Tuple['XiqKeyBasedPcgUser'], typing.List['XiqKeyBasedPcgUser']],
-        _configuration: typing.Optional[schemas.Configuration] = None,
-    ) -> 'SchemaFor200ResponseBodyApplicationJson':
-        return super().__new__(
-            cls,
-            _arg,
-            _configuration=_configuration,
-        )
-
-    def __getitem__(self, i: int) -> 'XiqKeyBasedPcgUser':
-        return super().__getitem__(i)
+SchemaFor200ResponseBodyApplicationJson = PagedXiqKeyBasedPcgUser
 
 
 @dataclass
@@ -195,6 +223,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _get_key_based_pcg_users_oapg(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -208,6 +237,7 @@ class BaseApi(api_client.Api):
     def _get_key_based_pcg_users_oapg(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -217,6 +247,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _get_key_based_pcg_users_oapg(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -229,6 +260,7 @@ class BaseApi(api_client.Api):
 
     def _get_key_based_pcg_users_oapg(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -241,6 +273,7 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
+        self._verify_typed_dict_inputs_oapg(RequestQueryParams, query_params)
         self._verify_typed_dict_inputs_oapg(RequestPathParams, path_params)
         used_path = path.value
 
@@ -256,6 +289,20 @@ class BaseApi(api_client.Api):
 
         for k, v in _path_params.items():
             used_path = used_path.replace('{%s}' % k, v)
+
+        prefix_separator_iterator = None
+        for parameter in (
+            request_query_page,
+            request_query_limit,
+        ):
+            parameter_data = query_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
+                continue
+            if prefix_separator_iterator is None:
+                prefix_separator_iterator = parameter.get_prefix_separator_iterator()
+            serialized_data = parameter.serialize(parameter_data, prefix_separator_iterator)
+            for serialized_value in serialized_data.values():
+                used_path += serialized_value
 
         _headers = HTTPHeaderDict()
         # TODO add cookie handling
@@ -297,6 +344,7 @@ class GetKeyBasedPcgUsers(BaseApi):
     @typing.overload
     def get_key_based_pcg_users(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -310,6 +358,7 @@ class GetKeyBasedPcgUsers(BaseApi):
     def get_key_based_pcg_users(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -319,6 +368,7 @@ class GetKeyBasedPcgUsers(BaseApi):
     @typing.overload
     def get_key_based_pcg_users(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -331,6 +381,7 @@ class GetKeyBasedPcgUsers(BaseApi):
 
     def get_key_based_pcg_users(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -338,6 +389,7 @@ class GetKeyBasedPcgUsers(BaseApi):
         skip_deserialization: bool = False,
     ):
         return self._get_key_based_pcg_users_oapg(
+            query_params=query_params,
             path_params=path_params,
             accept_content_types=accept_content_types,
             stream=stream,
@@ -352,6 +404,7 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -365,6 +418,7 @@ class ApiForget(BaseApi):
     def get(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -374,6 +428,7 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -386,6 +441,7 @@ class ApiForget(BaseApi):
 
     def get(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -393,6 +449,7 @@ class ApiForget(BaseApi):
         skip_deserialization: bool = False,
     ):
         return self._get_key_based_pcg_users_oapg(
+            query_params=query_params,
             path_params=path_params,
             accept_content_types=accept_content_types,
             stream=stream,

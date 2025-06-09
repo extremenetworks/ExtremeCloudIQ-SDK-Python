@@ -1999,7 +1999,7 @@ headers | Unset | headers were not defined |
 
 # **get_key_based_pcg_users**
 <a id="get_key_based_pcg_users"></a>
-> [XiqKeyBasedPcgUser] get_key_based_pcg_users(policy_id)
+> PagedXiqKeyBasedPcgUser get_key_based_pcg_users(policy_id)
 
 Get users for a PCG-enabled network policy
 
@@ -2012,7 +2012,7 @@ Get users for a specific PCG-enabled network policy.
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_user_management_api
 from extremecloudiq.model.xiq_error import XiqError
-from extremecloudiq.model.xiq_key_based_pcg_user import XiqKeyBasedPcgUser
+from extremecloudiq.model.paged_xiq_key_based_pcg_user import PagedXiqKeyBasedPcgUser
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -2038,10 +2038,31 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     path_params = {
         'policyId': 1,
     }
+    query_params = {
+    }
     try:
         # Get users for a PCG-enabled network policy
         api_response = api_instance.get_key_based_pcg_users(
             path_params=path_params,
+            query_params=query_params,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling ConfigurationUserManagementApi->get_key_based_pcg_users: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        'policyId': 1,
+    }
+    query_params = {
+        'page': 1,
+        'limit': 10,
+    }
+    try:
+        # Get users for a PCG-enabled network policy
+        api_response = api_instance.get_key_based_pcg_users(
+            path_params=path_params,
+            query_params=query_params,
         )
         pprint(api_response)
     except extremecloudiq.ApiException as e:
@@ -2051,11 +2072,35 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+query_params | RequestQueryParams | |
 path_params | RequestPathParams | |
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+page | PageSchema | | optional
+limit | LimitSchema | | optional
+
+
+# PageSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 1value must be a 32 bit integer
+
+# LimitSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 10value must be a 32 bit integer
 
 ### path_params
 #### RequestPathParams
@@ -2142,16 +2187,10 @@ body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**PagedXiqKeyBasedPcgUser**](../../models/PagedXiqKeyBasedPcgUser.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[**XiqKeyBasedPcgUser**]({{complexTypePrefix}}XiqKeyBasedPcgUser.md) | [**XiqKeyBasedPcgUser**]({{complexTypePrefix}}XiqKeyBasedPcgUser.md) | [**XiqKeyBasedPcgUser**]({{complexTypePrefix}}XiqKeyBasedPcgUser.md) |  | 
 
 ### Authorization
 

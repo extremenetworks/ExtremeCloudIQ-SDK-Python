@@ -16,6 +16,8 @@ Key | Input Type | Accessed Type | Description | Notes
 **org_id** | decimal.Decimal, int,  | decimal.Decimal,  | The HIQ organization ID if it is HIQ user. | [optional] value must be a 64 bit integer
 **[location_ids](#location_ids)** | list, tuple,  | tuple,  | The assigned location IDs. | [optional] 
 **grantee_id** | decimal.Decimal, int,  | decimal.Decimal,  | The home VIQ user ID of external user. | [optional] value must be a 64 bit integer
+**access_scope** | decimal.Decimal, int,  | decimal.Decimal,  | The user has access on all sites / the authorized sites. 0: VIQ_SCOPE, 1: SITE_SCOPE. | [optional] value must be a 32 bit integer
+**viq_access_control** | decimal.Decimal, int,  | decimal.Decimal,  | The permissions for Site Scope user on Global Scope resources. 0: READ_WRITE, 1: READ_ONLY. | [optional] value must be a 32 bit integer
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # location_ids

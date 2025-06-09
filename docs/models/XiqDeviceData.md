@@ -10,16 +10,18 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | The folder path info |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**image_height** | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 **device_model** | str,  | str,  |  | 
-**connected_since** | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
-**device_function** | str,  | str,  |  | 
-**image_base_url** | str,  | str,  |  | 
 **device_type** | str,  | str,  |  | 
-**image_file_name** | str,  | str,  |  | 
+**metric_width** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 64 bit float
 **serial_number** | str,  | str,  |  | 
 **device_mac_address** | str,  | str,  |  | 
 **image_width** | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
+**image_height** | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
+**metric_height** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | value must be a 64 bit float
+**connected_since** | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+**device_function** | str,  | str,  |  | 
+**image_base_url** | str,  | str,  |  | 
+**image_file_name** | str,  | str,  |  | 
 **folder_id** | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 **host_name** | str,  | str,  |  | 
 **xaxis** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional] value must be a 64 bit float

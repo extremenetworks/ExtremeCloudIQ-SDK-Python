@@ -64,6 +64,8 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         location_ids=[
             1
         ],
+        access_scope=1,
+        viq_access_control=1,
     )
     try:
         # Create new user
@@ -811,6 +813,8 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         location_ids=[
             1
         ],
+        access_scope=1,
+        viq_access_control=1,
     )
     try:
         # Grant external access
@@ -1449,6 +1453,8 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         location_ids=[
             1
         ],
+        access_scope=1,
+        viq_access_control=1,
     )
     try:
         # Update external access info
@@ -1619,6 +1625,8 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         location_ids=[
             1
         ],
+        access_scope=1,
+        viq_access_control=1,
     )
     try:
         # Update user info
