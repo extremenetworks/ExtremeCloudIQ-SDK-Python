@@ -26,7 +26,6 @@ import frozendict  # noqa: F401
 from extremecloudiq import schemas  # noqa: F401
 
 from extremecloudiq.model.xiq_credential_distribution_group import XiqCredentialDistributionGroup
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_credential_distribution_group_create_request import XiqCredentialDistributionGroupCreateRequest
 
 from . import path
@@ -45,82 +44,6 @@ request_body_xiq_credential_distribution_group_create_request = api_client.Reque
 _auth = [
     'Bearer',
 ]
-SchemaFor401ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor401(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor401ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_401 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor401,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor401ResponseBodyApplicationJson),
-    },
-)
-SchemaFor400ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor400(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor400ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_400 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor400,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor400ResponseBodyApplicationJson),
-    },
-)
-SchemaFor503ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor503(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor503ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_503 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor503,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor503ResponseBodyApplicationJson),
-    },
-)
-SchemaFor500ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor500(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor500ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_500 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor500,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor500ResponseBodyApplicationJson),
-    },
-)
 SchemaFor201ResponseBodyApplicationJson = XiqCredentialDistributionGroup
 
 
@@ -141,10 +64,6 @@ _response_for_201 = api_client.OpenApiResponse(
     },
 )
 _status_code_to_response = {
-    '401': _response_for_401,
-    '400': _response_for_400,
-    '503': _response_for_503,
-    '500': _response_for_500,
     '201': _response_for_201,
 }
 _all_accept_content_types = (

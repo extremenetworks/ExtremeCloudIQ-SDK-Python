@@ -17,6 +17,7 @@ class TagValues(str, enum.Enum):
     NETWORK_POLICY = "Network Policy"
     CLIENT = "Client"
     CLIENT__DETAILS = "Client - Details"
+    SWITCH_INSPECTOR_PANEL = "Switch Inspector Panel"
     D360 = "D360"
     DASHBOARD = "Dashboard"
     DASHBOARD_WIRED_USAGE_AND_CAPACITY = "Dashboard Wired Usage and Capacity"

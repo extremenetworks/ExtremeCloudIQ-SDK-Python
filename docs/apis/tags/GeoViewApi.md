@@ -18,7 +18,6 @@ Get GeoView Data
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import geo_view_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.geo_view_node import GeoViewNode
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -48,63 +47,7 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_geo_view_data.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_geo_view_data.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_geo_view_data.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_geo_view_data.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_geo_view_data.ApiResponseFor200) | OK
-
-#### get_geo_view_data.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_geo_view_data.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_geo_view_data.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_geo_view_data.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_geo_view_data.ApiResponseFor200
 Name | Type | Description  | Notes

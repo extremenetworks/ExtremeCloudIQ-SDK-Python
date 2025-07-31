@@ -29,7 +29,6 @@ Delete firmware and deployment configuration upgrade schedule.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_deployment_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_deployment_schedule_action_response import XiqDeploymentScheduleActionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -94,63 +93,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_firmware_upgrade_schedule.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_firmware_upgrade_schedule.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_firmware_upgrade_schedule.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_firmware_upgrade_schedule.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_firmware_upgrade_schedule.ApiResponseFor200) | OK
-
-#### delete_firmware_upgrade_schedule.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_firmware_upgrade_schedule.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_firmware_upgrade_schedule.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_firmware_upgrade_schedule.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_firmware_upgrade_schedule.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -185,7 +128,6 @@ Push configuration and upgrade firmware to the target devices. To avoid API time
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_deployment_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_deployment_request import XiqDeploymentRequest
 from extremecloudiq.model.xiq_deployment_response import XiqDeploymentResponse
 from pprint import pprint
@@ -340,63 +282,7 @@ bool,  | BoolClass,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#deploy_config.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#deploy_config.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#deploy_config.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#deploy_config.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#deploy_config.ApiResponseFor200) | OK
-
-#### deploy_config.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### deploy_config.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### deploy_config.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### deploy_config.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### deploy_config.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -431,7 +317,6 @@ Get configuration deployment status overview.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_deployment_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_deployment_overview import XiqDeploymentOverview
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -470,63 +355,7 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_deploy_overview.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_deploy_overview.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_deploy_overview.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_deploy_overview.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_deploy_overview.ApiResponseFor200) | OK
-
-#### get_deploy_overview.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_deploy_overview.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_deploy_overview.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_deploy_overview.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_deploy_overview.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -561,7 +390,6 @@ Get configuration deployment status for the target devices.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_deployment_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_deployment_status import XiqDeploymentStatus
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -634,63 +462,7 @@ items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit i
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_deploy_status.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_deploy_status.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_deploy_status.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_deploy_status.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_deploy_status.ApiResponseFor200) | OK
-
-#### get_deploy_status.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_deploy_status.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_deploy_status.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_deploy_status.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_deploy_status.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -731,7 +503,6 @@ Get firmware upgrade schedule status for a site based on deployment ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_deployment_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_deployment_by_id_status_response import XiqDeploymentByIdStatusResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -832,63 +603,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_deployment_by_id_status.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_deployment_by_id_status.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_deployment_by_id_status.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_deployment_by_id_status.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_deployment_by_id_status.ApiResponseFor200) | OK
-
-#### get_deployment_by_id_status.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_deployment_by_id_status.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_deployment_by_id_status.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_deployment_by_id_status.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_deployment_by_id_status.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -924,7 +639,6 @@ Get deployment schedule across multiple sites
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_deployment_api
 from extremecloudiq.model.xiq_deployment_details_response import XiqDeploymentDetailsResponse
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -988,63 +702,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_deployment_details_by_id.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_deployment_details_by_id.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_deployment_details_by_id.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_deployment_details_by_id.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_deployment_details_by_id.ApiResponseFor200) | OK
-
-#### get_deployment_details_by_id.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_deployment_details_by_id.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_deployment_details_by_id.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_deployment_details_by_id.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_deployment_details_by_id.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1079,7 +737,6 @@ Get the compatible firmware metadatas for the devices.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_deployment_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_firmware_metadatas_request import XiqFirmwareMetadatasRequest
 from extremecloudiq.model.xiq_firmware_metadatas_response import XiqFirmwareMetadatasResponse
 from pprint import pprint
@@ -1145,63 +802,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_device_firmware_metadatas.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_device_firmware_metadatas.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_device_firmware_metadatas.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_device_firmware_metadatas.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_firmware_metadatas.ApiResponseFor200) | OK
-
-#### get_device_firmware_metadatas.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_firmware_metadatas.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_firmware_metadatas.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_firmware_metadatas.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_device_firmware_metadatas.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1236,7 +837,6 @@ Get deployment details across multiple sites.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_deployment_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_deployment_details_response import PagedXiqDeploymentDetailsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1311,63 +911,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use t
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_list_of_deployments.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_list_of_deployments.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_list_of_deployments.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_list_of_deployments.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_list_of_deployments.ApiResponseFor200) | OK
-
-#### get_list_of_deployments.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_list_of_deployments.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_list_of_deployments.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_list_of_deployments.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_list_of_deployments.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1402,7 +946,6 @@ Update deployment configuration across multiple sites
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_deployment_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_update_firmware_upgrade_request import XiqUpdateFirmwareUpgradeRequest
 from extremecloudiq.model.xiq_deployment_schedule_action_response import XiqDeploymentScheduleActionResponse
 from pprint import pprint
@@ -1511,63 +1054,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_firmware_upgrade_schedule.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_firmware_upgrade_schedule.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_firmware_upgrade_schedule.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_firmware_upgrade_schedule.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_firmware_upgrade_schedule.ApiResponseFor200) | OK
-
-#### update_firmware_upgrade_schedule.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_firmware_upgrade_schedule.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_firmware_upgrade_schedule.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_firmware_upgrade_schedule.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_firmware_upgrade_schedule.ApiResponseFor200
 Name | Type | Description  | Notes

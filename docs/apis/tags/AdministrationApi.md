@@ -33,7 +33,6 @@ Bulk Delete API Access token by ID
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import administration_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -74,7 +73,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 query_params | RequestQueryParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -104,63 +102,7 @@ items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit i
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#bulk_delete_api_access_token.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#bulk_delete_api_access_token.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#bulk_delete_api_access_token.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#bulk_delete_api_access_token.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#bulk_delete_api_access_token.ApiResponseFor200) | OK
-
-#### bulk_delete_api_access_token.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### bulk_delete_api_access_token.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### bulk_delete_api_access_token.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### bulk_delete_api_access_token.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### bulk_delete_api_access_token.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -189,7 +131,6 @@ Create a new API access token
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import administration_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_create_api_access_token_response import XiqCreateApiAccessTokenResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -264,63 +205,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#create_api_access_token.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#create_api_access_token.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#create_api_access_token.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#create_api_access_token.ApiResponseFor500) | Internal Server Error
 201 | [ApiResponseFor201](#create_api_access_token.ApiResponseFor201) | Created
-
-#### create_api_access_token.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_api_access_token.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_api_access_token.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_api_access_token.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### create_api_access_token.ApiResponseFor201
 Name | Type | Description  | Notes
@@ -356,7 +241,6 @@ Create a new Credential Distribution Group
 import extremecloudiq
 from extremecloudiq.apis.tags import administration_api
 from extremecloudiq.model.xiq_credential_distribution_group import XiqCredentialDistributionGroup
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_credential_distribution_group_create_request import XiqCredentialDistributionGroupCreateRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -428,63 +312,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#create_credential_distribution_group.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#create_credential_distribution_group.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#create_credential_distribution_group.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#create_credential_distribution_group.ApiResponseFor500) | Internal Server Error
 201 | [ApiResponseFor201](#create_credential_distribution_group.ApiResponseFor201) | Created
-
-#### create_credential_distribution_group.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_credential_distribution_group.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_credential_distribution_group.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_credential_distribution_group.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### create_credential_distribution_group.ApiResponseFor201
 Name | Type | Description  | Notes
@@ -519,7 +347,6 @@ Delete an existing API Access token by the specified ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import administration_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -558,7 +385,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 path_params | RequestPathParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -582,63 +408,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_api_access_token.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_api_access_token.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_api_access_token.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_api_access_token.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_api_access_token.ApiResponseFor200) | OK
-
-#### delete_api_access_token.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_api_access_token.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_api_access_token.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_api_access_token.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_api_access_token.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -667,7 +437,6 @@ Delete an existing Credential Distribution Group by the specified ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import administration_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -708,7 +477,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 query_params | RequestQueryParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -738,63 +506,7 @@ items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit i
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_credential_distribution_group.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_credential_distribution_group.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_credential_distribution_group.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_credential_distribution_group.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_credential_distribution_group.ApiResponseFor200) | OK
-
-#### delete_credential_distribution_group.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_credential_distribution_group.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_credential_distribution_group.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_credential_distribution_group.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_credential_distribution_group.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -823,7 +535,6 @@ Delete 3rd party API connection.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import administration_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -860,63 +571,7 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_third_party_api_connection.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_third_party_api_connection.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_third_party_api_connection.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_third_party_api_connection.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_third_party_api_connection.ApiResponseFor200) | OK
-
-#### delete_third_party_api_connection.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_third_party_api_connection.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_third_party_api_connection.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_third_party_api_connection.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_third_party_api_connection.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -947,7 +602,6 @@ import extremecloudiq
 from extremecloudiq.apis.tags import administration_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
 from extremecloudiq.model.xiq_api_access_token_sort_field import XiqApiAccessTokenSortField
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -1028,63 +682,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#export_to_csv5.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#export_to_csv5.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#export_to_csv5.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#export_to_csv5.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#export_to_csv5.ApiResponseFor200) | OK
-
-#### export_to_csv5.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### export_to_csv5.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### export_to_csv5.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### export_to_csv5.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### export_to_csv5.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1127,7 +725,6 @@ import extremecloudiq
 from extremecloudiq.apis.tags import administration_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
 from extremecloudiq.model.xiq_api_access_token_sort_field import XiqApiAccessTokenSortField
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_api_access_token import PagedXiqApiAccessToken
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1227,63 +824,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_api_access_tokens.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_api_access_tokens.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_api_access_tokens.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_api_access_tokens.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_api_access_tokens.ApiResponseFor200) | OK
-
-#### list_api_access_tokens.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_api_access_tokens.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_api_access_tokens.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_api_access_tokens.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_api_access_tokens.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1319,7 +860,6 @@ List a page of Credential Distribution Groups.
 import extremecloudiq
 from extremecloudiq.apis.tags import administration_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_credential_distribution_group_update import PagedXiqCredentialDistributionGroupUpdate
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1436,63 +976,7 @@ items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit i
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_credential_distribution_groups.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_credential_distribution_groups.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_credential_distribution_groups.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_credential_distribution_groups.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_credential_distribution_groups.ApiResponseFor200) | OK
-
-#### list_credential_distribution_groups.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_credential_distribution_groups.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_credential_distribution_groups.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_credential_distribution_groups.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_credential_distribution_groups.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1527,7 +1011,6 @@ List a page of third party api connections.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import administration_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_third_party_api_connection import XiqThirdPartyApiConnection
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1566,63 +1049,7 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_third_party_api_connections.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_third_party_api_connections.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_third_party_api_connections.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_third_party_api_connections.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_third_party_api_connections.ApiResponseFor200) | OK
-
-#### list_third_party_api_connections.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_third_party_api_connections.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_third_party_api_connections.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_third_party_api_connections.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_third_party_api_connections.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1664,7 +1091,6 @@ Update API Access token by ID
 import extremecloudiq
 from extremecloudiq.apis.tags import administration_api
 from extremecloudiq.model.xiq_update_api_access_token_request import XiqUpdateApiAccessTokenRequest
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_api_access_token import XiqApiAccessToken
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1743,63 +1169,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_api_access_token.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_api_access_token.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_api_access_token.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_api_access_token.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_api_access_token.ApiResponseFor200) | OK
-
-#### update_api_access_token.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_api_access_token.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_api_access_token.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_api_access_token.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_api_access_token.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1834,7 +1204,6 @@ Update an existing Credential Distribution Group by the specified ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import administration_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_credential_distribution_group_update import XiqCredentialDistributionGroupUpdate
 from extremecloudiq.model.xiq_credential_distribution_group_update_request import XiqCredentialDistributionGroupUpdateRequest
 from pprint import pprint
@@ -1927,63 +1296,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_credential_distribution_group.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_credential_distribution_group.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_credential_distribution_group.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_credential_distribution_group.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_credential_distribution_group.ApiResponseFor200) | OK
-
-#### update_credential_distribution_group.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_credential_distribution_group.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_credential_distribution_group.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_credential_distribution_group.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_credential_distribution_group.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2018,7 +1331,6 @@ The payload to update 3rd party API connection.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import administration_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_third_party_api_connection import XiqThirdPartyApiConnection
 from extremecloudiq.model.xiq_update_third_party_api_connection_request import XiqUpdateThirdPartyApiConnectionRequest
 from pprint import pprint
@@ -2079,63 +1391,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_third_party_api_connection.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_third_party_api_connection.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_third_party_api_connection.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_third_party_api_connection.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_third_party_api_connection.ApiResponseFor200) | OK
-
-#### update_third_party_api_connection.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_third_party_api_connection.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_third_party_api_connection.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_third_party_api_connection.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_third_party_api_connection.ApiResponseFor200
 Name | Type | Description  | Notes

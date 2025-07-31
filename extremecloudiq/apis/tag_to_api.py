@@ -12,6 +12,7 @@ from extremecloudiq.apis.tags.device_api import DeviceApi
 from extremecloudiq.apis.tags.network_policy_api import NetworkPolicyApi
 from extremecloudiq.apis.tags.client_api import ClientApi
 from extremecloudiq.apis.tags.client_details_api import ClientDetailsApi
+from extremecloudiq.apis.tags.switch_inspector_panel_api import SwitchInspectorPanelApi
 from extremecloudiq.apis.tags.d360_api import D360Api
 from extremecloudiq.apis.tags.dashboard_api import DashboardApi
 from extremecloudiq.apis.tags.dashboard_wired_usage_and_capacity_api import DashboardWiredUsageAndCapacityApi
@@ -59,6 +60,7 @@ TagToApi = typing_extensions.TypedDict(
         TagValues.NETWORK_POLICY: NetworkPolicyApi,
         TagValues.CLIENT: ClientApi,
         TagValues.CLIENT__DETAILS: ClientDetailsApi,
+        TagValues.SWITCH_INSPECTOR_PANEL: SwitchInspectorPanelApi,
         TagValues.D360: D360Api,
         TagValues.DASHBOARD: DashboardApi,
         TagValues.DASHBOARD_WIRED_USAGE_AND_CAPACITY: DashboardWiredUsageAndCapacityApi,
@@ -107,6 +109,7 @@ tag_to_api = TagToApi(
         TagValues.NETWORK_POLICY: NetworkPolicyApi,
         TagValues.CLIENT: ClientApi,
         TagValues.CLIENT__DETAILS: ClientDetailsApi,
+        TagValues.SWITCH_INSPECTOR_PANEL: SwitchInspectorPanelApi,
         TagValues.D360: D360Api,
         TagValues.DASHBOARD: DashboardApi,
         TagValues.DASHBOARD_WIRED_USAGE_AND_CAPACITY: DashboardWiredUsageAndCapacityApi,

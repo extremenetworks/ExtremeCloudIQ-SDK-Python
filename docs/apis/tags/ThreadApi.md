@@ -24,7 +24,6 @@ Get thread routers, neighboring routers and end-devices
 import extremecloudiq
 from extremecloudiq.apis.tags import thread_api
 from extremecloudiq.model.xiq_client_field import XiqClientField
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_client_view import XiqClientView
 from extremecloudiq.model.xiq_thread_network_topology import XiqThreadNetworkTopology
 from pprint import pprint
@@ -177,63 +176,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_thread_network_topology.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_thread_network_topology.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_thread_network_topology.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_thread_network_topology.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_thread_network_topology.ApiResponseFor200) | OK
-
-#### get_thread_network_topology.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_thread_network_topology.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_thread_network_topology.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_thread_network_topology.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_thread_network_topology.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -269,7 +212,6 @@ Get thread networks with atleast one device
 import extremecloudiq
 from extremecloudiq.apis.tags import thread_api
 from extremecloudiq.model.xiq_thread_networks import XiqThreadNetworks
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -397,63 +339,7 @@ items | str,  | str,  |  | must be one of ["BASIC", "FULL", ]
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_thread_networks.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_thread_networks.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_thread_networks.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_thread_networks.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_thread_networks.ApiResponseFor200) | OK
-
-#### get_thread_networks.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_thread_networks.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_thread_networks.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_thread_networks.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_thread_networks.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -489,7 +375,6 @@ List thread routers with pagination.
 import extremecloudiq
 from extremecloudiq.apis.tags import thread_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_thread_router import PagedXiqThreadRouter
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -646,63 +531,7 @@ items | str,  | str,  |  | must be one of ["DEVICE_ID", "SERIAL_NUMBER", "EUI64"
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_thread_routers.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_thread_routers.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_thread_routers.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_thread_routers.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_thread_routers.ApiResponseFor200) | OK
-
-#### get_thread_routers.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_thread_routers.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_thread_routers.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_thread_routers.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_thread_routers.ApiResponseFor200
 Name | Type | Description  | Notes

@@ -28,7 +28,6 @@ Add SSIDs to a specific network policy.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import network_policy_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -73,7 +72,6 @@ Name | Type | Description  | Notes
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 path_params | RequestPathParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -111,63 +109,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#add_ssids_to_network_policy.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#add_ssids_to_network_policy.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#add_ssids_to_network_policy.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#add_ssids_to_network_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#add_ssids_to_network_policy.ApiResponseFor200) | OK
-
-#### add_ssids_to_network_policy.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### add_ssids_to_network_policy.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### add_ssids_to_network_policy.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### add_ssids_to_network_policy.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### add_ssids_to_network_policy.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -196,7 +138,6 @@ Create a new network policy.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import network_policy_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_create_network_policy_request import XiqCreateNetworkPolicyRequest
 from extremecloudiq.model.xiq_network_policy import XiqNetworkPolicy
 from pprint import pprint
@@ -259,63 +200,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#create_network_policy.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#create_network_policy.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#create_network_policy.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#create_network_policy.ApiResponseFor500) | Internal Server Error
 201 | [ApiResponseFor201](#create_network_policy.ApiResponseFor201) | Created
-
-#### create_network_policy.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_network_policy.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_network_policy.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_network_policy.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### create_network_policy.ApiResponseFor201
 Name | Type | Description  | Notes
@@ -350,7 +235,6 @@ Delete an existing network policy by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import network_policy_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -389,7 +273,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 path_params | RequestPathParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -413,63 +296,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_network_policy.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_network_policy.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_network_policy.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_network_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_network_policy.ApiResponseFor200) | OK
-
-#### delete_network_policy.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_network_policy.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_network_policy.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_network_policy.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_network_policy.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -498,7 +325,6 @@ Removing multiple SSIDs from the network policy.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import network_policy_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -543,7 +369,6 @@ Name | Type | Description  | Notes
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 path_params | RequestPathParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -581,63 +406,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_ssids_from_network_policy.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_ssids_from_network_policy.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_ssids_from_network_policy.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_ssids_from_network_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_ssids_from_network_policy.ApiResponseFor200) | OK
-
-#### delete_ssids_from_network_policy.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_ssids_from_network_policy.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_ssids_from_network_policy.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_ssids_from_network_policy.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_ssids_from_network_policy.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -666,7 +435,6 @@ Get an existing network policy by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import network_policy_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_network_policy import XiqNetworkPolicy
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -731,63 +499,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_network_policy.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_network_policy.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_network_policy.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_network_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_network_policy.ApiResponseFor200) | OK
-
-#### get_network_policy.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_network_policy.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_network_policy.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_network_policy.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_network_policy.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -822,7 +534,6 @@ List a page of network policies.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import network_policy_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_network_policy_field import XiqNetworkPolicyField
 from extremecloudiq.model.paged_xiq_network_policy import PagedXiqNetworkPolicy
 from extremecloudiq.model.xiq_network_policy_view import XiqNetworkPolicyView
@@ -948,63 +659,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_network_polices.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_network_polices.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_network_polices.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_network_polices.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_network_polices.ApiResponseFor200) | OK
-
-#### list_network_polices.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_network_polices.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_network_polices.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_network_polices.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_network_polices.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1039,7 +694,6 @@ List a page of SSIDs for a specific network policy.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import network_policy_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_ssid import PagedXiqSsid
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1149,63 +803,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_ssids_by_network_policy.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_ssids_by_network_policy.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_ssids_by_network_policy.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_ssids_by_network_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_ssids_by_network_policy.ApiResponseFor200) | OK
-
-#### list_ssids_by_network_policy.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_ssids_by_network_policy.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_ssids_by_network_policy.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_ssids_by_network_policy.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_ssids_by_network_policy.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1240,7 +838,6 @@ Update network policy by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import network_policy_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_update_network_policy_request import XiqUpdateNetworkPolicyRequest
 from extremecloudiq.model.xiq_network_policy import XiqNetworkPolicy
 from pprint import pprint
@@ -1322,63 +919,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_network_policy.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_network_policy.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_network_policy.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_network_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_network_policy.ApiResponseFor200) | OK
-
-#### update_network_policy.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_network_policy.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_network_policy.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_network_policy.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_network_policy.ApiResponseFor200
 Name | Type | Description  | Notes

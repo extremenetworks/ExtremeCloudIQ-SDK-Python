@@ -9,7 +9,6 @@
 from dataclasses import dataclass
 import typing_extensions
 import urllib3
-from urllib3._collections import HTTPHeaderDict
 
 from extremecloudiq import api_client, exceptions
 from datetime import date, datetime  # noqa: F401
@@ -24,8 +23,6 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from extremecloudiq import schemas  # noqa: F401
-
-from extremecloudiq.model.xiq_error import XiqError
 
 # Query params
 
@@ -84,82 +81,6 @@ request_query__async = api_client.QueryParameter(
     schema=ModelAsyncSchema,
     explode=True,
 )
-SchemaFor401ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor401(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor401ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_401 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor401,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor401ResponseBodyApplicationJson),
-    },
-)
-SchemaFor400ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor400(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor400ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_400 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor400,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor400ResponseBodyApplicationJson),
-    },
-)
-SchemaFor503ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor503(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor503ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_503 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor503,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor503ResponseBodyApplicationJson),
-    },
-)
-SchemaFor500ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor500(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor500ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_500 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor500,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor500ResponseBodyApplicationJson),
-    },
-)
 
 
 @dataclass
@@ -172,9 +93,6 @@ class ApiResponseFor200(api_client.ApiResponse):
 _response_for_200 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor200,
 )
-_all_accept_content_types = (
-    'application/json',
-)
 
 
 class BaseApi(api_client.Api):
@@ -182,7 +100,6 @@ class BaseApi(api_client.Api):
     def _delete_bulk_internal_radius_server_oapg(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -195,7 +112,6 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -204,7 +120,6 @@ class BaseApi(api_client.Api):
     def _delete_bulk_internal_radius_server_oapg(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -216,7 +131,6 @@ class BaseApi(api_client.Api):
     def _delete_bulk_internal_radius_server_oapg(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -243,17 +157,11 @@ class BaseApi(api_client.Api):
             serialized_data = parameter.serialize(parameter_data, prefix_separator_iterator)
             for serialized_value in serialized_data.values():
                 used_path += serialized_value
-
-        _headers = HTTPHeaderDict()
         # TODO add cookie handling
-        if accept_content_types:
-            for accept_content_type in accept_content_types:
-                _headers.add('Accept', accept_content_type)
 
         response = self.api_client.call_api(
             resource_path=used_path,
             method='delete'.upper(),
-            headers=_headers,
             auth_settings=_auth,
             stream=stream,
             timeout=timeout,
@@ -285,7 +193,6 @@ class DeleteBulkInternalRadiusServer(BaseApi):
     def delete_bulk_internal_radius_server(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -298,7 +205,6 @@ class DeleteBulkInternalRadiusServer(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -307,7 +213,6 @@ class DeleteBulkInternalRadiusServer(BaseApi):
     def delete_bulk_internal_radius_server(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -319,14 +224,12 @@ class DeleteBulkInternalRadiusServer(BaseApi):
     def delete_bulk_internal_radius_server(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         return self._delete_bulk_internal_radius_server_oapg(
             query_params=query_params,
-            accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -340,7 +243,6 @@ class ApiFordelete(BaseApi):
     def delete(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -353,7 +255,6 @@ class ApiFordelete(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -362,7 +263,6 @@ class ApiFordelete(BaseApi):
     def delete(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -374,14 +274,12 @@ class ApiFordelete(BaseApi):
     def delete(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         return self._delete_bulk_internal_radius_server_oapg(
             query_params=query_params,
-            accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization

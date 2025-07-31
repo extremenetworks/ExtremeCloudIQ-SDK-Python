@@ -25,10 +25,9 @@ import frozendict  # noqa: F401
 
 from extremecloudiq import schemas  # noqa: F401
 
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_rm_site_ids_request import XiqRmSiteIdsRequest
 from extremecloudiq.model.xiq_device_category import XiqDeviceCategory
-from extremecloudiq.model.xiq_rm_device_metdata_response import XiqRmDeviceMetdataResponse
+from extremecloudiq.model.xiq_rm_device_metadata_response import XiqRmDeviceMetadataResponse
 from extremecloudiq.model.xiq_device_admin_state import XiqDeviceAdminState
 from extremecloudiq.model.xiq_device_type import XiqDeviceType
 
@@ -88,6 +87,7 @@ class DeviceTypesSchema(
 
     def __getitem__(self, i: int) -> 'XiqDeviceType':
         return super().__getitem__(i)
+UnassignedDevicesSchema = schemas.BoolSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -99,6 +99,7 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
         'deviceCategory': typing.Union[DeviceCategorySchema, ],
         'adminStates': typing.Union[AdminStatesSchema, list, tuple, ],
         'deviceTypes': typing.Union[DeviceTypesSchema, list, tuple, ],
+        'unassigned_devices': typing.Union[UnassignedDevicesSchema, bool, ],
     },
     total=False
 )
@@ -126,6 +127,12 @@ request_query_device_types = api_client.QueryParameter(
     schema=DeviceTypesSchema,
     explode=True,
 )
+request_query_unassigned_devices = api_client.QueryParameter(
+    name="unassigned_devices",
+    style=api_client.ParameterStyle.FORM,
+    schema=UnassignedDevicesSchema,
+    explode=True,
+)
 # body param
 SchemaForRequestBodyApplicationJson = XiqRmSiteIdsRequest
 
@@ -139,83 +146,7 @@ request_body_xiq_rm_site_ids_request = api_client.RequestBody(
 _auth = [
     'Bearer',
 ]
-SchemaFor401ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor401(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor401ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_401 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor401,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor401ResponseBodyApplicationJson),
-    },
-)
-SchemaFor400ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor400(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor400ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_400 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor400,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor400ResponseBodyApplicationJson),
-    },
-)
-SchemaFor503ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor503(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor503ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_503 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor503,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor503ResponseBodyApplicationJson),
-    },
-)
-SchemaFor500ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor500(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor500ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_500 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor500,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor500ResponseBodyApplicationJson),
-    },
-)
-SchemaFor200ResponseBodyApplicationJson = XiqRmDeviceMetdataResponse
+SchemaFor200ResponseBodyApplicationJson = XiqRmDeviceMetadataResponse
 
 
 @dataclass
@@ -235,10 +166,6 @@ _response_for_200 = api_client.OpenApiResponse(
     },
 )
 _status_code_to_response = {
-    '401': _response_for_401,
-    '400': _response_for_400,
-    '503': _response_for_503,
-    '500': _response_for_500,
     '200': _response_for_200,
 }
 _all_accept_content_types = (
@@ -327,6 +254,7 @@ class BaseApi(api_client.Api):
             request_query_device_category,
             request_query_admin_states,
             request_query_device_types,
+            request_query_unassigned_devices,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:

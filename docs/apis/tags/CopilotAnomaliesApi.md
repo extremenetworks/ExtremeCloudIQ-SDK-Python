@@ -49,7 +49,6 @@ Method | HTTP request | Description
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_anomalies_notifications_response import XiqAnomaliesNotificationsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -87,63 +86,7 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_anomalies_notifications.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_anomalies_notifications.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_anomalies_notifications.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_anomalies_notifications.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_anomalies_notifications.ApiResponseFor200) | OK
-
-#### get_anomalies_notifications.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_anomalies_notifications.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_anomalies_notifications.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_anomalies_notifications.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_anomalies_notifications.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -177,7 +120,6 @@ Type | Description  | Notes
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_anomaly_type import XiqAnomalyType
 from extremecloudiq.model.xiq_anomaly_severity import XiqAnomalySeverity
 from extremecloudiq.model.xiq_anomaly_sort_field import XiqAnomalySortField
@@ -344,63 +286,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_anomalies_report.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_anomalies_report.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_anomalies_report.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_anomalies_report.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_anomalies_report.ApiResponseFor200) | OK
-
-#### get_anomalies_report.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_anomalies_report.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_anomalies_report.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_anomalies_report.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_anomalies_report.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -434,7 +320,6 @@ bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  |  |
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_assurance_scans_overview_response import XiqAssuranceScansOverviewResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -472,63 +357,7 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_assurance_scans_overview_data.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_assurance_scans_overview_data.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_assurance_scans_overview_data.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_assurance_scans_overview_data.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_assurance_scans_overview_data.ApiResponseFor200) | OK
-
-#### get_assurance_scans_overview_data.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_assurance_scans_overview_data.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_assurance_scans_overview_data.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_assurance_scans_overview_data.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_assurance_scans_overview_data.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -561,7 +390,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_atp_device_stats_response import XiqAtpDeviceStatsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -626,63 +454,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_atp_device_stats.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_atp_device_stats.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_atp_device_stats.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_atp_device_stats.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_atp_device_stats.ApiResponseFor200) | OK
-
-#### get_atp_device_stats.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_atp_device_stats.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_atp_device_stats.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_atp_device_stats.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_atp_device_stats.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -715,7 +487,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_atp_packet_counts_response import XiqAtpPacketCountsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -780,63 +551,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_atp_packet_counts.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_atp_packet_counts.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_atp_packet_counts.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_atp_packet_counts.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_atp_packet_counts.ApiResponseFor200) | OK
-
-#### get_atp_packet_counts.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_atp_packet_counts.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_atp_packet_counts.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_atp_packet_counts.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_atp_packet_counts.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -869,7 +584,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_copilot_anomalies_by_category import XiqCopilotAnomaliesByCategory
 from extremecloudiq.model.xiq_anomaly_type import XiqAnomalyType
 from extremecloudiq.model.xiq_anomaly_severity import XiqAnomalySeverity
@@ -992,63 +706,7 @@ bool,  | BoolClass,  |  | if omitted the server will use the default value of Fa
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_copilot_anomaliesby_category.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_copilot_anomaliesby_category.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_copilot_anomaliesby_category.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_copilot_anomaliesby_category.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_copilot_anomaliesby_category.ApiResponseFor200) | OK
-
-#### get_copilot_anomaliesby_category.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_copilot_anomaliesby_category.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_copilot_anomaliesby_category.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_copilot_anomaliesby_category.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_copilot_anomaliesby_category.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1082,7 +740,6 @@ Type | Description  | Notes
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_copilot_paged_xiq_anomaly_device_with_location import XiqCopilotPagedXiqAnomalyDeviceWithLocation
 from extremecloudiq.model.xiq_anomaly_type import XiqAnomalyType
 from extremecloudiq.model.xiq_anomaly_severity import XiqAnomalySeverity
@@ -1249,63 +906,7 @@ str,  | str,  |  | if omitted the server will use the default value of ""
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_copilot_devices_with_locations.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_copilot_devices_with_locations.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_copilot_devices_with_locations.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_copilot_devices_with_locations.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_copilot_devices_with_locations.ApiResponseFor200) | OK
-
-#### get_copilot_devices_with_locations.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_copilot_devices_with_locations.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_copilot_devices_with_locations.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_copilot_devices_with_locations.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_copilot_devices_with_locations.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1338,7 +939,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_anomaly_devices_by_location_response import XiqAnomalyDevicesByLocationResponse
 from extremecloudiq.model.xiq_anomaly_type import XiqAnomalyType
 from pprint import pprint
@@ -1433,63 +1033,7 @@ items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit i
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_devices_by_location.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_devices_by_location.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_devices_by_location.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_devices_by_location.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_devices_by_location.ApiResponseFor200) | OK
-
-#### get_devices_by_location.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_devices_by_location.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_devices_by_location.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_devices_by_location.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_devices_by_location.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1522,7 +1066,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_dfs_recurence_channel_stats_response import XiqDfsRecurenceChannelStatsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1587,63 +1130,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_dfs_recurrence_channel_stats.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_dfs_recurrence_channel_stats.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_dfs_recurrence_channel_stats.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_dfs_recurrence_channel_stats.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_dfs_recurrence_channel_stats.ApiResponseFor200) | OK
-
-#### get_dfs_recurrence_channel_stats.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_dfs_recurrence_channel_stats.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_dfs_recurrence_channel_stats.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_dfs_recurrence_channel_stats.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_dfs_recurrence_channel_stats.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1676,7 +1163,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_dfs_recurence_count_stats_response import XiqDfsRecurenceCountStatsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1741,63 +1227,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_dfs_recurrence_count_stats.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_dfs_recurrence_count_stats.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_dfs_recurrence_count_stats.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_dfs_recurrence_count_stats.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_dfs_recurrence_count_stats.ApiResponseFor200) | OK
-
-#### get_dfs_recurrence_count_stats.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_dfs_recurrence_count_stats.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_dfs_recurrence_count_stats.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_dfs_recurrence_count_stats.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_dfs_recurrence_count_stats.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1831,7 +1261,6 @@ Type | Description  | Notes
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
 from extremecloudiq.model.xiq_hardware_health_client_list_response import XiqHardwareHealthClientListResponse
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -1904,63 +1333,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_hardware_health_client_list.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_hardware_health_client_list.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_hardware_health_client_list.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_hardware_health_client_list.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_hardware_health_client_list.ApiResponseFor200) | OK
-
-#### get_hardware_health_client_list.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_hardware_health_client_list.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_hardware_health_client_list.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_hardware_health_client_list.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_hardware_health_client_list.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1994,7 +1367,6 @@ Type | Description  | Notes
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
 from extremecloudiq.model.xiq_anomaly_hh_stats_type import XiqAnomalyHhStatsType
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_hardware_health_cpu_mem_stats_response import XiqHardwareHealthCpuMemStatsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -2076,63 +1448,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_hardware_health_cpu_mem_stats.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_hardware_health_cpu_mem_stats.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_hardware_health_cpu_mem_stats.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_hardware_health_cpu_mem_stats.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_hardware_health_cpu_mem_stats.ApiResponseFor200) | OK
-
-#### get_hardware_health_cpu_mem_stats.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_hardware_health_cpu_mem_stats.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_hardware_health_cpu_mem_stats.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_hardware_health_cpu_mem_stats.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_hardware_health_cpu_mem_stats.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2165,7 +1481,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_hardware_health_stats_response import XiqHardwareHealthStatsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -2230,63 +1545,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_hardware_health_stats.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_hardware_health_stats.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_hardware_health_stats.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_hardware_health_stats.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_hardware_health_stats.ApiResponseFor200) | OK
-
-#### get_hardware_health_stats.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_hardware_health_stats.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_hardware_health_stats.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_hardware_health_stats.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_hardware_health_stats.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2319,7 +1578,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_copilot_lldp_cdp_info import XiqCopilotLldpCdpInfo
 from extremecloudiq.model.xiq_anomaly_type import XiqAnomalyType
 from pprint import pprint
@@ -2411,63 +1669,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_lldp_cdp_info.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_lldp_cdp_info.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_lldp_cdp_info.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_lldp_cdp_info.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_lldp_cdp_info.ApiResponseFor200) | OK
-
-#### get_lldp_cdp_info.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_lldp_cdp_info.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_lldp_cdp_info.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_lldp_cdp_info.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_lldp_cdp_info.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2500,7 +1702,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_missing_vlan_anomalies_count_response import XiqMissingVlanAnomaliesCountResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -2606,63 +1807,7 @@ items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit i
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_missing_vlan_anomalies_count.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_missing_vlan_anomalies_count.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_missing_vlan_anomalies_count.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_missing_vlan_anomalies_count.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_missing_vlan_anomalies_count.ApiResponseFor200) | OK
-
-#### get_missing_vlan_anomalies_count.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_missing_vlan_anomalies_count.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_missing_vlan_anomalies_count.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_missing_vlan_anomalies_count.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_missing_vlan_anomalies_count.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2696,7 +1841,6 @@ Type | Description  | Notes
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
 from extremecloudiq.model.xiq_copilot_missing_vlan_paged_xiq_missing_vlan_excluded_vlan_list import XiqCopilotMissingVlanPagedXiqMissingVlanExcludedVlanList
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -2769,63 +1913,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use t
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_missing_vlan_excluded_vlan_list.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_missing_vlan_excluded_vlan_list.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_missing_vlan_excluded_vlan_list.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_missing_vlan_excluded_vlan_list.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_missing_vlan_excluded_vlan_list.ApiResponseFor200) | OK
-
-#### get_missing_vlan_excluded_vlan_list.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_missing_vlan_excluded_vlan_list.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_missing_vlan_excluded_vlan_list.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_missing_vlan_excluded_vlan_list.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_missing_vlan_excluded_vlan_list.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2859,7 +1947,6 @@ Type | Description  | Notes
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
 from extremecloudiq.model.xiq_poe_flapping_stats_response import XiqPoeFlappingStatsResponse
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -2923,63 +2010,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_poe_flapping_stats.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_poe_flapping_stats.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_poe_flapping_stats.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_poe_flapping_stats.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_poe_flapping_stats.ApiResponseFor200) | OK
-
-#### get_poe_flapping_stats.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_poe_flapping_stats.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_poe_flapping_stats.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_poe_flapping_stats.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_poe_flapping_stats.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3013,7 +2044,6 @@ Type | Description  | Notes
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
 from extremecloudiq.model.xiq_poe_trend_graphs_response import XiqPoeTrendGraphsResponse
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -3077,63 +2107,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_poe_flapping_trends.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_poe_flapping_trends.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_poe_flapping_trends.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_poe_flapping_trends.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_poe_flapping_trends.ApiResponseFor200) | OK
-
-#### get_poe_flapping_trends.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_poe_flapping_trends.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_poe_flapping_trends.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_poe_flapping_trends.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_poe_flapping_trends.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3166,7 +2140,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_port_efficiency_speed_duplex_stats_response import XiqPortEfficiencySpeedDuplexStatsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3231,63 +2204,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_port_efficiency_speed_duplex_stats.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_port_efficiency_speed_duplex_stats.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_port_efficiency_speed_duplex_stats.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_port_efficiency_speed_duplex_stats.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_port_efficiency_speed_duplex_stats.ApiResponseFor200) | OK
-
-#### get_port_efficiency_speed_duplex_stats.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_port_efficiency_speed_duplex_stats.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_port_efficiency_speed_duplex_stats.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_port_efficiency_speed_duplex_stats.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_port_efficiency_speed_duplex_stats.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3320,7 +2237,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_port_efficiency_stats_response import XiqPortEfficiencyStatsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3406,63 +2322,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_port_efficiency_stats.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_port_efficiency_stats.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_port_efficiency_stats.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_port_efficiency_stats.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_port_efficiency_stats.ApiResponseFor200) | OK
-
-#### get_port_efficiency_stats.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_port_efficiency_stats.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_port_efficiency_stats.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_port_efficiency_stats.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_port_efficiency_stats.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3495,7 +2355,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wifi_capacity_client_list_response import XiqWifiCapacityClientListResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3578,63 +2437,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wifi_capacity_client_list.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wifi_capacity_client_list.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wifi_capacity_client_list.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wifi_capacity_client_list.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wifi_capacity_client_list.ApiResponseFor200) | OK
-
-#### get_wifi_capacity_client_list.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_capacity_client_list.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_capacity_client_list.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_capacity_client_list.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wifi_capacity_client_list.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3667,7 +2470,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wifi_capacity_stats_response import XiqWifiCapacityStatsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3732,63 +2534,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wifi_capacity_stats.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wifi_capacity_stats.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wifi_capacity_stats.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wifi_capacity_stats.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wifi_capacity_stats.ApiResponseFor200) | OK
-
-#### get_wifi_capacity_stats.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_capacity_stats.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_capacity_stats.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_capacity_stats.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wifi_capacity_stats.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3821,7 +2567,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wifi_efficiency_client_list_response import XiqWifiEfficiencyClientListResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3904,63 +2649,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wifi_efficiency_client_list.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wifi_efficiency_client_list.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wifi_efficiency_client_list.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wifi_efficiency_client_list.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wifi_efficiency_client_list.ApiResponseFor200) | OK
-
-#### get_wifi_efficiency_client_list.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_efficiency_client_list.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_efficiency_client_list.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_efficiency_client_list.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wifi_efficiency_client_list.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3993,7 +2682,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wifi_efficiency_stats_response import XiqWifiEfficiencyStatsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -4058,63 +2746,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wifi_efficiency_stats.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wifi_efficiency_stats.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wifi_efficiency_stats.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wifi_efficiency_stats.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wifi_efficiency_stats.ApiResponseFor200) | OK
-
-#### get_wifi_efficiency_stats.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_efficiency_stats.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_efficiency_stats.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_efficiency_stats.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wifi_efficiency_stats.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4148,7 +2780,6 @@ Type | Description  | Notes
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_anomaly_type import XiqAnomalyType
 from extremecloudiq.model.xiq_copilot_paged_xiq_anomaly_location_entity import XiqCopilotPagedXiqAnomalyLocationEntity
 from extremecloudiq.model.xiq_anomaly_sort_field import XiqAnomalySortField
@@ -4257,63 +2888,7 @@ bool,  | BoolClass,  |  | if omitted the server will use the default value of Fa
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_anomaly_locations.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_anomaly_locations.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_anomaly_locations.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_anomaly_locations.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_anomaly_locations.ApiResponseFor200) | OK
-
-#### list_anomaly_locations.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_anomaly_locations.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_anomaly_locations.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_anomaly_locations.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_anomaly_locations.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4346,7 +2921,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_anomalies_feedback_request import XiqAnomaliesFeedbackRequest
 from extremecloudiq.model.xiq_copilot_anomalies_action_response import XiqCopilotAnomaliesActionResponse
 from pprint import pprint
@@ -4409,63 +2983,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_anomalies_feedback.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_anomalies_feedback.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_anomalies_feedback.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_anomalies_feedback.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_anomalies_feedback.ApiResponseFor200) | OK
-
-#### update_anomalies_feedback.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_anomalies_feedback.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_anomalies_feedback.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_anomalies_feedback.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_anomalies_feedback.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4498,7 +3016,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_anomalies_update_action_request import XiqAnomaliesUpdateActionRequest
 from extremecloudiq.model.xiq_copilot_anomalies_action_response import XiqCopilotAnomaliesActionResponse
 from pprint import pprint
@@ -4560,63 +3077,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_anomaly_action.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_anomaly_action.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_anomaly_action.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_anomaly_action.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_anomaly_action.ApiResponseFor200) | OK
-
-#### update_anomaly_action.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_anomaly_action.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_anomaly_action.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_anomaly_action.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_anomaly_action.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4649,7 +3110,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_anomalies_device_update_action_request import XiqAnomaliesDeviceUpdateActionRequest
 from extremecloudiq.model.xiq_copilot_anomalies_action_response import XiqCopilotAnomaliesActionResponse
 from pprint import pprint
@@ -4712,63 +3172,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_anomaly_device_action.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_anomaly_device_action.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_anomaly_device_action.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_anomaly_device_action.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_anomaly_device_action.ApiResponseFor200) | OK
-
-#### update_anomaly_device_action.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_anomaly_device_action.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_anomaly_device_action.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_anomaly_device_action.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_anomaly_device_action.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4804,7 +3208,6 @@ Update Anomalies and Devices.
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
 from extremecloudiq.model.xiq_update_anomalies_and_devices_request import XiqUpdateAnomaliesAndDevicesRequest
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -4880,7 +3283,6 @@ Name | Type | Description  | Notes
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -4913,63 +3315,7 @@ bool,  | BoolClass,  |  | if omitted the server will use the default value of Fa
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_copilot_anomalies_devices_action.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_copilot_anomalies_devices_action.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_copilot_anomalies_devices_action.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_copilot_anomalies_devices_action.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_copilot_anomalies_devices_action.ApiResponseFor200) | OK
-
-#### update_copilot_anomalies_devices_action.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_copilot_anomalies_devices_action.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_copilot_anomalies_devices_action.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_copilot_anomalies_devices_action.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_copilot_anomalies_devices_action.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4996,7 +3342,6 @@ headers | Unset | headers were not defined |
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_update_missing_vlan_excluded_vlan_response import XiqUpdateMissingVlanExcludedVlanResponse
 from extremecloudiq.model.xiq_excluded_vlan_action_type import XiqExcludedVlanActionType
 from pprint import pprint
@@ -5130,63 +3475,7 @@ bool,  | BoolClass,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_missing_vlan_excluded_vlan_csv.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_missing_vlan_excluded_vlan_csv.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_missing_vlan_excluded_vlan_csv.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_missing_vlan_excluded_vlan_csv.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_missing_vlan_excluded_vlan_csv.ApiResponseFor200) | OK
-
-#### update_missing_vlan_excluded_vlan_csv.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_missing_vlan_excluded_vlan_csv.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_missing_vlan_excluded_vlan_csv.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_missing_vlan_excluded_vlan_csv.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_missing_vlan_excluded_vlan_csv.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -5219,7 +3508,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_anomalies_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_update_missing_vlan_excluded_vlan_response import XiqUpdateMissingVlanExcludedVlanResponse
 from extremecloudiq.model.xiq_missing_vlan_excluded_vlan_details_list_request import XiqMissingVlanExcludedVlanDetailsListRequest
 from pprint import pprint
@@ -5291,63 +3579,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_missing_vlan_excluded_vlan_list.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_missing_vlan_excluded_vlan_list.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_missing_vlan_excluded_vlan_list.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_missing_vlan_excluded_vlan_list.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_missing_vlan_excluded_vlan_list.ApiResponseFor200) | OK
-
-#### update_missing_vlan_excluded_vlan_list.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_missing_vlan_excluded_vlan_list.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_missing_vlan_excluded_vlan_list.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_missing_vlan_excluded_vlan_list.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_missing_vlan_excluded_vlan_list.ApiResponseFor200
 Name | Type | Description  | Notes

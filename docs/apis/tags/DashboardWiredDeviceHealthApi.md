@@ -33,7 +33,6 @@ Returns the total number of wired devices with CPU issues based on the provided 
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_device_health_api
 from extremecloudiq.model.xiq_wired_device_health_cpu_response import XiqWiredDeviceHealthCpuResponse
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_device_health_cpu_request import XiqWiredDeviceHealthCpuRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -95,63 +94,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_device_health_cpu.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_device_health_cpu.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_device_health_cpu.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_device_health_cpu.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_device_health_cpu.ApiResponseFor200) | OK
-
-#### get_wired_device_health_cpu.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_cpu.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_cpu.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_cpu.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_device_health_cpu.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -186,7 +129,6 @@ Returns the total number of wired devices with fan issues based on the provided 
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_device_health_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_device_health_fan_response import XiqWiredDeviceHealthFanResponse
 from extremecloudiq.model.xiq_wired_device_health_fan_request import XiqWiredDeviceHealthFanRequest
 from pprint import pprint
@@ -249,63 +191,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_device_health_fan.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_device_health_fan.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_device_health_fan.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_device_health_fan.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_device_health_fan.ApiResponseFor200) | OK
-
-#### get_wired_device_health_fan.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_fan.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_fan.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_fan.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_device_health_fan.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -341,7 +227,6 @@ Returns the fan status of the device
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_device_health_api
 from extremecloudiq.model.xiq_wired_device_health_fan_status_response import XiqWiredDeviceHealthFanStatusResponse
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -406,63 +291,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_device_health_fan_status.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_device_health_fan_status.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_device_health_fan_status.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_device_health_fan_status.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_device_health_fan_status.ApiResponseFor200) | OK
-
-#### get_wired_device_health_fan_status.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_fan_status.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_fan_status.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_fan_status.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_device_health_fan_status.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -498,7 +327,6 @@ Returns the wired device health grid based on the provided filters. The results 
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_device_health_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_wired_device_health_grid_response import PagedXiqWiredDeviceHealthGridResponse
 from extremecloudiq.model.xiq_wired_device_health_sort_field import XiqWiredDeviceHealthSortField
 from extremecloudiq.model.xiq_wired_device_health_grid_request import XiqWiredDeviceHealthGridRequest
@@ -646,63 +474,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_device_health_grid.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_device_health_grid.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_device_health_grid.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_device_health_grid.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_device_health_grid.ApiResponseFor200) | OK
-
-#### get_wired_device_health_grid.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_grid.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_grid.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_grid.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_device_health_grid.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -737,7 +509,6 @@ Returns the total number of wired devices with memory issues based on the provid
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_device_health_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_device_health_mem_response import XiqWiredDeviceHealthMemResponse
 from extremecloudiq.model.xiq_wired_device_health_mem_request import XiqWiredDeviceHealthMemRequest
 from pprint import pprint
@@ -800,63 +571,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_device_health_mem.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_device_health_mem.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_device_health_mem.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_device_health_mem.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_device_health_mem.ApiResponseFor200) | OK
-
-#### get_wired_device_health_mem.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_mem.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_mem.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_mem.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_device_health_mem.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -892,7 +607,6 @@ Returns the total number of wired devices with PoE issues based on the provided 
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_device_health_api
 from extremecloudiq.model.xiq_wired_device_health_poe_request import XiqWiredDeviceHealthPoeRequest
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_device_health_poe_response import XiqWiredDeviceHealthPoeResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -954,63 +668,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_device_health_poe.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_device_health_poe.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_device_health_poe.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_device_health_poe.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_device_health_poe.ApiResponseFor200) | OK
-
-#### get_wired_device_health_poe.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_poe.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_poe.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_poe.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_device_health_poe.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1045,7 +703,6 @@ Returns the PoE usage status of the device
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_device_health_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_device_health_poe_usage_status_response import XiqWiredDeviceHealthPoeUsageStatusResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1111,63 +768,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_device_health_poe_usage_status.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_device_health_poe_usage_status.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_device_health_poe_usage_status.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_device_health_poe_usage_status.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_device_health_poe_usage_status.ApiResponseFor200) | OK
-
-#### get_wired_device_health_poe_usage_status.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_poe_usage_status.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_poe_usage_status.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_poe_usage_status.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_device_health_poe_usage_status.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1203,7 +804,6 @@ Returns the total number of wired devices with PSU issues based on the provided 
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_device_health_api
 from extremecloudiq.model.xiq_wired_device_health_psu_request import XiqWiredDeviceHealthPsuRequest
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_device_health_psu_response import XiqWiredDeviceHealthPsuResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1265,63 +865,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_device_health_psu.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_device_health_psu.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_device_health_psu.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_device_health_psu.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_device_health_psu.ApiResponseFor200) | OK
-
-#### get_wired_device_health_psu.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_psu.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_psu.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_psu.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_device_health_psu.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1356,7 +900,6 @@ Returns the PSU status of the device
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_device_health_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_device_health_psu_status_response import XiqWiredDeviceHealthPsuStatusResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1422,63 +965,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_device_health_psu_status.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_device_health_psu_status.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_device_health_psu_status.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_device_health_psu_status.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_device_health_psu_status.ApiResponseFor200) | OK
-
-#### get_wired_device_health_psu_status.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_psu_status.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_psu_status.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_psu_status.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_device_health_psu_status.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1514,7 +1001,6 @@ Returns the total number of wired devices and the total number of wired devices 
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_device_health_api
 from extremecloudiq.model.xiq_wired_device_health_summary_request import XiqWiredDeviceHealthSummaryRequest
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_device_health_summary_response import XiqWiredDeviceHealthSummaryResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1576,63 +1062,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_device_health_summary.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_device_health_summary.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_device_health_summary.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_device_health_summary.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_device_health_summary.ApiResponseFor200) | OK
-
-#### get_wired_device_health_summary.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_summary.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_summary.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_summary.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_device_health_summary.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1668,7 +1098,6 @@ Returns the total number of wired devices with temperature issues based on the p
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_device_health_api
 from extremecloudiq.model.xiq_wired_device_health_temp_request import XiqWiredDeviceHealthTempRequest
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_device_health_temp_response import XiqWiredDeviceHealthTempResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1730,63 +1159,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_device_health_temp.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_device_health_temp.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_device_health_temp.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_device_health_temp.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_device_health_temp.ApiResponseFor200) | OK
-
-#### get_wired_device_health_temp.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_temp.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_temp.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_temp.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_device_health_temp.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1821,7 +1194,6 @@ Returns the temperature status of the device
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_device_health_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_device_health_temperature_status_response import XiqWiredDeviceHealthTemperatureStatusResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1887,63 +1259,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_device_health_temp_status.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_device_health_temp_status.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_device_health_temp_status.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_device_health_temp_status.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_device_health_temp_status.ApiResponseFor200) | OK
-
-#### get_wired_device_health_temp_status.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_temp_status.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_temp_status.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_device_health_temp_status.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_device_health_temp_status.ApiResponseFor200
 Name | Type | Description  | Notes

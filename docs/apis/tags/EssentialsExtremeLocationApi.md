@@ -21,7 +21,6 @@ Get the last known location of the client on the floor plan.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import essentials_extreme_location_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.essentials_eloc_last_known_location import EssentialsElocLastKnownLocation
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -115,63 +114,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_client_last_location.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_client_last_location.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_client_last_location.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_client_last_location.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_last_location.ApiResponseFor200) | OK
-
-#### get_client_last_location.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_last_location.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_last_location.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_last_location.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_client_last_location.ApiResponseFor200
 Name | Type | Description  | Notes

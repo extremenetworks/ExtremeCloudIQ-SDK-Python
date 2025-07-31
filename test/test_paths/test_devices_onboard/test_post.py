@@ -32,9 +32,8 @@ class TestDevicesOnboard(ApiTestMixin, unittest.TestCase):
     def tearDown(self):
         pass
 
-    response_status = 401
-
-
+    response_status = 202
+    response_body = ''
 
 
 

@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestDevicesRmDevicesPageExport(ApiTestMixin, unittest.TestCase):
     """
     DevicesRmDevicesPageExport unit test stubs
-        Export RM devices data to CSV  # noqa: E501
+        [LRO] Export RM devices data to CSV  # noqa: E501
     """
     _configuration = configuration.Configuration()
 
@@ -32,7 +32,7 @@ class TestDevicesRmDevicesPageExport(ApiTestMixin, unittest.TestCase):
     def tearDown(self):
         pass
 
-    response_status = 401
+    response_status = 200
 
 
 

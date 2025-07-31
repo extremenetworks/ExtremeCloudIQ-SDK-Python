@@ -25,8 +25,6 @@ import frozendict  # noqa: F401
 
 from extremecloudiq import schemas  # noqa: F401
 
-from extremecloudiq.model.xiq_error import XiqError
-
 from . import path
 
 # Path params
@@ -78,82 +76,6 @@ request_body_body = api_client.RequestBody(
 _auth = [
     'Bearer',
 ]
-SchemaFor401ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor401(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor401ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_401 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor401,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor401ResponseBodyApplicationJson),
-    },
-)
-SchemaFor400ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor400(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor400ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_400 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor400,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor400ResponseBodyApplicationJson),
-    },
-)
-SchemaFor503ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor503(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor503ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_503 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor503,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor503ResponseBodyApplicationJson),
-    },
-)
-SchemaFor500ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor500(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor500ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_500 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor500,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor500ResponseBodyApplicationJson),
-    },
-)
 
 
 @dataclass
@@ -167,15 +89,8 @@ _response_for_200 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor200,
 )
 _status_code_to_response = {
-    '401': _response_for_401,
-    '400': _response_for_400,
-    '503': _response_for_503,
-    '500': _response_for_500,
     '200': _response_for_200,
 }
-_all_accept_content_types = (
-    'application/json',
-)
 
 
 class BaseApi(api_client.Api):
@@ -185,7 +100,6 @@ class BaseApi(api_client.Api):
         body: typing.Union[SchemaForRequestBodyTextPlain,str, ],
         content_type: typing_extensions.Literal["text/plain"] = ...,
         path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -199,7 +113,6 @@ class BaseApi(api_client.Api):
         body: typing.Union[SchemaForRequestBodyTextPlain,str, ],
         content_type: str = ...,
         path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -215,7 +128,6 @@ class BaseApi(api_client.Api):
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -226,7 +138,6 @@ class BaseApi(api_client.Api):
         body: typing.Union[SchemaForRequestBodyTextPlain,str, ],
         content_type: str = ...,
         path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -240,7 +151,6 @@ class BaseApi(api_client.Api):
         body: typing.Union[SchemaForRequestBodyTextPlain,str, ],
         content_type: str = 'text/plain',
         path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -269,9 +179,6 @@ class BaseApi(api_client.Api):
 
         _headers = HTTPHeaderDict()
         # TODO add cookie handling
-        if accept_content_types:
-            for accept_content_type in accept_content_types:
-                _headers.add('Accept', accept_content_type)
 
         if body is schemas.unset:
             raise exceptions.ApiValueError(
@@ -323,7 +230,6 @@ class ChangeDeviceDescription(BaseApi):
         body: typing.Union[SchemaForRequestBodyTextPlain,str, ],
         content_type: typing_extensions.Literal["text/plain"] = ...,
         path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -337,7 +243,6 @@ class ChangeDeviceDescription(BaseApi):
         body: typing.Union[SchemaForRequestBodyTextPlain,str, ],
         content_type: str = ...,
         path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -353,7 +258,6 @@ class ChangeDeviceDescription(BaseApi):
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -364,7 +268,6 @@ class ChangeDeviceDescription(BaseApi):
         body: typing.Union[SchemaForRequestBodyTextPlain,str, ],
         content_type: str = ...,
         path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -378,7 +281,6 @@ class ChangeDeviceDescription(BaseApi):
         body: typing.Union[SchemaForRequestBodyTextPlain,str, ],
         content_type: str = 'text/plain',
         path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -387,7 +289,6 @@ class ChangeDeviceDescription(BaseApi):
             body=body,
             path_params=path_params,
             content_type=content_type,
-            accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -403,7 +304,6 @@ class ApiForput(BaseApi):
         body: typing.Union[SchemaForRequestBodyTextPlain,str, ],
         content_type: typing_extensions.Literal["text/plain"] = ...,
         path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -417,7 +317,6 @@ class ApiForput(BaseApi):
         body: typing.Union[SchemaForRequestBodyTextPlain,str, ],
         content_type: str = ...,
         path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -433,7 +332,6 @@ class ApiForput(BaseApi):
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -444,7 +342,6 @@ class ApiForput(BaseApi):
         body: typing.Union[SchemaForRequestBodyTextPlain,str, ],
         content_type: str = ...,
         path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -458,7 +355,6 @@ class ApiForput(BaseApi):
         body: typing.Union[SchemaForRequestBodyTextPlain,str, ],
         content_type: str = 'text/plain',
         path_params: RequestPathParams = frozendict.frozendict(),
-        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -467,7 +363,6 @@ class ApiForput(BaseApi):
             body=body,
             path_params=path_params,
             content_type=content_type,
-            accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization

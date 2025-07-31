@@ -32,9 +32,8 @@ class TestDevicesLocationRevoke(ApiTestMixin, unittest.TestCase):
     def tearDown(self):
         pass
 
-    response_status = 401
-
-
+    response_status = 200
+    response_body = ''
 
 
 

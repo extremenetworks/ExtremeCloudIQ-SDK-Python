@@ -31,6 +31,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **miscellaneous_settings_id** | decimal.Decimal, int,  | decimal.Decimal,  | The miscellaneous settings Id | [optional] value must be a 64 bit integer
 **presence_server_settings_id** | decimal.Decimal, int,  | decimal.Decimal,  | The presence server settings Id. | [optional] value must be a 64 bit integer
 **sensor_scan_settings_id** | decimal.Decimal, int,  | decimal.Decimal,  | The sensor scan settings Id. | [optional] value must be a 64 bit integer
+**afc_power_mode** | str,  | str,  | The power mode for 6 GHZ radio profiles for supporting APs | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

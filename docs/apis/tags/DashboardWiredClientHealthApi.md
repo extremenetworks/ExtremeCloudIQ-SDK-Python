@@ -26,7 +26,6 @@ Returns the wired clients with IP connectivity issues based on the provided filt
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_client_health_api
 from extremecloudiq.model.xiq_wired_client_health_ip_connectivity_issues_request import XiqWiredClientHealthIpConnectivityIssuesRequest
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_client_health_ip_connectivity_issues_response import XiqWiredClientHealthIpConnectivityIssuesResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -52,6 +51,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     body = XiqWiredClientHealthIpConnectivityIssuesRequest(
         site_ids=[
+            1
+        ],
+        device_ids=[
             1
         ],
     )
@@ -88,63 +90,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_ip_connectivity_issues.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_ip_connectivity_issues.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_ip_connectivity_issues.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_ip_connectivity_issues.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_ip_connectivity_issues.ApiResponseFor200) | OK
-
-#### get_ip_connectivity_issues.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_ip_connectivity_issues.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_ip_connectivity_issues.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_ip_connectivity_issues.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_ip_connectivity_issues.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -179,7 +125,6 @@ Returns the wired clients with port congestion issues based on the provided filt
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_client_health_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_client_health_port_congestion_request import XiqWiredClientHealthPortCongestionRequest
 from extremecloudiq.model.xiq_wired_client_health_port_congestion_response import XiqWiredClientHealthPortCongestionResponse
 from pprint import pprint
@@ -206,6 +151,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     body = XiqWiredClientHealthPortCongestionRequest(
         site_ids=[
+            1
+        ],
+        device_ids=[
             1
         ],
     )
@@ -242,63 +190,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_port_congestion.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_port_congestion.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_port_congestion.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_port_congestion.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_port_congestion.ApiResponseFor200) | OK
-
-#### get_port_congestion.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_port_congestion.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_port_congestion.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_port_congestion.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_port_congestion.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -333,7 +225,6 @@ Returns the wired clients with port errors based on the provided filters. You ca
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_client_health_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_client_health_port_errors_request import XiqWiredClientHealthPortErrorsRequest
 from extremecloudiq.model.xiq_wired_client_health_port_errors_response import XiqWiredClientHealthPortErrorsResponse
 from pprint import pprint
@@ -360,6 +251,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     body = XiqWiredClientHealthPortErrorsRequest(
         site_ids=[
+            1
+        ],
+        device_ids=[
             1
         ],
     )
@@ -396,63 +290,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_port_errors.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_port_errors.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_port_errors.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_port_errors.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_port_errors.ApiResponseFor200) | OK
-
-#### get_port_errors.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_port_errors.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_port_errors.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_port_errors.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_port_errors.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -488,7 +326,6 @@ Returns the wired clients with traffic anomalies based on the provided filters. 
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_client_health_api
 from extremecloudiq.model.xiq_wired_client_health_traffic_anomalies_response import XiqWiredClientHealthTrafficAnomaliesResponse
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_client_health_traffic_anomalies_request import XiqWiredClientHealthTrafficAnomaliesRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -514,6 +351,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     body = XiqWiredClientHealthTrafficAnomaliesRequest(
         site_ids=[
+            1
+        ],
+        device_ids=[
             1
         ],
     )
@@ -550,63 +390,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_traffic_anomalies.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_traffic_anomalies.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_traffic_anomalies.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_traffic_anomalies.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_traffic_anomalies.ApiResponseFor200) | OK
-
-#### get_traffic_anomalies.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_traffic_anomalies.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_traffic_anomalies.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_traffic_anomalies.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_traffic_anomalies.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -642,7 +426,6 @@ Returns the client health grid of wired devices based on the provided filters. Y
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_client_health_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_client_health_grid_request import XiqWiredClientHealthGridRequest
 from extremecloudiq.model.paged_xiq_wired_client_health_grid_response import PagedXiqWiredClientHealthGridResponse
 from extremecloudiq.model.xiq_wired_client_health_sort_field import XiqWiredClientHealthSortField
@@ -790,63 +573,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_client_health_grid.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_client_health_grid.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_client_health_grid.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_client_health_grid.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_client_health_grid.ApiResponseFor200) | OK
-
-#### get_wired_client_health_grid.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_client_health_grid.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_client_health_grid.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_client_health_grid.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_client_health_grid.ApiResponseFor200
 Name | Type | Description  | Notes

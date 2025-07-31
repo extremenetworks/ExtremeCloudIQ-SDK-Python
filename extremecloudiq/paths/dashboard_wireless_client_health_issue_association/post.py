@@ -25,7 +25,6 @@ import frozendict  # noqa: F401
 
 from extremecloudiq import schemas  # noqa: F401
 
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_dashboard_filter import XiqDashboardFilter
 from extremecloudiq.model.xiq_issue_client_association import XiqIssueClientAssociation
 
@@ -54,6 +53,7 @@ class LimitSchema(
         inclusive_maximum = 100
         inclusive_minimum = 1
 MacAddressSchema = schemas.StrSchema
+UnassignedDevicesSchema = schemas.BoolSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -65,6 +65,7 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
         'page': typing.Union[PageSchema, decimal.Decimal, int, ],
         'limit': typing.Union[LimitSchema, decimal.Decimal, int, ],
         'macAddress': typing.Union[MacAddressSchema, str, ],
+        'unassigned_devices': typing.Union[UnassignedDevicesSchema, bool, ],
     },
     total=False
 )
@@ -92,6 +93,12 @@ request_query_mac_address = api_client.QueryParameter(
     schema=MacAddressSchema,
     explode=True,
 )
+request_query_unassigned_devices = api_client.QueryParameter(
+    name="unassigned_devices",
+    style=api_client.ParameterStyle.FORM,
+    schema=UnassignedDevicesSchema,
+    explode=True,
+)
 # body param
 SchemaForRequestBodyApplicationJson = XiqDashboardFilter
 
@@ -106,82 +113,6 @@ request_body_xiq_dashboard_filter = api_client.RequestBody(
 _auth = [
     'Bearer',
 ]
-SchemaFor401ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor401(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor401ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_401 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor401,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor401ResponseBodyApplicationJson),
-    },
-)
-SchemaFor400ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor400(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor400ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_400 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor400,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor400ResponseBodyApplicationJson),
-    },
-)
-SchemaFor503ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor503(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor503ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_503 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor503,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor503ResponseBodyApplicationJson),
-    },
-)
-SchemaFor500ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor500(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor500ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_500 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor500,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor500ResponseBodyApplicationJson),
-    },
-)
 
 
 class SchemaFor200ResponseBodyApplicationJson(
@@ -227,10 +158,6 @@ _response_for_200 = api_client.OpenApiResponse(
     },
 )
 _status_code_to_response = {
-    '401': _response_for_401,
-    '400': _response_for_400,
-    '503': _response_for_503,
-    '500': _response_for_500,
     '200': _response_for_200,
 }
 _all_accept_content_types = (
@@ -319,6 +246,7 @@ class BaseApi(api_client.Api):
             request_query_page,
             request_query_limit,
             request_query_mac_address,
+            request_query_unassigned_devices,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:

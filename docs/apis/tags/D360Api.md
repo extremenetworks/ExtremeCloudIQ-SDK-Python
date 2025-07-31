@@ -33,7 +33,6 @@ List a list of connected clients for Device 360 Api
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import d360_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_client_graph_data import XiqClientGraphData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -133,63 +132,7 @@ items | str,  | str,  |  | must be one of ["CONNECTED_CLIENTS", "UNIQUE_CLIENTS"
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_client_graph.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_client_graph.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_client_graph.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_client_graph.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_graph.ApiResponseFor200) | OK
-
-#### get_client_graph.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_graph.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_graph.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_graph.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_client_graph.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -230,7 +173,6 @@ Returns the metadata for the client grid
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import d360_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_d360_client_grid_metadata import XiqD360ClientGridMetadata
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -314,63 +256,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_client_grid_metadata.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_client_grid_metadata.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_client_grid_metadata.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_client_grid_metadata.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_grid_metadata.ApiResponseFor200) | OK
-
-#### get_client_grid_metadata.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_grid_metadata.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_grid_metadata.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_grid_metadata.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_client_grid_metadata.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -405,7 +291,6 @@ Returns the information related to Client Stats.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import d360_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_client_stats import XiqClientStats
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -513,63 +398,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_client_stats.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_client_stats.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_client_stats.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_client_stats.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_stats.ApiResponseFor200) | OK
-
-#### get_client_stats.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_stats.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_stats.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_stats.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_client_stats.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -605,7 +434,6 @@ List of Client
 import extremecloudiq
 from extremecloudiq.apis.tags import d360_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_client_stats_grid_row import PagedXiqClientStatsGridRow
 from extremecloudiq.model.xiq_d360_client_grid_filter_request import XiqD360ClientGridFilterRequest
 from pprint import pprint
@@ -856,63 +684,7 @@ str,  | str,  |  | must be one of ["CONNECTED", "DISCONNECTED", ]
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_client_stats_grid.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_client_stats_grid.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_client_stats_grid.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_client_stats_grid.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_stats_grid.ApiResponseFor200) | OK
-
-#### get_client_stats_grid.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_stats_grid.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_stats_grid.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_stats_grid.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_client_stats_grid.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -947,7 +719,6 @@ Returns the information related to device issues
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import d360_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_device_issues import XiqDeviceIssues
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1031,63 +802,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_device_issues.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_device_issues.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_device_issues.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_device_issues.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_issues.ApiResponseFor200) | OK
-
-#### get_device_issues.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_issues.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_issues.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_issues.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_device_issues.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1122,7 +837,6 @@ Gives the device information along with placement co-ordinates and floor map
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import d360_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_device_meta_data import XiqDeviceMetaData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1188,63 +902,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_device_meta_data.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_device_meta_data.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_device_meta_data.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_device_meta_data.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_meta_data.ApiResponseFor200) | OK
-
-#### get_device_meta_data.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_meta_data.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_meta_data.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_meta_data.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_device_meta_data.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1279,7 +937,6 @@ Gives the device Stats
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import d360_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_d360_device_stats import XiqD360DeviceStats
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1363,63 +1020,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_device_stats1.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_device_stats1.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_device_stats1.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_device_stats1.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_stats1.ApiResponseFor200) | OK
-
-#### get_device_stats1.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_stats1.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_stats1.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_stats1.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_device_stats1.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1460,7 +1061,6 @@ List the summary of device details.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import d360_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_d360_device_summary import XiqD360DeviceSummary
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1526,63 +1126,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_device_summary1.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_device_summary1.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_device_summary1.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_device_summary1.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_summary1.ApiResponseFor200) | OK
-
-#### get_device_summary1.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_summary1.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_summary1.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_summary1.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_device_summary1.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1617,7 +1161,6 @@ Returns the SSID metadata for surrounding APs
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import d360_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_ssid_metadata import XiqSsidMetadata
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1701,63 +1244,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_ssid_metadata.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_ssid_metadata.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_ssid_metadata.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_ssid_metadata.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_ssid_metadata.ApiResponseFor200) | OK
-
-#### get_ssid_metadata.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_ssid_metadata.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_ssid_metadata.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_ssid_metadata.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_ssid_metadata.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1792,7 +1279,6 @@ Returns a list of SurroundingAps
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import d360_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_d360_filter import XiqD360Filter
 from extremecloudiq.model.paged_xiq_surrounding_aps import PagedXiqSurroundingAps
 from pprint import pprint
@@ -1959,63 +1445,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_surrounding_aps.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_surrounding_aps.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_surrounding_aps.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_surrounding_aps.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_surrounding_aps.ApiResponseFor200) | OK
-
-#### get_surrounding_aps.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_surrounding_aps.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_surrounding_aps.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_surrounding_aps.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_surrounding_aps.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2050,7 +1480,6 @@ Returns the information related to wifi0, wifi1, and wifi2 interfaces available 
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import d360_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wireless_int_per_device import XiqWirelessIntPerDevice
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -2116,63 +1545,7 @@ str,  | str,  |  | must be one of ["AP_650", "AP_650X", "AP_4000", "AP_4000U", "
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wifi_interface_per_device.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wifi_interface_per_device.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wifi_interface_per_device.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wifi_interface_per_device.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wifi_interface_per_device.ApiResponseFor200) | OK
-
-#### get_wifi_interface_per_device.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_interface_per_device.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_interface_per_device.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_interface_per_device.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wifi_interface_per_device.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2208,7 +1581,6 @@ List a list of wireless interfaces metrics for Graphing API.
 import extremecloudiq
 from extremecloudiq.apis.tags import d360_api
 from extremecloudiq.model.xiq_rm_source_filter_type import XiqRmSourceFilterType
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wireless_interface_graph import XiqWirelessInterfaceGraph
 from extremecloudiq.model.xiq_rm_channel_filter_type import XiqRmChannelFilterType
 from pprint import pprint
@@ -2333,63 +1705,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wireless_interface_graph.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wireless_interface_graph.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wireless_interface_graph.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wireless_interface_graph.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wireless_interface_graph.ApiResponseFor200) | OK
-
-#### get_wireless_interface_graph.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_interface_graph.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_interface_graph.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_interface_graph.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wireless_interface_graph.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2430,7 +1746,6 @@ Returns the information related to wifi0, wifi1 and wifi2.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import d360_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wireless_interfaces_stats import XiqWirelessInterfacesStats
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -2538,63 +1853,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wireless_wifi.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wireless_wifi.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wireless_wifi.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wireless_wifi.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wireless_wifi.ApiResponseFor200) | OK
-
-#### get_wireless_wifi.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_wifi.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_wifi.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_wifi.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wireless_wifi.ApiResponseFor200
 Name | Type | Description  | Notes

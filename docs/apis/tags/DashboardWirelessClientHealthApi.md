@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost:8081*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**download_client_health_report**](#download_client_health_report) | **get** /dashboard/wireless/client-health/reports/{id} | Download the  report
 [**export_to_csv2**](#export_to_csv2) | **post** /dashboard/wireless/client-health/export | Export all Client Health Data to CSV
 [**get_client_association_issues**](#get_client_association_issues) | **post** /dashboard/wireless/client-health/issue/association | Association issue for wireless client
 [**get_client_auth_issues**](#get_client_auth_issues) | **post** /dashboard/wireless/client-health/issue/authentication | Authentication issue for wireless client
@@ -16,9 +17,113 @@ Method | HTTP request | Description
 [**get_client_ip_address_issues**](#get_client_ip_address_issues) | **post** /dashboard/wireless/client-health/issue/ipaddress | Ip Address issue for Wireless client
 [**get_client_roaming_issues**](#get_client_roaming_issues) | **post** /dashboard/wireless/client-health/issue/roaming | Roaming issue for wireless client
 
+# **download_client_health_report**
+<a id="download_client_health_report"></a>
+> [str] download_client_health_report(id)
+
+Download the  report
+
+Download report of Metrics
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import dashboard_wireless_client_health_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = dashboard_wireless_client_health_api.DashboardWirelessClientHealthApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': "id_example",
+    }
+    try:
+        # Download the  report
+        api_response = api_instance.download_client_health_report(
+            path_params=path_params,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DashboardWirelessClientHealthApi->download_client_health_report: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#download_client_health_report.ApiResponseFor200) | OK
+
+#### download_client_health_report.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
 # **export_to_csv2**
 <a id="export_to_csv2"></a>
-> [str] export_to_csv2(xiq_client_grid_filter)
+> XiqMetricReport export_to_csv2(xiq_client_grid_filter)
 
 Export all Client Health Data to CSV
 
@@ -32,8 +137,8 @@ import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wireless_client_health_api
 from extremecloudiq.model.xiq_client_connection_status import XiqClientConnectionStatus
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_client_health_sort_field import XiqClientHealthSortField
+from extremecloudiq.model.xiq_metric_report import XiqMetricReport
 from extremecloudiq.model.xiq_client_grid_filter import XiqClientGridFilter
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -121,6 +226,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'connectionStatus': XiqClientConnectionStatus("CONNECTED"),
         'sortField': XiqClientHealthSortField("OPERATING_SYSTEM"),
         'sortOrder': XiqSortOrder("ASC"),
+        'unassigned_devices': False,
     }
     body = XiqClientGridFilter(
         site_ids=[
@@ -207,6 +313,7 @@ keyword | KeywordSchema | | optional
 connectionStatus | ConnectionStatusSchema | | optional
 sortField | SortFieldSchema | | optional
 sortOrder | SortOrderSchema | | optional
+unassigned_devices | UnassignedDevicesSchema | | optional
 
 
 # KeywordSchema
@@ -234,68 +341,19 @@ Type | Description  | Notes
 [**XiqSortOrder**](../../models/XiqSortOrder.md) |  | 
 
 
+# UnassignedDevicesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#export_to_csv2.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#export_to_csv2.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#export_to_csv2.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#export_to_csv2.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#export_to_csv2.ApiResponseFor200) | OK
-
-#### export_to_csv2.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### export_to_csv2.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### export_to_csv2.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### export_to_csv2.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### export_to_csv2.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -305,16 +363,10 @@ body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqMetricReport**](../../models/XiqMetricReport.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  |  | 
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | str,  | str,  |  | 
 
 ### Authorization
 
@@ -336,7 +388,6 @@ Returns association issue list for wireless client based on the provided filters
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wireless_client_health_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_dashboard_filter import XiqDashboardFilter
 from extremecloudiq.model.xiq_issue_client_association import XiqIssueClientAssociation
 from pprint import pprint
@@ -383,6 +434,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'page': 1,
         'limit': 10,
         'macAddress': "macAddress_example",
+        'unassigned_devices': False,
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -427,6 +479,7 @@ Name | Type | Description  | Notes
 page | PageSchema | | optional
 limit | LimitSchema | | optional
 macAddress | MacAddressSchema | | optional
+unassigned_devices | UnassignedDevicesSchema | | optional
 
 
 # PageSchema
@@ -450,68 +503,19 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
+# UnassignedDevicesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_client_association_issues.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_client_association_issues.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_client_association_issues.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_client_association_issues.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_association_issues.ApiResponseFor200) | OK
-
-#### get_client_association_issues.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_association_issues.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_association_issues.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_association_issues.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_client_association_issues.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -552,7 +556,6 @@ Returns authentication issue list for wireless client based on the provided filt
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wireless_client_health_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_issue_client_auth import XiqIssueClientAuth
 from extremecloudiq.model.xiq_dashboard_filter import XiqDashboardFilter
 from pprint import pprint
@@ -597,6 +600,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # example passing only optional values
     query_params = {
         'macAddress': "macAddress_example",
+        'unassigned_devices': False,
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -639,6 +643,7 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 macAddress | MacAddressSchema | | optional
+unassigned_devices | UnassignedDevicesSchema | | optional
 
 
 # MacAddressSchema
@@ -648,68 +653,19 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
+# UnassignedDevicesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_client_auth_issues.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_client_auth_issues.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_client_auth_issues.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_client_auth_issues.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_auth_issues.ApiResponseFor200) | OK
-
-#### get_client_auth_issues.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_auth_issues.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_auth_issues.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_auth_issues.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_client_auth_issues.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -750,7 +706,6 @@ Returns the wireless clients with different frequency distribution based on the 
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wireless_client_health_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_client_health_frequency_distribution import XiqClientHealthFrequencyDistribution
 from extremecloudiq.model.xiq_dashboard_filter import XiqDashboardFilter
 from pprint import pprint
@@ -775,6 +730,8 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     api_instance = dashboard_wireless_client_health_api.DashboardWirelessClientHealthApi(api_client)
 
     # example passing only required values which don't have defaults set
+    query_params = {
+    }
     body = XiqDashboardFilter(
         site_ids=[
             1
@@ -783,6 +740,26 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     try:
         # Wireless clients count with frequency distribution
         api_response = api_instance.get_client_frequency_distribution(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DashboardWirelessClientHealthApi->get_client_frequency_distribution: %s\n" % e)
+
+    # example passing only optional values
+    query_params = {
+        'unassigned_devices': False,
+    }
+    body = XiqDashboardFilter(
+        site_ids=[
+            1
+        ],
+    )
+    try:
+        # Wireless clients count with frequency distribution
+        api_response = api_instance.get_client_frequency_distribution(
+            query_params=query_params,
             body=body,
         )
         pprint(api_response)
@@ -794,6 +771,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -808,68 +786,27 @@ Type | Description  | Notes
 [**XiqDashboardFilter**](../../models/XiqDashboardFilter.md) |  | 
 
 
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+unassigned_devices | UnassignedDevicesSchema | | optional
+
+
+# UnassignedDevicesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_client_frequency_distribution.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_client_frequency_distribution.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_client_frequency_distribution.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_client_frequency_distribution.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_frequency_distribution.ApiResponseFor200) | OK
-
-#### get_client_frequency_distribution.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_frequency_distribution.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_frequency_distribution.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_frequency_distribution.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_client_frequency_distribution.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -905,7 +842,6 @@ Returns the wireless clients with connectivity issues based on the provided filt
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wireless_client_health_api
 from extremecloudiq.model.xiq_client_health_connectivity_issues import XiqClientHealthConnectivityIssues
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_dashboard_filter import XiqDashboardFilter
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -929,6 +865,8 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     api_instance = dashboard_wireless_client_health_api.DashboardWirelessClientHealthApi(api_client)
 
     # example passing only required values which don't have defaults set
+    query_params = {
+    }
     body = XiqDashboardFilter(
         site_ids=[
             1
@@ -937,6 +875,26 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     try:
         # Wireless clients count with connectivity issues
         api_response = api_instance.get_client_health_connectivity_issues(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DashboardWirelessClientHealthApi->get_client_health_connectivity_issues: %s\n" % e)
+
+    # example passing only optional values
+    query_params = {
+        'unassigned_devices': False,
+    }
+    body = XiqDashboardFilter(
+        site_ids=[
+            1
+        ],
+    )
+    try:
+        # Wireless clients count with connectivity issues
+        api_response = api_instance.get_client_health_connectivity_issues(
+            query_params=query_params,
             body=body,
         )
         pprint(api_response)
@@ -948,6 +906,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -962,68 +921,27 @@ Type | Description  | Notes
 [**XiqDashboardFilter**](../../models/XiqDashboardFilter.md) |  | 
 
 
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+unassigned_devices | UnassignedDevicesSchema | | optional
+
+
+# UnassignedDevicesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_client_health_connectivity_issues.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_client_health_connectivity_issues.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_client_health_connectivity_issues.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_client_health_connectivity_issues.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_health_connectivity_issues.ApiResponseFor200) | OK
-
-#### get_client_health_connectivity_issues.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_health_connectivity_issues.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_health_connectivity_issues.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_health_connectivity_issues.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_client_health_connectivity_issues.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1060,7 +978,6 @@ import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wireless_client_health_api
 from extremecloudiq.model.xiq_client_connection_status import XiqClientConnectionStatus
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_client_health_sort_field import XiqClientHealthSortField
 from extremecloudiq.model.paged_xiq_client_health_grid_response import PagedXiqClientHealthGridResponse
 from extremecloudiq.model.xiq_client_grid_filter import XiqClientGridFilter
@@ -1152,6 +1069,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'connectionStatus': XiqClientConnectionStatus("CONNECTED"),
         'sortField': XiqClientHealthSortField("OPERATING_SYSTEM"),
         'sortOrder': XiqSortOrder("ASC"),
+        'unassigned_devices': False,
     }
     body = XiqClientGridFilter(
         site_ids=[
@@ -1240,6 +1158,7 @@ keyword | KeywordSchema | | optional
 connectionStatus | ConnectionStatusSchema | | optional
 sortField | SortFieldSchema | | optional
 sortOrder | SortOrderSchema | | optional
+unassigned_devices | UnassignedDevicesSchema | | optional
 
 
 # PageSchema
@@ -1281,68 +1200,19 @@ Type | Description  | Notes
 [**XiqSortOrder**](../../models/XiqSortOrder.md) |  | 
 
 
+# UnassignedDevicesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_client_health_grid.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_client_health_grid.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_client_health_grid.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_client_health_grid.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_health_grid.ApiResponseFor200) | OK
-
-#### get_client_health_grid.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_health_grid.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_health_grid.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_health_grid.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_client_health_grid.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1375,7 +1245,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wireless_client_health_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_dashboard_filter import XiqDashboardFilter
 from extremecloudiq.model.xiq_wireless_client_health_grid_filter_metadata import XiqWirelessClientHealthGridFilterMetadata
 from pprint import pprint
@@ -1400,6 +1269,8 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     api_instance = dashboard_wireless_client_health_api.DashboardWirelessClientHealthApi(api_client)
 
     # example passing only required values which don't have defaults set
+    query_params = {
+    }
     body = XiqDashboardFilter(
         site_ids=[
             1
@@ -1407,6 +1278,25 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     )
     try:
         api_response = api_instance.get_client_health_grid_filter_metadata(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DashboardWirelessClientHealthApi->get_client_health_grid_filter_metadata: %s\n" % e)
+
+    # example passing only optional values
+    query_params = {
+        'unassigned_devices': False,
+    }
+    body = XiqDashboardFilter(
+        site_ids=[
+            1
+        ],
+    )
+    try:
+        api_response = api_instance.get_client_health_grid_filter_metadata(
+            query_params=query_params,
             body=body,
         )
         pprint(api_response)
@@ -1418,6 +1308,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -1432,68 +1323,27 @@ Type | Description  | Notes
 [**XiqDashboardFilter**](../../models/XiqDashboardFilter.md) |  | 
 
 
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+unassigned_devices | UnassignedDevicesSchema | | optional
+
+
+# UnassignedDevicesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_client_health_grid_filter_metadata.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_client_health_grid_filter_metadata.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_client_health_grid_filter_metadata.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_client_health_grid_filter_metadata.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_health_grid_filter_metadata.ApiResponseFor200) | OK
-
-#### get_client_health_grid_filter_metadata.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_health_grid_filter_metadata.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_health_grid_filter_metadata.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_health_grid_filter_metadata.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_client_health_grid_filter_metadata.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1528,7 +1378,6 @@ Returns the wireless clients with roaming issues based on the provided filters. 
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wireless_client_health_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_client_health_roaming_issues import XiqClientHealthRoamingIssues
 from extremecloudiq.model.xiq_dashboard_filter import XiqDashboardFilter
 from pprint import pprint
@@ -1553,6 +1402,8 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     api_instance = dashboard_wireless_client_health_api.DashboardWirelessClientHealthApi(api_client)
 
     # example passing only required values which don't have defaults set
+    query_params = {
+    }
     body = XiqDashboardFilter(
         site_ids=[
             1
@@ -1561,6 +1412,26 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     try:
         # Wireless clients count with roaming issues
         api_response = api_instance.get_client_health_roaming_issues(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DashboardWirelessClientHealthApi->get_client_health_roaming_issues: %s\n" % e)
+
+    # example passing only optional values
+    query_params = {
+        'unassigned_devices': False,
+    }
+    body = XiqDashboardFilter(
+        site_ids=[
+            1
+        ],
+    )
+    try:
+        # Wireless clients count with roaming issues
+        api_response = api_instance.get_client_health_roaming_issues(
+            query_params=query_params,
             body=body,
         )
         pprint(api_response)
@@ -1572,6 +1443,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -1586,68 +1458,27 @@ Type | Description  | Notes
 [**XiqDashboardFilter**](../../models/XiqDashboardFilter.md) |  | 
 
 
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+unassigned_devices | UnassignedDevicesSchema | | optional
+
+
+# UnassignedDevicesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_client_health_roaming_issues.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_client_health_roaming_issues.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_client_health_roaming_issues.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_client_health_roaming_issues.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_health_roaming_issues.ApiResponseFor200) | OK
-
-#### get_client_health_roaming_issues.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_health_roaming_issues.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_health_roaming_issues.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_health_roaming_issues.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_client_health_roaming_issues.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1682,7 +1513,6 @@ Returns ip address issue for wireless client based on the provided filters. You 
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wireless_client_health_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_dashboard_filter import XiqDashboardFilter
 from extremecloudiq.model.xiq_issue_client_ip_address import XiqIssueClientIpAddress
 from pprint import pprint
@@ -1729,6 +1559,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'page': 1,
         'limit': 10,
         'macAddress': "macAddress_example",
+        'unassigned_devices': False,
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -1773,6 +1604,7 @@ Name | Type | Description  | Notes
 page | PageSchema | | optional
 limit | LimitSchema | | optional
 macAddress | MacAddressSchema | | optional
+unassigned_devices | UnassignedDevicesSchema | | optional
 
 
 # PageSchema
@@ -1796,68 +1628,19 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
+# UnassignedDevicesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_client_ip_address_issues.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_client_ip_address_issues.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_client_ip_address_issues.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_client_ip_address_issues.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_ip_address_issues.ApiResponseFor200) | OK
-
-#### get_client_ip_address_issues.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_ip_address_issues.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_ip_address_issues.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_ip_address_issues.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_client_ip_address_issues.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1898,7 +1681,6 @@ Returns roaming issue for wireless client based on the provided filters. You can
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wireless_client_health_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_dashboard_filter import XiqDashboardFilter
 from extremecloudiq.model.xiq_issue_client_roaming import XiqIssueClientRoaming
 from pprint import pprint
@@ -1945,6 +1727,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'page': 1,
         'limit': 10,
         'macAddress': "macAddress_example",
+        'unassigned_devices': False,
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -1989,6 +1772,7 @@ Name | Type | Description  | Notes
 page | PageSchema | | optional
 limit | LimitSchema | | optional
 macAddress | MacAddressSchema | | optional
+unassigned_devices | UnassignedDevicesSchema | | optional
 
 
 # PageSchema
@@ -2012,68 +1796,19 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
+# UnassignedDevicesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_client_roaming_issues.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_client_roaming_issues.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_client_roaming_issues.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_client_roaming_issues.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_roaming_issues.ApiResponseFor200) | OK
-
-#### get_client_roaming_issues.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_roaming_issues.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_roaming_issues.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_roaming_issues.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_client_roaming_issues.ApiResponseFor200
 Name | Type | Description  | Notes

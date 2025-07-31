@@ -27,7 +27,6 @@ Create a new VLAN profile.
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_basic_api
 from extremecloudiq.model.xiq_create_vlan_profile_request import XiqCreateVlanProfileRequest
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_vlan_profile import XiqVlanProfile
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -95,63 +94,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#create_vlan_profile.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#create_vlan_profile.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#create_vlan_profile.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#create_vlan_profile.ApiResponseFor500) | Internal Server Error
 201 | [ApiResponseFor201](#create_vlan_profile.ApiResponseFor201) | Created
-
-#### create_vlan_profile.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_vlan_profile.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_vlan_profile.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_vlan_profile.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### create_vlan_profile.ApiResponseFor201
 Name | Type | Description  | Notes
@@ -186,7 +129,6 @@ Delete a specific VLAN profile by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_basic_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -225,7 +167,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 path_params | RequestPathParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -249,63 +190,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_vlan_profile.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_vlan_profile.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_vlan_profile.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_vlan_profile.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_vlan_profile.ApiResponseFor200) | OK
-
-#### delete_vlan_profile.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_vlan_profile.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_vlan_profile.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_vlan_profile.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_vlan_profile.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -334,7 +219,6 @@ Delete VLAN profiles.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_basic_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_vlan_profile_filter import XiqVlanProfileFilter
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -399,7 +283,6 @@ Name | Type | Description  | Notes
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -432,63 +315,7 @@ bool,  | BoolClass,  |  | if omitted the server will use the default value of Fa
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_vlan_profiles.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_vlan_profiles.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_vlan_profiles.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_vlan_profiles.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_vlan_profiles.ApiResponseFor200) | OK
-
-#### delete_vlan_profiles.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_vlan_profiles.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_vlan_profiles.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_vlan_profiles.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_vlan_profiles.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -517,7 +344,6 @@ Get a specific VLAN profile by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_basic_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_vlan_profile import XiqVlanProfile
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -582,63 +408,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_vlan_profile.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_vlan_profile.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_vlan_profile.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_vlan_profile.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_vlan_profile.ApiResponseFor200) | OK
-
-#### get_vlan_profile.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_vlan_profile.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_vlan_profile.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_vlan_profile.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_vlan_profile.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -673,7 +443,6 @@ Get a page of VLAN profiles.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_basic_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_vlan_profile import PagedXiqVlanProfile
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -748,63 +517,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use t
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_vlan_profiles.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_vlan_profiles.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_vlan_profiles.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_vlan_profiles.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_vlan_profiles.ApiResponseFor200) | OK
-
-#### list_vlan_profiles.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_vlan_profiles.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_vlan_profiles.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_vlan_profiles.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_vlan_profiles.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -840,7 +553,6 @@ Update a specific VLAN profile.
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_basic_api
 from extremecloudiq.model.xiq_update_vlan_profile_request import XiqUpdateVlanProfileRequest
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_vlan_profile import XiqVlanProfile
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -927,63 +639,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_vlan_profile.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_vlan_profile.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_vlan_profile.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_vlan_profile.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_vlan_profile.ApiResponseFor200) | OK
-
-#### update_vlan_profile.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_vlan_profile.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_vlan_profile.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_vlan_profile.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_vlan_profile.ApiResponseFor200
 Name | Type | Description  | Notes

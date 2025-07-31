@@ -19,6 +19,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **client_transmission_power** | decimal.Decimal, int,  | decimal.Decimal,  | The client transmission power (in the range of 1-20 dBm) if it is enabled. | [optional] value must be a 32 bit integer
 **radio_mode** | [**XiqRadioMode**](XiqRadioMode.md) | [**XiqRadioMode**](XiqRadioMode.md) |  | [optional] 
 **enable_ofdma** | bool,  | BoolClass,  | Whether to enable Orthogonal Frequency Division Multiple Access (802.11ax) for multiple-user access by subdividing a channel. | [optional] 
+**afc_power_mode** | str,  | str,  | The AFC 6GHz power mode. -- \&quot;SP\&quot; (Standard Power), \&quot;LPI\&quot; (Low Power) | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

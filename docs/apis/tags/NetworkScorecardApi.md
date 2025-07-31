@@ -25,7 +25,6 @@ Get the clients health score over the period
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import network_scorecard_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.client_health import ClientHealth
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -71,6 +70,15 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     query_params = {
         'startTime': 1,
         'endTime': 1,
+        'vlans': [
+        1
+    ],
+        'userProfileNames': [
+        "userProfileNames_example"
+    ],
+        'ssids': [
+        "ssids_example"
+    ],
     }
     try:
         # Get the overall client health score
@@ -100,6 +108,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 startTime | StartTimeSchema | | optional
 endTime | EndTimeSchema | | optional
+vlans | VlansSchema | | optional
+userProfileNames | UserProfileNamesSchema | | optional
+ssids | SsidsSchema | | optional
 
 
 # StartTimeSchema
@@ -115,6 +126,42 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+# VlansSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
+
+# UserProfileNamesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
+
+# SsidsSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
 
 ### path_params
 #### RequestPathParams
@@ -135,63 +182,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_client_health.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_client_health.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_client_health.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_client_health.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_client_health.ApiResponseFor200) | OK
-
-#### get_client_health.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_health.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_health.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_client_health.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_client_health.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -226,7 +217,6 @@ Get the devices health score over the period
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import network_scorecard_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.device_health import DeviceHealth
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -336,63 +326,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_device_health.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_device_health.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_device_health.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_device_health.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device_health.ApiResponseFor200) | OK
-
-#### get_device_health.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_health.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_health.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device_health.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_device_health.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -427,7 +361,6 @@ Get the network health score over the period
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import network_scorecard_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.network_health import NetworkHealth
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -537,63 +470,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_network_health.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_network_health.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_network_health.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_network_health.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_network_health.ApiResponseFor200) | OK
-
-#### get_network_health.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_network_health.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_network_health.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_network_health.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_network_health.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -628,7 +505,6 @@ Get the  health score over the period
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import network_scorecard_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.services_health import ServicesHealth
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -738,63 +614,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_services_health.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_services_health.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_services_health.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_services_health.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_services_health.ApiResponseFor200) | OK
-
-#### get_services_health.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_services_health.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_services_health.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_services_health.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_services_health.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -829,7 +649,6 @@ Get the wifi health score over the period
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import network_scorecard_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.wifi_health import WifiHealth
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -939,63 +758,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wifi_health.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wifi_health.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wifi_health.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wifi_health.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wifi_health.ApiResponseFor200) | OK
-
-#### get_wifi_health.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_health.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_health.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wifi_health.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wifi_health.ApiResponseFor200
 Name | Type | Description  | Notes

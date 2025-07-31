@@ -32,9 +32,8 @@ class TestPcgsKeyBasedNetworkPolicyPolicyIdKeysGenerate(ApiTestMixin, unittest.T
     def tearDown(self):
         pass
 
-    response_status = 401
-
-
+    response_status = 202
+    response_body = ''
 
 
 if __name__ == '__main__':

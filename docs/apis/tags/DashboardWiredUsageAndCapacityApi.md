@@ -25,7 +25,6 @@ Returns the congestion for wired devices based on the provided filters. The resu
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_usage_and_capacity_api
 from extremecloudiq.model.xiq_wired_usage_capacity_throughput_request import XiqWiredUsageCapacityThroughputRequest
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_usage_capacity_congestion_response import XiqWiredUsageCapacityCongestionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -87,63 +86,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_usage_capacity_congestion.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_usage_capacity_congestion.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_usage_capacity_congestion.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_usage_capacity_congestion.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_usage_capacity_congestion.ApiResponseFor200) | OK
-
-#### get_wired_usage_capacity_congestion.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_usage_capacity_congestion.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_usage_capacity_congestion.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_usage_capacity_congestion.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_usage_capacity_congestion.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -179,7 +122,6 @@ Returns information related to usage and capacity for wired devices based on the
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_usage_and_capacity_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_wired_usage_capacity_grid_response import PagedXiqWiredUsageCapacityGridResponse
 from extremecloudiq.model.xiq_wired_usage_and_capacity_sort_field import XiqWiredUsageAndCapacitySortField
 from extremecloudiq.model.xiq_wired_usage_capacity_grid_request import XiqWiredUsageCapacityGridRequest
@@ -327,63 +269,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_usage_capacity_grid.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_usage_capacity_grid.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_usage_capacity_grid.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_usage_capacity_grid.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_usage_capacity_grid.ApiResponseFor200) | OK
-
-#### get_wired_usage_capacity_grid.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_usage_capacity_grid.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_usage_capacity_grid.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_usage_capacity_grid.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_usage_capacity_grid.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -419,7 +305,6 @@ Returns the throughput for wired devices based on the provided filters. The resu
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_usage_and_capacity_api
 from extremecloudiq.model.xiq_wired_usage_capacity_throughput_request import XiqWiredUsageCapacityThroughputRequest
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_usage_capacity_throughput_response import XiqWiredUsageCapacityThroughputResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -481,63 +366,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_usage_capacity_throughput.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_usage_capacity_throughput.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_usage_capacity_throughput.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_usage_capacity_throughput.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_usage_capacity_throughput.ApiResponseFor200) | OK
-
-#### get_wired_usage_capacity_throughput.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_usage_capacity_throughput.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_usage_capacity_throughput.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_usage_capacity_throughput.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_usage_capacity_throughput.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -573,7 +402,6 @@ Returns total bandwidth utilized by wired devices based on the provided filters.
 import extremecloudiq
 from extremecloudiq.apis.tags import dashboard_wired_usage_and_capacity_api
 from extremecloudiq.model.xiq_wired_usage_capacity_usage_utilization_response import XiqWiredUsageCapacityUsageUtilizationResponse
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_usage_capacity_usage_utilization_request import XiqWiredUsageCapacityUsageUtilizationRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -635,63 +463,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_usage_capacity_usage_utilization.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_usage_capacity_usage_utilization.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_usage_capacity_usage_utilization.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_usage_capacity_usage_utilization.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_usage_capacity_usage_utilization.ApiResponseFor200) | OK
-
-#### get_wired_usage_capacity_usage_utilization.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_usage_capacity_usage_utilization.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_usage_capacity_usage_utilization.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_usage_capacity_usage_utilization.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_usage_capacity_usage_utilization.ApiResponseFor200
 Name | Type | Description  | Notes

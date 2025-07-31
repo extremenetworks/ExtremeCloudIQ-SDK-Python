@@ -32,7 +32,7 @@ class TestHiqContext(ApiTestMixin, unittest.TestCase):
     def tearDown(self):
         pass
 
-    response_status = 401
+    response_status = 200
 
 
 

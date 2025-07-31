@@ -5,7 +5,10 @@ All URIs are relative to *http://localhost:8081*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_floor_afc_properties**](#add_floor_afc_properties) | **post** /floor/afc/details | AFC Related Floor and AP Height and Accuracy data
 [**create_site_afc_schedule**](#create_site_afc_schedule) | **post** /site/afc/schedule | 
+[**delete_floor_afc_details**](#delete_floor_afc_details) | **delete** /floor/afc/details/{id} | 
+[**get_afc_geolocaiton_floor_report**](#get_afc_geolocaiton_floor_report) | **get** /ap/afc/floorReport/{deviceId} | 
 [**get_afc_server**](#get_afc_server) | **get** /afcserver/{server_id} | Get Afc Server data
 [**get_afc_server_statistics**](#get_afc_server_statistics) | **get** /afcserver/statistics/{server_id} | Get AFC server Statistics
 [**get_afc_spectrum_per_ap**](#get_afc_spectrum_per_ap) | **post** /ap/spectrum/ | 
@@ -13,10 +16,114 @@ Method | HTTP request | Description
 [**get_aps_afc_diagnostics**](#get_aps_afc_diagnostics) | **get** /ap/afc/diagnostics/{id} | 
 [**get_aps_afc_info**](#get_aps_afc_info) | **get** /ap/afc/interface/details/{sn} | Get Afc Summary Data
 [**get_aps_afc_summary_info**](#get_aps_afc_summary_info) | **get** /aps/afc/query/ | 
+[**get_floor_afc_properties**](#get_floor_afc_properties) | **get** /floor/afc/details | AFC Related Floor Height and Accuracy data
+[**get_mobileapp_apcandidates**](#get_mobileapp_apcandidates) | **post** /afc/mobileapp/apcandidates | List of AP candidates that may be used as anchors
 [**get_site_afc_schedule**](#get_site_afc_schedule) | **get** /site/afc/schedule | 
 [**list_afc_servers**](#list_afc_servers) | **get** /afcserver | Get Afc Server list and their status
 [**post_aps_manual_afc_spectrum**](#post_aps_manual_afc_spectrum) | **post** /aps/afc/update | Manual Spectrum request for device(s)
+[**recalculate_site**](#recalculate_site) | **post** /afc/recalculateSite/{id} | 
+[**request_afc_ftm_data**](#request_afc_ftm_data) | **post** /afc/aps/reportFtm | 
+[**update_floor_afc_properties**](#update_floor_afc_properties) | **put** /floor/afc/details | AFC Related Floor and AP Height and Accuracy data
 [**update_site_afc_schedule**](#update_site_afc_schedule) | **put** /site/afc/schedule | 
+
+# **add_floor_afc_properties**
+<a id="add_floor_afc_properties"></a>
+> XiqAfcFloorDetails add_floor_afc_properties(xiq_afc_floor_details_create_request)
+
+AFC Related Floor and AP Height and Accuracy data
+
+AFC Related Floor and AP Height and Accuracy data
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import afc_endpoint_api
+from extremecloudiq.model.xiq_afc_floor_details_create_request import XiqAfcFloorDetailsCreateRequest
+from extremecloudiq.model.xiq_afc_floor_details import XiqAfcFloorDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = afc_endpoint_api.AfcEndpointApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = XiqAfcFloorDetailsCreateRequest(
+        floor_id=1,
+        floor_height=3.14,
+        floor_height_accuracy=1,
+        ap_height=3.14,
+        ap_height_accuracy=1,
+    )
+    try:
+        # AFC Related Floor and AP Height and Accuracy data
+        api_response = api_instance.add_floor_afc_properties(
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling AfcEndpointApi->add_floor_afc_properties: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqAfcFloorDetailsCreateRequest**](../../models/XiqAfcFloorDetailsCreateRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#add_floor_afc_properties.ApiResponseFor200) | OK
+
+#### add_floor_afc_properties.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqAfcFloorDetails**](../../models/XiqAfcFloorDetails.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **create_site_afc_schedule**
 <a id="create_site_afc_schedule"></a>
@@ -30,7 +137,6 @@ Method | HTTP request | Description
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import afc_endpoint_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_site_afc_schedule import XiqSiteAfcSchedule
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -73,7 +179,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -91,63 +196,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#create_site_afc_schedule.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#create_site_afc_schedule.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#create_site_afc_schedule.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#create_site_afc_schedule.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#create_site_afc_schedule.ApiResponseFor200) | OK
-
-#### create_site_afc_schedule.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_site_afc_schedule.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_site_afc_schedule.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_site_afc_schedule.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### create_site_afc_schedule.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -155,6 +204,209 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **delete_floor_afc_details**
+<a id="delete_floor_afc_details"></a>
+> delete_floor_afc_details(owner_idid)
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import afc_endpoint_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = afc_endpoint_api.AfcEndpointApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': 1,
+    }
+    query_params = {
+        'ownerId': 1,
+    }
+    try:
+        api_response = api_instance.delete_floor_afc_details(
+            path_params=path_params,
+            query_params=query_params,
+        )
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling AfcEndpointApi->delete_floor_afc_details: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+query_params | RequestQueryParams | |
+path_params | RequestPathParams | |
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ownerId | OwnerIdSchema | | 
+
+
+# OwnerIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#delete_floor_afc_details.ApiResponseFor200) | OK
+
+#### delete_floor_afc_details.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **get_afc_geolocaiton_floor_report**
+<a id="get_afc_geolocaiton_floor_report"></a>
+> XiqGetAfcGeolocationFloorReportResponse get_afc_geolocaiton_floor_report(device_id)
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import afc_endpoint_api
+from extremecloudiq.model.xiq_get_afc_geolocation_floor_report_response import XiqGetAfcGeolocationFloorReportResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = afc_endpoint_api.AfcEndpointApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'deviceId': 1,
+    }
+    try:
+        api_response = api_instance.get_afc_geolocaiton_floor_report(
+            path_params=path_params,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling AfcEndpointApi->get_afc_geolocaiton_floor_report: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+deviceId | DeviceIdSchema | | 
+
+# DeviceIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#get_afc_geolocaiton_floor_report.ApiResponseFor200) | OK
+
+#### get_afc_geolocaiton_floor_report.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqGetAfcGeolocationFloorReportResponse**](../../models/XiqGetAfcGeolocationFloorReportResponse.md) |  | 
+
 
 ### Authorization
 
@@ -176,7 +428,6 @@ Get Afc Server data
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import afc_endpoint_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_afc_server import XiqAfcServer
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -241,63 +492,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_afc_server.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_afc_server.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_afc_server.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_afc_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_afc_server.ApiResponseFor200) | OK
-
-#### get_afc_server.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_afc_server.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_afc_server.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_afc_server.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_afc_server.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -332,7 +527,6 @@ Get AFC server Statistics
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import afc_endpoint_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_afc_servers_statistics import XiqAfcServersStatistics
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -453,63 +647,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_afc_server_statistics.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_afc_server_statistics.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_afc_server_statistics.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_afc_server_statistics.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_afc_server_statistics.ApiResponseFor200) | OK
-
-#### get_afc_server_statistics.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_afc_server_statistics.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_afc_server_statistics.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_afc_server_statistics.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_afc_server_statistics.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -544,7 +682,6 @@ import extremecloudiq
 from extremecloudiq.apis.tags import afc_endpoint_api
 from extremecloudiq.model.xiq_afc_available_spectrum import XiqAfcAvailableSpectrum
 from extremecloudiq.model.xiq_get_afc_spectrum_for_ap_request import XiqGetAfcSpectrumForApRequest
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -645,63 +782,7 @@ bool,  | BoolClass,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_afc_spectrum_per_ap.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_afc_spectrum_per_ap.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_afc_spectrum_per_ap.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_afc_spectrum_per_ap.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_afc_spectrum_per_ap.ApiResponseFor200) | OK
-
-#### get_afc_spectrum_per_ap.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_afc_spectrum_per_ap.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_afc_spectrum_per_ap.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_afc_spectrum_per_ap.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_afc_spectrum_per_ap.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -741,7 +822,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 import extremecloudiq
 from extremecloudiq.apis.tags import afc_endpoint_api
 from extremecloudiq.model.xiq_afc_available_spectrum import XiqAfcAvailableSpectrum
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_get_afc_spectrum_for_site_aps_request import XiqGetAfcSpectrumForSiteApsRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -843,63 +923,7 @@ bool,  | BoolClass,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_afc_spectrum_per_site.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_afc_spectrum_per_site.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_afc_spectrum_per_site.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_afc_spectrum_per_site.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_afc_spectrum_per_site.ApiResponseFor200) | OK
-
-#### get_afc_spectrum_per_site.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_afc_spectrum_per_site.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_afc_spectrum_per_site.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_afc_spectrum_per_site.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_afc_spectrum_per_site.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -938,7 +962,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import afc_endpoint_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_afc_ap_diagnostics import XiqAfcApDiagnostics
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1022,63 +1045,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_aps_afc_diagnostics.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_aps_afc_diagnostics.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_aps_afc_diagnostics.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_aps_afc_diagnostics.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_aps_afc_diagnostics.ApiResponseFor200) | OK
-
-#### get_aps_afc_diagnostics.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_aps_afc_diagnostics.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_aps_afc_diagnostics.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_aps_afc_diagnostics.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_aps_afc_diagnostics.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1114,7 +1081,6 @@ Get Afc data per site
 import extremecloudiq
 from extremecloudiq.apis.tags import afc_endpoint_api
 from extremecloudiq.model.xiq_afc_ap_detail import XiqAfcApDetail
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -1178,63 +1144,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_aps_afc_info.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_aps_afc_info.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_aps_afc_info.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_aps_afc_info.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_aps_afc_info.ApiResponseFor200) | OK
-
-#### get_aps_afc_info.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_aps_afc_info.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_aps_afc_info.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_aps_afc_info.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_aps_afc_info.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1267,7 +1177,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import afc_endpoint_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_afc_aps_info_element import XiqAfcApsInfoElement
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1332,63 +1241,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_aps_afc_summary_info.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_aps_afc_summary_info.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_aps_afc_summary_info.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_aps_afc_summary_info.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_aps_afc_summary_info.ApiResponseFor200) | OK
-
-#### get_aps_afc_summary_info.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_aps_afc_summary_info.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_aps_afc_summary_info.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_aps_afc_summary_info.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_aps_afc_summary_info.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1409,6 +1262,213 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
+# **get_floor_afc_properties**
+<a id="get_floor_afc_properties"></a>
+> XiqAfcFloorDetails get_floor_afc_properties(owner_idfloor_id)
+
+AFC Related Floor Height and Accuracy data
+
+AFC Related Floor Height and Accuracy data
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import afc_endpoint_api
+from extremecloudiq.model.xiq_afc_floor_details import XiqAfcFloorDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = afc_endpoint_api.AfcEndpointApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    query_params = {
+        'ownerId': 1,
+        'floorId': 1234567890,
+    }
+    try:
+        # AFC Related Floor Height and Accuracy data
+        api_response = api_instance.get_floor_afc_properties(
+            query_params=query_params,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling AfcEndpointApi->get_floor_afc_properties: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+query_params | RequestQueryParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ownerId | OwnerIdSchema | | 
+floorId | FloorIdSchema | | 
+
+
+# OwnerIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+# FloorIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#get_floor_afc_properties.ApiResponseFor200) | OK
+
+#### get_floor_afc_properties.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqAfcFloorDetails**](../../models/XiqAfcFloorDetails.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **get_mobileapp_apcandidates**
+<a id="get_mobileapp_apcandidates"></a>
+> XiqMobileappAnchorCandidatesResponse get_mobileapp_apcandidates(xiq_afc_mobileapp_scan_info)
+
+List of AP candidates that may be used as anchors
+
+List of AP candidates that may be used as anchors
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import afc_endpoint_api
+from extremecloudiq.model.xiq_mobileapp_anchor_candidates_response import XiqMobileappAnchorCandidatesResponse
+from extremecloudiq.model.xiq_afc_mobileapp_scan_info import XiqAfcMobileappScanInfo
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = afc_endpoint_api.AfcEndpointApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = XiqAfcMobileappScanInfo(
+        owner_id=1,
+        bssid_list=[
+            "bssid_list_example"
+        ],
+    )
+    try:
+        # List of AP candidates that may be used as anchors
+        api_response = api_instance.get_mobileapp_apcandidates(
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling AfcEndpointApi->get_mobileapp_apcandidates: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqAfcMobileappScanInfo**](../../models/XiqAfcMobileappScanInfo.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#get_mobileapp_apcandidates.ApiResponseFor200) | OK
+
+#### get_mobileapp_apcandidates.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqMobileappAnchorCandidatesResponse**](../../models/XiqMobileappAnchorCandidatesResponse.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
 # **get_site_afc_schedule**
 <a id="get_site_afc_schedule"></a>
 > XiqSiteAfcSchedule get_site_afc_schedule(owner_idfolder_id)
@@ -1421,7 +1481,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import afc_endpoint_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_site_afc_schedule import XiqSiteAfcSchedule
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1495,63 +1554,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_site_afc_schedule.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_site_afc_schedule.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_site_afc_schedule.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_site_afc_schedule.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_site_afc_schedule.ApiResponseFor200) | OK
-
-#### get_site_afc_schedule.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_site_afc_schedule.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_site_afc_schedule.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_site_afc_schedule.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_site_afc_schedule.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1586,7 +1589,6 @@ Get all Afc Servers data
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import afc_endpoint_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_list_afc_servers import XiqListAfcServers
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1652,63 +1654,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_afc_servers.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_afc_servers.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_afc_servers.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_afc_servers.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_afc_servers.ApiResponseFor200) | OK
-
-#### list_afc_servers.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_afc_servers.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_afc_servers.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_afc_servers.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_afc_servers.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1744,7 +1690,6 @@ Manual Spectrum request for device(s).
 import extremecloudiq
 from extremecloudiq.apis.tags import afc_endpoint_api
 from extremecloudiq.model.xiq_afc_ap_manual_spectrum import XiqAfcApManualSpectrum
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -1786,7 +1731,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -1804,63 +1748,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#post_aps_manual_afc_spectrum.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#post_aps_manual_afc_spectrum.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#post_aps_manual_afc_spectrum.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#post_aps_manual_afc_spectrum.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#post_aps_manual_afc_spectrum.ApiResponseFor200) | OK
-
-#### post_aps_manual_afc_spectrum.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### post_aps_manual_afc_spectrum.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### post_aps_manual_afc_spectrum.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### post_aps_manual_afc_spectrum.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### post_aps_manual_afc_spectrum.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1868,6 +1756,278 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **recalculate_site**
+<a id="recalculate_site"></a>
+> recalculate_site(id)
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import afc_endpoint_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = afc_endpoint_api.AfcEndpointApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': 1234567890,
+    }
+    try:
+        api_response = api_instance.recalculate_site(
+            path_params=path_params,
+        )
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling AfcEndpointApi->recalculate_site: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#recalculate_site.ApiResponseFor200) | OK
+
+#### recalculate_site.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **request_afc_ftm_data**
+<a id="request_afc_ftm_data"></a>
+> request_afc_ftm_data(xiq_report_ftm_data_request)
+
+
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import afc_endpoint_api
+from extremecloudiq.model.xiq_report_ftm_data_request import XiqReportFtmDataRequest
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = afc_endpoint_api.AfcEndpointApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = XiqReportFtmDataRequest(
+        owner_id=1,
+        ids=[
+            1
+        ],
+    )
+    try:
+        api_response = api_instance.request_afc_ftm_data(
+            body=body,
+        )
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling AfcEndpointApi->request_afc_ftm_data: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqReportFtmDataRequest**](../../models/XiqReportFtmDataRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#request_afc_ftm_data.ApiResponseFor200) | OK
+
+#### request_afc_ftm_data.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **update_floor_afc_properties**
+<a id="update_floor_afc_properties"></a>
+> XiqAfcFloorDetails update_floor_afc_properties(xiq_afc_floor_details)
+
+AFC Related Floor and AP Height and Accuracy data
+
+AFC Related Floor and AP Height and Accuracy data
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import afc_endpoint_api
+from extremecloudiq.model.xiq_afc_floor_details import XiqAfcFloorDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = afc_endpoint_api.AfcEndpointApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = XiqAfcFloorDetails(
+        floor_id=1,
+        floor_height=3.14,
+        floor_height_accuracy=1,
+        ap_height=3.14,
+        ap_height_accuracy=1,
+        id=1,
+    )
+    try:
+        # AFC Related Floor and AP Height and Accuracy data
+        api_response = api_instance.update_floor_afc_properties(
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling AfcEndpointApi->update_floor_afc_properties: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqAfcFloorDetails**](../../models/XiqAfcFloorDetails.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#update_floor_afc_properties.ApiResponseFor200) | OK
+
+#### update_floor_afc_properties.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqAfcFloorDetails**](../../models/XiqAfcFloorDetails.md) |  | 
+
 
 ### Authorization
 
@@ -1887,7 +2047,6 @@ headers | Unset | headers were not defined |
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import afc_endpoint_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_site_afc_schedule import XiqSiteAfcSchedule
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1930,7 +2089,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -1948,63 +2106,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_site_afc_schedule.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_site_afc_schedule.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_site_afc_schedule.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_site_afc_schedule.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_site_afc_schedule.ApiResponseFor200) | OK
-
-#### update_site_afc_schedule.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_site_afc_schedule.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_site_afc_schedule.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_site_afc_schedule.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_site_afc_schedule.ApiResponseFor200
 Name | Type | Description  | Notes

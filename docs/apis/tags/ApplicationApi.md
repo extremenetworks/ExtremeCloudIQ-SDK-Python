@@ -23,7 +23,6 @@ List the TopN clients by usage for a specific application.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import application_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_application_top_clients_usage import XiqApplicationTopClientsUsage
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -126,63 +125,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_application_top_clients_usage.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_application_top_clients_usage.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_application_top_clients_usage.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_application_top_clients_usage.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_application_top_clients_usage.ApiResponseFor200) | OK
-
-#### list_application_top_clients_usage.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_application_top_clients_usage.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_application_top_clients_usage.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_application_top_clients_usage.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_application_top_clients_usage.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -225,7 +168,6 @@ import extremecloudiq
 from extremecloudiq.apis.tags import application_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
 from extremecloudiq.model.xiq_application_detection_type import XiqApplicationDetectionType
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_application_sort_field import XiqApplicationSortField
 from extremecloudiq.model.xiq_application_detection_protocol import XiqApplicationDetectionProtocol
 from extremecloudiq.model.paged_xiq_application import PagedXiqApplication
@@ -352,63 +294,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_applications.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_applications.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_applications.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_applications.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_applications.ApiResponseFor200) | OK
-
-#### list_applications.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_applications.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_applications.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_applications.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_applications.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -443,7 +329,6 @@ List the TopN applications by usage.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import application_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_top_applications_usage import XiqTopApplicationsUsage
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -537,63 +422,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 32 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_top_applications_usage.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_top_applications_usage.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_top_applications_usage.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_top_applications_usage.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_top_applications_usage.ApiResponseFor200) | OK
-
-#### list_top_applications_usage.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_top_applications_usage.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_top_applications_usage.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_top_applications_usage.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_top_applications_usage.ApiResponseFor200
 Name | Type | Description  | Notes

@@ -1,11 +1,11 @@
 # extremecloudiq.model.xiq_certificate.XiqCertificate
 
-The data in the current page
+The Certificate Bundle list of certificates.
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  | The data in the current page | 
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The Certificate Bundle list of certificates. | 
 
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes

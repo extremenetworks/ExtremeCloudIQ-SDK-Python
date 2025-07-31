@@ -22,7 +22,6 @@ Get device info for a specific device.
 import extremecloudiq
 from extremecloudiq.apis.tags import nos_api
 from extremecloudiq.model.xiq_get_device_info_by_nos import XiqGetDeviceInfoByNos
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_get_device_infoby_nos_request import XiqGetDeviceInfobyNosRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -105,63 +104,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_device.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_device.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_device.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_device.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_device.ApiResponseFor200) | OK
-
-#### get_device.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_device.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_device.ApiResponseFor200
 Name | Type | Description  | Notes

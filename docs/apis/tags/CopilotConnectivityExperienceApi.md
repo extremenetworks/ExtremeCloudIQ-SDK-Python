@@ -36,7 +36,6 @@ Method | HTTP request | Description
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_forensic_bucket import XiqForensicBucket
 from extremecloudiq.model.xiq_client_type import XiqClientType
 from extremecloudiq.model.xiq_connectivity_details_by_client_type_response import XiqConnectivityDetailsByClientTypeResponse
@@ -150,63 +149,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_connectivity_details_by_client_type.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_connectivity_details_by_client_type.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_connectivity_details_by_client_type.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_connectivity_details_by_client_type.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_connectivity_details_by_client_type.ApiResponseFor200) | OK
-
-#### get_connectivity_details_by_client_type.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_connectivity_details_by_client_type.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_connectivity_details_by_client_type.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_connectivity_details_by_client_type.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_connectivity_details_by_client_type.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -241,7 +184,6 @@ import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
 from extremecloudiq.model.xiq_sort_field import XiqSortField
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_quality_index import XiqQualityIndex
 from extremecloudiq.model.xiq_forensic_bucket import XiqForensicBucket
 from extremecloudiq.model.paged_xiq_connectivity_experience_data import PagedXiqConnectivityExperienceData
@@ -407,63 +349,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_connectivity_details_by_locations.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_connectivity_details_by_locations.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_connectivity_details_by_locations.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_connectivity_details_by_locations.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_connectivity_details_by_locations.ApiResponseFor200) | OK
-
-#### get_connectivity_details_by_locations.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_connectivity_details_by_locations.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_connectivity_details_by_locations.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_connectivity_details_by_locations.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_connectivity_details_by_locations.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -498,7 +384,6 @@ import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
 from extremecloudiq.model.xiq_sort_field import XiqSortField
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_connectivity_experience_data import PagedXiqConnectivityExperienceData
 from extremecloudiq.model.xiq_wired_view_type import XiqWiredViewType
 from pprint import pprint
@@ -629,63 +514,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_connectivity_experience.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_connectivity_experience.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_connectivity_experience.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_connectivity_experience.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_connectivity_experience.ApiResponseFor200) | OK
-
-#### get_wired_connectivity_experience.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_connectivity_experience.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_connectivity_experience.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_connectivity_experience.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_connectivity_experience.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -720,7 +549,6 @@ import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
 from extremecloudiq.model.xiq_copilot_wired_events_score_type import XiqCopilotWiredEventsScoreType
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_forensic_bucket import XiqForensicBucket
 from extremecloudiq.model.xiq_copilot_events_wired_sort_field import XiqCopilotEventsWiredSortField
 from extremecloudiq.model.paged_xiq_wired_event_entity import PagedXiqWiredEventEntity
@@ -916,63 +744,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_events.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_events.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_events.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_events.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_events.ApiResponseFor200) | OK
-
-#### get_wired_events.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_events.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_events.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_events.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_events.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1005,7 +777,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_forensic_bucket import XiqForensicBucket
 from extremecloudiq.model.xiq_wired_view_type import XiqWiredViewType
 from extremecloudiq.model.xiq_wired_hardware_response import XiqWiredHardwareResponse
@@ -1121,63 +892,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_hardware.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_hardware.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_hardware.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_hardware.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_hardware.ApiResponseFor200) | OK
-
-#### get_wired_hardware.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_hardware.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_hardware.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_hardware.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_hardware.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1211,7 +926,6 @@ Type | Description  | Notes
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
 from extremecloudiq.model.xiq_wired_hardware_by_location_response import XiqWiredHardwareByLocationResponse
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_forensic_bucket import XiqForensicBucket
 from extremecloudiq.model.xiq_wired_view_type import XiqWiredViewType
 from pprint import pprint
@@ -1325,63 +1039,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_hardware_by_location.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_hardware_by_location.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_hardware_by_location.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_hardware_by_location.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_hardware_by_location.ApiResponseFor200) | OK
-
-#### get_wired_hardware_by_location.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_hardware_by_location.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_hardware_by_location.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_hardware_by_location.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_hardware_by_location.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1414,7 +1072,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wired_quality_index_response import XiqWiredQualityIndexResponse
 from extremecloudiq.model.xiq_forensic_bucket import XiqForensicBucket
 from extremecloudiq.model.xiq_wired_view_type import XiqWiredViewType
@@ -1528,63 +1185,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wired_quality_index.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wired_quality_index.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wired_quality_index.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wired_quality_index.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wired_quality_index.ApiResponseFor200) | OK
-
-#### get_wired_quality_index.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_quality_index.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_quality_index.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wired_quality_index.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wired_quality_index.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1617,7 +1218,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wireless_apps_response import XiqWirelessAppsResponse
 from extremecloudiq.model.xiq_forensic_bucket import XiqForensicBucket
 from extremecloudiq.model.xiq_connectivity_experience_view_type import XiqConnectivityExperienceViewType
@@ -1750,63 +1350,7 @@ str,  | str,  |  | if omitted the server will use the default value of ""
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wireless_apps.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wireless_apps.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wireless_apps.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wireless_apps.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wireless_apps.ApiResponseFor200) | OK
-
-#### get_wireless_apps.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_apps.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_apps.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_apps.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wireless_apps.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1841,7 +1385,6 @@ import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
 from extremecloudiq.model.xiq_sort_field import XiqSortField
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_connectivity_experience_data import PagedXiqConnectivityExperienceData
 from extremecloudiq.model.xiq_connectivity_experience_view_type import XiqConnectivityExperienceViewType
 from pprint import pprint
@@ -1972,63 +1515,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wireless_connectivity_experience.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wireless_connectivity_experience.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wireless_connectivity_experience.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wireless_connectivity_experience.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wireless_connectivity_experience.ApiResponseFor200) | OK
-
-#### get_wireless_connectivity_experience.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_connectivity_experience.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_connectivity_experience.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_connectivity_experience.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wireless_connectivity_experience.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2064,7 +1551,6 @@ from extremecloudiq.apis.tags import copilot_connectivity_experience_api
 from extremecloudiq.model.xiq_copilot_events_wireless_sort_field import XiqCopilotEventsWirelessSortField
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
 from extremecloudiq.model.xiq_copilot_wireless_events_score_type import XiqCopilotWirelessEventsScoreType
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_forensic_bucket import XiqForensicBucket
 from extremecloudiq.model.xiq_connectivity_experience_view_type import XiqConnectivityExperienceViewType
 from extremecloudiq.model.paged_xiq_copilot_wireless_event import PagedXiqCopilotWirelessEvent
@@ -2258,63 +1744,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wireless_events.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wireless_events.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wireless_events.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wireless_events.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wireless_events.ApiResponseFor200) | OK
-
-#### get_wireless_events.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_events.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_events.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_events.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wireless_events.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2350,7 +1780,6 @@ from extremecloudiq.apis.tags import copilot_connectivity_experience_api
 from extremecloudiq.model.xiq_copilot_events_wireless_sort_field import XiqCopilotEventsWirelessSortField
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
 from extremecloudiq.model.xiq_copilot_wireless_events_score_type import XiqCopilotWirelessEventsScoreType
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_forensic_bucket import XiqForensicBucket
 from extremecloudiq.model.paged_xiq_copilot_wireless_event import PagedXiqCopilotWirelessEvent
 from pprint import pprint
@@ -2535,63 +1964,7 @@ str,  | str,  |  | if omitted the server will use the default value of ""
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wireless_events_by_location.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wireless_events_by_location.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wireless_events_by_location.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wireless_events_by_location.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wireless_events_by_location.ApiResponseFor200) | OK
-
-#### get_wireless_events_by_location.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_events_by_location.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_events_by_location.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_events_by_location.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wireless_events_by_location.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2624,7 +1997,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_forensic_bucket import XiqForensicBucket
 from extremecloudiq.model.xiq_connectivity_experience_view_type import XiqConnectivityExperienceViewType
 from extremecloudiq.model.xiq_wireless_connectivity_performance_response import XiqWirelessConnectivityPerformanceResponse
@@ -2757,63 +2129,7 @@ str,  | str,  |  | if omitted the server will use the default value of ""
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wireless_performance.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wireless_performance.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wireless_performance.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wireless_performance.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wireless_performance.ApiResponseFor200) | OK
-
-#### get_wireless_performance.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_performance.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_performance.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_performance.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wireless_performance.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2846,7 +2162,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_forensic_bucket import XiqForensicBucket
 from extremecloudiq.model.xiq_wireless_connectivity_performance_response import XiqWirelessConnectivityPerformanceResponse
 from pprint import pprint
@@ -2970,63 +2285,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wireless_performance_by_location.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wireless_performance_by_location.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wireless_performance_by_location.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wireless_performance_by_location.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wireless_performance_by_location.ApiResponseFor200) | OK
-
-#### get_wireless_performance_by_location.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_performance_by_location.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_performance_by_location.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_performance_by_location.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wireless_performance_by_location.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3059,7 +2318,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_forensic_bucket import XiqForensicBucket
 from extremecloudiq.model.xiq_connectivity_experience_view_type import XiqConnectivityExperienceViewType
 from extremecloudiq.model.xiq_wireless_quality_index_response import XiqWirelessQualityIndexResponse
@@ -3192,63 +2450,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wireless_quality_index.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wireless_quality_index.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wireless_quality_index.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wireless_quality_index.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wireless_quality_index.ApiResponseFor200) | OK
-
-#### get_wireless_quality_index.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_quality_index.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_quality_index.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_quality_index.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wireless_quality_index.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3281,7 +2483,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_forensic_bucket import XiqForensicBucket
 from extremecloudiq.model.xiq_wireless_quality_index_by_location_response import XiqWirelessQualityIndexByLocationResponse
 from pprint import pprint
@@ -3405,63 +2606,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wireless_quality_index_by_location.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wireless_quality_index_by_location.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wireless_quality_index_by_location.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wireless_quality_index_by_location.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wireless_quality_index_by_location.ApiResponseFor200) | OK
-
-#### get_wireless_quality_index_by_location.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_quality_index_by_location.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_quality_index_by_location.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_quality_index_by_location.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wireless_quality_index_by_location.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3494,7 +2639,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wireless_time_to_connect_response import XiqWirelessTimeToConnectResponse
 from extremecloudiq.model.xiq_forensic_bucket import XiqForensicBucket
 from extremecloudiq.model.xiq_connectivity_experience_view_type import XiqConnectivityExperienceViewType
@@ -3627,63 +2771,7 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wireless_time_to_connect.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wireless_time_to_connect.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wireless_time_to_connect.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wireless_time_to_connect.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wireless_time_to_connect.ApiResponseFor200) | OK
-
-#### get_wireless_time_to_connect.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_time_to_connect.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_time_to_connect.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_time_to_connect.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wireless_time_to_connect.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3716,7 +2804,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wireless_time_to_connect_response import XiqWirelessTimeToConnectResponse
 from extremecloudiq.model.xiq_forensic_bucket import XiqForensicBucket
 from pprint import pprint
@@ -3840,63 +2927,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wireless_time_to_connect_by_location.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wireless_time_to_connect_by_location.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wireless_time_to_connect_by_location.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wireless_time_to_connect_by_location.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wireless_time_to_connect_by_location.ApiResponseFor200) | OK
-
-#### get_wireless_time_to_connect_by_location.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_time_to_connect_by_location.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_time_to_connect_by_location.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_time_to_connect_by_location.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wireless_time_to_connect_by_location.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3929,7 +2960,6 @@ Type | Description  | Notes
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import copilot_connectivity_experience_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_wireless_views_type_response import XiqWirelessViewsTypeResponse
 from extremecloudiq.model.xiq_wireless_views_list_type import XiqWirelessViewsListType
 from pprint import pprint
@@ -3994,63 +3024,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_wireless_views.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_wireless_views.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_wireless_views.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_wireless_views.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_wireless_views.ApiResponseFor200) | OK
-
-#### get_wireless_views.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_views.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_views.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_wireless_views.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_wireless_views.ApiResponseFor200
 Name | Type | Description  | Notes

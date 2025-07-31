@@ -55,7 +55,6 @@ acknowledge the alerts by alert ids.
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
 from extremecloudiq.model.xiq_acknowledge_alerts_request import XiqAcknowledgeAlertsRequest
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert import XiqAlert
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -117,63 +116,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#acknowledge_alerts.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#acknowledge_alerts.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#acknowledge_alerts.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#acknowledge_alerts.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#acknowledge_alerts.ApiResponseFor200) | OK
-
-#### acknowledge_alerts.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### acknowledge_alerts.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### acknowledge_alerts.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### acknowledge_alerts.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### acknowledge_alerts.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -214,7 +157,6 @@ Count the number of alerts and events based on Severity, Category, and Alert Typ
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_group_count import XiqAlertGroupCount
 from extremecloudiq.model.xiq_alert_group_query import XiqAlertGroupQuery
 from pprint import pprint
@@ -344,63 +286,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#count_alerts_by_group.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#count_alerts_by_group.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#count_alerts_by_group.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#count_alerts_by_group.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#count_alerts_by_group.ApiResponseFor200) | OK
-
-#### count_alerts_by_group.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### count_alerts_by_group.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### count_alerts_by_group.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### count_alerts_by_group.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### count_alerts_by_group.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -442,7 +328,6 @@ Create alert email subscription.
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
 from extremecloudiq.model.xiq_alert_email_subscription import XiqAlertEmailSubscription
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_create_alert_email_subscription_request import XiqCreateAlertEmailSubscriptionRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -507,63 +392,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#create_alert_email_subscription.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#create_alert_email_subscription.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#create_alert_email_subscription.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#create_alert_email_subscription.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#create_alert_email_subscription.ApiResponseFor200) | OK
-
-#### create_alert_email_subscription.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_alert_email_subscription.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_alert_email_subscription.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_alert_email_subscription.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### create_alert_email_subscription.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -598,7 +427,6 @@ Create a new site-based alert policy. The global policy for each account is crea
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_policy import XiqAlertPolicy
 from extremecloudiq.model.xiq_alert_policy_filter import XiqAlertPolicyFilter
 from pprint import pprint
@@ -662,63 +490,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#create_alert_policy.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#create_alert_policy.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#create_alert_policy.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#create_alert_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#create_alert_policy.ApiResponseFor200) | OK
-
-#### create_alert_policy.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_alert_policy.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_alert_policy.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_alert_policy.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### create_alert_policy.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -755,7 +527,6 @@ import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
 from extremecloudiq.model.xiq_alert_sort_field import XiqAlertSortField
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_report import XiqAlertReport
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -953,63 +724,7 @@ bool,  | BoolClass,  |  | if omitted the server will use the default value of Fa
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#create_alert_report.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#create_alert_report.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#create_alert_report.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#create_alert_report.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#create_alert_report.ApiResponseFor200) | OK
-
-#### create_alert_report.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_alert_report.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_alert_report.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_alert_report.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### create_alert_report.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1044,7 +759,6 @@ Create alert webhook subscription.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_webhook_subscription import XiqAlertWebhookSubscription
 from extremecloudiq.model.xiq_create_alert_webhook_subscription_request import XiqCreateAlertWebhookSubscriptionRequest
 from pprint import pprint
@@ -1111,63 +825,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#create_alert_webhook_subscription.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#create_alert_webhook_subscription.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#create_alert_webhook_subscription.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#create_alert_webhook_subscription.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#create_alert_webhook_subscription.ApiResponseFor200) | OK
-
-#### create_alert_webhook_subscription.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_alert_webhook_subscription.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_alert_webhook_subscription.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_alert_webhook_subscription.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### create_alert_webhook_subscription.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1202,7 +860,6 @@ Create ServiceNow subscription.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_service_now_subscription import XiqAlertServiceNowSubscription
 from extremecloudiq.model.xiq_create_alert_service_now_subscription_request import XiqCreateAlertServiceNowSubscriptionRequest
 from pprint import pprint
@@ -1268,63 +925,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#create_service_now_subscription.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#create_service_now_subscription.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#create_service_now_subscription.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#create_service_now_subscription.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#create_service_now_subscription.ApiResponseFor200) | OK
-
-#### create_service_now_subscription.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_service_now_subscription.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_service_now_subscription.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_service_now_subscription.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### create_service_now_subscription.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1359,7 +960,6 @@ Delete an exist alert email subscription.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -1398,7 +998,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 path_params | RequestPathParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -1422,63 +1021,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_alert_email_subscription.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_alert_email_subscription.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_alert_email_subscription.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_alert_email_subscription.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_alert_email_subscription.ApiResponseFor200) | OK
-
-#### delete_alert_email_subscription.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_alert_email_subscription.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_alert_email_subscription.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_alert_email_subscription.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_alert_email_subscription.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1507,7 +1050,6 @@ Modify a site-based alert policy's details, including the policy name and sites.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -1546,7 +1088,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 path_params | RequestPathParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -1570,63 +1111,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_alert_policy.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_alert_policy.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_alert_policy.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_alert_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_alert_policy.ApiResponseFor200) | OK
-
-#### delete_alert_policy.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_alert_policy.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_alert_policy.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_alert_policy.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_alert_policy.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1655,7 +1140,6 @@ Delete an exist alert webhook subscription.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -1694,7 +1178,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 path_params | RequestPathParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -1718,63 +1201,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_alert_webhook_subscription.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_alert_webhook_subscription.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_alert_webhook_subscription.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_alert_webhook_subscription.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_alert_webhook_subscription.ApiResponseFor200) | OK
-
-#### delete_alert_webhook_subscription.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_alert_webhook_subscription.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_alert_webhook_subscription.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_alert_webhook_subscription.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_alert_webhook_subscription.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1803,7 +1230,6 @@ Delete alert email subscription in bulk.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_delete_bulk_alert_subscription_email_response import XiqDeleteBulkAlertSubscriptionEmailResponse
 from extremecloudiq.model.xiq_delete_bulk_alert_subscription_request import XiqDeleteBulkAlertSubscriptionRequest
 from pprint import pprint
@@ -1904,63 +1330,7 @@ bool,  | BoolClass,  |  | if omitted the server will use the default value of Fa
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_bulk_alert_subscription_email.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_bulk_alert_subscription_email.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_bulk_alert_subscription_email.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_bulk_alert_subscription_email.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_bulk_alert_subscription_email.ApiResponseFor200) | OK
-
-#### delete_bulk_alert_subscription_email.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_bulk_alert_subscription_email.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_bulk_alert_subscription_email.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_bulk_alert_subscription_email.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_bulk_alert_subscription_email.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1995,7 +1365,6 @@ Delete alert ServiceNow subscription by a list of provided IDs.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_delete_bulk_alert_subscription_request import XiqDeleteBulkAlertSubscriptionRequest
 from extremecloudiq.model.xiq_delete_bulk_alert_subscription_service_now_response import XiqDeleteBulkAlertSubscriptionServiceNowResponse
 from pprint import pprint
@@ -2078,63 +1447,7 @@ bool,  | BoolClass,  |  | if omitted the server will use the default value of Fa
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_bulk_alert_subscription_service_now.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_bulk_alert_subscription_service_now.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_bulk_alert_subscription_service_now.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_bulk_alert_subscription_service_now.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_bulk_alert_subscription_service_now.ApiResponseFor200) | OK
-
-#### delete_bulk_alert_subscription_service_now.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_bulk_alert_subscription_service_now.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_bulk_alert_subscription_service_now.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_bulk_alert_subscription_service_now.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_bulk_alert_subscription_service_now.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2169,7 +1482,6 @@ Delete alert webhook subscription in bulk.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_delete_bulk_alert_subscription_webhook_response import XiqDeleteBulkAlertSubscriptionWebhookResponse
 from extremecloudiq.model.xiq_delete_bulk_alert_subscription_request import XiqDeleteBulkAlertSubscriptionRequest
 from pprint import pprint
@@ -2270,63 +1582,7 @@ bool,  | BoolClass,  |  | if omitted the server will use the default value of Fa
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_bulk_alert_subscription_webhook.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_bulk_alert_subscription_webhook.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_bulk_alert_subscription_webhook.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_bulk_alert_subscription_webhook.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_bulk_alert_subscription_webhook.ApiResponseFor200) | OK
-
-#### delete_bulk_alert_subscription_webhook.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_bulk_alert_subscription_webhook.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_bulk_alert_subscription_webhook.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_bulk_alert_subscription_webhook.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_bulk_alert_subscription_webhook.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2361,7 +1617,6 @@ Set the status of a rule to disabled. Users can obtain a rule ID by calling #_ge
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_rule import XiqAlertRule
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -2435,63 +1690,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#disable_alert_rule.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#disable_alert_rule.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#disable_alert_rule.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#disable_alert_rule.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#disable_alert_rule.ApiResponseFor200) | OK
-
-#### disable_alert_rule.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### disable_alert_rule.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### disable_alert_rule.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### disable_alert_rule.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### disable_alert_rule.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2526,7 +1725,6 @@ Download report of alerts.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -2590,63 +1788,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#download_alert_report.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#download_alert_report.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#download_alert_report.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#download_alert_report.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#download_alert_report.ApiResponseFor200) | OK
-
-#### download_alert_report.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### download_alert_report.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### download_alert_report.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### download_alert_report.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### download_alert_report.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2687,7 +1829,6 @@ Set the status of a rule to enabled. Users can obtain a rule ID by calling #_get
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_rule import XiqAlertRule
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -2761,63 +1902,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#enable_alert_rule.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#enable_alert_rule.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#enable_alert_rule.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#enable_alert_rule.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#enable_alert_rule.ApiResponseFor200) | OK
-
-#### enable_alert_rule.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### enable_alert_rule.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### enable_alert_rule.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### enable_alert_rule.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### enable_alert_rule.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2853,7 +1938,6 @@ Get an exist alert email subscription.
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
 from extremecloudiq.model.xiq_alert_email_subscription import XiqAlertEmailSubscription
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -2917,63 +2001,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_alert_email_subscription.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_alert_email_subscription.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_alert_email_subscription.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_alert_email_subscription.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_alert_email_subscription.ApiResponseFor200) | OK
-
-#### get_alert_email_subscription.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_alert_email_subscription.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_alert_email_subscription.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_alert_email_subscription.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_alert_email_subscription.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3008,7 +2036,6 @@ Get the details related to a specific alert policy, given the policy's identifie
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_policy import XiqAlertPolicy
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3073,63 +2100,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_alert_policy.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_alert_policy.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_alert_policy.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_alert_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_alert_policy.ApiResponseFor200) | OK
-
-#### get_alert_policy.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_alert_policy.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_alert_policy.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_alert_policy.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_alert_policy.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3164,7 +2135,6 @@ Get the full details of an alert rule's state. Users can obtain a rule ID by cal
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_rule import XiqAlertRule
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3238,63 +2208,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_alert_rule.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_alert_rule.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_alert_rule.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_alert_rule.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_alert_rule.ApiResponseFor200) | OK
-
-#### get_alert_rule.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_alert_rule.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_alert_rule.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_alert_rule.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_alert_rule.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3329,7 +2243,6 @@ Get an exist alert webhook subscription.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_webhook_subscription import XiqAlertWebhookSubscription
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3394,63 +2307,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_alert_webhook_subscription.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_alert_webhook_subscription.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_alert_webhook_subscription.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_alert_webhook_subscription.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_alert_webhook_subscription.ApiResponseFor200) | OK
-
-#### get_alert_webhook_subscription.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_alert_webhook_subscription.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_alert_webhook_subscription.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_alert_webhook_subscription.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_alert_webhook_subscription.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3485,7 +2342,6 @@ Get ServiceNow subscription info for a specific ServiceNow account.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_service_now_subscription import XiqAlertServiceNowSubscription
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3550,63 +2406,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_service_now_subscription.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_service_now_subscription.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_service_now_subscription.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_service_now_subscription.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_service_now_subscription.ApiResponseFor200) | OK
-
-#### get_service_now_subscription.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_service_now_subscription.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_service_now_subscription.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_service_now_subscription.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_service_now_subscription.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3642,7 +2442,6 @@ List all alert email subscriptions.
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
 from extremecloudiq.model.xiq_alert_email_subscription import XiqAlertEmailSubscription
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -3680,63 +2479,7 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_alert_email_subscriptions.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_alert_email_subscriptions.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_alert_email_subscriptions.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_alert_email_subscriptions.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_alert_email_subscriptions.ApiResponseFor200) | OK
-
-#### list_alert_email_subscriptions.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_alert_email_subscriptions.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_alert_email_subscriptions.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_alert_email_subscriptions.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_alert_email_subscriptions.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3777,7 +2520,6 @@ Get a list of all alert policies belonging to the current user and an overview  
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_list_alert_policies import XiqListAlertPolicies
 from extremecloudiq.model.xiq_alert_policy_type import XiqAlertPolicyType
 from pprint import pprint
@@ -3852,63 +2594,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_alert_policies.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_alert_policies.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_alert_policies.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_alert_policies.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_alert_policies.ApiResponseFor200) | OK
-
-#### list_alert_policies.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_alert_policies.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_alert_policies.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_alert_policies.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_alert_policies.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3943,7 +2629,6 @@ List all alert webhook subscriptions.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_webhook_subscription import XiqAlertWebhookSubscription
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3982,63 +2667,7 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_alert_webhook_subscriptions.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_alert_webhook_subscriptions.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_alert_webhook_subscriptions.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_alert_webhook_subscriptions.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_alert_webhook_subscriptions.ApiResponseFor200) | OK
-
-#### list_alert_webhook_subscriptions.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_alert_webhook_subscriptions.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_alert_webhook_subscriptions.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_alert_webhook_subscriptions.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_alert_webhook_subscriptions.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4081,7 +2710,6 @@ import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
 from extremecloudiq.model.xiq_alert_sort_field import XiqAlertSortField
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_alert import PagedXiqAlert
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -4297,63 +2925,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_alerts.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_alerts.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_alerts.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_alerts.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_alerts.ApiResponseFor200) | OK
-
-#### list_alerts.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_alerts.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_alerts.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_alerts.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_alerts.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4388,7 +2960,6 @@ List all sites belonging to the current owner. If the site has been configured a
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_site import XiqAlertSite
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -4427,63 +2998,7 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_available_sites.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_available_sites.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_available_sites.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_available_sites.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_available_sites.ApiResponseFor200) | OK
-
-#### list_available_sites.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_available_sites.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_available_sites.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_available_sites.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_available_sites.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4524,7 +3039,6 @@ List all ServiceNow subscriptions.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_service_now_subscription import XiqAlertServiceNowSubscription
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -4563,63 +3077,7 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_service_now_subscriptions.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_service_now_subscriptions.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_service_now_subscriptions.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_service_now_subscriptions.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_service_now_subscriptions.ApiResponseFor200) | OK
-
-#### list_service_now_subscriptions.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_service_now_subscriptions.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_service_now_subscriptions.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_service_now_subscriptions.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_service_now_subscriptions.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4660,7 +3118,6 @@ Partial or full update ServiceNow subscription.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_service_now_subscription import XiqAlertServiceNowSubscription
 from extremecloudiq.model.xiq_patch_alert_service_now_subscription_request import XiqPatchAlertServiceNowSubscriptionRequest
 from pprint import pprint
@@ -4758,63 +3215,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#patch_service_now_subscription.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#patch_service_now_subscription.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#patch_service_now_subscription.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#patch_service_now_subscription.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#patch_service_now_subscription.ApiResponseFor200) | OK
-
-#### patch_service_now_subscription.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### patch_service_now_subscription.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### patch_service_now_subscription.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### patch_service_now_subscription.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### patch_service_now_subscription.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4850,7 +3251,6 @@ Update alert email subscription.
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
 from extremecloudiq.model.xiq_alert_email_subscription import XiqAlertEmailSubscription
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_update_alert_email_subscription_request import XiqUpdateAlertEmailSubscriptionRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -4934,63 +3334,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_alert_email_subscription.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_alert_email_subscription.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_alert_email_subscription.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_alert_email_subscription.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_alert_email_subscription.ApiResponseFor200) | OK
-
-#### update_alert_email_subscription.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_alert_email_subscription.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_alert_email_subscription.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_alert_email_subscription.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_alert_email_subscription.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -5025,7 +3369,6 @@ Delete an alert policy. All the associated alert rules will be deleted as well. 
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_policy import XiqAlertPolicy
 from extremecloudiq.model.xiq_alert_policy_filter import XiqAlertPolicyFilter
 from pprint import pprint
@@ -5108,63 +3451,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_alert_policy.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_alert_policy.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_alert_policy.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_alert_policy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_alert_policy.ApiResponseFor200) | OK
-
-#### update_alert_policy.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_alert_policy.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_alert_policy.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_alert_policy.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_alert_policy.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -5199,7 +3486,6 @@ Update the state of an alert rule. Users can obtain a rule ID by calling #_get_a
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_rule import XiqAlertRule
 from extremecloudiq.model.xiq_update_alert_rule_request import XiqUpdateAlertRuleRequest
 from pprint import pprint
@@ -5295,63 +3581,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_alert_rule.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_alert_rule.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_alert_rule.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_alert_rule.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_alert_rule.ApiResponseFor200) | OK
-
-#### update_alert_rule.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_alert_rule.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_alert_rule.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_alert_rule.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_alert_rule.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -5386,7 +3616,6 @@ Update alert webhook subscription.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_webhook_subscription import XiqAlertWebhookSubscription
 from extremecloudiq.model.xiq_update_alert_webhook_subscription_request import XiqUpdateAlertWebhookSubscriptionRequest
 from pprint import pprint
@@ -5472,63 +3701,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_alert_webhook_subscription.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_alert_webhook_subscription.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_alert_webhook_subscription.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_alert_webhook_subscription.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_alert_webhook_subscription.ApiResponseFor200) | OK
-
-#### update_alert_webhook_subscription.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_alert_webhook_subscription.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_alert_webhook_subscription.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_alert_webhook_subscription.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_alert_webhook_subscription.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -5563,7 +3736,6 @@ Update ServiceNow subscription.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_alert_service_now_subscription import XiqAlertServiceNowSubscription
 from extremecloudiq.model.xiq_update_alert_service_now_subscription_request import XiqUpdateAlertServiceNowSubscriptionRequest
 from pprint import pprint
@@ -5661,63 +3833,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_service_now_subscription.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_service_now_subscription.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_service_now_subscription.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_service_now_subscription.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_service_now_subscription.ApiResponseFor200) | OK
-
-#### update_service_now_subscription.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_service_now_subscription.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_service_now_subscription.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_service_now_subscription.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_service_now_subscription.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -5752,7 +3868,6 @@ Send a request to verify an email
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import alert_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -5791,7 +3906,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 path_params | RequestPathParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -5815,63 +3929,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#verify_subscription_email.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#verify_subscription_email.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#verify_subscription_email.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#verify_subscription_email.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#verify_subscription_email.ApiResponseFor200) | OK
-
-#### verify_subscription_email.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### verify_subscription_email.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### verify_subscription_email.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### verify_subscription_email.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### verify_subscription_email.ApiResponseFor200
 Name | Type | Description  | Notes

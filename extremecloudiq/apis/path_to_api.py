@@ -15,6 +15,7 @@ from extremecloudiq.apis.paths.ssids_id_mode_open import SsidsIdModeOpen
 from extremecloudiq.apis.paths.ssids_id_mode_dot1x import SsidsIdModeDot1x
 from extremecloudiq.apis.paths.ssids_advanced_settings_id import SsidsAdvancedSettingsId
 from extremecloudiq.apis.paths.site_afc_schedule import SiteAfcSchedule
+from extremecloudiq.apis.paths.radsec_proxies_id import RadsecProxiesId
 from extremecloudiq.apis.paths.radius_servers_internal_id import RadiusServersInternalId
 from extremecloudiq.apis.paths.radius_servers_external_id import RadiusServersExternalId
 from extremecloudiq.apis.paths.radius_proxies_id import RadiusProxiesId
@@ -45,10 +46,12 @@ from extremecloudiq.apis.paths.hotspot_profiles_id import HotspotProfilesId
 from extremecloudiq.apis.paths.hiq_context import HiqContext
 from extremecloudiq.apis.paths.hiq_context_reading import HiqContextReading
 from extremecloudiq.apis.paths.hiq_context_creating import HiqContextCreating
+from extremecloudiq.apis.paths.floor_afc_details import FloorAfcDetails
 from extremecloudiq.apis.paths.endusers_id import EndusersId
 from extremecloudiq.apis.paths.devices_id_visible import DevicesIdVisible
 from extremecloudiq.apis.paths.devices_id_radio_operating_mode import DevicesIdRadioOperatingMode
 from extremecloudiq.apis.paths.devices_id_network_policy import DevicesIdNetworkPolicy
+from extremecloudiq.apis.paths.devices_id_mobileapp_gps import DevicesIdMobileappGps
 from extremecloudiq.apis.paths.devices_id_location import DevicesIdLocation
 from extremecloudiq.apis.paths.devices_id_hostname import DevicesIdHostname
 from extremecloudiq.apis.paths.devices_id_ftm_settings import DevicesIdFtmSettings
@@ -65,6 +68,7 @@ from extremecloudiq.apis.paths.copilot_anomalies_devices_feedback import Copilot
 from extremecloudiq.apis.paths.clients_alias import ClientsAlias
 from extremecloudiq.apis.paths.client_monitor_profiles_id import ClientMonitorProfilesId
 from extremecloudiq.apis.paths.classification_rules_id import ClassificationRulesId
+from extremecloudiq.apis.paths.certificate_bundles_id import CertificateBundlesId
 from extremecloudiq.apis.paths.ccgs_id import CcgsId
 from extremecloudiq.apis.paths.alert_subscriptions_webhooks_id import AlertSubscriptionsWebhooksId
 from extremecloudiq.apis.paths.alert_subscriptions_servicenow_id import AlertSubscriptionsServicenowId
@@ -85,6 +89,7 @@ from extremecloudiq.apis.paths.user_profiles_id_ip_firewall_policies_detach impo
 from extremecloudiq.apis.paths.user_profiles_id_ip_firewall_policies_attach import UserProfilesIdIpFirewallPoliciesAttach
 from extremecloudiq.apis.paths.user_profile_assignments import UserProfileAssignments
 from extremecloudiq.apis.paths.tunnel_concentrators import TunnelConcentrators
+from extremecloudiq.apis.paths.switch_inspector_diagnostics import SwitchInspectorDiagnostics
 from extremecloudiq.apis.paths.subscriptions_webhook import SubscriptionsWebhook
 from extremecloudiq.apis.paths.ssids_id_user_profile_attach import SsidsIdUserProfileAttach
 from extremecloudiq.apis.paths.ssids_id_user_profile_assignment_attach import SsidsIdUserProfileAssignmentAttach
@@ -97,6 +102,7 @@ from extremecloudiq.apis.paths.ssids_id_client_monitor_profile_attach import Ssi
 from extremecloudiq.apis.paths.ssids_id_rename import SsidsIdRename
 from extremecloudiq.apis.paths.site_spectrum_ import SiteSpectrum
 from extremecloudiq.apis.paths.rtts import Rtts
+from extremecloudiq.apis.paths.radsec_proxies import RadsecProxies
 from extremecloudiq.apis.paths.radius_servers_internal import RadiusServersInternal
 from extremecloudiq.apis.paths.radius_servers_external import RadiusServersExternal
 from extremecloudiq.apis.paths.radius_proxies import RadiusProxies
@@ -172,7 +178,11 @@ from extremecloudiq.apis.paths.devices_country_code_assign import DevicesCountry
 from extremecloudiq.apis.paths.devices_client_monitor_revoke import DevicesClientMonitorRevoke
 from extremecloudiq.apis.paths.devices_client_monitor_query import DevicesClientMonitorQuery
 from extremecloudiq.apis.paths.devices_client_monitor_assign import DevicesClientMonitorAssign
+from extremecloudiq.apis.paths.devices_anchor_revoke import DevicesAnchorRevoke
+from extremecloudiq.apis.paths.devices_anchor_assign import DevicesAnchorAssign
+from extremecloudiq.apis.paths.devices_actions_support_metadata import DevicesActionsSupportMetadata
 from extremecloudiq.apis.paths.devices_unmanage import DevicesUnmanage
+from extremecloudiq.apis.paths.devices_reset import DevicesReset
 from extremecloudiq.apis.paths.devices_reboot import DevicesReboot
 from extremecloudiq.apis.paths.devices_onboard import DevicesOnboard
 from extremecloudiq.apis.paths.devices_manage import DevicesManage
@@ -240,6 +250,8 @@ from extremecloudiq.apis.paths.copilot_anomalies_exclude_vlans import CopilotAno
 from extremecloudiq.apis.paths.copilot_anomalies_exclude_vlans_csv import CopilotAnomaliesExcludeVlansCsv
 from extremecloudiq.apis.paths.client_monitor_profiles import ClientMonitorProfiles
 from extremecloudiq.apis.paths.classification_rules import ClassificationRules
+from extremecloudiq.apis.paths.certificates_import import CertificatesImport
+from extremecloudiq.apis.paths.certificate_bundles import CertificateBundles
 from extremecloudiq.apis.paths.ccgs import Ccgs
 from extremecloudiq.apis.paths.backup_history_restore import BackupHistoryRestore
 from extremecloudiq.apis.paths.auth_permissions_check import AuthPermissionsCheck
@@ -259,6 +271,9 @@ from extremecloudiq.apis.paths.alert_subscriptions_emails_delete import AlertSub
 from extremecloudiq.apis.paths.alert_policies import AlertPolicies
 from extremecloudiq.apis.paths.alert_policies_policy_id_rules_rule_id_enable import AlertPoliciesPolicyIdRulesRuleIdEnable
 from extremecloudiq.apis.paths.alert_policies_policy_id_rules_rule_id_disable import AlertPoliciesPolicyIdRulesRuleIdDisable
+from extremecloudiq.apis.paths.afc_recalculate_site_id import AfcRecalculateSiteId
+from extremecloudiq.apis.paths.afc_mobileapp_apcandidates import AfcMobileappApcandidates
+from extremecloudiq.apis.paths.afc_aps_report_ftm import AfcApsReportFtm
 from extremecloudiq.apis.paths.acct_api_token import AcctApiToken
 from extremecloudiq.apis.paths.account_viq_import import AccountViqImport
 from extremecloudiq.apis.paths.account_viq_export import AccountViqExport
@@ -291,6 +306,7 @@ from extremecloudiq.apis.paths.network_scorecard_network_health_location_id impo
 from extremecloudiq.apis.paths.network_scorecard_device_health_location_id import NetworkScorecardDeviceHealthLocationId
 from extremecloudiq.apis.paths.network_scorecard_client_health_location_id import NetworkScorecardClientHealthLocationId
 from extremecloudiq.apis.paths.network_policies_id_ssids import NetworkPoliciesIdSsids
+from extremecloudiq.apis.paths.monitoring_topology_client_trail_mac_address import MonitoringTopologyClientTrailMacAddress
 from extremecloudiq.apis.paths.logs_sms import LogsSms
 from extremecloudiq.apis.paths.logs_email import LogsEmail
 from extremecloudiq.apis.paths.logs_credential import LogsCredential
@@ -321,13 +337,18 @@ from extremecloudiq.apis.paths.devices_id_gallery_image import DevicesIdGalleryI
 from extremecloudiq.apis.paths.devices_id_alarms import DevicesIdAlarms
 from extremecloudiq.apis.paths.devices_stats import DevicesStats
 from extremecloudiq.apis.paths.devices_rm_devices_stack_stack_id import DevicesRmDevicesStackStackId
+from extremecloudiq.apis.paths.devices_reports_id import DevicesReportsId
 from extremecloudiq.apis.paths.devices_radio_information import DevicesRadioInformation
 from extremecloudiq.apis.paths.devices_network_policy_policy_id import DevicesNetworkPolicyPolicyId
 from extremecloudiq.apis.paths.devices_digital_twin import DevicesDigitalTwin
 from extremecloudiq.apis.paths.deployments_deployment_id_status import DeploymentsDeploymentIdStatus
 from extremecloudiq.apis.paths.deployments_status import DeploymentsStatus
 from extremecloudiq.apis.paths.deployments_overview import DeploymentsOverview
+from extremecloudiq.apis.paths.dashboard_wireless_usage_capacity_reports_id import DashboardWirelessUsageCapacityReportsId
+from extremecloudiq.apis.paths.dashboard_wireless_device_health_reports_id import DashboardWirelessDeviceHealthReportsId
 from extremecloudiq.apis.paths.dashboard_wireless_device_health_reboot_summary import DashboardWirelessDeviceHealthRebootSummary
+from extremecloudiq.apis.paths.dashboard_wireless_client_health_reports_id import DashboardWirelessClientHealthReportsId
+from extremecloudiq.apis.paths.dashboard_reports_id import DashboardReportsId
 from extremecloudiq.apis.paths.dashboard_device_types import DashboardDeviceTypes
 from extremecloudiq.apis.paths.d360_wireless_interfaces_stats import D360WirelessInterfacesStats
 from extremecloudiq.apis.paths.d360_wireless_interfaces_graph import D360WirelessInterfacesGraph
@@ -406,6 +427,7 @@ from extremecloudiq.apis.paths.applications import Applications
 from extremecloudiq.apis.paths.applications_id_clients_topn import ApplicationsIdClientsTopn
 from extremecloudiq.apis.paths.applications_topn import ApplicationsTopn
 from extremecloudiq.apis.paths.ap_afc_interface_details_sn import ApAfcInterfaceDetailsSn
+from extremecloudiq.apis.paths.ap_afc_floor_report_device_id import ApAfcFloorReportDeviceId
 from extremecloudiq.apis.paths.ap_afc_diagnostics_id import ApAfcDiagnosticsId
 from extremecloudiq.apis.paths.alerts import Alerts
 from extremecloudiq.apis.paths.alerts_reports_id import AlertsReportsId
@@ -429,7 +451,9 @@ from extremecloudiq.apis.paths.rtts_id import RttsId
 from extremecloudiq.apis.paths.pcgs_key_based_network_policy_policy_id import PcgsKeyBasedNetworkPolicyPolicyId
 from extremecloudiq.apis.paths.network_services_id import NetworkServicesId
 from extremecloudiq.apis.paths.hiq_organizations_id import HiqOrganizationsId
+from extremecloudiq.apis.paths.floor_afc_details_id import FloorAfcDetailsId
 from extremecloudiq.apis.paths.devices_radius_proxy_revoke import DevicesRadiusProxyRevoke
+from extremecloudiq.apis.paths.certificates_id import CertificatesId
 from extremecloudiq.apis.paths.backup_history_delete import BackupHistoryDelete
 from extremecloudiq.apis.paths.acct_api_token_delete import AcctApiTokenDelete
 
@@ -450,6 +474,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.SSIDS_ID_MODE_DOT1X: SsidsIdModeDot1x,
         PathValues.SSIDS_ADVANCEDSETTINGS_ID: SsidsAdvancedSettingsId,
         PathValues.SITE_AFC_SCHEDULE: SiteAfcSchedule,
+        PathValues.RADSECPROXIES_ID: RadsecProxiesId,
         PathValues.RADIUSSERVERS_INTERNAL_ID: RadiusServersInternalId,
         PathValues.RADIUSSERVERS_EXTERNAL_ID: RadiusServersExternalId,
         PathValues.RADIUSPROXIES_ID: RadiusProxiesId,
@@ -480,10 +505,12 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.HIQ_CONTEXT: HiqContext,
         PathValues.HIQ_CONTEXT_READING: HiqContextReading,
         PathValues.HIQ_CONTEXT_CREATING: HiqContextCreating,
+        PathValues.FLOOR_AFC_DETAILS: FloorAfcDetails,
         PathValues.ENDUSERS_ID: EndusersId,
         PathValues.DEVICES_ID_VISIBLE: DevicesIdVisible,
         PathValues.DEVICES_ID_RADIOOPERATINGMODE: DevicesIdRadioOperatingMode,
         PathValues.DEVICES_ID_NETWORKPOLICY: DevicesIdNetworkPolicy,
+        PathValues.DEVICES_ID_MOBILEAPP_GPS: DevicesIdMobileappGps,
         PathValues.DEVICES_ID_LOCATION: DevicesIdLocation,
         PathValues.DEVICES_ID_HOSTNAME: DevicesIdHostname,
         PathValues.DEVICES_ID_FTMSETTINGS: DevicesIdFtmSettings,
@@ -500,6 +527,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.CLIENTS_ALIAS: ClientsAlias,
         PathValues.CLIENTMONITORPROFILES_ID: ClientMonitorProfilesId,
         PathValues.CLASSIFICATIONRULES_ID: ClassificationRulesId,
+        PathValues.CERTIFICATEBUNDLES_ID: CertificateBundlesId,
         PathValues.CCGS_ID: CcgsId,
         PathValues.ALERTSUBSCRIPTIONS_WEBHOOKS_ID: AlertSubscriptionsWebhooksId,
         PathValues.ALERTSUBSCRIPTIONS_SERVICENOW_ID: AlertSubscriptionsServicenowId,
@@ -520,6 +548,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.USERPROFILES_ID_IPFIREWALLPOLICIES_ATTACH: UserProfilesIdIpFirewallPoliciesAttach,
         PathValues.USERPROFILEASSIGNMENTS: UserProfileAssignments,
         PathValues.TUNNELCONCENTRATORS: TunnelConcentrators,
+        PathValues.SWITCHINSPECTOR_DIAGNOSTICS: SwitchInspectorDiagnostics,
         PathValues.SUBSCRIPTIONS_WEBHOOK: SubscriptionsWebhook,
         PathValues.SSIDS_ID_USERPROFILE_ATTACH: SsidsIdUserProfileAttach,
         PathValues.SSIDS_ID_USERPROFILEASSIGNMENT_ATTACH: SsidsIdUserProfileAssignmentAttach,
@@ -532,6 +561,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.SSIDS_ID_RENAME: SsidsIdRename,
         PathValues.SITE_SPECTRUM_: SiteSpectrum,
         PathValues.RTTS: Rtts,
+        PathValues.RADSECPROXIES: RadsecProxies,
         PathValues.RADIUSSERVERS_INTERNAL: RadiusServersInternal,
         PathValues.RADIUSSERVERS_EXTERNAL: RadiusServersExternal,
         PathValues.RADIUSPROXIES: RadiusProxies,
@@ -607,7 +637,11 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.DEVICES_CLIENTMONITOR_REVOKE: DevicesClientMonitorRevoke,
         PathValues.DEVICES_CLIENTMONITOR_QUERY: DevicesClientMonitorQuery,
         PathValues.DEVICES_CLIENTMONITOR_ASSIGN: DevicesClientMonitorAssign,
+        PathValues.DEVICES_ANCHOR_REVOKE: DevicesAnchorRevoke,
+        PathValues.DEVICES_ANCHOR_ASSIGN: DevicesAnchorAssign,
+        PathValues.DEVICES_ACTIONSSUPPORTMETADATA: DevicesActionsSupportMetadata,
         PathValues.DEVICES_UNMANAGE: DevicesUnmanage,
+        PathValues.DEVICES_RESET: DevicesReset,
         PathValues.DEVICES_REBOOT: DevicesReboot,
         PathValues.DEVICES_ONBOARD: DevicesOnboard,
         PathValues.DEVICES_MANAGE: DevicesManage,
@@ -675,6 +709,8 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.COPILOT_ANOMALIES_EXCLUDEVLANSCSV: CopilotAnomaliesExcludeVlansCsv,
         PathValues.CLIENTMONITORPROFILES: ClientMonitorProfiles,
         PathValues.CLASSIFICATIONRULES: ClassificationRules,
+        PathValues.CERTIFICATES_IMPORT: CertificatesImport,
+        PathValues.CERTIFICATEBUNDLES: CertificateBundles,
         PathValues.CCGS: Ccgs,
         PathValues.BACKUP_HISTORY_RESTORE: BackupHistoryRestore,
         PathValues.AUTH_PERMISSIONS_CHECK: AuthPermissionsCheck,
@@ -694,6 +730,9 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.ALERTPOLICIES: AlertPolicies,
         PathValues.ALERTPOLICIES_POLICY_ID_RULES_RULE_ID_ENABLE: AlertPoliciesPolicyIdRulesRuleIdEnable,
         PathValues.ALERTPOLICIES_POLICY_ID_RULES_RULE_ID_DISABLE: AlertPoliciesPolicyIdRulesRuleIdDisable,
+        PathValues.AFC_RECALCULATE_SITE_ID: AfcRecalculateSiteId,
+        PathValues.AFC_MOBILEAPP_APCANDIDATES: AfcMobileappApcandidates,
+        PathValues.AFC_APS_REPORT_FTM: AfcApsReportFtm,
         PathValues.ACCTAPITOKEN: AcctApiToken,
         PathValues.ACCOUNT_VIQ_IMPORT: AccountViqImport,
         PathValues.ACCOUNT_VIQ_EXPORT: AccountViqExport,
@@ -726,6 +765,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.NETWORKSCORECARD_DEVICE_HEALTH_LOCATION_ID: NetworkScorecardDeviceHealthLocationId,
         PathValues.NETWORKSCORECARD_CLIENT_HEALTH_LOCATION_ID: NetworkScorecardClientHealthLocationId,
         PathValues.NETWORKPOLICIES_ID_SSIDS: NetworkPoliciesIdSsids,
+        PathValues.MONITORING_TOPOLOGY_CLIENTTRAIL_MAC_ADDRESS: MonitoringTopologyClientTrailMacAddress,
         PathValues.LOGS_SMS: LogsSms,
         PathValues.LOGS_EMAIL: LogsEmail,
         PathValues.LOGS_CREDENTIAL: LogsCredential,
@@ -756,13 +796,18 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.DEVICES_ID_ALARMS: DevicesIdAlarms,
         PathValues.DEVICES_STATS: DevicesStats,
         PathValues.DEVICES_RMDEVICESSTACK_STACK_ID: DevicesRmDevicesStackStackId,
+        PathValues.DEVICES_REPORTS_ID: DevicesReportsId,
         PathValues.DEVICES_RADIOINFORMATION: DevicesRadioInformation,
         PathValues.DEVICES_NETWORKPOLICY_POLICY_ID: DevicesNetworkPolicyPolicyId,
         PathValues.DEVICES_DIGITALTWIN: DevicesDigitalTwin,
         PathValues.DEPLOYMENTS_DEPLOYMENT_ID_STATUS: DeploymentsDeploymentIdStatus,
         PathValues.DEPLOYMENTS_STATUS: DeploymentsStatus,
         PathValues.DEPLOYMENTS_OVERVIEW: DeploymentsOverview,
+        PathValues.DASHBOARD_WIRELESS_USAGECAPACITY_REPORTS_ID: DashboardWirelessUsageCapacityReportsId,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_REPORTS_ID: DashboardWirelessDeviceHealthReportsId,
         PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_REBOOT_SUMMARY: DashboardWirelessDeviceHealthRebootSummary,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_REPORTS_ID: DashboardWirelessClientHealthReportsId,
+        PathValues.DASHBOARD_REPORTS_ID: DashboardReportsId,
         PathValues.DASHBOARD_DEVICETYPES: DashboardDeviceTypes,
         PathValues.D360_WIRELESS_INTERFACESSTATS: D360WirelessInterfacesStats,
         PathValues.D360_WIRELESS_INTERFACESGRAPH: D360WirelessInterfacesGraph,
@@ -841,6 +886,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.APPLICATIONS_ID_CLIENTS_TOPN: ApplicationsIdClientsTopn,
         PathValues.APPLICATIONS_TOPN: ApplicationsTopn,
         PathValues.AP_AFC_INTERFACE_DETAILS_SN: ApAfcInterfaceDetailsSn,
+        PathValues.AP_AFC_FLOOR_REPORT_DEVICE_ID: ApAfcFloorReportDeviceId,
         PathValues.AP_AFC_DIAGNOSTICS_ID: ApAfcDiagnosticsId,
         PathValues.ALERTS: Alerts,
         PathValues.ALERTS_REPORTS_ID: AlertsReportsId,
@@ -864,7 +910,9 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.PCGS_KEYBASED_NETWORKPOLICYPOLICY_ID: PcgsKeyBasedNetworkPolicyPolicyId,
         PathValues.NETWORKSERVICES_ID: NetworkServicesId,
         PathValues.HIQ_ORGANIZATIONS_ID: HiqOrganizationsId,
+        PathValues.FLOOR_AFC_DETAILS_ID: FloorAfcDetailsId,
         PathValues.DEVICES_RADIUSPROXY_REVOKE: DevicesRadiusProxyRevoke,
+        PathValues.CERTIFICATES_ID: CertificatesId,
         PathValues.BACKUP_HISTORY_DELETE: BackupHistoryDelete,
         PathValues.ACCTAPITOKEN_DELETE: AcctApiTokenDelete,
     }
@@ -886,6 +934,7 @@ path_to_api = PathToApi(
         PathValues.SSIDS_ID_MODE_DOT1X: SsidsIdModeDot1x,
         PathValues.SSIDS_ADVANCEDSETTINGS_ID: SsidsAdvancedSettingsId,
         PathValues.SITE_AFC_SCHEDULE: SiteAfcSchedule,
+        PathValues.RADSECPROXIES_ID: RadsecProxiesId,
         PathValues.RADIUSSERVERS_INTERNAL_ID: RadiusServersInternalId,
         PathValues.RADIUSSERVERS_EXTERNAL_ID: RadiusServersExternalId,
         PathValues.RADIUSPROXIES_ID: RadiusProxiesId,
@@ -916,10 +965,12 @@ path_to_api = PathToApi(
         PathValues.HIQ_CONTEXT: HiqContext,
         PathValues.HIQ_CONTEXT_READING: HiqContextReading,
         PathValues.HIQ_CONTEXT_CREATING: HiqContextCreating,
+        PathValues.FLOOR_AFC_DETAILS: FloorAfcDetails,
         PathValues.ENDUSERS_ID: EndusersId,
         PathValues.DEVICES_ID_VISIBLE: DevicesIdVisible,
         PathValues.DEVICES_ID_RADIOOPERATINGMODE: DevicesIdRadioOperatingMode,
         PathValues.DEVICES_ID_NETWORKPOLICY: DevicesIdNetworkPolicy,
+        PathValues.DEVICES_ID_MOBILEAPP_GPS: DevicesIdMobileappGps,
         PathValues.DEVICES_ID_LOCATION: DevicesIdLocation,
         PathValues.DEVICES_ID_HOSTNAME: DevicesIdHostname,
         PathValues.DEVICES_ID_FTMSETTINGS: DevicesIdFtmSettings,
@@ -936,6 +987,7 @@ path_to_api = PathToApi(
         PathValues.CLIENTS_ALIAS: ClientsAlias,
         PathValues.CLIENTMONITORPROFILES_ID: ClientMonitorProfilesId,
         PathValues.CLASSIFICATIONRULES_ID: ClassificationRulesId,
+        PathValues.CERTIFICATEBUNDLES_ID: CertificateBundlesId,
         PathValues.CCGS_ID: CcgsId,
         PathValues.ALERTSUBSCRIPTIONS_WEBHOOKS_ID: AlertSubscriptionsWebhooksId,
         PathValues.ALERTSUBSCRIPTIONS_SERVICENOW_ID: AlertSubscriptionsServicenowId,
@@ -956,6 +1008,7 @@ path_to_api = PathToApi(
         PathValues.USERPROFILES_ID_IPFIREWALLPOLICIES_ATTACH: UserProfilesIdIpFirewallPoliciesAttach,
         PathValues.USERPROFILEASSIGNMENTS: UserProfileAssignments,
         PathValues.TUNNELCONCENTRATORS: TunnelConcentrators,
+        PathValues.SWITCHINSPECTOR_DIAGNOSTICS: SwitchInspectorDiagnostics,
         PathValues.SUBSCRIPTIONS_WEBHOOK: SubscriptionsWebhook,
         PathValues.SSIDS_ID_USERPROFILE_ATTACH: SsidsIdUserProfileAttach,
         PathValues.SSIDS_ID_USERPROFILEASSIGNMENT_ATTACH: SsidsIdUserProfileAssignmentAttach,
@@ -968,6 +1021,7 @@ path_to_api = PathToApi(
         PathValues.SSIDS_ID_RENAME: SsidsIdRename,
         PathValues.SITE_SPECTRUM_: SiteSpectrum,
         PathValues.RTTS: Rtts,
+        PathValues.RADSECPROXIES: RadsecProxies,
         PathValues.RADIUSSERVERS_INTERNAL: RadiusServersInternal,
         PathValues.RADIUSSERVERS_EXTERNAL: RadiusServersExternal,
         PathValues.RADIUSPROXIES: RadiusProxies,
@@ -1043,7 +1097,11 @@ path_to_api = PathToApi(
         PathValues.DEVICES_CLIENTMONITOR_REVOKE: DevicesClientMonitorRevoke,
         PathValues.DEVICES_CLIENTMONITOR_QUERY: DevicesClientMonitorQuery,
         PathValues.DEVICES_CLIENTMONITOR_ASSIGN: DevicesClientMonitorAssign,
+        PathValues.DEVICES_ANCHOR_REVOKE: DevicesAnchorRevoke,
+        PathValues.DEVICES_ANCHOR_ASSIGN: DevicesAnchorAssign,
+        PathValues.DEVICES_ACTIONSSUPPORTMETADATA: DevicesActionsSupportMetadata,
         PathValues.DEVICES_UNMANAGE: DevicesUnmanage,
+        PathValues.DEVICES_RESET: DevicesReset,
         PathValues.DEVICES_REBOOT: DevicesReboot,
         PathValues.DEVICES_ONBOARD: DevicesOnboard,
         PathValues.DEVICES_MANAGE: DevicesManage,
@@ -1111,6 +1169,8 @@ path_to_api = PathToApi(
         PathValues.COPILOT_ANOMALIES_EXCLUDEVLANSCSV: CopilotAnomaliesExcludeVlansCsv,
         PathValues.CLIENTMONITORPROFILES: ClientMonitorProfiles,
         PathValues.CLASSIFICATIONRULES: ClassificationRules,
+        PathValues.CERTIFICATES_IMPORT: CertificatesImport,
+        PathValues.CERTIFICATEBUNDLES: CertificateBundles,
         PathValues.CCGS: Ccgs,
         PathValues.BACKUP_HISTORY_RESTORE: BackupHistoryRestore,
         PathValues.AUTH_PERMISSIONS_CHECK: AuthPermissionsCheck,
@@ -1130,6 +1190,9 @@ path_to_api = PathToApi(
         PathValues.ALERTPOLICIES: AlertPolicies,
         PathValues.ALERTPOLICIES_POLICY_ID_RULES_RULE_ID_ENABLE: AlertPoliciesPolicyIdRulesRuleIdEnable,
         PathValues.ALERTPOLICIES_POLICY_ID_RULES_RULE_ID_DISABLE: AlertPoliciesPolicyIdRulesRuleIdDisable,
+        PathValues.AFC_RECALCULATE_SITE_ID: AfcRecalculateSiteId,
+        PathValues.AFC_MOBILEAPP_APCANDIDATES: AfcMobileappApcandidates,
+        PathValues.AFC_APS_REPORT_FTM: AfcApsReportFtm,
         PathValues.ACCTAPITOKEN: AcctApiToken,
         PathValues.ACCOUNT_VIQ_IMPORT: AccountViqImport,
         PathValues.ACCOUNT_VIQ_EXPORT: AccountViqExport,
@@ -1162,6 +1225,7 @@ path_to_api = PathToApi(
         PathValues.NETWORKSCORECARD_DEVICE_HEALTH_LOCATION_ID: NetworkScorecardDeviceHealthLocationId,
         PathValues.NETWORKSCORECARD_CLIENT_HEALTH_LOCATION_ID: NetworkScorecardClientHealthLocationId,
         PathValues.NETWORKPOLICIES_ID_SSIDS: NetworkPoliciesIdSsids,
+        PathValues.MONITORING_TOPOLOGY_CLIENTTRAIL_MAC_ADDRESS: MonitoringTopologyClientTrailMacAddress,
         PathValues.LOGS_SMS: LogsSms,
         PathValues.LOGS_EMAIL: LogsEmail,
         PathValues.LOGS_CREDENTIAL: LogsCredential,
@@ -1192,13 +1256,18 @@ path_to_api = PathToApi(
         PathValues.DEVICES_ID_ALARMS: DevicesIdAlarms,
         PathValues.DEVICES_STATS: DevicesStats,
         PathValues.DEVICES_RMDEVICESSTACK_STACK_ID: DevicesRmDevicesStackStackId,
+        PathValues.DEVICES_REPORTS_ID: DevicesReportsId,
         PathValues.DEVICES_RADIOINFORMATION: DevicesRadioInformation,
         PathValues.DEVICES_NETWORKPOLICY_POLICY_ID: DevicesNetworkPolicyPolicyId,
         PathValues.DEVICES_DIGITALTWIN: DevicesDigitalTwin,
         PathValues.DEPLOYMENTS_DEPLOYMENT_ID_STATUS: DeploymentsDeploymentIdStatus,
         PathValues.DEPLOYMENTS_STATUS: DeploymentsStatus,
         PathValues.DEPLOYMENTS_OVERVIEW: DeploymentsOverview,
+        PathValues.DASHBOARD_WIRELESS_USAGECAPACITY_REPORTS_ID: DashboardWirelessUsageCapacityReportsId,
+        PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_REPORTS_ID: DashboardWirelessDeviceHealthReportsId,
         PathValues.DASHBOARD_WIRELESS_DEVICEHEALTH_REBOOT_SUMMARY: DashboardWirelessDeviceHealthRebootSummary,
+        PathValues.DASHBOARD_WIRELESS_CLIENTHEALTH_REPORTS_ID: DashboardWirelessClientHealthReportsId,
+        PathValues.DASHBOARD_REPORTS_ID: DashboardReportsId,
         PathValues.DASHBOARD_DEVICETYPES: DashboardDeviceTypes,
         PathValues.D360_WIRELESS_INTERFACESSTATS: D360WirelessInterfacesStats,
         PathValues.D360_WIRELESS_INTERFACESGRAPH: D360WirelessInterfacesGraph,
@@ -1277,6 +1346,7 @@ path_to_api = PathToApi(
         PathValues.APPLICATIONS_ID_CLIENTS_TOPN: ApplicationsIdClientsTopn,
         PathValues.APPLICATIONS_TOPN: ApplicationsTopn,
         PathValues.AP_AFC_INTERFACE_DETAILS_SN: ApAfcInterfaceDetailsSn,
+        PathValues.AP_AFC_FLOOR_REPORT_DEVICE_ID: ApAfcFloorReportDeviceId,
         PathValues.AP_AFC_DIAGNOSTICS_ID: ApAfcDiagnosticsId,
         PathValues.ALERTS: Alerts,
         PathValues.ALERTS_REPORTS_ID: AlertsReportsId,
@@ -1300,7 +1370,9 @@ path_to_api = PathToApi(
         PathValues.PCGS_KEYBASED_NETWORKPOLICYPOLICY_ID: PcgsKeyBasedNetworkPolicyPolicyId,
         PathValues.NETWORKSERVICES_ID: NetworkServicesId,
         PathValues.HIQ_ORGANIZATIONS_ID: HiqOrganizationsId,
+        PathValues.FLOOR_AFC_DETAILS_ID: FloorAfcDetailsId,
         PathValues.DEVICES_RADIUSPROXY_REVOKE: DevicesRadiusProxyRevoke,
+        PathValues.CERTIFICATES_ID: CertificatesId,
         PathValues.BACKUP_HISTORY_DELETE: BackupHistoryDelete,
         PathValues.ACCTAPITOKEN_DELETE: AcctApiTokenDelete,
     }

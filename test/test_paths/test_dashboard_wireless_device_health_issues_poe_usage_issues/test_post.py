@@ -32,7 +32,7 @@ class TestDashboardWirelessDeviceHealthIssuesPoeUsageIssues(ApiTestMixin, unitte
     def tearDown(self):
         pass
 
-    response_status = 401
+    response_status = 200
 
 
 

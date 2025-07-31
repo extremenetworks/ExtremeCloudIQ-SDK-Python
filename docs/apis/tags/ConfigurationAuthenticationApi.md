@@ -10,17 +10,20 @@ Method | HTTP request | Description
 [**create_ldap_server**](#create_ldap_server) | **post** /ldap-servers | Create LDAP server
 [**create_radius_client_object**](#create_radius_client_object) | **post** /radius-client-objects | Create RADIUS client object configuration
 [**create_radius_proxy**](#create_radius_proxy) | **post** /radius-proxies | Create RADIUS proxy configuration
+[**create_radsec_proxy**](#create_radsec_proxy) | **post** /radsec-proxies | Create RADSEC proxy configuration
 [**delete_bulk_internal_radius_server**](#delete_bulk_internal_radius_server) | **delete** /radius-servers/internal | [LRO] Delete internal RADIUS server configuration
 [**delete_external_radius_server**](#delete_external_radius_server) | **delete** /radius-servers/external/{id} | Delete external RADIUS server configuration
 [**delete_internal_radius_server**](#delete_internal_radius_server) | **delete** /radius-servers/internal/{id} | Delete internal RADIUS server configuration
 [**delete_ldap_server**](#delete_ldap_server) | **delete** /ldap-servers/{id} | Delete a LDAP server
 [**delete_radius_client_object**](#delete_radius_client_object) | **delete** /radius-client-objects/{id} | Delete a RADIUS client object configuration
 [**delete_radius_proxy**](#delete_radius_proxy) | **delete** /radius-proxies/{id} | Delete the RADIUS proxy configuration
+[**delete_radsec_proxy**](#delete_radsec_proxy) | **delete** /radsec-proxies/{id} | Delete the RADSEC proxy configuration
 [**get_external_radius_server**](#get_external_radius_server) | **get** /radius-servers/external/{id} | Get external RADIUS server by ID
 [**get_internal_radius_server**](#get_internal_radius_server) | **get** /radius-servers/internal/{id} | Get internal RADIUS server by ID
 [**get_ldap_server**](#get_ldap_server) | **get** /ldap-servers/{id} | Get LDAP server by ID
 [**get_radius_client_object**](#get_radius_client_object) | **get** /radius-client-objects/{id} | Get RADIUS client object by ID
 [**get_radius_proxy**](#get_radius_proxy) | **get** /radius-proxies/{id} | Get the RADIUS proxy configuration
+[**get_radsec_proxy**](#get_radsec_proxy) | **get** /radsec-proxies/{id} | Get the RADSEC proxy configuration
 [**list_active_directory_servers**](#list_active_directory_servers) | **get** /ad-servers | List active directory servers
 [**list_captive_web_portals**](#list_captive_web_portals) | **get** /cwps | List captive web portals
 [**list_external_radius_servers**](#list_external_radius_servers) | **get** /radius-servers/external | List external RADIUS servers
@@ -30,11 +33,13 @@ Method | HTTP request | Description
 [**list_radius_client_objects**](#list_radius_client_objects) | **get** /radius-client-objects | List RADIUS client objects
 [**list_radius_proxies**](#list_radius_proxies) | **get** /radius-proxies | List RADIUS proxies
 [**list_radius_proxy_devices**](#list_radius_proxy_devices) | **get** /radius-proxies/devices | List Radius proxy devices
+[**list_radsec_proxies**](#list_radsec_proxies) | **get** /radsec-proxies | List RADSEC proxies
 [**update_external_radius_server**](#update_external_radius_server) | **put** /radius-servers/external/{id} | Update external RADIUS server configuration
 [**update_internal_radius_server**](#update_internal_radius_server) | **put** /radius-servers/internal/{id} | Update internal RADIUS server configuration
 [**update_ldap_server**](#update_ldap_server) | **put** /ldap-servers/{id} | Update LDAP server configuration
 [**update_radius_client_object**](#update_radius_client_object) | **put** /radius-client-objects/{id} | Update RADIUS client object configuration
 [**update_radius_proxy**](#update_radius_proxy) | **put** /radius-proxies/{id} | Update RADIUS proxy configuration
+[**update_radsec_proxy**](#update_radsec_proxy) | **put** /radsec-proxies/{id} | Update RADSEC proxy configuration
 
 # **create_external_radius_server**
 <a id="create_external_radius_server"></a>
@@ -51,7 +56,6 @@ Create a new external RADIUS server configuration.
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
 from extremecloudiq.model.xiq_create_external_radius_server_request import XiqCreateExternalRadiusServerRequest
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_external_radius_server import XiqExternalRadiusServer
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -83,6 +87,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         server_type=XiqRadiusServerType("BOTH"),
         ip_addr="ip_addr_example",
         enable_a3=True,
+        enable_peer_discovery=True,
+        access_type=XiqRadiusAccessType("STANDARD"),
+        trust_pilot_id=1,
     )
     try:
         # Create external RADIUS server configuration
@@ -117,63 +124,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#create_external_radius_server.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#create_external_radius_server.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#create_external_radius_server.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#create_external_radius_server.ApiResponseFor500) | Internal Server Error
 201 | [ApiResponseFor201](#create_external_radius_server.ApiResponseFor201) | Created
-
-#### create_external_radius_server.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_external_radius_server.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_external_radius_server.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_external_radius_server.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### create_external_radius_server.ApiResponseFor201
 Name | Type | Description  | Notes
@@ -208,7 +159,6 @@ Create a new internal RADIUS server configuration.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_create_internal_radius_server_request import XiqCreateInternalRadiusServerRequest
 from extremecloudiq.model.xiq_internal_radius_server import XiqInternalRadiusServer
 from pprint import pprint
@@ -312,63 +262,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#create_internal_radius_server.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#create_internal_radius_server.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#create_internal_radius_server.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#create_internal_radius_server.ApiResponseFor500) | Internal Server Error
 201 | [ApiResponseFor201](#create_internal_radius_server.ApiResponseFor201) | Created
-
-#### create_internal_radius_server.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_internal_radius_server.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_internal_radius_server.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_internal_radius_server.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### create_internal_radius_server.ApiResponseFor201
 Name | Type | Description  | Notes
@@ -404,7 +298,6 @@ Create a new LDAP server.
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
 from extremecloudiq.model.xiq_create_ldap_server_request import XiqCreateLdapServerRequest
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_ldap_server import XiqLdapServer
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -478,63 +371,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#create_ldap_server.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#create_ldap_server.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#create_ldap_server.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#create_ldap_server.ApiResponseFor500) | Internal Server Error
 201 | [ApiResponseFor201](#create_ldap_server.ApiResponseFor201) | Created
-
-#### create_ldap_server.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_ldap_server.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_ldap_server.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_ldap_server.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### create_ldap_server.ApiResponseFor201
 Name | Type | Description  | Notes
@@ -570,7 +407,6 @@ Create a new RADIUS client object configuration.
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
 from extremecloudiq.model.xiq_radius_client_object import XiqRadiusClientObject
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_create_radius_client_object_request import XiqCreateRadiusClientObjectRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -643,63 +479,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#create_radius_client_object.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#create_radius_client_object.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#create_radius_client_object.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#create_radius_client_object.ApiResponseFor500) | Internal Server Error
 201 | [ApiResponseFor201](#create_radius_client_object.ApiResponseFor201) | Created
-
-#### create_radius_client_object.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_radius_client_object.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_radius_client_object.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_radius_client_object.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### create_radius_client_object.ApiResponseFor201
 Name | Type | Description  | Notes
@@ -734,7 +514,6 @@ Create a new RADIUS proxy configuration.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_create_radius_proxy_request import XiqCreateRadiusProxyRequest
 from extremecloudiq.model.xiq_radius_proxy import XiqRadiusProxy
 from pprint import pprint
@@ -818,63 +597,7 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#create_radius_proxy.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#create_radius_proxy.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#create_radius_proxy.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#create_radius_proxy.ApiResponseFor500) | Internal Server Error
 201 | [ApiResponseFor201](#create_radius_proxy.ApiResponseFor201) | Created
-
-#### create_radius_proxy.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_radius_proxy.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_radius_proxy.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### create_radius_proxy.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### create_radius_proxy.ApiResponseFor201
 Name | Type | Description  | Notes
@@ -887,6 +610,115 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqRadiusProxy**](../../models/XiqRadiusProxy.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **create_radsec_proxy**
+<a id="create_radsec_proxy"></a>
+> XiqRadsecProxy create_radsec_proxy(xiq_create_radsec_proxy_request)
+
+Create RADSEC proxy configuration
+
+Create a new RADSEC proxy configuration.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import configuration_authentication_api
+from extremecloudiq.model.xiq_create_radsec_proxy_request import XiqCreateRadsecProxyRequest
+from extremecloudiq.model.xiq_radsec_proxy import XiqRadsecProxy
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = configuration_authentication_api.ConfigurationAuthenticationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = XiqCreateRadsecProxyRequest(
+        name="name_example",
+        description="description_example",
+        format_type=XiqRadiusProxyFormatType("NAI"),
+        enable_inject_operator_name_attribute=True,
+        operator_name_type="WBAID",
+        operator_name="operator_name_example",
+        realms=[
+            XiqCreateRadsecProxyRealm(
+                name="name_example",
+                enable_strip_realm_name=True,
+                external_radius_server_object_ids=[
+                    1
+                ],
+            )
+        ],
+    )
+    try:
+        # Create RADSEC proxy configuration
+        api_response = api_instance.create_radsec_proxy(
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling ConfigurationAuthenticationApi->create_radsec_proxy: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqCreateRadsecProxyRequest**](../../models/XiqCreateRadsecProxyRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+201 | [ApiResponseFor201](#create_radsec_proxy.ApiResponseFor201) | Created
+
+#### create_radsec_proxy.ApiResponseFor201
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor201ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor201ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqRadsecProxy**](../../models/XiqRadsecProxy.md) |  | 
 
 
 ### Authorization
@@ -909,7 +741,6 @@ Delete an existing internal RADIUS server configuration by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -965,7 +796,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 query_params | RequestQueryParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -1003,63 +833,7 @@ bool,  | BoolClass,  |  | if omitted the server will use the default value of Fa
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_bulk_internal_radius_server.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_bulk_internal_radius_server.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_bulk_internal_radius_server.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_bulk_internal_radius_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_bulk_internal_radius_server.ApiResponseFor200) | OK
-
-#### delete_bulk_internal_radius_server.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_bulk_internal_radius_server.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_bulk_internal_radius_server.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_bulk_internal_radius_server.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_bulk_internal_radius_server.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1088,7 +862,6 @@ Delete an existing external RADIUS server configuration by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -1127,7 +900,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 path_params | RequestPathParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -1151,63 +923,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_external_radius_server.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_external_radius_server.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_external_radius_server.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_external_radius_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_external_radius_server.ApiResponseFor200) | OK
-
-#### delete_external_radius_server.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_external_radius_server.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_external_radius_server.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_external_radius_server.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_external_radius_server.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1236,7 +952,6 @@ Delete an existing internal RADIUS server configuration by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -1275,7 +990,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 path_params | RequestPathParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -1299,63 +1013,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_internal_radius_server.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_internal_radius_server.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_internal_radius_server.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_internal_radius_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_internal_radius_server.ApiResponseFor200) | OK
-
-#### delete_internal_radius_server.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_internal_radius_server.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_internal_radius_server.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_internal_radius_server.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_internal_radius_server.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1384,7 +1042,6 @@ Delete a specific LDAP server by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -1423,7 +1080,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 path_params | RequestPathParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -1447,63 +1103,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_ldap_server.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_ldap_server.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_ldap_server.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_ldap_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_ldap_server.ApiResponseFor200) | OK
-
-#### delete_ldap_server.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_ldap_server.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_ldap_server.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_ldap_server.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_ldap_server.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1532,7 +1132,6 @@ Delete an existing RADIUS client object configuration by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -1571,7 +1170,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 path_params | RequestPathParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -1595,63 +1193,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_radius_client_object.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_radius_client_object.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_radius_client_object.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_radius_client_object.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_radius_client_object.ApiResponseFor200) | OK
-
-#### delete_radius_client_object.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_radius_client_object.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_radius_client_object.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_radius_client_object.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### delete_radius_client_object.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1680,7 +1222,6 @@ Delete an existing RADIUS proxy configuration by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -1719,7 +1260,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 path_params | RequestPathParams | |
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -1743,65 +1283,99 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#delete_radius_proxy.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#delete_radius_proxy.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#delete_radius_proxy.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#delete_radius_proxy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#delete_radius_proxy.ApiResponseFor200) | OK
 
-#### delete_radius_proxy.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_radius_proxy.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_radius_proxy.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### delete_radius_proxy.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
 #### delete_radius_proxy.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **delete_radsec_proxy**
+<a id="delete_radsec_proxy"></a>
+> delete_radsec_proxy(id)
+
+Delete the RADSEC proxy configuration
+
+Delete an existing RADSEC proxy configuration by ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import configuration_authentication_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = configuration_authentication_api.ConfigurationAuthenticationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': 1,
+    }
+    try:
+        # Delete the RADSEC proxy configuration
+        api_response = api_instance.delete_radsec_proxy(
+            path_params=path_params,
+        )
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling ConfigurationAuthenticationApi->delete_radsec_proxy: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#delete_radsec_proxy.ApiResponseFor200) | OK
+
+#### delete_radsec_proxy.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1828,7 +1402,6 @@ Get detailed configuration for a specific external RADIUS server.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_external_radius_server import XiqExternalRadiusServer
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1893,63 +1466,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_external_radius_server.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_external_radius_server.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_external_radius_server.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_external_radius_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_external_radius_server.ApiResponseFor200) | OK
-
-#### get_external_radius_server.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_external_radius_server.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_external_radius_server.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_external_radius_server.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_external_radius_server.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -1984,7 +1501,6 @@ Get detailed configuration for internal RADIUS server by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_internal_radius_server import XiqInternalRadiusServer
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -2049,63 +1565,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_internal_radius_server.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_internal_radius_server.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_internal_radius_server.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_internal_radius_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_internal_radius_server.ApiResponseFor200) | OK
-
-#### get_internal_radius_server.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_internal_radius_server.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_internal_radius_server.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_internal_radius_server.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_internal_radius_server.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2140,7 +1600,6 @@ Get a specific LDAP server by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_ldap_server import XiqLdapServer
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -2205,63 +1664,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_ldap_server.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_ldap_server.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_ldap_server.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_ldap_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_ldap_server.ApiResponseFor200) | OK
-
-#### get_ldap_server.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_ldap_server.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_ldap_server.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_ldap_server.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_ldap_server.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2297,7 +1700,6 @@ Get detailed configuration for a specific RADIUS client object.
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
 from extremecloudiq.model.xiq_radius_client_object import XiqRadiusClientObject
-from extremecloudiq.model.xiq_error import XiqError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -2361,63 +1763,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_radius_client_object.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_radius_client_object.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_radius_client_object.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_radius_client_object.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_radius_client_object.ApiResponseFor200) | OK
-
-#### get_radius_client_object.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_radius_client_object.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_radius_client_object.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_radius_client_object.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_radius_client_object.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2452,7 +1798,6 @@ Get an existing RADIUS proxy configuration by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_radius_proxy import XiqRadiusProxy
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -2517,63 +1862,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#get_radius_proxy.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#get_radius_proxy.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#get_radius_proxy.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#get_radius_proxy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#get_radius_proxy.ApiResponseFor200) | OK
-
-#### get_radius_proxy.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_radius_proxy.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_radius_proxy.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### get_radius_proxy.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### get_radius_proxy.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2586,6 +1875,105 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqRadiusProxy**](../../models/XiqRadiusProxy.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **get_radsec_proxy**
+<a id="get_radsec_proxy"></a>
+> XiqRadsecProxy get_radsec_proxy(id)
+
+Get the RADSEC proxy configuration
+
+Get an existing RADSEC proxy configuration by ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import configuration_authentication_api
+from extremecloudiq.model.xiq_radsec_proxy import XiqRadsecProxy
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = configuration_authentication_api.ConfigurationAuthenticationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': 1,
+    }
+    try:
+        # Get the RADSEC proxy configuration
+        api_response = api_instance.get_radsec_proxy(
+            path_params=path_params,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling ConfigurationAuthenticationApi->get_radsec_proxy: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#get_radsec_proxy.ApiResponseFor200) | OK
+
+#### get_radsec_proxy.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqRadsecProxy**](../../models/XiqRadsecProxy.md) |  | 
 
 
 ### Authorization
@@ -2608,7 +1996,6 @@ List a page of active directory servers.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_active_directory_server import PagedXiqActiveDirectoryServer
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -2683,63 +2070,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use t
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_active_directory_servers.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_active_directory_servers.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_active_directory_servers.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_active_directory_servers.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_active_directory_servers.ApiResponseFor200) | OK
-
-#### list_active_directory_servers.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_active_directory_servers.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_active_directory_servers.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_active_directory_servers.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_active_directory_servers.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2774,7 +2105,6 @@ List a page of Captive Web Portals.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_cwp import PagedXiqCwp
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -2849,63 +2179,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use t
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_captive_web_portals.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_captive_web_portals.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_captive_web_portals.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_captive_web_portals.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_captive_web_portals.ApiResponseFor200) | OK
-
-#### list_captive_web_portals.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_captive_web_portals.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_captive_web_portals.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_captive_web_portals.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_captive_web_portals.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -2940,7 +2214,7 @@ List a page of external RADIUS server configurations.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
+from extremecloudiq.model.xiq_radius_access_type import XiqRadiusAccessType
 from extremecloudiq.model.paged_xiq_external_radius_server import PagedXiqExternalRadiusServer
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -2967,6 +2241,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     query_params = {
         'page': 1,
         'limit': 10,
+        'accessType': XiqRadiusAccessType("STANDARD"),
     }
     try:
         # List external RADIUS servers
@@ -2994,6 +2269,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 page | PageSchema | | optional
 limit | LimitSchema | | optional
+accessType | AccessTypeSchema | | optional
 
 
 # PageSchema
@@ -3010,68 +2286,18 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 10value must be a 32 bit integer
 
+# AccessTypeSchema
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqRadiusAccessType**](../../models/XiqRadiusAccessType.md) |  | 
+
+
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_external_radius_servers.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_external_radius_servers.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_external_radius_servers.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_external_radius_servers.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_external_radius_servers.ApiResponseFor200) | OK
-
-#### list_external_radius_servers.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_external_radius_servers.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_external_radius_servers.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_external_radius_servers.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_external_radius_servers.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3106,7 +2332,6 @@ List all internal RADIUS devices fields.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_internal_radius_device import PagedXiqInternalRadiusDevice
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3181,63 +2406,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use t
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_internal_radius_devices.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_internal_radius_devices.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_internal_radius_devices.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_internal_radius_devices.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_internal_radius_devices.ApiResponseFor200) | OK
-
-#### list_internal_radius_devices.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_internal_radius_devices.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_internal_radius_devices.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_internal_radius_devices.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_internal_radius_devices.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3272,7 +2441,6 @@ List all internal RADIUS servers configurations.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_internal_radius_server import PagedXiqInternalRadiusServer
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3347,63 +2515,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use t
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_internal_radius_servers.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_internal_radius_servers.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_internal_radius_servers.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_internal_radius_servers.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_internal_radius_servers.ApiResponseFor200) | OK
-
-#### list_internal_radius_servers.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_internal_radius_servers.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_internal_radius_servers.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_internal_radius_servers.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_internal_radius_servers.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3438,7 +2550,6 @@ List a page of LDAP servers.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_ldap_server import PagedXiqLdapServer
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3513,63 +2624,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use t
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_ldap_servers.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_ldap_servers.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_ldap_servers.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_ldap_servers.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_ldap_servers.ApiResponseFor200) | OK
-
-#### list_ldap_servers.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_ldap_servers.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_ldap_servers.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_ldap_servers.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_ldap_servers.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3604,7 +2659,6 @@ List a page of RADIUS client object configurations.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_radius_client_object import PagedXiqRadiusClientObject
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3679,63 +2733,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use t
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_radius_client_objects.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_radius_client_objects.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_radius_client_objects.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_radius_client_objects.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_radius_client_objects.ApiResponseFor200) | OK
-
-#### list_radius_client_objects.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_radius_client_objects.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_radius_client_objects.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_radius_client_objects.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_radius_client_objects.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3770,7 +2768,6 @@ List a page of RADIUS proxy configurations.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_radius_proxy import PagedXiqRadiusProxy
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3845,63 +2842,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use t
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_radius_proxies.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_radius_proxies.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_radius_proxies.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_radius_proxies.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_radius_proxies.ApiResponseFor200) | OK
-
-#### list_radius_proxies.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_radius_proxies.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_radius_proxies.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_radius_proxies.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_radius_proxies.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -3936,7 +2877,6 @@ List devices for Radius Proxy.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.paged_xiq_internal_radius_device import PagedXiqInternalRadiusDevice
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -4011,63 +2951,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use t
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#list_radius_proxy_devices.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#list_radius_proxy_devices.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#list_radius_proxy_devices.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#list_radius_proxy_devices.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#list_radius_proxy_devices.ApiResponseFor200) | OK
-
-#### list_radius_proxy_devices.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_radius_proxy_devices.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_radius_proxy_devices.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### list_radius_proxy_devices.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### list_radius_proxy_devices.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4080,6 +2964,115 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**PagedXiqInternalRadiusDevice**](../../models/PagedXiqInternalRadiusDevice.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **list_radsec_proxies**
+<a id="list_radsec_proxies"></a>
+> PagedXiqRadsecProxy list_radsec_proxies()
+
+List RADSEC proxies
+
+List a page of RADSEC proxy configurations.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import configuration_authentication_api
+from extremecloudiq.model.paged_xiq_radsec_proxy import PagedXiqRadsecProxy
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = configuration_authentication_api.ConfigurationAuthenticationApi(api_client)
+
+    # example passing only optional values
+    query_params = {
+        'page': 1,
+        'limit': 10,
+    }
+    try:
+        # List RADSEC proxies
+        api_response = api_instance.list_radsec_proxies(
+            query_params=query_params,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling ConfigurationAuthenticationApi->list_radsec_proxies: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+query_params | RequestQueryParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+page | PageSchema | | optional
+limit | LimitSchema | | optional
+
+
+# PageSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 1value must be a 32 bit integer
+
+# LimitSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 10value must be a 32 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#list_radsec_proxies.ApiResponseFor200) | OK
+
+#### list_radsec_proxies.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**PagedXiqRadsecProxy**](../../models/PagedXiqRadsecProxy.md) |  | 
 
 
 ### Authorization
@@ -4102,7 +3095,6 @@ Update external RADIUS server configuration by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_update_external_radius_server_request import XiqUpdateExternalRadiusServerRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -4136,6 +3128,8 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         accounting_port=1813,
         server_type=XiqRadiusServerType("BOTH"),
         ip_addr="ip_addr_example",
+        enable_peer_discovery=True,
+        trust_pilot_id=1,
     )
     try:
         # Update external RADIUS server configuration
@@ -4153,7 +3147,6 @@ Name | Type | Description  | Notes
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 path_params | RequestPathParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -4185,63 +3178,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_external_radius_server.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_external_radius_server.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_external_radius_server.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_external_radius_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_external_radius_server.ApiResponseFor200) | OK
-
-#### update_external_radius_server.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_external_radius_server.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_external_radius_server.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_external_radius_server.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_external_radius_server.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4270,7 +3207,6 @@ Update internal RADIUS server configuration by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_update_internal_radius_server_request import XiqUpdateInternalRadiusServerRequest
 from extremecloudiq.model.xiq_internal_radius_server import XiqInternalRadiusServer
 from pprint import pprint
@@ -4375,63 +3311,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_internal_radius_server.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_internal_radius_server.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_internal_radius_server.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_internal_radius_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_internal_radius_server.ApiResponseFor200) | OK
-
-#### update_internal_radius_server.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_internal_radius_server.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_internal_radius_server.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_internal_radius_server.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_internal_radius_server.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4466,7 +3346,6 @@ Update configuration for a specific LDAP server.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_update_ldap_server_request import XiqUpdateLdapServerRequest
 from extremecloudiq.model.xiq_ldap_server import XiqLdapServer
 from pprint import pprint
@@ -4559,63 +3438,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_ldap_server.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_ldap_server.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_ldap_server.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_ldap_server.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_ldap_server.ApiResponseFor200) | OK
-
-#### update_ldap_server.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_ldap_server.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_ldap_server.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_ldap_server.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_ldap_server.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4650,7 +3473,6 @@ Update RADIUS client object configuration by ID.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_update_radius_client_object_request import XiqUpdateRadiusClientObjectRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -4702,7 +3524,6 @@ Name | Type | Description  | Notes
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 path_params | RequestPathParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -4734,63 +3555,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_radius_client_object.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_radius_client_object.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_radius_client_object.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_radius_client_object.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_radius_client_object.ApiResponseFor200) | OK
-
-#### update_radius_client_object.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_radius_client_object.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_radius_client_object.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_radius_client_object.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_radius_client_object.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4820,7 +3585,6 @@ Update RADIUS proxy configuration by ID.
 import extremecloudiq
 from extremecloudiq.apis.tags import configuration_authentication_api
 from extremecloudiq.model.xiq_update_radius_proxy_request import XiqUpdateRadiusProxyRequest
-from extremecloudiq.model.xiq_error import XiqError
 from extremecloudiq.model.xiq_radius_proxy import XiqRadiusProxy
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -4921,63 +3685,7 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-401 | [ApiResponseFor401](#update_radius_proxy.ApiResponseFor401) | Unauthorized
-400 | [ApiResponseFor400](#update_radius_proxy.ApiResponseFor400) | Bad Request
-503 | [ApiResponseFor503](#update_radius_proxy.ApiResponseFor503) | Service Unavailable
-500 | [ApiResponseFor500](#update_radius_proxy.ApiResponseFor500) | Internal Server Error
 200 | [ApiResponseFor200](#update_radius_proxy.ApiResponseFor200) | OK
-
-#### update_radius_proxy.ApiResponseFor401
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_radius_proxy.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_radius_proxy.ApiResponseFor503
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor503ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor503ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### update_radius_proxy.ApiResponseFor500
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor500ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor500ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
 
 #### update_radius_proxy.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -4990,6 +3698,133 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqRadiusProxy**](../../models/XiqRadiusProxy.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **update_radsec_proxy**
+<a id="update_radsec_proxy"></a>
+> XiqRadsecProxy update_radsec_proxy(idxiq_update_radsec_proxy_request)
+
+Update RADSEC proxy configuration
+
+Update RADSEC proxy configuration by ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import configuration_authentication_api
+from extremecloudiq.model.xiq_update_radsec_proxy_request import XiqUpdateRadsecProxyRequest
+from extremecloudiq.model.xiq_radsec_proxy import XiqRadsecProxy
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = configuration_authentication_api.ConfigurationAuthenticationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': 1,
+    }
+    body = XiqUpdateRadsecProxyRequest(
+        name="name_example",
+        description="description_example",
+        format_type=XiqRadiusProxyFormatType("NAI"),
+        enable_inject_operator_name_attribute=True,
+        operator_name="operator_name_example",
+        realms=[
+            XiqUpdateRadsecProxyRealm(
+                name="name_example",
+                enable_strip_realm_name=True,
+                external_radius_server_object_ids=[
+                    1
+                ],
+            )
+        ],
+    )
+    try:
+        # Update RADSEC proxy configuration
+        api_response = api_instance.update_radsec_proxy(
+            path_params=path_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling ConfigurationAuthenticationApi->update_radsec_proxy: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+path_params | RequestPathParams | |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqUpdateRadsecProxyRequest**](../../models/XiqUpdateRadsecProxyRequest.md) |  | 
+
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#update_radsec_proxy.ApiResponseFor200) | OK
+
+#### update_radsec_proxy.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqRadsecProxy**](../../models/XiqRadsecProxy.md) |  | 
 
 
 ### Authorization
