@@ -216,6 +216,7 @@ request_body_xiq_rm_device_list_request = api_client.RequestBody(
         'application/json': api_client.MediaType(
             schema=SchemaForRequestBodyApplicationJson),
     },
+    required=True,
 )
 SchemaFor200ResponseBodyApplicationJson = PagedXiqRmDevice
 
@@ -245,8 +246,8 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _rm_device_list_oapg(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: typing_extensions.Literal["application/json"] = ...,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -259,8 +260,8 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _rm_device_list_oapg(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -274,9 +275,9 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _rm_device_list_oapg(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -286,8 +287,8 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _rm_device_list_oapg(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -300,8 +301,8 @@ class BaseApi(api_client.Api):
 
     def _rm_device_list_oapg(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = 'application/json',
-        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -347,15 +348,17 @@ class BaseApi(api_client.Api):
             for accept_content_type in accept_content_types:
                 _headers.add('Accept', accept_content_type)
 
+        if body is schemas.unset:
+            raise exceptions.ApiValueError(
+                'The required body parameter has an invalid value of: unset. Set a valid value instead')
         _fields = None
         _body = None
-        if body is not schemas.unset:
-            serialized_data = request_body_xiq_rm_device_list_request.serialize(body, content_type)
-            _headers.add('Content-Type', content_type)
-            if 'fields' in serialized_data:
-                _fields = serialized_data['fields']
-            elif 'body' in serialized_data:
-                _body = serialized_data['body']
+        serialized_data = request_body_xiq_rm_device_list_request.serialize(body, content_type)
+        _headers.add('Content-Type', content_type)
+        if 'fields' in serialized_data:
+            _fields = serialized_data['fields']
+        elif 'body' in serialized_data:
+            _body = serialized_data['body']
         response = self.api_client.call_api(
             resource_path=used_path,
             method='post'.upper(),
@@ -392,8 +395,8 @@ class RmDeviceList(BaseApi):
     @typing.overload
     def rm_device_list(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: typing_extensions.Literal["application/json"] = ...,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -406,8 +409,8 @@ class RmDeviceList(BaseApi):
     @typing.overload
     def rm_device_list(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -421,9 +424,9 @@ class RmDeviceList(BaseApi):
     @typing.overload
     def rm_device_list(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -433,8 +436,8 @@ class RmDeviceList(BaseApi):
     @typing.overload
     def rm_device_list(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -447,8 +450,8 @@ class RmDeviceList(BaseApi):
 
     def rm_device_list(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = 'application/json',
-        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -472,8 +475,8 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: typing_extensions.Literal["application/json"] = ...,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -486,8 +489,8 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -501,9 +504,9 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -513,8 +516,8 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -527,8 +530,8 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = 'application/json',
-        body: typing.Union[SchemaForRequestBodyApplicationJson, schemas.Unset] = schemas.unset,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,

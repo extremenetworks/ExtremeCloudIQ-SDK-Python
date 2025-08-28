@@ -306,7 +306,6 @@ from extremecloudiq.apis.paths.network_scorecard_network_health_location_id impo
 from extremecloudiq.apis.paths.network_scorecard_device_health_location_id import NetworkScorecardDeviceHealthLocationId
 from extremecloudiq.apis.paths.network_scorecard_client_health_location_id import NetworkScorecardClientHealthLocationId
 from extremecloudiq.apis.paths.network_policies_id_ssids import NetworkPoliciesIdSsids
-from extremecloudiq.apis.paths.monitoring_topology_client_trail_mac_address import MonitoringTopologyClientTrailMacAddress
 from extremecloudiq.apis.paths.logs_sms import LogsSms
 from extremecloudiq.apis.paths.logs_email import LogsEmail
 from extremecloudiq.apis.paths.logs_credential import LogsCredential
@@ -765,7 +764,6 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.NETWORKSCORECARD_DEVICE_HEALTH_LOCATION_ID: NetworkScorecardDeviceHealthLocationId,
         PathValues.NETWORKSCORECARD_CLIENT_HEALTH_LOCATION_ID: NetworkScorecardClientHealthLocationId,
         PathValues.NETWORKPOLICIES_ID_SSIDS: NetworkPoliciesIdSsids,
-        PathValues.MONITORING_TOPOLOGY_CLIENTTRAIL_MAC_ADDRESS: MonitoringTopologyClientTrailMacAddress,
         PathValues.LOGS_SMS: LogsSms,
         PathValues.LOGS_EMAIL: LogsEmail,
         PathValues.LOGS_CREDENTIAL: LogsCredential,
@@ -1225,7 +1223,6 @@ path_to_api = PathToApi(
         PathValues.NETWORKSCORECARD_DEVICE_HEALTH_LOCATION_ID: NetworkScorecardDeviceHealthLocationId,
         PathValues.NETWORKSCORECARD_CLIENT_HEALTH_LOCATION_ID: NetworkScorecardClientHealthLocationId,
         PathValues.NETWORKPOLICIES_ID_SSIDS: NetworkPoliciesIdSsids,
-        PathValues.MONITORING_TOPOLOGY_CLIENTTRAIL_MAC_ADDRESS: MonitoringTopologyClientTrailMacAddress,
         PathValues.LOGS_SMS: LogsSms,
         PathValues.LOGS_EMAIL: LogsEmail,
         PathValues.LOGS_CREDENTIAL: LogsCredential,

@@ -165,6 +165,8 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         folder_id=1,
         site_time_zone="site_time_zone_example",
         site_schedule=1,
+        is_default_schedule=True,
+        default_schedule=True,
     )
     try:
         api_response = api_instance.create_site_afc_schedule(
@@ -2075,6 +2077,8 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         folder_id=1,
         site_time_zone="site_time_zone_example",
         site_schedule=1,
+        is_default_schedule=True,
+        default_schedule=True,
     )
     try:
         api_response = api_instance.update_site_afc_schedule(

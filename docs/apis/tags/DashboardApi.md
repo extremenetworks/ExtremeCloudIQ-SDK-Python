@@ -249,7 +249,7 @@ items | str,  | str,  |  |
 
 # **export_to_csv3**
 <a id="export_to_csv3"></a>
-> XiqMetricReport export_to_csv3()
+> XiqMetricReport export_to_csv3(xiq_dashboard_filter)
 
 Export all dashboard data to CSV
 
@@ -285,6 +285,24 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dashboard_api.DashboardApi(api_client)
 
+    # example passing only required values which don't have defaults set
+    query_params = {
+    }
+    body = XiqDashboardFilter(
+        site_ids=[
+            1
+        ],
+    )
+    try:
+        # Export all dashboard data to CSV
+        api_response = api_instance.export_to_csv3(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DashboardApi->export_to_csv3: %s\n" % e)
+
     # example passing only optional values
     query_params = {
         'sortField': "ALERTS",
@@ -311,7 +329,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
@@ -393,7 +411,7 @@ Type | Description  | Notes
 
 # **get_alert_diagnostics**
 <a id="get_alert_diagnostics"></a>
-> XiqAlertDashboard get_alert_diagnostics()
+> XiqAlertDashboard get_alert_diagnostics(xiq_dashboard_filter)
 
 Alert statistics
 
@@ -428,6 +446,24 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dashboard_api.DashboardApi(api_client)
 
+    # example passing only required values which don't have defaults set
+    query_params = {
+    }
+    body = XiqDashboardFilter(
+        site_ids=[
+            1
+        ],
+    )
+    try:
+        # Alert statistics
+        api_response = api_instance.get_alert_diagnostics(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DashboardApi->get_alert_diagnostics: %s\n" % e)
+
     # example passing only optional values
     query_params = {
         'unassigned_devices': False,
@@ -451,7 +487,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
@@ -588,7 +624,7 @@ items | str,  | str,  |  |
 
 # **get_asset_diagnostics**
 <a id="get_asset_diagnostics"></a>
-> XiqAssetDashboard get_asset_diagnostics()
+> XiqAssetDashboard get_asset_diagnostics(xiq_dashboard_filter)
 
 Asset statistics
 
@@ -623,6 +659,24 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dashboard_api.DashboardApi(api_client)
 
+    # example passing only required values which don't have defaults set
+    query_params = {
+    }
+    body = XiqDashboardFilter(
+        site_ids=[
+            1
+        ],
+    )
+    try:
+        # Asset statistics
+        api_response = api_instance.get_asset_diagnostics(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DashboardApi->get_asset_diagnostics: %s\n" % e)
+
     # example passing only optional values
     query_params = {
         'unassigned_devices': False,
@@ -646,7 +700,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
@@ -705,7 +759,7 @@ Type | Description  | Notes
 
 # **get_client_health_diagnostics**
 <a id="get_client_health_diagnostics"></a>
-> XiqClientHealthDashboard get_client_health_diagnostics()
+> XiqClientHealthDashboard get_client_health_diagnostics(xiq_dashboard_filter)
 
 Client health statistics
 
@@ -740,6 +794,24 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dashboard_api.DashboardApi(api_client)
 
+    # example passing only required values which don't have defaults set
+    query_params = {
+    }
+    body = XiqDashboardFilter(
+        site_ids=[
+            1
+        ],
+    )
+    try:
+        # Client health statistics
+        api_response = api_instance.get_client_health_diagnostics(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DashboardApi->get_client_health_diagnostics: %s\n" % e)
+
     # example passing only optional values
     query_params = {
         'unassigned_devices': False,
@@ -763,7 +835,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
@@ -822,7 +894,7 @@ Type | Description  | Notes
 
 # **get_device_health_diagnostics**
 <a id="get_device_health_diagnostics"></a>
-> XiqDeviceHealthDashboard get_device_health_diagnostics()
+> XiqDeviceHealthDashboard get_device_health_diagnostics(xiq_dashboard_filter)
 
 Device health statistics
 
@@ -857,6 +929,24 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dashboard_api.DashboardApi(api_client)
 
+    # example passing only required values which don't have defaults set
+    query_params = {
+    }
+    body = XiqDashboardFilter(
+        site_ids=[
+            1
+        ],
+    )
+    try:
+        # Device health statistics
+        api_response = api_instance.get_device_health_diagnostics(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DashboardApi->get_device_health_diagnostics: %s\n" % e)
+
     # example passing only optional values
     query_params = {
         'unassigned_devices': False,
@@ -880,7 +970,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
@@ -939,7 +1029,7 @@ Type | Description  | Notes
 
 # **get_sites_with_issues_diagnostics**
 <a id="get_sites_with_issues_diagnostics"></a>
-> PagedXiqSiteDashboardResponse get_sites_with_issues_diagnostics()
+> PagedXiqSiteDashboardResponse get_sites_with_issues_diagnostics(xiq_dashboard_filter)
 
 Sites with issues
 
@@ -975,6 +1065,24 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dashboard_api.DashboardApi(api_client)
 
+    # example passing only required values which don't have defaults set
+    query_params = {
+    }
+    body = XiqDashboardFilter(
+        site_ids=[
+            1
+        ],
+    )
+    try:
+        # Sites with issues
+        api_response = api_instance.get_sites_with_issues_diagnostics(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DashboardApi->get_sites_with_issues_diagnostics: %s\n" % e)
+
     # example passing only optional values
     query_params = {
         'page': 1,
@@ -1003,7 +1111,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client

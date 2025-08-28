@@ -57,6 +57,7 @@ UnassignedDevicesSchema = schemas.BoolSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
+        'macAddress': typing.Union[MacAddressSchema, str, ],
     }
 )
 RequestOptionalQueryParams = typing_extensions.TypedDict(
@@ -64,7 +65,6 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
     {
         'page': typing.Union[PageSchema, decimal.Decimal, int, ],
         'limit': typing.Union[LimitSchema, decimal.Decimal, int, ],
-        'macAddress': typing.Union[MacAddressSchema, str, ],
         'unassigned_devices': typing.Union[UnassignedDevicesSchema, bool, ],
     },
     total=False
@@ -91,6 +91,7 @@ request_query_mac_address = api_client.QueryParameter(
     name="macAddress",
     style=api_client.ParameterStyle.FORM,
     schema=MacAddressSchema,
+    required=True,
     explode=True,
 )
 request_query_unassigned_devices = api_client.QueryParameter(

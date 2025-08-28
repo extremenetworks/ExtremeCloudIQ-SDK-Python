@@ -311,7 +311,6 @@ class PathValues(str, enum.Enum):
     NETWORKSCORECARD_DEVICE_HEALTH_LOCATION_ID = "/network-scorecard/deviceHealth/{locationId}"
     NETWORKSCORECARD_CLIENT_HEALTH_LOCATION_ID = "/network-scorecard/clientHealth/{locationId}"
     NETWORKPOLICIES_ID_SSIDS = "/network-policies/{id}/ssids"
-    MONITORING_TOPOLOGY_CLIENTTRAIL_MAC_ADDRESS = "/monitoring/topology/client-trail/{macAddress}"
     LOGS_SMS = "/logs/sms"
     LOGS_EMAIL = "/logs/email"
     LOGS_CREDENTIAL = "/logs/credential"

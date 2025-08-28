@@ -376,7 +376,7 @@ Type | Description  | Notes
 
 # **get_client_association_issues**
 <a id="get_client_association_issues"></a>
-> [XiqIssueClientAssociation] get_client_association_issues(xiq_dashboard_filter)
+> [XiqIssueClientAssociation] get_client_association_issues(mac_addressxiq_dashboard_filter)
 
 Association issue for wireless client
 
@@ -413,6 +413,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     query_params = {
+        'macAddress': "macAddress_example",
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -478,7 +479,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 page | PageSchema | | optional
 limit | LimitSchema | | optional
-macAddress | MacAddressSchema | | optional
+macAddress | MacAddressSchema | | 
 unassigned_devices | UnassignedDevicesSchema | | optional
 
 
@@ -544,7 +545,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # **get_client_auth_issues**
 <a id="get_client_auth_issues"></a>
-> [XiqIssueClientAuth] get_client_auth_issues(xiq_dashboard_filter)
+> [XiqIssueClientAuth] get_client_auth_issues(mac_addressxiq_dashboard_filter)
 
 Authentication issue for wireless client
 
@@ -581,6 +582,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     query_params = {
+        'macAddress': "macAddress_example",
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -642,7 +644,7 @@ Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-macAddress | MacAddressSchema | | optional
+macAddress | MacAddressSchema | | 
 unassigned_devices | UnassignedDevicesSchema | | optional
 
 
@@ -1501,7 +1503,7 @@ Type | Description  | Notes
 
 # **get_client_ip_address_issues**
 <a id="get_client_ip_address_issues"></a>
-> [XiqIssueClientIpAddress] get_client_ip_address_issues(xiq_dashboard_filter)
+> [XiqIssueClientIpAddress] get_client_ip_address_issues(mac_addressxiq_dashboard_filter)
 
 Ip Address issue for Wireless client
 
@@ -1538,6 +1540,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     query_params = {
+        'macAddress': "macAddress_example",
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -1603,7 +1606,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 page | PageSchema | | optional
 limit | LimitSchema | | optional
-macAddress | MacAddressSchema | | optional
+macAddress | MacAddressSchema | | 
 unassigned_devices | UnassignedDevicesSchema | | optional
 
 
@@ -1669,7 +1672,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # **get_client_roaming_issues**
 <a id="get_client_roaming_issues"></a>
-> [XiqIssueClientRoaming] get_client_roaming_issues(xiq_dashboard_filter)
+> [XiqIssueClientRoaming] get_client_roaming_issues(mac_addressxiq_dashboard_filter)
 
 Roaming issue for wireless client
 
@@ -1706,6 +1709,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     query_params = {
+        'macAddress': "macAddress_example",
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -1771,7 +1775,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 page | PageSchema | | optional
 limit | LimitSchema | | optional
-macAddress | MacAddressSchema | | optional
+macAddress | MacAddressSchema | | 
 unassigned_devices | UnassignedDevicesSchema | | optional
 
 

@@ -267,7 +267,6 @@ docs/models/XiqClient.md
 docs/models/XiqClientChartData.md
 docs/models/XiqClientChartDataList.md
 docs/models/XiqClientConnectionStatus.md
-docs/models/XiqClientConnectionTrailResponse.md
 docs/models/XiqClientDetail.md
 docs/models/XiqClientField.md
 docs/models/XiqClientGraphData.md
@@ -625,7 +624,6 @@ docs/models/XiqMissingVlanInfo.md
 docs/models/XiqMissingVlanSiteAnomalyCountDetails.md
 docs/models/XiqMobileappAnchorCandidatesResponse.md
 docs/models/XiqMobileappGpsSettingsRequest.md
-docs/models/XiqNeighborAp.md
 docs/models/XiqNetworkAlgType.md
 docs/models/XiqNetworkIpProtocol.md
 docs/models/XiqNetworkPolicy.md
@@ -669,7 +667,6 @@ docs/models/XiqPoeTrendGraphsResponse.md
 docs/models/XiqPolicyRuleProtocolType.md
 docs/models/XiqPortEfficiencySpeedDuplexStatsResponse.md
 docs/models/XiqPortEfficiencyStatsResponse.md
-docs/models/XiqPosition.md
 docs/models/XiqPostExpirationAction.md
 docs/models/XiqPowerSourceEquipment.md
 docs/models/XiqPskGenerationMethod.md
@@ -803,12 +800,6 @@ docs/models/XiqThreadStartCommissionerRequest.md
 docs/models/XiqThreadStopCommissionerRequest.md
 docs/models/XiqThreadVersion.md
 docs/models/XiqTopApplicationsUsage.md
-docs/models/XiqTopologyStackMemberInfo.md
-docs/models/XiqTopologyUnknownDevice.md
-docs/models/XiqTopologyViewLink.md
-docs/models/XiqTopologyViewNode.md
-docs/models/XiqTopologyViewNodePoeInfo.md
-docs/models/XiqTopologyViewNodeVlanInfo.md
 docs/models/XiqTraffic.md
 docs/models/XiqTrendGraphEntity.md
 docs/models/XiqTrendIndicator.md
@@ -1492,8 +1483,6 @@ extremecloudiq/model/xiq_client_chart_data_list.py
 extremecloudiq/model/xiq_client_chart_data_list.pyi
 extremecloudiq/model/xiq_client_connection_status.py
 extremecloudiq/model/xiq_client_connection_status.pyi
-extremecloudiq/model/xiq_client_connection_trail_response.py
-extremecloudiq/model/xiq_client_connection_trail_response.pyi
 extremecloudiq/model/xiq_client_detail.py
 extremecloudiq/model/xiq_client_detail.pyi
 extremecloudiq/model/xiq_client_field.py
@@ -2208,8 +2197,6 @@ extremecloudiq/model/xiq_mobileapp_anchor_candidates_response.py
 extremecloudiq/model/xiq_mobileapp_anchor_candidates_response.pyi
 extremecloudiq/model/xiq_mobileapp_gps_settings_request.py
 extremecloudiq/model/xiq_mobileapp_gps_settings_request.pyi
-extremecloudiq/model/xiq_neighbor_ap.py
-extremecloudiq/model/xiq_neighbor_ap.pyi
 extremecloudiq/model/xiq_network_alg_type.py
 extremecloudiq/model/xiq_network_alg_type.pyi
 extremecloudiq/model/xiq_network_ip_protocol.py
@@ -2296,8 +2283,6 @@ extremecloudiq/model/xiq_port_efficiency_speed_duplex_stats_response.py
 extremecloudiq/model/xiq_port_efficiency_speed_duplex_stats_response.pyi
 extremecloudiq/model/xiq_port_efficiency_stats_response.py
 extremecloudiq/model/xiq_port_efficiency_stats_response.pyi
-extremecloudiq/model/xiq_position.py
-extremecloudiq/model/xiq_position.pyi
 extremecloudiq/model/xiq_post_expiration_action.py
 extremecloudiq/model/xiq_post_expiration_action.pyi
 extremecloudiq/model/xiq_power_source_equipment.py
@@ -2564,18 +2549,6 @@ extremecloudiq/model/xiq_thread_version.py
 extremecloudiq/model/xiq_thread_version.pyi
 extremecloudiq/model/xiq_top_applications_usage.py
 extremecloudiq/model/xiq_top_applications_usage.pyi
-extremecloudiq/model/xiq_topology_stack_member_info.py
-extremecloudiq/model/xiq_topology_stack_member_info.pyi
-extremecloudiq/model/xiq_topology_unknown_device.py
-extremecloudiq/model/xiq_topology_unknown_device.pyi
-extremecloudiq/model/xiq_topology_view_link.py
-extremecloudiq/model/xiq_topology_view_link.pyi
-extremecloudiq/model/xiq_topology_view_node.py
-extremecloudiq/model/xiq_topology_view_node.pyi
-extremecloudiq/model/xiq_topology_view_node_poe_info.py
-extremecloudiq/model/xiq_topology_view_node_poe_info.pyi
-extremecloudiq/model/xiq_topology_view_node_vlan_info.py
-extremecloudiq/model/xiq_topology_view_node_vlan_info.pyi
 extremecloudiq/model/xiq_traffic.py
 extremecloudiq/model/xiq_traffic.pyi
 extremecloudiq/model/xiq_trend_graph_entity.py
@@ -3192,7 +3165,6 @@ test/test_models/test_xiq_client.py
 test/test_models/test_xiq_client_chart_data.py
 test/test_models/test_xiq_client_chart_data_list.py
 test/test_models/test_xiq_client_connection_status.py
-test/test_models/test_xiq_client_connection_trail_response.py
 test/test_models/test_xiq_client_detail.py
 test/test_models/test_xiq_client_field.py
 test/test_models/test_xiq_client_graph_data.py
@@ -3550,7 +3522,6 @@ test/test_models/test_xiq_missing_vlan_info.py
 test/test_models/test_xiq_missing_vlan_site_anomaly_count_details.py
 test/test_models/test_xiq_mobileapp_anchor_candidates_response.py
 test/test_models/test_xiq_mobileapp_gps_settings_request.py
-test/test_models/test_xiq_neighbor_ap.py
 test/test_models/test_xiq_network_alg_type.py
 test/test_models/test_xiq_network_ip_protocol.py
 test/test_models/test_xiq_network_policy.py
@@ -3594,7 +3565,6 @@ test/test_models/test_xiq_poe_trend_graphs_response.py
 test/test_models/test_xiq_policy_rule_protocol_type.py
 test/test_models/test_xiq_port_efficiency_speed_duplex_stats_response.py
 test/test_models/test_xiq_port_efficiency_stats_response.py
-test/test_models/test_xiq_position.py
 test/test_models/test_xiq_post_expiration_action.py
 test/test_models/test_xiq_power_source_equipment.py
 test/test_models/test_xiq_psk_generation_method.py
@@ -3728,12 +3698,6 @@ test/test_models/test_xiq_thread_start_commissioner_request.py
 test/test_models/test_xiq_thread_stop_commissioner_request.py
 test/test_models/test_xiq_thread_version.py
 test/test_models/test_xiq_top_applications_usage.py
-test/test_models/test_xiq_topology_stack_member_info.py
-test/test_models/test_xiq_topology_unknown_device.py
-test/test_models/test_xiq_topology_view_link.py
-test/test_models/test_xiq_topology_view_node.py
-test/test_models/test_xiq_topology_view_node_poe_info.py
-test/test_models/test_xiq_topology_view_node_vlan_info.py
 test/test_models/test_xiq_traffic.py
 test/test_models/test_xiq_trend_graph_entity.py
 test/test_models/test_xiq_trend_indicator.py

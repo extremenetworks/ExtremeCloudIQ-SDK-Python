@@ -3330,7 +3330,7 @@ headers | Unset | headers were not defined |
 
 # **export_rm_devices_to_csv**
 <a id="export_rm_devices_to_csv"></a>
-> XiqRmDeviceListExport export_rm_devices_to_csv()
+> XiqRmDeviceListExport export_rm_devices_to_csv(xiq_rm_device_list_request)
 
 [LRO] Export RM devices data to CSV
 
@@ -3369,6 +3369,48 @@ configuration = extremecloudiq.Configuration(
 with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = device_api.DeviceApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    query_params = {
+    }
+    body = XiqRmDeviceListRequest(
+        site_ids=[
+            1
+        ],
+        sns=[
+            "sns_example"
+        ],
+        mac_addresses=[
+            "mac_addresses_example"
+        ],
+        hostnames=[
+            "hostnames_example"
+        ],
+        default_gateway_ips=[
+            "default_gateway_ips_example"
+        ],
+        product_types=[
+            "product_types_example"
+        ],
+        firmware_versions=[
+            "firmware_versions_example"
+        ],
+        country_codes=[
+            1
+        ],
+        managed_by=[
+            "managed_by_example"
+        ],
+    )
+    try:
+        # [LRO] Export RM devices data to CSV
+        api_response = api_instance.export_rm_devices_to_csv(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DeviceApi->export_rm_devices_to_csv: %s\n" % e)
 
     # example passing only optional values
     query_params = {
@@ -3429,7 +3471,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
@@ -3943,7 +3985,7 @@ Type | Description  | Notes
 
 # **get_device_connection_status**
 <a id="get_device_connection_status"></a>
-> XiqRmDeviceConnectionStatus get_device_connection_status()
+> XiqRmDeviceConnectionStatus get_device_connection_status(xiq_rm_site_ids_request)
 
 Get Device Connection Status
 
@@ -3980,6 +4022,24 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = device_api.DeviceApi(api_client)
 
+    # example passing only required values which don't have defaults set
+    query_params = {
+    }
+    body = XiqRmSiteIdsRequest(
+        site_ids=[
+            1
+        ],
+    )
+    try:
+        # Get Device Connection Status
+        api_response = api_instance.get_device_connection_status(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DeviceApi->get_device_connection_status: %s\n" % e)
+
     # example passing only optional values
     query_params = {
         'deviceCategory': XiqDeviceCategory("WIRED"),
@@ -4007,7 +4067,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
@@ -4649,7 +4709,7 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # **get_device_list_metadata**
 <a id="get_device_list_metadata"></a>
-> XiqRmDeviceMetadataResponse get_device_list_metadata()
+> XiqRmDeviceMetadataResponse get_device_list_metadata(xiq_rm_site_ids_request)
 
 Get Device List Metadata
 
@@ -4687,6 +4747,24 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = device_api.DeviceApi(api_client)
 
+    # example passing only required values which don't have defaults set
+    query_params = {
+    }
+    body = XiqRmSiteIdsRequest(
+        site_ids=[
+            1
+        ],
+    )
+    try:
+        # Get Device List Metadata
+        api_response = api_instance.get_device_list_metadata(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DeviceApi->get_device_list_metadata: %s\n" % e)
+
     # example passing only optional values
     query_params = {
         'deviceCategory': XiqDeviceCategory("WIRED"),
@@ -4717,7 +4795,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
@@ -6585,8 +6663,8 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     }
     body = XiqMobileappGpsSettingsRequest(
         gps_anchor=True,
-        distance=3.14,
-        cep=3.14,
+        distance=0,
+        cep=0,
         coordinates=XiqAfcMobileappCoordinates(
             latitude=3.14,
             longitude=3.14,
@@ -8608,7 +8686,7 @@ headers | Unset | headers were not defined |
 
 # **rm_device_list**
 <a id="rm_device_list"></a>
-> PagedXiqRmDevice rm_device_list()
+> PagedXiqRmDevice rm_device_list(xiq_rm_device_list_request)
 
 [LRO] RM Device Page
 
@@ -8647,6 +8725,48 @@ configuration = extremecloudiq.Configuration(
 with extremecloudiq.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = device_api.DeviceApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    query_params = {
+    }
+    body = XiqRmDeviceListRequest(
+        site_ids=[
+            1
+        ],
+        sns=[
+            "sns_example"
+        ],
+        mac_addresses=[
+            "mac_addresses_example"
+        ],
+        hostnames=[
+            "hostnames_example"
+        ],
+        default_gateway_ips=[
+            "default_gateway_ips_example"
+        ],
+        product_types=[
+            "product_types_example"
+        ],
+        firmware_versions=[
+            "firmware_versions_example"
+        ],
+        country_codes=[
+            1
+        ],
+        managed_by=[
+            "managed_by_example"
+        ],
+    )
+    try:
+        # [LRO] RM Device Page
+        api_response = api_instance.rm_device_list(
+            query_params=query_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DeviceApi->rm_device_list: %s\n" % e)
 
     # example passing only optional values
     query_params = {
@@ -8710,7 +8830,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 query_params | RequestQueryParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
