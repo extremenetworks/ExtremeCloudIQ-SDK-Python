@@ -47,6 +47,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **has_default_gateway_issue** | bool,  | BoolClass,  | Flag to indicate device with default gateway issue | [optional] 
 **has_firmware_version_issue** | bool,  | BoolClass,  | Flag to indicate device with firmware version issue | [optional] 
 **stack_size** | str,  | str,  | The number of devices in the stack (0 for standalone devices) | [optional] 
+**stack_id** | decimal.Decimal, int,  | decimal.Decimal,  | The stack id (only for stack members) | [optional] value must be a 64 bit integer
 **xiq_rm_device_icons** | [**XiqRmDeviceIcons**](XiqRmDeviceIcons.md) | [**XiqRmDeviceIcons**](XiqRmDeviceIcons.md) |  | [optional] 
 **device_license_tier** | [**XiqDeviceLicenseTier**](XiqDeviceLicenseTier.md) | [**XiqDeviceLicenseTier**](XiqDeviceLicenseTier.md) |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]

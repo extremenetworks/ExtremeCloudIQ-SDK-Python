@@ -8786,6 +8786,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'configMismatch': True,
         'async': False,
         'unassigned_devices': False,
+        'stacked_view': True,
     }
     body = XiqRmDeviceListRequest(
         site_ids=[
@@ -8863,6 +8864,7 @@ deviceTypes | DeviceTypesSchema | | optional
 configMismatch | ConfigMismatchSchema | | optional
 async | ModelAsyncSchema | | optional
 unassigned_devices | UnassignedDevicesSchema | | optional
+stacked_view | StackedViewSchema | | optional
 
 
 # PageSchema
@@ -8955,6 +8957,13 @@ bool,  | BoolClass,  |  | if omitted the server will use the default value of Fa
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
+# StackedViewSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | if omitted the server will use the default value of True
 
 ### Return Types, Responses
 
