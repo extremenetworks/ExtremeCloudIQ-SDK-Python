@@ -105,7 +105,7 @@ class DeviceTypesSchema(
         return super().__getitem__(i)
 ConfigMismatchSchema = schemas.BoolSchema
 ModelAsyncSchema = schemas.BoolSchema
-UnassignedDevicesSchema = schemas.BoolSchema
+IncludeUnassignedSchema = schemas.BoolSchema
 StackedViewSchema = schemas.BoolSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
@@ -126,7 +126,7 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
         'deviceTypes': typing.Union[DeviceTypesSchema, list, tuple, ],
         'configMismatch': typing.Union[ConfigMismatchSchema, bool, ],
         'async': typing.Union[ModelAsyncSchema, bool, ],
-        'unassigned_devices': typing.Union[UnassignedDevicesSchema, bool, ],
+        'includeUnassigned': typing.Union[IncludeUnassignedSchema, bool, ],
         'stacked_view': typing.Union[StackedViewSchema, bool, ],
     },
     total=False
@@ -203,10 +203,10 @@ request_query__async = api_client.QueryParameter(
     schema=ModelAsyncSchema,
     explode=True,
 )
-request_query_unassigned_devices = api_client.QueryParameter(
-    name="unassigned_devices",
+request_query_include_unassigned = api_client.QueryParameter(
+    name="includeUnassigned",
     style=api_client.ParameterStyle.FORM,
-    schema=UnassignedDevicesSchema,
+    schema=IncludeUnassignedSchema,
     explode=True,
 )
 request_query_stacked_view = api_client.QueryParameter(
@@ -339,7 +339,7 @@ class BaseApi(api_client.Api):
             request_query_device_types,
             request_query_config_mismatch,
             request_query__async,
-            request_query_unassigned_devices,
+            request_query_include_unassigned,
             request_query_stacked_view,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)

@@ -13,6 +13,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **[site_ids](#site_ids)** | list, tuple,  | tuple,  | List of site ids | [optional] 
 **[device_ids](#device_ids)** | list, tuple,  | tuple,  | List of device ids | [optional] 
 **has_device_health_issues** | bool,  | BoolClass,  | Flag to filter device health issue | [optional] 
+**has_poe_issues** | bool,  | BoolClass,  | Flag to filter poe issue | [optional] 
 **[number_filter](#number_filter)** | list, tuple,  | tuple,  | Object of CPU Usage Percentage | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 

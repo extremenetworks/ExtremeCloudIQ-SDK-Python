@@ -117,7 +117,7 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _export_to_csv4_oapg(
+    def _export_to_csv5_oapg(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -129,7 +129,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _export_to_csv4_oapg(
+    def _export_to_csv5_oapg(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
@@ -139,7 +139,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _export_to_csv4_oapg(
+    def _export_to_csv5_oapg(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -151,7 +151,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _export_to_csv4_oapg(
+    def _export_to_csv5_oapg(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -216,11 +216,11 @@ class BaseApi(api_client.Api):
         return api_response
 
 
-class ExportToCsv4(BaseApi):
+class ExportToCsv5(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
     @typing.overload
-    def export_to_csv4(
+    def export_to_csv5(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -232,7 +232,7 @@ class ExportToCsv4(BaseApi):
     ]: ...
 
     @typing.overload
-    def export_to_csv4(
+    def export_to_csv5(
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
@@ -242,7 +242,7 @@ class ExportToCsv4(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def export_to_csv4(
+    def export_to_csv5(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -254,7 +254,7 @@ class ExportToCsv4(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def export_to_csv4(
+    def export_to_csv5(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
@@ -262,7 +262,7 @@ class ExportToCsv4(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._export_to_csv4_oapg(
+        return self._export_to_csv5_oapg(
             query_params=query_params,
             accept_content_types=accept_content_types,
             stream=stream,
@@ -317,7 +317,7 @@ class ApiForget(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._export_to_csv4_oapg(
+        return self._export_to_csv5_oapg(
             query_params=query_params,
             accept_content_types=accept_content_types,
             stream=stream,

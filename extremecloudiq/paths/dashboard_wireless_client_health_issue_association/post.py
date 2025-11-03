@@ -53,7 +53,7 @@ class LimitSchema(
         inclusive_maximum = 100
         inclusive_minimum = 1
 MacAddressSchema = schemas.StrSchema
-UnassignedDevicesSchema = schemas.BoolSchema
+IncludeUnassignedSchema = schemas.BoolSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -65,7 +65,7 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
     {
         'page': typing.Union[PageSchema, decimal.Decimal, int, ],
         'limit': typing.Union[LimitSchema, decimal.Decimal, int, ],
-        'unassigned_devices': typing.Union[UnassignedDevicesSchema, bool, ],
+        'includeUnassigned': typing.Union[IncludeUnassignedSchema, bool, ],
     },
     total=False
 )
@@ -94,10 +94,10 @@ request_query_mac_address = api_client.QueryParameter(
     required=True,
     explode=True,
 )
-request_query_unassigned_devices = api_client.QueryParameter(
-    name="unassigned_devices",
+request_query_include_unassigned = api_client.QueryParameter(
+    name="includeUnassigned",
     style=api_client.ParameterStyle.FORM,
-    schema=UnassignedDevicesSchema,
+    schema=IncludeUnassignedSchema,
     explode=True,
 )
 # body param
@@ -247,7 +247,7 @@ class BaseApi(api_client.Api):
             request_query_page,
             request_query_limit,
             request_query_mac_address,
-            request_query_unassigned_devices,
+            request_query_include_unassigned,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:

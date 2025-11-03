@@ -48,7 +48,7 @@ KeywordSchema = schemas.StrSchema
 ConnectionStatusSchema = XiqClientConnectionStatus
 SortFieldSchema = XiqClientHealthSortField
 SortOrderSchema = XiqSortOrder
-UnassignedDevicesSchema = schemas.BoolSchema
+IncludeUnassignedSchema = schemas.BoolSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -63,7 +63,7 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
         'connectionStatus': typing.Union[ConnectionStatusSchema, ],
         'sortField': typing.Union[SortFieldSchema, ],
         'sortOrder': typing.Union[SortOrderSchema, ],
-        'unassigned_devices': typing.Union[UnassignedDevicesSchema, bool, ],
+        'includeUnassigned': typing.Union[IncludeUnassignedSchema, bool, ],
     },
     total=False
 )
@@ -109,10 +109,10 @@ request_query_sort_order = api_client.QueryParameter(
     schema=SortOrderSchema,
     explode=True,
 )
-request_query_unassigned_devices = api_client.QueryParameter(
-    name="unassigned_devices",
+request_query_include_unassigned = api_client.QueryParameter(
+    name="includeUnassigned",
     style=api_client.ParameterStyle.FORM,
-    schema=UnassignedDevicesSchema,
+    schema=IncludeUnassignedSchema,
     explode=True,
 )
 # body param
@@ -234,7 +234,7 @@ class BaseApi(api_client.Api):
             request_query_connection_status,
             request_query_sort_field,
             request_query_sort_order,
-            request_query_unassigned_devices,
+            request_query_include_unassigned,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:

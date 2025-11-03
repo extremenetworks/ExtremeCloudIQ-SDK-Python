@@ -988,7 +988,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     path_params = {
-        'id': AP-1234567890,
+        'id': 348802884147994,
     }
     query_params = {
         'ownerId': 1,
@@ -1800,7 +1800,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     path_params = {
-        'id': 1234567890,
+        'id': 348802884142797,
     }
     try:
         api_response = api_instance.recalculate_site(

@@ -40,25 +40,6 @@ request_body_xiq_login_request = api_client.RequestBody(
     },
     required=True,
 )
-SchemaFor401ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor401(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor401ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_401 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor401,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor401ResponseBodyApplicationJson),
-    },
-)
 SchemaFor200ResponseBodyApplicationJson = XiqLoginResponse
 
 
@@ -76,6 +57,25 @@ _response_for_200 = api_client.OpenApiResponse(
     content={
         'application/json': api_client.MediaType(
             schema=SchemaFor200ResponseBodyApplicationJson),
+    },
+)
+SchemaFor401ResponseBodyApplicationJson = XiqError
+
+
+@dataclass
+class ApiResponseFor401(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor401ResponseBodyApplicationJson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_401 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor401,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor401ResponseBodyApplicationJson),
     },
 )
 SchemaFor400ResponseBodyApplicationJson = XiqError

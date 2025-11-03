@@ -172,6 +172,13 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         router_id=1,
         gateway="gateway_example",
         native_vlan=1,
+        block_non_essential_broadcast=True,
+        arp_proxy=True,
+        multicast_rules=[
+            XiqMulticastRule(
+                ip="ip_example",
+            )
+        ],
     )
     try:
         # Create a Tunnel Concentrator
@@ -812,6 +819,13 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         router_id=1,
         gateway="gateway_example",
         native_vlan=1,
+        block_non_essential_broadcast=True,
+        arp_proxy=True,
+        multicast_rules=[
+            XiqMulticastRule(
+                ip="ip_example",
+            )
+        ],
     )
     try:
         # Update TunnelConcentrator by ID

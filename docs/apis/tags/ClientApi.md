@@ -6,6 +6,7 @@ All URIs are relative to *http://localhost:8081*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**disconnect_client**](#disconnect_client) | **delete** /clients/byMac/{clientMac} | Disconnect the client
+[**disconnect_clients**](#disconnect_clients) | **post** /clients/disconnect | Disconnect the clients
 [**get_active_clients_count**](#get_active_clients_count) | **get** /clients/active/count | Get active clients count
 [**get_client**](#get_client) | **get** /clients/{id} | Get client info
 [**get_client_by_mac**](#get_client_by_mac) | **get** /clients/byMac/{clientMac} | Get client info by mac
@@ -92,6 +93,94 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#disconnect_client.ApiResponseFor200) | OK
 
 #### disconnect_client.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **disconnect_clients**
+<a id="disconnect_clients"></a>
+> disconnect_clients(xiq_disconnect_clients_by_mac_request)
+
+Disconnect the clients
+
+Disconnect multiple clients by macAddress.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import client_api
+from extremecloudiq.model.xiq_disconnect_clients_by_mac_request import XiqDisconnectClientsByMacRequest
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = client_api.ClientApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = XiqDisconnectClientsByMacRequest(
+        mac_addresses=[
+            "mac_addresses_example"
+        ],
+    )
+    try:
+        # Disconnect the clients
+        api_response = api_instance.disconnect_clients(
+            body=body,
+        )
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling ClientApi->disconnect_clients: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqDisconnectClientsByMacRequest**](../../models/XiqDisconnectClientsByMacRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#disconnect_clients.ApiResponseFor200) | OK
+
+#### disconnect_clients.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

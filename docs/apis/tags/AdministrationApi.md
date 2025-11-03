@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**delete_api_access_token**](#delete_api_access_token) | **delete** /acct-api-token/{id} | Delete API Access token by ID
 [**delete_credential_distribution_group**](#delete_credential_distribution_group) | **delete** /credential-distribution-groups | Delete Credential Distribution Group by ID
 [**delete_third_party_api_connection**](#delete_third_party_api_connection) | **delete** /third-party-api-connection | Delete a third party api connection
-[**export_to_csv5**](#export_to_csv5) | **get** /acct-api-token/export | Export all API access tokens to CSV
+[**export_to_csv6**](#export_to_csv6) | **get** /acct-api-token/export | Export all API access tokens to CSV
 [**list_api_access_tokens**](#list_api_access_tokens) | **get** /acct-api-token | List API Access tokens
 [**list_credential_distribution_groups**](#list_credential_distribution_groups) | **get** /credential-distribution-groups | List Credential Distribution Groups
 [**list_third_party_api_connections**](#list_third_party_api_connections) | **get** /third-party-api-connection | List third party api connections
@@ -586,9 +586,9 @@ headers | Unset | headers were not defined |
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **export_to_csv5**
-<a id="export_to_csv5"></a>
-> [str] export_to_csv5()
+# **export_to_csv6**
+<a id="export_to_csv6"></a>
+> [str] export_to_csv6()
 
 Export all API access tokens to CSV
 
@@ -631,12 +631,12 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     }
     try:
         # Export all API access tokens to CSV
-        api_response = api_instance.export_to_csv5(
+        api_response = api_instance.export_to_csv6(
             query_params=query_params,
         )
         pprint(api_response)
     except extremecloudiq.ApiException as e:
-        print("Exception when calling AdministrationApi->export_to_csv5: %s\n" % e)
+        print("Exception when calling AdministrationApi->export_to_csv6: %s\n" % e)
 ```
 ### Parameters
 
@@ -682,9 +682,9 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#export_to_csv5.ApiResponseFor200) | OK
+200 | [ApiResponseFor200](#export_to_csv6.ApiResponseFor200) | OK
 
-#### export_to_csv5.ApiResponseFor200
+#### export_to_csv6.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

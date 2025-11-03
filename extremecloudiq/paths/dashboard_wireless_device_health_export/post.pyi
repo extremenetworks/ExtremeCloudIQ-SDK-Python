@@ -34,7 +34,7 @@ from extremecloudiq.model.xiq_metric_report import XiqMetricReport
 KeywordSchema = schemas.StrSchema
 SortFieldSchema = XiqWirelessDeviceHealthSortField
 SortOrderSchema = XiqSortOrder
-UnassignedDevicesSchema = schemas.BoolSchema
+IncludeUnassignedSchema = schemas.BoolSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -46,7 +46,7 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
         'keyword': typing.Union[KeywordSchema, str, ],
         'sortField': typing.Union[SortFieldSchema, ],
         'sortOrder': typing.Union[SortOrderSchema, ],
-        'unassigned_devices': typing.Union[UnassignedDevicesSchema, bool, ],
+        'includeUnassigned': typing.Union[IncludeUnassignedSchema, bool, ],
     },
     total=False
 )
@@ -74,10 +74,10 @@ request_query_sort_order = api_client.QueryParameter(
     schema=SortOrderSchema,
     explode=True,
 )
-request_query_unassigned_devices = api_client.QueryParameter(
-    name="unassigned_devices",
+request_query_include_unassigned = api_client.QueryParameter(
+    name="includeUnassigned",
     style=api_client.ParameterStyle.FORM,
-    schema=UnassignedDevicesSchema,
+    schema=IncludeUnassignedSchema,
     explode=True,
 )
 # body param
@@ -117,7 +117,7 @@ _all_accept_content_types = (
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _export_to_csv1_oapg(
+    def _export_to_csv2_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -131,7 +131,7 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _export_to_csv1_oapg(
+    def _export_to_csv2_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = ...,
@@ -146,7 +146,7 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _export_to_csv1_oapg(
+    def _export_to_csv2_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         skip_deserialization: typing_extensions.Literal[True],
@@ -158,7 +158,7 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _export_to_csv1_oapg(
+    def _export_to_csv2_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = ...,
@@ -172,7 +172,7 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _export_to_csv1_oapg(
+    def _export_to_csv2_oapg(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = 'application/json',
@@ -196,7 +196,7 @@ class BaseApi(api_client.Api):
             request_query_keyword,
             request_query_sort_field,
             request_query_sort_order,
-            request_query_unassigned_devices,
+            request_query_include_unassigned,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:
@@ -254,11 +254,11 @@ class BaseApi(api_client.Api):
         return api_response
 
 
-class ExportToCsv1(BaseApi):
+class ExportToCsv2(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
     @typing.overload
-    def export_to_csv1(
+    def export_to_csv2(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: typing_extensions.Literal["application/json"] = ...,
@@ -272,7 +272,7 @@ class ExportToCsv1(BaseApi):
     ]: ...
 
     @typing.overload
-    def export_to_csv1(
+    def export_to_csv2(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = ...,
@@ -287,7 +287,7 @@ class ExportToCsv1(BaseApi):
 
 
     @typing.overload
-    def export_to_csv1(
+    def export_to_csv2(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         skip_deserialization: typing_extensions.Literal[True],
@@ -299,7 +299,7 @@ class ExportToCsv1(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def export_to_csv1(
+    def export_to_csv2(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = ...,
@@ -313,7 +313,7 @@ class ExportToCsv1(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def export_to_csv1(
+    def export_to_csv2(
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: str = 'application/json',
@@ -323,7 +323,7 @@ class ExportToCsv1(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._export_to_csv1_oapg(
+        return self._export_to_csv2_oapg(
             body=body,
             query_params=query_params,
             content_type=content_type,
@@ -403,7 +403,7 @@ class ApiForpost(BaseApi):
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._export_to_csv1_oapg(
+        return self._export_to_csv2_oapg(
             body=body,
             query_params=query_params,
             content_type=content_type,

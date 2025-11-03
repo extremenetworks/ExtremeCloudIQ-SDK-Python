@@ -19,6 +19,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **[firmware_versions](#firmware_versions)** | list, tuple,  | tuple,  | List of device firmware versions to filter | [optional] 
 **[country_codes](#country_codes)** | list, tuple,  | tuple,  | List of country codes to filter | [optional] 
 **[managed_by](#managed_by)** | list, tuple,  | tuple,  | List of entities managing the device to filter | [optional] 
+**[network_policies](#network_policies)** | list, tuple,  | tuple,  | List of network policies to filter | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # site_ids
@@ -146,6 +147,20 @@ list, tuple,  | tuple,  | List of entities managing the device to filter |
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  | List of entities managing the device to filter | 
+
+# network_policies
+
+List of network policies to filter
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | List of network policies to filter | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | List of network policies to filter | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

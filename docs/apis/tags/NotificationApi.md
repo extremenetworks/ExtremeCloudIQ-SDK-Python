@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**call_list**](#call_list) | **get** /subscriptions/webhook | List webhook subscriptions
 [**create_subscriptions**](#create_subscriptions) | **post** /subscriptions/webhook | Create webhook subscriptions
 [**delete_subscription**](#delete_subscription) | **delete** /subscriptions/webhook/:delete | Delete webhook subscription
-[**export_to_csv4**](#export_to_csv4) | **get** /subscriptions/webhook/export | Export all webhook subscriptions to CSV
+[**export_to_csv5**](#export_to_csv5) | **get** /subscriptions/webhook/export | Export all webhook subscriptions to CSV
 [**update_webhook_subscription**](#update_webhook_subscription) | **put** /subscriptions/webhook/{id} | Update webhook subscription
 
 # **call_list**
@@ -334,9 +334,9 @@ headers | Unset | headers were not defined |
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **export_to_csv4**
-<a id="export_to_csv4"></a>
-> [str] export_to_csv4()
+# **export_to_csv5**
+<a id="export_to_csv5"></a>
+> [str] export_to_csv5()
 
 Export all webhook subscriptions to CSV
 
@@ -377,12 +377,12 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     }
     try:
         # Export all webhook subscriptions to CSV
-        api_response = api_instance.export_to_csv4(
+        api_response = api_instance.export_to_csv5(
             query_params=query_params,
         )
         pprint(api_response)
     except extremecloudiq.ApiException as e:
-        print("Exception when calling NotificationApi->export_to_csv4: %s\n" % e)
+        print("Exception when calling NotificationApi->export_to_csv5: %s\n" % e)
 ```
 ### Parameters
 
@@ -421,9 +421,9 @@ str,  | str,  |  |
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#export_to_csv4.ApiResponseFor200) | OK
+200 | [ApiResponseFor200](#export_to_csv5.ApiResponseFor200) | OK
 
-#### export_to_csv4.ApiResponseFor200
+#### export_to_csv5.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

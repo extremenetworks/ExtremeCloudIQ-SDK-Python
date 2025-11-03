@@ -59,6 +59,7 @@ Method | HTTP request | Description
 [**list_devices_by_network_policy**](#list_devices_by_network_policy) | **get** /devices/network-policy/{policyId} | List assigned devices for network policy
 [**list_devices_radio_information**](#list_devices_radio_information) | **get** /devices/radio-information | Get Devices Radio Information
 [**list_digital_twin_products**](#list_digital_twin_products) | **get** /devices/digital-twin | List Digital Twin product information.
+[**list_ssh_active_sessions**](#list_ssh_active_sessions) | **post** /devices/:ssh-active-sessions | List SSH active sessions
 [**mobileapp_gps_settings**](#mobileapp_gps_settings) | **put** /devices/{id}/mobileapp/gps | Update AP GPS settings
 [**monitor_refresh_device**](#monitor_refresh_device) | **post** /devices/{id}/monitor/:refresh | Monitor refresh a device
 [**monitor_refresh_device_status**](#monitor_refresh_device_status) | **get** /devices/{id}/monitor/refresh/status | Monitor refresh a device status 
@@ -3401,6 +3402,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         managed_by=[
             "managed_by_example"
         ],
+        network_policies=[
+            "network_policies_example"
+        ],
     )
     try:
         # [LRO] Export RM devices data to CSV
@@ -3426,7 +3430,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         XiqDeviceType("REAL")
     ],
         'configMismatch': True,
+        'timezoneOffset': 1,
         'async': False,
+        'includeUnassigned': False,
     }
     body = XiqRmDeviceListRequest(
         site_ids=[
@@ -3455,6 +3461,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         ],
         managed_by=[
             "managed_by_example"
+        ],
+        network_policies=[
+            "network_policies_example"
         ],
     )
     try:
@@ -3500,7 +3509,9 @@ sortField | SortFieldSchema | | optional
 sortOrder | SortOrderSchema | | optional
 deviceTypes | DeviceTypesSchema | | optional
 configMismatch | ConfigMismatchSchema | | optional
+timezoneOffset | TimezoneOffsetSchema | | optional
 async | ModelAsyncSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 
 
 # KeywordSchema
@@ -3566,7 +3577,21 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  | 
 
+# TimezoneOffsetSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
 # ModelAsyncSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -4046,7 +4071,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'deviceTypes': [
         XiqDeviceType("REAL")
     ],
-        'unassigned_devices': False,
+        'includeUnassigned': False,
     }
     body = XiqRmSiteIdsRequest(
         site_ids=[
@@ -4090,7 +4115,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 deviceCategory | DeviceCategorySchema | | optional
 deviceTypes | DeviceTypesSchema | | optional
-unassigned_devices | UnassignedDevicesSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 
 
 # DeviceCategorySchema
@@ -4111,7 +4136,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) | [**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) | [**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) |  | 
 
-# UnassignedDevicesSchema
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -4774,7 +4799,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'deviceTypes': [
         XiqDeviceType("REAL")
     ],
-        'unassigned_devices': False,
+        'includeUnassigned': False,
     }
     body = XiqRmSiteIdsRequest(
         site_ids=[
@@ -4819,7 +4844,7 @@ Name | Type | Description  | Notes
 deviceCategory | DeviceCategorySchema | | optional
 adminStates | AdminStatesSchema | | optional
 deviceTypes | DeviceTypesSchema | | optional
-unassigned_devices | UnassignedDevicesSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 
 
 # DeviceCategorySchema
@@ -4852,7 +4877,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) | [**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) | [**XiqDeviceType**]({{complexTypePrefix}}XiqDeviceType.md) |  | 
 
-# UnassignedDevicesSchema
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -6614,6 +6639,109 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**PagedXiqDigitalTwinProducts**](../../models/PagedXiqDigitalTwinProducts.md) |  | 
 
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **list_ssh_active_sessions**
+<a id="list_ssh_active_sessions"></a>
+> [XiqSshActiveSessionsResponse] list_ssh_active_sessions()
+
+List SSH active sessions
+
+List active SSH sessions for devices.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import device_api
+from extremecloudiq.model.xiq_ssh_active_sessions_response import XiqSshActiveSessionsResponse
+from extremecloudiq.model.xiq_ssh_active_sessions_request import XiqSshActiveSessionsRequest
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = device_api.DeviceApi(api_client)
+
+    # example passing only optional values
+    body = XiqSshActiveSessionsRequest(
+        device_ids=[
+            1
+        ],
+    )
+    try:
+        # List SSH active sessions
+        api_response = api_instance.list_ssh_active_sessions(
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DeviceApi->list_ssh_active_sessions: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, Unset] | optional, default is unset |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqSshActiveSessionsRequest**](../../models/XiqSshActiveSessionsRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#list_ssh_active_sessions.ApiResponseFor200) | OK
+
+#### list_ssh_active_sessions.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqSshActiveSessionsResponse**]({{complexTypePrefix}}XiqSshActiveSessionsResponse.md) | [**XiqSshActiveSessionsResponse**]({{complexTypePrefix}}XiqSshActiveSessionsResponse.md) | [**XiqSshActiveSessionsResponse**]({{complexTypePrefix}}XiqSshActiveSessionsResponse.md) |  | 
 
 ### Authorization
 
@@ -8757,6 +8885,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         managed_by=[
             "managed_by_example"
         ],
+        network_policies=[
+            "network_policies_example"
+        ],
     )
     try:
         # [LRO] RM Device Page
@@ -8785,7 +8916,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     ],
         'configMismatch': True,
         'async': False,
-        'unassigned_devices': False,
+        'includeUnassigned': False,
         'stacked_view': True,
     }
     body = XiqRmDeviceListRequest(
@@ -8815,6 +8946,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         ],
         managed_by=[
             "managed_by_example"
+        ],
+        network_policies=[
+            "network_policies_example"
         ],
     )
     try:
@@ -8863,7 +8997,7 @@ order | OrderSchema | | optional
 deviceTypes | DeviceTypesSchema | | optional
 configMismatch | ConfigMismatchSchema | | optional
 async | ModelAsyncSchema | | optional
-unassigned_devices | UnassignedDevicesSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 stacked_view | StackedViewSchema | | optional
 
 
@@ -8951,7 +9085,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  | if omitted the server will use the default value of False
 
-# UnassignedDevicesSchema
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

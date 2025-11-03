@@ -96,7 +96,7 @@ class SortFieldSchema(
         return cls("SITE_NAME")
 SortOrderSchema = XiqSortOrder
 KeywordSchema = schemas.StrSchema
-UnassignedDevicesSchema = schemas.BoolSchema
+IncludeUnassignedSchema = schemas.BoolSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -110,7 +110,7 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
         'sortField': typing.Union[SortFieldSchema, str, ],
         'sortOrder': typing.Union[SortOrderSchema, ],
         'keyword': typing.Union[KeywordSchema, str, ],
-        'unassigned_devices': typing.Union[UnassignedDevicesSchema, bool, ],
+        'includeUnassigned': typing.Union[IncludeUnassignedSchema, bool, ],
     },
     total=False
 )
@@ -150,10 +150,10 @@ request_query_keyword = api_client.QueryParameter(
     schema=KeywordSchema,
     explode=True,
 )
-request_query_unassigned_devices = api_client.QueryParameter(
-    name="unassigned_devices",
+request_query_include_unassigned = api_client.QueryParameter(
+    name="includeUnassigned",
     style=api_client.ParameterStyle.FORM,
-    schema=UnassignedDevicesSchema,
+    schema=IncludeUnassignedSchema,
     explode=True,
 )
 # body param
@@ -280,7 +280,7 @@ class BaseApi(api_client.Api):
             request_query_sort_field,
             request_query_sort_order,
             request_query_keyword,
-            request_query_unassigned_devices,
+            request_query_include_unassigned,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:

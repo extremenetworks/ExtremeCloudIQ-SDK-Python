@@ -6,6 +6,7 @@ from extremecloudiq.apis.tags.authorization_api import AuthorizationApi
 from extremecloudiq.apis.tags.operation_api import OperationApi
 from extremecloudiq.apis.tags.account_api import AccountApi
 from extremecloudiq.apis.tags.user_api import UserApi
+from extremecloudiq.apis.tags.use_folder_preferences_api import UseFolderPreferencesApi
 from extremecloudiq.apis.tags.hiq_api import HIQApi
 from extremecloudiq.apis.tags.location_api import LocationApi
 from extremecloudiq.apis.tags.device_api import DeviceApi
@@ -42,6 +43,7 @@ from extremecloudiq.apis.tags.network_scorecard_api import NetworkScorecardApi
 from extremecloudiq.apis.tags.essentials_extreme_location_api import EssentialsExtremeLocationApi
 from extremecloudiq.apis.tags.misc_api import MiscApi
 from extremecloudiq.apis.tags.thread_api import ThreadApi
+from extremecloudiq.apis.tags.ngreports_api import NGREPORTSApi
 from extremecloudiq.apis.tags.universal_compute_platform_api import UniversalComputePlatformApi
 from extremecloudiq.apis.tags.afc_endpoint_api import AfcEndpointApi
 from extremecloudiq.apis.tags.rtts_endpoint_api import RttsEndpointApi
@@ -54,6 +56,7 @@ TagToApi = typing_extensions.TypedDict(
         TagValues.OPERATION: OperationApi,
         TagValues.ACCOUNT: AccountApi,
         TagValues.USER: UserApi,
+        TagValues.USE_FOLDER_PREFERENCES: UseFolderPreferencesApi,
         TagValues.HIQ: HIQApi,
         TagValues.LOCATION: LocationApi,
         TagValues.DEVICE: DeviceApi,
@@ -90,6 +93,7 @@ TagToApi = typing_extensions.TypedDict(
         TagValues.ESSENTIALS__EXTREME_LOCATION: EssentialsExtremeLocationApi,
         TagValues.MISC: MiscApi,
         TagValues.THREAD: ThreadApi,
+        TagValues.NGREPORTS: NGREPORTSApi,
         TagValues.UNIVERSAL_COMPUTE_PLATFORM: UniversalComputePlatformApi,
         TagValues.AFCENDPOINT: AfcEndpointApi,
         TagValues.RTTSENDPOINT: RttsEndpointApi,
@@ -103,6 +107,7 @@ tag_to_api = TagToApi(
         TagValues.OPERATION: OperationApi,
         TagValues.ACCOUNT: AccountApi,
         TagValues.USER: UserApi,
+        TagValues.USE_FOLDER_PREFERENCES: UseFolderPreferencesApi,
         TagValues.HIQ: HIQApi,
         TagValues.LOCATION: LocationApi,
         TagValues.DEVICE: DeviceApi,
@@ -139,6 +144,7 @@ tag_to_api = TagToApi(
         TagValues.ESSENTIALS__EXTREME_LOCATION: EssentialsExtremeLocationApi,
         TagValues.MISC: MiscApi,
         TagValues.THREAD: ThreadApi,
+        TagValues.NGREPORTS: NGREPORTSApi,
         TagValues.UNIVERSAL_COMPUTE_PLATFORM: UniversalComputePlatformApi,
         TagValues.AFCENDPOINT: AfcEndpointApi,
         TagValues.RTTSENDPOINT: RttsEndpointApi,

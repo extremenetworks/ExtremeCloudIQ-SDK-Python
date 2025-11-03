@@ -92,7 +92,9 @@ class DeviceTypesSchema(
     def __getitem__(self, i: int) -> 'XiqDeviceType':
         return super().__getitem__(i)
 ConfigMismatchSchema = schemas.BoolSchema
+TimezoneOffsetSchema = schemas.Int64Schema
 ModelAsyncSchema = schemas.BoolSchema
+IncludeUnassignedSchema = schemas.BoolSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -109,7 +111,9 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
         'sortOrder': typing.Union[SortOrderSchema, ],
         'deviceTypes': typing.Union[DeviceTypesSchema, list, tuple, ],
         'configMismatch': typing.Union[ConfigMismatchSchema, bool, ],
+        'timezoneOffset': typing.Union[TimezoneOffsetSchema, decimal.Decimal, int, ],
         'async': typing.Union[ModelAsyncSchema, bool, ],
+        'includeUnassigned': typing.Union[IncludeUnassignedSchema, bool, ],
     },
     total=False
 )
@@ -167,10 +171,22 @@ request_query_config_mismatch = api_client.QueryParameter(
     schema=ConfigMismatchSchema,
     explode=True,
 )
+request_query_timezone_offset = api_client.QueryParameter(
+    name="timezoneOffset",
+    style=api_client.ParameterStyle.FORM,
+    schema=TimezoneOffsetSchema,
+    explode=True,
+)
 request_query__async = api_client.QueryParameter(
     name="async",
     style=api_client.ParameterStyle.FORM,
     schema=ModelAsyncSchema,
+    explode=True,
+)
+request_query_include_unassigned = api_client.QueryParameter(
+    name="includeUnassigned",
+    style=api_client.ParameterStyle.FORM,
+    schema=IncludeUnassignedSchema,
     explode=True,
 )
 # body param
@@ -294,7 +310,9 @@ class BaseApi(api_client.Api):
             request_query_sort_order,
             request_query_device_types,
             request_query_config_mismatch,
+            request_query_timezone_offset,
             request_query__async,
+            request_query_include_unassigned,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:

@@ -40,23 +40,23 @@ request_body_xiq_check_permission_request = api_client.RequestBody(
     },
     required=True,
 )
-SchemaFor200ResponseBodyApplicationJson = XiqCheckPermissionResponse
+SchemaFor400ResponseBodyApplicationJson = XiqError
 
 
 @dataclass
-class ApiResponseFor200(api_client.ApiResponse):
+class ApiResponseFor400(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        SchemaFor200ResponseBodyApplicationJson,
+        SchemaFor400ResponseBodyApplicationJson,
     ]
     headers: schemas.Unset = schemas.unset
 
 
-_response_for_200 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor200,
+_response_for_400 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor400,
     content={
         'application/json': api_client.MediaType(
-            schema=SchemaFor200ResponseBodyApplicationJson),
+            schema=SchemaFor400ResponseBodyApplicationJson),
     },
 )
 SchemaFor403ResponseBodyApplicationJson = XiqError
@@ -78,6 +78,25 @@ _response_for_403 = api_client.OpenApiResponse(
             schema=SchemaFor403ResponseBodyApplicationJson),
     },
 )
+SchemaFor200ResponseBodyApplicationJson = XiqCheckPermissionResponse
+
+
+@dataclass
+class ApiResponseFor200(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor200ResponseBodyApplicationJson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_200 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor200,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor200ResponseBodyApplicationJson),
+    },
+)
 SchemaFor401ResponseBodyApplicationJson = XiqError
 
 
@@ -95,25 +114,6 @@ _response_for_401 = api_client.OpenApiResponse(
     content={
         'application/json': api_client.MediaType(
             schema=SchemaFor401ResponseBodyApplicationJson),
-    },
-)
-SchemaFor400ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor400(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor400ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_400 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor400,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor400ResponseBodyApplicationJson),
     },
 )
 _all_accept_content_types = (

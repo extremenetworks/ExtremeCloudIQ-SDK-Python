@@ -32,7 +32,24 @@ Key | Input Type | Accessed Type | Description | Notes
 **backup_tagged** | bool,  | BoolClass,  | Indicates if backup VLAN is tagged | [optional] 
 **router_id** | decimal.Decimal, int,  | decimal.Decimal,  | Virtual Router group ID | [optional] value must be a 32 bit integer
 **gateway** | str,  | str,  | The TunnelConcentrator optional gateway ip address | [optional] 
+**block_non_essential_broadcast** | bool,  | BoolClass,  | Indicates if Tunnel Concentrator will block non essential broadcast | [optional] 
+**arp_proxy** | bool,  | BoolClass,  | Indicates if arp proxy is enabled | [optional] 
+**[multicast_rules](#multicast_rules)** | list, tuple,  | tuple,  | Multicast rules | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# multicast_rules
+
+Multicast rules
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | Multicast rules | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqMulticastRule**](XiqMulticastRule.md) | [**XiqMulticastRule**](XiqMulticastRule.md) | [**XiqMulticastRule**](XiqMulticastRule.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

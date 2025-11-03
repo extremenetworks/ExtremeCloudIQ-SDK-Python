@@ -80,7 +80,12 @@ from extremecloudiq.apis.paths.account_vhm_setting_id import AccountVhmSettingId
 from extremecloudiq.apis.paths.vlan_profiles import VlanProfiles
 from extremecloudiq.apis.paths.vlan_profiles_delete import VlanProfilesDelete
 from extremecloudiq.apis.paths.users import Users
+from extremecloudiq.apis.paths.users_type_distribution import UsersTypeDistribution
+from extremecloudiq.apis.paths.users_grid_export import UsersGridExport
+from extremecloudiq.apis.paths.users_grid import UsersGrid
+from extremecloudiq.apis.paths.users_filter_metadata import UsersFilterMetadata
 from extremecloudiq.apis.paths.users_external import UsersExternal
+from extremecloudiq.apis.paths.users_data_usage import UsersDataUsage
 from extremecloudiq.apis.paths.usergroups import Usergroups
 from extremecloudiq.apis.paths.user_profiles import UserProfiles
 from extremecloudiq.apis.paths.user_profiles_id_mac_firewall_policies_detach import UserProfilesIdMacFirewallPoliciesDetach
@@ -88,6 +93,7 @@ from extremecloudiq.apis.paths.user_profiles_id_mac_firewall_policies_attach imp
 from extremecloudiq.apis.paths.user_profiles_id_ip_firewall_policies_detach import UserProfilesIdIpFirewallPoliciesDetach
 from extremecloudiq.apis.paths.user_profiles_id_ip_firewall_policies_attach import UserProfilesIdIpFirewallPoliciesAttach
 from extremecloudiq.apis.paths.user_profile_assignments import UserProfileAssignments
+from extremecloudiq.apis.paths.user_folder_preferences_folder_id import UserFolderPreferencesFolderId
 from extremecloudiq.apis.paths.tunnel_concentrators import TunnelConcentrators
 from extremecloudiq.apis.paths.switch_inspector_diagnostics import SwitchInspectorDiagnostics
 from extremecloudiq.apis.paths.subscriptions_webhook import SubscriptionsWebhook
@@ -119,6 +125,18 @@ from extremecloudiq.apis.paths.packetcaptures_id_upload import PacketcapturesIdU
 from extremecloudiq.apis.paths.packetcaptures_id_stop import PacketcapturesIdStop
 from extremecloudiq.apis.paths.operations_operation_id_cancel import OperationsOperationIdCancel
 from extremecloudiq.apis.paths.nos_device_device_id_nos_api import NosDeviceDeviceIdNosApi
+from extremecloudiq.apis.paths.ng_reports_timeseries import NgReportsTimeseries
+from extremecloudiq.apis.paths.ng_reports_tabledata import NgReportsTabledata
+from extremecloudiq.apis.paths.ng_reports_metadata_user import NgReportsMetadataUser
+from extremecloudiq.apis.paths.ng_reports_metadata_ssids import NgReportsMetadataSsids
+from extremecloudiq.apis.paths.ng_reports_metadata_os import NgReportsMetadataOs
+from extremecloudiq.apis.paths.ng_reports_metadata_device import NgReportsMetadataDevice
+from extremecloudiq.apis.paths.ng_reports_metadata_connection_type import NgReportsMetadataConnectionType
+from extremecloudiq.apis.paths.ng_reports_metadata_client import NgReportsMetadataClient
+from extremecloudiq.apis.paths.ng_reports_metadata_channel import NgReportsMetadataChannel
+from extremecloudiq.apis.paths.ng_reports_metadata_bands import NgReportsMetadataBands
+from extremecloudiq.apis.paths.ng_reports_metadata_application import NgReportsMetadataApplication
+from extremecloudiq.apis.paths.ng_reports_downloads_reports import NgReportsDownloadsReports
 from extremecloudiq.apis.paths.network_services import NetworkServices
 from extremecloudiq.apis.paths.network_policies import NetworkPolicies
 from extremecloudiq.apis.paths.network_policies_id_ssids_remove import NetworkPoliciesIdSsidsRemove
@@ -182,6 +200,7 @@ from extremecloudiq.apis.paths.devices_anchor_revoke import DevicesAnchorRevoke
 from extremecloudiq.apis.paths.devices_anchor_assign import DevicesAnchorAssign
 from extremecloudiq.apis.paths.devices_actions_support_metadata import DevicesActionsSupportMetadata
 from extremecloudiq.apis.paths.devices_unmanage import DevicesUnmanage
+from extremecloudiq.apis.paths.devices_ssh_active_sessions import DevicesSshActiveSessions
 from extremecloudiq.apis.paths.devices_reset import DevicesReset
 from extremecloudiq.apis.paths.devices_reboot import DevicesReboot
 from extremecloudiq.apis.paths.devices_onboard import DevicesOnboard
@@ -248,6 +267,7 @@ from extremecloudiq.apis.paths.d360_client_graph import D360ClientGraph
 from extremecloudiq.apis.paths.credential_distribution_groups import CredentialDistributionGroups
 from extremecloudiq.apis.paths.copilot_anomalies_exclude_vlans import CopilotAnomaliesExcludeVlans
 from extremecloudiq.apis.paths.copilot_anomalies_exclude_vlans_csv import CopilotAnomaliesExcludeVlansCsv
+from extremecloudiq.apis.paths.clients_disconnect import ClientsDisconnect
 from extremecloudiq.apis.paths.client_monitor_profiles import ClientMonitorProfiles
 from extremecloudiq.apis.paths.classification_rules import ClassificationRules
 from extremecloudiq.apis.paths.certificates_import import CertificatesImport
@@ -258,6 +278,8 @@ from extremecloudiq.apis.paths.auth_permissions_check import AuthPermissionsChec
 from extremecloudiq.apis.paths.auth_apitoken import AuthApitoken
 from extremecloudiq.apis.paths.auth_apitoken_validate import AuthApitokenValidate
 from extremecloudiq.apis.paths.aps_afc_update import ApsAfcUpdate
+from extremecloudiq.apis.paths.applications_usage_summary import ApplicationsUsageSummary
+from extremecloudiq.apis.paths.applications_usage_summary_export import ApplicationsUsageSummaryExport
 from extremecloudiq.apis.paths.ap_spectrum_ import ApSpectrum
 from extremecloudiq.apis.paths.alerts_reports import AlertsReports
 from extremecloudiq.apis.paths.alerts_acknowledge import AlertsAcknowledge
@@ -284,9 +306,11 @@ from extremecloudiq.apis.paths.vlan_profiles_id import VlanProfilesId
 from extremecloudiq.apis.paths.users_id import UsersId
 from extremecloudiq.apis.paths.users_external_id import UsersExternalId
 from extremecloudiq.apis.paths.acct_api_token_id import AcctApiTokenId
+from extremecloudiq.apis.paths.users_reports_id import UsersReportsId
 from extremecloudiq.apis.paths.users_me import UsersMe
 from extremecloudiq.apis.paths.usergroups_unique import UsergroupsUnique
 from extremecloudiq.apis.paths.user_profile_assignments_id import UserProfileAssignmentsId
+from extremecloudiq.apis.paths.user_folder_preferences import UserFolderPreferences
 from extremecloudiq.apis.paths.ucp_id_engines_installed import UcpIdEnginesInstalled
 from extremecloudiq.apis.paths.thread_topology import ThreadTopology
 from extremecloudiq.apis.paths.thread_routers import ThreadRouters
@@ -300,6 +324,9 @@ from extremecloudiq.apis.paths.radio_operating_modes_product_type import RadioOp
 from extremecloudiq.apis.paths.packetcaptures_id import PacketcapturesId
 from extremecloudiq.apis.paths.packetcaptures_files import PacketcapturesFiles
 from extremecloudiq.apis.paths.operations_operation_id import OperationsOperationId
+from extremecloudiq.apis.paths.ng_reports_information_metrics import NgReportsInformationMetrics
+from extremecloudiq.apis.paths.ng_reports_information_ import NgReportsInformation
+from extremecloudiq.apis.paths.ng_reports_download_reports_id import NgReportsDownloadReportsId
 from extremecloudiq.apis.paths.network_scorecard_wifi_health_location_id import NetworkScorecardWifiHealthLocationId
 from extremecloudiq.apis.paths.network_scorecard_services_health_location_id import NetworkScorecardServicesHealthLocationId
 from extremecloudiq.apis.paths.network_scorecard_network_health_location_id import NetworkScorecardNetworkHealthLocationId
@@ -351,8 +378,10 @@ from extremecloudiq.apis.paths.dashboard_reports_id import DashboardReportsId
 from extremecloudiq.apis.paths.dashboard_device_types import DashboardDeviceTypes
 from extremecloudiq.apis.paths.d360_wireless_interfaces_stats import D360WirelessInterfacesStats
 from extremecloudiq.apis.paths.d360_wireless_interfaces_graph import D360WirelessInterfacesGraph
+from extremecloudiq.apis.paths.d360_wired_queue_grid import D360WiredQueueGrid
 from extremecloudiq.apis.paths.d360_ssid_metadata import D360SsidMetadata
 from extremecloudiq.apis.paths.d360_overview_devices_summary import D360OverviewDevicesSummary
+from extremecloudiq.apis.paths.d360_event_graph import D360EventGraph
 from extremecloudiq.apis.paths.d360_device_stats import D360DeviceStats
 from extremecloudiq.apis.paths.d360_device_metadata import D360DeviceMetadata
 from extremecloudiq.apis.paths.d360_device_issues import D360DeviceIssues
@@ -412,6 +441,7 @@ from extremecloudiq.apis.paths.clients_summary import ClientsSummary
 from extremecloudiq.apis.paths.clients_by_mac_client_mac import ClientsByMacClientMac
 from extremecloudiq.apis.paths.clients_active import ClientsActive
 from extremecloudiq.apis.paths.clients_active_count import ClientsActiveCount
+from extremecloudiq.apis.paths.client_details_topology_client_trail_mac_address import ClientDetailsTopologyClientTrailMacAddress
 from extremecloudiq.apis.paths.client_details_overview_info_client_id import ClientDetailsOverviewInfoClientId
 from extremecloudiq.apis.paths.client_details_overview_chart_data_client_id import ClientDetailsOverviewChartDataClientId
 from extremecloudiq.apis.paths.client_details_client_trail_roaming_trail_grid_client_id import ClientDetailsClientTrailRoamingTrailGridClientId
@@ -424,7 +454,9 @@ from extremecloudiq.apis.paths.auth_apitoken_info import AuthApitokenInfo
 from extremecloudiq.apis.paths.aps_afc_query_ import ApsAfcQuery
 from extremecloudiq.apis.paths.applications import Applications
 from extremecloudiq.apis.paths.applications_id_clients_topn import ApplicationsIdClientsTopn
+from extremecloudiq.apis.paths.applications_usage_summary_meta_data import ApplicationsUsageSummaryMetaData
 from extremecloudiq.apis.paths.applications_topn import ApplicationsTopn
+from extremecloudiq.apis.paths.applications_reports_id import ApplicationsReportsId
 from extremecloudiq.apis.paths.ap_afc_interface_details_sn import ApAfcInterfaceDetailsSn
 from extremecloudiq.apis.paths.ap_afc_floor_report_device_id import ApAfcFloorReportDeviceId
 from extremecloudiq.apis.paths.ap_afc_diagnostics_id import ApAfcDiagnosticsId
@@ -538,7 +570,12 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.VLANPROFILES: VlanProfiles,
         PathValues.VLANPROFILES_DELETE: VlanProfilesDelete,
         PathValues.USERS: Users,
+        PathValues.USERS_TYPE_DISTRIBUTION: UsersTypeDistribution,
+        PathValues.USERS_GRID_EXPORT: UsersGridExport,
+        PathValues.USERS_GRID: UsersGrid,
+        PathValues.USERS_FILTER_METADATA: UsersFilterMetadata,
         PathValues.USERS_EXTERNAL: UsersExternal,
+        PathValues.USERS_DATA_USAGE: UsersDataUsage,
         PathValues.USERGROUPS: Usergroups,
         PathValues.USERPROFILES: UserProfiles,
         PathValues.USERPROFILES_ID_MACFIREWALLPOLICIES_DETACH: UserProfilesIdMacFirewallPoliciesDetach,
@@ -546,6 +583,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.USERPROFILES_ID_IPFIREWALLPOLICIES_DETACH: UserProfilesIdIpFirewallPoliciesDetach,
         PathValues.USERPROFILES_ID_IPFIREWALLPOLICIES_ATTACH: UserProfilesIdIpFirewallPoliciesAttach,
         PathValues.USERPROFILEASSIGNMENTS: UserProfileAssignments,
+        PathValues.USERFOLDERPREFERENCES_FOLDER_ID: UserFolderPreferencesFolderId,
         PathValues.TUNNELCONCENTRATORS: TunnelConcentrators,
         PathValues.SWITCHINSPECTOR_DIAGNOSTICS: SwitchInspectorDiagnostics,
         PathValues.SUBSCRIPTIONS_WEBHOOK: SubscriptionsWebhook,
@@ -577,6 +615,18 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.PACKETCAPTURES_ID_STOP: PacketcapturesIdStop,
         PathValues.OPERATIONS_OPERATION_ID_CANCEL: OperationsOperationIdCancel,
         PathValues.NOS_DEVICE_DEVICE_ID_NOSAPI: NosDeviceDeviceIdNosApi,
+        PathValues.NGREPORTS_TIMESERIES: NgReportsTimeseries,
+        PathValues.NGREPORTS_TABLEDATA: NgReportsTabledata,
+        PathValues.NGREPORTS_METADATA_USER: NgReportsMetadataUser,
+        PathValues.NGREPORTS_METADATA_SSIDS: NgReportsMetadataSsids,
+        PathValues.NGREPORTS_METADATA_OS: NgReportsMetadataOs,
+        PathValues.NGREPORTS_METADATA_DEVICE: NgReportsMetadataDevice,
+        PathValues.NGREPORTS_METADATA_CONNECTIONTYPE: NgReportsMetadataConnectionType,
+        PathValues.NGREPORTS_METADATA_CLIENT: NgReportsMetadataClient,
+        PathValues.NGREPORTS_METADATA_CHANNEL: NgReportsMetadataChannel,
+        PathValues.NGREPORTS_METADATA_BANDS: NgReportsMetadataBands,
+        PathValues.NGREPORTS_METADATA_APPLICATION: NgReportsMetadataApplication,
+        PathValues.NGREPORTS_DOWNLOADS_REPORTS: NgReportsDownloadsReports,
         PathValues.NETWORKSERVICES: NetworkServices,
         PathValues.NETWORKPOLICIES: NetworkPolicies,
         PathValues.NETWORKPOLICIES_ID_SSIDS_REMOVE: NetworkPoliciesIdSsidsRemove,
@@ -640,6 +690,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.DEVICES_ANCHOR_ASSIGN: DevicesAnchorAssign,
         PathValues.DEVICES_ACTIONSSUPPORTMETADATA: DevicesActionsSupportMetadata,
         PathValues.DEVICES_UNMANAGE: DevicesUnmanage,
+        PathValues.DEVICES_SSHACTIVESESSIONS: DevicesSshActiveSessions,
         PathValues.DEVICES_RESET: DevicesReset,
         PathValues.DEVICES_REBOOT: DevicesReboot,
         PathValues.DEVICES_ONBOARD: DevicesOnboard,
@@ -706,6 +757,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.CREDENTIALDISTRIBUTIONGROUPS: CredentialDistributionGroups,
         PathValues.COPILOT_ANOMALIES_EXCLUDEVLANS: CopilotAnomaliesExcludeVlans,
         PathValues.COPILOT_ANOMALIES_EXCLUDEVLANSCSV: CopilotAnomaliesExcludeVlansCsv,
+        PathValues.CLIENTS_DISCONNECT: ClientsDisconnect,
         PathValues.CLIENTMONITORPROFILES: ClientMonitorProfiles,
         PathValues.CLASSIFICATIONRULES: ClassificationRules,
         PathValues.CERTIFICATES_IMPORT: CertificatesImport,
@@ -716,6 +768,8 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.AUTH_APITOKEN: AuthApitoken,
         PathValues.AUTH_APITOKEN_VALIDATE: AuthApitokenValidate,
         PathValues.APS_AFC_UPDATE: ApsAfcUpdate,
+        PathValues.APPLICATIONS_USAGE_SUMMARY: ApplicationsUsageSummary,
+        PathValues.APPLICATIONS_USAGE_SUMMARY_EXPORT: ApplicationsUsageSummaryExport,
         PathValues.AP_SPECTRUM_: ApSpectrum,
         PathValues.ALERTS_REPORTS: AlertsReports,
         PathValues.ALERTS_ACKNOWLEDGE: AlertsAcknowledge,
@@ -742,9 +796,11 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.USERS_ID: UsersId,
         PathValues.USERS_EXTERNAL_ID: UsersExternalId,
         PathValues.ACCTAPITOKEN_ID: AcctApiTokenId,
+        PathValues.USERS_REPORTS_ID: UsersReportsId,
         PathValues.USERS_ME: UsersMe,
         PathValues.USERGROUPS_UNIQUE: UsergroupsUnique,
         PathValues.USERPROFILEASSIGNMENTS_ID: UserProfileAssignmentsId,
+        PathValues.USERFOLDERPREFERENCES: UserFolderPreferences,
         PathValues.UCP_ID_ENGINES_INSTALLED: UcpIdEnginesInstalled,
         PathValues.THREAD_TOPOLOGY: ThreadTopology,
         PathValues.THREAD_ROUTERS: ThreadRouters,
@@ -758,6 +814,9 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.PACKETCAPTURES_ID: PacketcapturesId,
         PathValues.PACKETCAPTURES_FILES: PacketcapturesFiles,
         PathValues.OPERATIONS_OPERATION_ID: OperationsOperationId,
+        PathValues.NGREPORTS_INFORMATION_METRICS: NgReportsInformationMetrics,
+        PathValues.NGREPORTS_INFORMATION_: NgReportsInformation,
+        PathValues.NGREPORTS_DOWNLOAD_REPORTS_ID: NgReportsDownloadReportsId,
         PathValues.NETWORKSCORECARD_WIFI_HEALTH_LOCATION_ID: NetworkScorecardWifiHealthLocationId,
         PathValues.NETWORKSCORECARD_SERVICES_HEALTH_LOCATION_ID: NetworkScorecardServicesHealthLocationId,
         PathValues.NETWORKSCORECARD_NETWORK_HEALTH_LOCATION_ID: NetworkScorecardNetworkHealthLocationId,
@@ -809,8 +868,10 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.DASHBOARD_DEVICETYPES: DashboardDeviceTypes,
         PathValues.D360_WIRELESS_INTERFACESSTATS: D360WirelessInterfacesStats,
         PathValues.D360_WIRELESS_INTERFACESGRAPH: D360WirelessInterfacesGraph,
+        PathValues.D360_WIRED_QUEUEGRID: D360WiredQueueGrid,
         PathValues.D360_SSIDMETADATA: D360SsidMetadata,
         PathValues.D360_OVERVIEW_DEVICESSUMMARY: D360OverviewDevicesSummary,
+        PathValues.D360_EVENT_GRAPH: D360EventGraph,
         PathValues.D360_DEVICE_STATS: D360DeviceStats,
         PathValues.D360_DEVICE_METADATA: D360DeviceMetadata,
         PathValues.D360_DEVICE_ISSUES: D360DeviceIssues,
@@ -870,6 +931,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.CLIENTS_BY_MAC_CLIENT_MAC: ClientsByMacClientMac,
         PathValues.CLIENTS_ACTIVE: ClientsActive,
         PathValues.CLIENTS_ACTIVE_COUNT: ClientsActiveCount,
+        PathValues.CLIENTDETAILS_TOPOLOGY_CLIENTTRAIL_MAC_ADDRESS: ClientDetailsTopologyClientTrailMacAddress,
         PathValues.CLIENTDETAILS_OVERVIEW_INFO_CLIENT_ID: ClientDetailsOverviewInfoClientId,
         PathValues.CLIENTDETAILS_OVERVIEW_CHARTDATA_CLIENT_ID: ClientDetailsOverviewChartDataClientId,
         PathValues.CLIENTDETAILS_CLIENTTRAIL_ROAMINGTRAIL_GRID_CLIENT_ID: ClientDetailsClientTrailRoamingTrailGridClientId,
@@ -882,7 +944,9 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.APS_AFC_QUERY_: ApsAfcQuery,
         PathValues.APPLICATIONS: Applications,
         PathValues.APPLICATIONS_ID_CLIENTS_TOPN: ApplicationsIdClientsTopn,
+        PathValues.APPLICATIONS_USAGE_SUMMARY_METADATA: ApplicationsUsageSummaryMetaData,
         PathValues.APPLICATIONS_TOPN: ApplicationsTopn,
+        PathValues.APPLICATIONS_REPORTS_ID: ApplicationsReportsId,
         PathValues.AP_AFC_INTERFACE_DETAILS_SN: ApAfcInterfaceDetailsSn,
         PathValues.AP_AFC_FLOOR_REPORT_DEVICE_ID: ApAfcFloorReportDeviceId,
         PathValues.AP_AFC_DIAGNOSTICS_ID: ApAfcDiagnosticsId,
@@ -997,7 +1061,12 @@ path_to_api = PathToApi(
         PathValues.VLANPROFILES: VlanProfiles,
         PathValues.VLANPROFILES_DELETE: VlanProfilesDelete,
         PathValues.USERS: Users,
+        PathValues.USERS_TYPE_DISTRIBUTION: UsersTypeDistribution,
+        PathValues.USERS_GRID_EXPORT: UsersGridExport,
+        PathValues.USERS_GRID: UsersGrid,
+        PathValues.USERS_FILTER_METADATA: UsersFilterMetadata,
         PathValues.USERS_EXTERNAL: UsersExternal,
+        PathValues.USERS_DATA_USAGE: UsersDataUsage,
         PathValues.USERGROUPS: Usergroups,
         PathValues.USERPROFILES: UserProfiles,
         PathValues.USERPROFILES_ID_MACFIREWALLPOLICIES_DETACH: UserProfilesIdMacFirewallPoliciesDetach,
@@ -1005,6 +1074,7 @@ path_to_api = PathToApi(
         PathValues.USERPROFILES_ID_IPFIREWALLPOLICIES_DETACH: UserProfilesIdIpFirewallPoliciesDetach,
         PathValues.USERPROFILES_ID_IPFIREWALLPOLICIES_ATTACH: UserProfilesIdIpFirewallPoliciesAttach,
         PathValues.USERPROFILEASSIGNMENTS: UserProfileAssignments,
+        PathValues.USERFOLDERPREFERENCES_FOLDER_ID: UserFolderPreferencesFolderId,
         PathValues.TUNNELCONCENTRATORS: TunnelConcentrators,
         PathValues.SWITCHINSPECTOR_DIAGNOSTICS: SwitchInspectorDiagnostics,
         PathValues.SUBSCRIPTIONS_WEBHOOK: SubscriptionsWebhook,
@@ -1036,6 +1106,18 @@ path_to_api = PathToApi(
         PathValues.PACKETCAPTURES_ID_STOP: PacketcapturesIdStop,
         PathValues.OPERATIONS_OPERATION_ID_CANCEL: OperationsOperationIdCancel,
         PathValues.NOS_DEVICE_DEVICE_ID_NOSAPI: NosDeviceDeviceIdNosApi,
+        PathValues.NGREPORTS_TIMESERIES: NgReportsTimeseries,
+        PathValues.NGREPORTS_TABLEDATA: NgReportsTabledata,
+        PathValues.NGREPORTS_METADATA_USER: NgReportsMetadataUser,
+        PathValues.NGREPORTS_METADATA_SSIDS: NgReportsMetadataSsids,
+        PathValues.NGREPORTS_METADATA_OS: NgReportsMetadataOs,
+        PathValues.NGREPORTS_METADATA_DEVICE: NgReportsMetadataDevice,
+        PathValues.NGREPORTS_METADATA_CONNECTIONTYPE: NgReportsMetadataConnectionType,
+        PathValues.NGREPORTS_METADATA_CLIENT: NgReportsMetadataClient,
+        PathValues.NGREPORTS_METADATA_CHANNEL: NgReportsMetadataChannel,
+        PathValues.NGREPORTS_METADATA_BANDS: NgReportsMetadataBands,
+        PathValues.NGREPORTS_METADATA_APPLICATION: NgReportsMetadataApplication,
+        PathValues.NGREPORTS_DOWNLOADS_REPORTS: NgReportsDownloadsReports,
         PathValues.NETWORKSERVICES: NetworkServices,
         PathValues.NETWORKPOLICIES: NetworkPolicies,
         PathValues.NETWORKPOLICIES_ID_SSIDS_REMOVE: NetworkPoliciesIdSsidsRemove,
@@ -1099,6 +1181,7 @@ path_to_api = PathToApi(
         PathValues.DEVICES_ANCHOR_ASSIGN: DevicesAnchorAssign,
         PathValues.DEVICES_ACTIONSSUPPORTMETADATA: DevicesActionsSupportMetadata,
         PathValues.DEVICES_UNMANAGE: DevicesUnmanage,
+        PathValues.DEVICES_SSHACTIVESESSIONS: DevicesSshActiveSessions,
         PathValues.DEVICES_RESET: DevicesReset,
         PathValues.DEVICES_REBOOT: DevicesReboot,
         PathValues.DEVICES_ONBOARD: DevicesOnboard,
@@ -1165,6 +1248,7 @@ path_to_api = PathToApi(
         PathValues.CREDENTIALDISTRIBUTIONGROUPS: CredentialDistributionGroups,
         PathValues.COPILOT_ANOMALIES_EXCLUDEVLANS: CopilotAnomaliesExcludeVlans,
         PathValues.COPILOT_ANOMALIES_EXCLUDEVLANSCSV: CopilotAnomaliesExcludeVlansCsv,
+        PathValues.CLIENTS_DISCONNECT: ClientsDisconnect,
         PathValues.CLIENTMONITORPROFILES: ClientMonitorProfiles,
         PathValues.CLASSIFICATIONRULES: ClassificationRules,
         PathValues.CERTIFICATES_IMPORT: CertificatesImport,
@@ -1175,6 +1259,8 @@ path_to_api = PathToApi(
         PathValues.AUTH_APITOKEN: AuthApitoken,
         PathValues.AUTH_APITOKEN_VALIDATE: AuthApitokenValidate,
         PathValues.APS_AFC_UPDATE: ApsAfcUpdate,
+        PathValues.APPLICATIONS_USAGE_SUMMARY: ApplicationsUsageSummary,
+        PathValues.APPLICATIONS_USAGE_SUMMARY_EXPORT: ApplicationsUsageSummaryExport,
         PathValues.AP_SPECTRUM_: ApSpectrum,
         PathValues.ALERTS_REPORTS: AlertsReports,
         PathValues.ALERTS_ACKNOWLEDGE: AlertsAcknowledge,
@@ -1201,9 +1287,11 @@ path_to_api = PathToApi(
         PathValues.USERS_ID: UsersId,
         PathValues.USERS_EXTERNAL_ID: UsersExternalId,
         PathValues.ACCTAPITOKEN_ID: AcctApiTokenId,
+        PathValues.USERS_REPORTS_ID: UsersReportsId,
         PathValues.USERS_ME: UsersMe,
         PathValues.USERGROUPS_UNIQUE: UsergroupsUnique,
         PathValues.USERPROFILEASSIGNMENTS_ID: UserProfileAssignmentsId,
+        PathValues.USERFOLDERPREFERENCES: UserFolderPreferences,
         PathValues.UCP_ID_ENGINES_INSTALLED: UcpIdEnginesInstalled,
         PathValues.THREAD_TOPOLOGY: ThreadTopology,
         PathValues.THREAD_ROUTERS: ThreadRouters,
@@ -1217,6 +1305,9 @@ path_to_api = PathToApi(
         PathValues.PACKETCAPTURES_ID: PacketcapturesId,
         PathValues.PACKETCAPTURES_FILES: PacketcapturesFiles,
         PathValues.OPERATIONS_OPERATION_ID: OperationsOperationId,
+        PathValues.NGREPORTS_INFORMATION_METRICS: NgReportsInformationMetrics,
+        PathValues.NGREPORTS_INFORMATION_: NgReportsInformation,
+        PathValues.NGREPORTS_DOWNLOAD_REPORTS_ID: NgReportsDownloadReportsId,
         PathValues.NETWORKSCORECARD_WIFI_HEALTH_LOCATION_ID: NetworkScorecardWifiHealthLocationId,
         PathValues.NETWORKSCORECARD_SERVICES_HEALTH_LOCATION_ID: NetworkScorecardServicesHealthLocationId,
         PathValues.NETWORKSCORECARD_NETWORK_HEALTH_LOCATION_ID: NetworkScorecardNetworkHealthLocationId,
@@ -1268,8 +1359,10 @@ path_to_api = PathToApi(
         PathValues.DASHBOARD_DEVICETYPES: DashboardDeviceTypes,
         PathValues.D360_WIRELESS_INTERFACESSTATS: D360WirelessInterfacesStats,
         PathValues.D360_WIRELESS_INTERFACESGRAPH: D360WirelessInterfacesGraph,
+        PathValues.D360_WIRED_QUEUEGRID: D360WiredQueueGrid,
         PathValues.D360_SSIDMETADATA: D360SsidMetadata,
         PathValues.D360_OVERVIEW_DEVICESSUMMARY: D360OverviewDevicesSummary,
+        PathValues.D360_EVENT_GRAPH: D360EventGraph,
         PathValues.D360_DEVICE_STATS: D360DeviceStats,
         PathValues.D360_DEVICE_METADATA: D360DeviceMetadata,
         PathValues.D360_DEVICE_ISSUES: D360DeviceIssues,
@@ -1329,6 +1422,7 @@ path_to_api = PathToApi(
         PathValues.CLIENTS_BY_MAC_CLIENT_MAC: ClientsByMacClientMac,
         PathValues.CLIENTS_ACTIVE: ClientsActive,
         PathValues.CLIENTS_ACTIVE_COUNT: ClientsActiveCount,
+        PathValues.CLIENTDETAILS_TOPOLOGY_CLIENTTRAIL_MAC_ADDRESS: ClientDetailsTopologyClientTrailMacAddress,
         PathValues.CLIENTDETAILS_OVERVIEW_INFO_CLIENT_ID: ClientDetailsOverviewInfoClientId,
         PathValues.CLIENTDETAILS_OVERVIEW_CHARTDATA_CLIENT_ID: ClientDetailsOverviewChartDataClientId,
         PathValues.CLIENTDETAILS_CLIENTTRAIL_ROAMINGTRAIL_GRID_CLIENT_ID: ClientDetailsClientTrailRoamingTrailGridClientId,
@@ -1341,7 +1435,9 @@ path_to_api = PathToApi(
         PathValues.APS_AFC_QUERY_: ApsAfcQuery,
         PathValues.APPLICATIONS: Applications,
         PathValues.APPLICATIONS_ID_CLIENTS_TOPN: ApplicationsIdClientsTopn,
+        PathValues.APPLICATIONS_USAGE_SUMMARY_METADATA: ApplicationsUsageSummaryMetaData,
         PathValues.APPLICATIONS_TOPN: ApplicationsTopn,
+        PathValues.APPLICATIONS_REPORTS_ID: ApplicationsReportsId,
         PathValues.AP_AFC_INTERFACE_DETAILS_SN: ApAfcInterfaceDetailsSn,
         PathValues.AP_AFC_FLOOR_REPORT_DEVICE_ID: ApAfcFloorReportDeviceId,
         PathValues.AP_AFC_DIAGNOSTICS_ID: ApAfcDiagnosticsId,

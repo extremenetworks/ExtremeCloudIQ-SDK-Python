@@ -18,6 +18,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **[managed_by](#managed_by)** | list, tuple,  | tuple,  | The managed application for the device | [optional] 
 **[sim_type](#sim_type)** | list, tuple,  | tuple,  | The device type - REAL or SIMULATED | [optional] 
 **[country_code_name](#country_code_name)** | list, tuple,  | tuple,  | The assigned country name on the device | [optional] 
+**[network_policy](#network_policy)** | list, tuple,  | tuple,  | The network policy applied to the device | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # default_gateway
@@ -131,6 +132,20 @@ list, tuple,  | tuple,  | The assigned country name on the device |
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**XiqCountryCodeName**](XiqCountryCodeName.md) | [**XiqCountryCodeName**](XiqCountryCodeName.md) | [**XiqCountryCodeName**](XiqCountryCodeName.md) |  | 
+
+# network_policy
+
+The network policy applied to the device
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The network policy applied to the device | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The network policy applied to the device | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

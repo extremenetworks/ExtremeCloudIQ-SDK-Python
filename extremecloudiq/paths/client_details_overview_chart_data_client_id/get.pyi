@@ -28,6 +28,7 @@ from extremecloudiq import schemas  # noqa: F401
 from extremecloudiq.model.xiq_client_chart_data_list import XiqClientChartDataList
 
 # Query params
+ClientMacSchema = schemas.StrSchema
 StartTimeSchema = schemas.Int64Schema
 EndTimeSchema = schemas.Int64Schema
 PrecisionSchema = schemas.Int64Schema
@@ -41,6 +42,7 @@ RequestRequiredQueryParams = typing_extensions.TypedDict(
 RequestOptionalQueryParams = typing_extensions.TypedDict(
     'RequestOptionalQueryParams',
     {
+        'clientMac': typing.Union[ClientMacSchema, str, ],
         'precision': typing.Union[PrecisionSchema, decimal.Decimal, int, ],
     },
     total=False
@@ -51,6 +53,12 @@ class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams)
     pass
 
 
+request_query_client_mac = api_client.QueryParameter(
+    name="clientMac",
+    style=api_client.ParameterStyle.FORM,
+    schema=ClientMacSchema,
+    explode=True,
+)
 request_query_start_time = api_client.QueryParameter(
     name="startTime",
     style=api_client.ParameterStyle.FORM,
@@ -194,6 +202,7 @@ class BaseApi(api_client.Api):
 
         prefix_separator_iterator = None
         for parameter in (
+            request_query_client_mac,
             request_query_start_time,
             request_query_end_time,
             request_query_precision,

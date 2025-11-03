@@ -7,7 +7,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_wireless_diagnostics_criteria_param**](#create_wireless_diagnostics_criteria_param) | **post** /dashboard/wireless/dashboard/criteria | Create Criteria for Wireless Diagnostics Dashboard
 [**download_site_with_issue_report**](#download_site_with_issue_report) | **get** /dashboard/reports/{id} | Download the  report
-[**export_to_csv3**](#export_to_csv3) | **post** /dashboard/export | Export all dashboard data to CSV
+[**export_to_csv4**](#export_to_csv4) | **post** /dashboard/export | Export all dashboard data to CSV
 [**get_alert_diagnostics**](#get_alert_diagnostics) | **post** /dashboard/alerts | Alert statistics
 [**get_all_diagnostics_device_types**](#get_all_diagnostics_device_types) | **get** /dashboard/device-types | Get all diagnostics device types
 [**get_asset_diagnostics**](#get_asset_diagnostics) | **post** /dashboard/assets | Asset statistics
@@ -247,9 +247,9 @@ items | str,  | str,  |  |
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **export_to_csv3**
-<a id="export_to_csv3"></a>
-> XiqMetricReport export_to_csv3(xiq_dashboard_filter)
+# **export_to_csv4**
+<a id="export_to_csv4"></a>
+> XiqMetricReport export_to_csv4(xiq_dashboard_filter)
 
 Export all dashboard data to CSV
 
@@ -295,20 +295,20 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     )
     try:
         # Export all dashboard data to CSV
-        api_response = api_instance.export_to_csv3(
+        api_response = api_instance.export_to_csv4(
             query_params=query_params,
             body=body,
         )
         pprint(api_response)
     except extremecloudiq.ApiException as e:
-        print("Exception when calling DashboardApi->export_to_csv3: %s\n" % e)
+        print("Exception when calling DashboardApi->export_to_csv4: %s\n" % e)
 
     # example passing only optional values
     query_params = {
         'sortField': "ALERTS",
         'sortOrder': XiqSortOrder("ASC"),
         'keyword': "keyword_example",
-        'unassigned_devices': False,
+        'includeUnassigned': False,
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -317,13 +317,13 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     )
     try:
         # Export all dashboard data to CSV
-        api_response = api_instance.export_to_csv3(
+        api_response = api_instance.export_to_csv4(
             query_params=query_params,
             body=body,
         )
         pprint(api_response)
     except extremecloudiq.ApiException as e:
-        print("Exception when calling DashboardApi->export_to_csv3: %s\n" % e)
+        print("Exception when calling DashboardApi->export_to_csv4: %s\n" % e)
 ```
 ### Parameters
 
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 sortField | SortFieldSchema | | optional
 sortOrder | SortOrderSchema | | optional
 keyword | KeywordSchema | | optional
-unassigned_devices | UnassignedDevicesSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 
 
 # SortFieldSchema
@@ -376,7 +376,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# UnassignedDevicesSchema
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -388,9 +388,9 @@ bool,  | BoolClass,  |  | if omitted the server will use the default value of Fa
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#export_to_csv3.ApiResponseFor200) | OK
+200 | [ApiResponseFor200](#export_to_csv4.ApiResponseFor200) | OK
 
-#### export_to_csv3.ApiResponseFor200
+#### export_to_csv4.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -466,7 +466,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'unassigned_devices': False,
+        'includeUnassigned': False,
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -508,10 +508,10 @@ Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-unassigned_devices | UnassignedDevicesSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 
 
-# UnassignedDevicesSchema
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -679,7 +679,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'unassigned_devices': False,
+        'includeUnassigned': False,
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -721,10 +721,10 @@ Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-unassigned_devices | UnassignedDevicesSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 
 
-# UnassignedDevicesSchema
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -814,7 +814,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'unassigned_devices': False,
+        'includeUnassigned': False,
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -856,10 +856,10 @@ Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-unassigned_devices | UnassignedDevicesSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 
 
-# UnassignedDevicesSchema
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -949,7 +949,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'unassigned_devices': False,
+        'includeUnassigned': False,
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -991,10 +991,10 @@ Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-unassigned_devices | UnassignedDevicesSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 
 
-# UnassignedDevicesSchema
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1090,7 +1090,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'sortField': "ALERTS",
         'sortOrder': XiqSortOrder("ASC"),
         'keyword': "keyword_example",
-        'unassigned_devices': False,
+        'includeUnassigned': False,
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -1137,7 +1137,7 @@ limit | LimitSchema | | optional
 sortField | SortFieldSchema | | optional
 sortOrder | SortOrderSchema | | optional
 keyword | KeywordSchema | | optional
-unassigned_devices | UnassignedDevicesSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 
 
 # PageSchema
@@ -1174,7 +1174,7 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
 
-# UnassignedDevicesSchema
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1264,7 +1264,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'unassigned_devices': False,
+        'includeUnassigned': False,
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -1306,10 +1306,10 @@ Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-unassigned_devices | UnassignedDevicesSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 
 
-# UnassignedDevicesSchema
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

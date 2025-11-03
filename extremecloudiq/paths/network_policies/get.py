@@ -51,7 +51,7 @@ class LimitSchema(
 
     class MetaOapg:
         format = 'int32'
-        inclusive_maximum = 100
+        inclusive_maximum = 2000
         inclusive_minimum = 1
 
 

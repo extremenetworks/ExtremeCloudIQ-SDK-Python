@@ -6,7 +6,7 @@ All URIs are relative to *http://localhost:8081*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**download_usage_and_capacity_report**](#download_usage_and_capacity_report) | **get** /dashboard/wireless/usage-capacity/reports/{id} | Download the  report
-[**export_to_csv**](#export_to_csv) | **post** /dashboard/wireless/usage-capacity/export | Export all Wireless Usage Capacity Data to CSV
+[**export_to_csv1**](#export_to_csv1) | **post** /dashboard/wireless/usage-capacity/export | Export all Wireless Usage Capacity Data to CSV
 [**get_count_excessive_retries**](#get_count_excessive_retries) | **post** /dashboard/wireless/usage-capacity/excessive-retries | Count of APs with excessive retries
 [**get_packet_loss_excessive_response**](#get_packet_loss_excessive_response) | **post** /dashboard/wireless/usage-capacity/excessive-packet-loss | Count of APs with excessive packet loss
 [**get_usage_capacity_grid**](#get_usage_capacity_grid) | **post** /dashboard/wireless/usage-capacity/grid | Wireless usage &amp; capacity grid
@@ -116,9 +116,9 @@ items | str,  | str,  |  |
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
-# **export_to_csv**
-<a id="export_to_csv"></a>
-> XiqMetricReport export_to_csv(xiq_usage_and_capacity_grid_filter)
+# **export_to_csv1**
+<a id="export_to_csv1"></a>
+> XiqMetricReport export_to_csv1(xiq_usage_and_capacity_grid_filter)
 
 Export all Wireless Usage Capacity Data to CSV
 
@@ -188,20 +188,20 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     )
     try:
         # Export all Wireless Usage Capacity Data to CSV
-        api_response = api_instance.export_to_csv(
+        api_response = api_instance.export_to_csv1(
             query_params=query_params,
             body=body,
         )
         pprint(api_response)
     except extremecloudiq.ApiException as e:
-        print("Exception when calling DashboardWirelessUsageAndCapacityApi->export_to_csv: %s\n" % e)
+        print("Exception when calling DashboardWirelessUsageAndCapacityApi->export_to_csv1: %s\n" % e)
 
     # example passing only optional values
     query_params = {
         'keyword': "keyword_example",
         'sortField': "HOSTNAME",
         'sortOrder': XiqSortOrder("ASC"),
-        'unassigned_devices': False,
+        'includeUnassigned': False,
     }
     body = XiqUsageAndCapacityGridFilter(
         site_ids=[
@@ -234,13 +234,13 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     )
     try:
         # Export all Wireless Usage Capacity Data to CSV
-        api_response = api_instance.export_to_csv(
+        api_response = api_instance.export_to_csv1(
             query_params=query_params,
             body=body,
         )
         pprint(api_response)
     except extremecloudiq.ApiException as e:
-        print("Exception when calling DashboardWirelessUsageAndCapacityApi->export_to_csv: %s\n" % e)
+        print("Exception when calling DashboardWirelessUsageAndCapacityApi->export_to_csv1: %s\n" % e)
 ```
 ### Parameters
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 keyword | KeywordSchema | | optional
 sortField | SortFieldSchema | | optional
 sortOrder | SortOrderSchema | | optional
-unassigned_devices | UnassignedDevicesSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 
 
 # KeywordSchema
@@ -293,7 +293,7 @@ Type | Description  | Notes
 [**XiqSortOrder**](../../models/XiqSortOrder.md) |  | 
 
 
-# UnassignedDevicesSchema
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -305,9 +305,9 @@ bool,  | BoolClass,  |  | if omitted the server will use the default value of Fa
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#export_to_csv.ApiResponseFor200) | OK
+200 | [ApiResponseFor200](#export_to_csv1.ApiResponseFor200) | OK
 
-#### export_to_csv.ApiResponseFor200
+#### export_to_csv1.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -383,7 +383,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'unassigned_devices': False,
+        'includeUnassigned': False,
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -425,10 +425,10 @@ Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-unassigned_devices | UnassignedDevicesSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 
 
-# UnassignedDevicesSchema
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -518,7 +518,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'unassigned_devices': False,
+        'includeUnassigned': False,
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -560,10 +560,10 @@ Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-unassigned_devices | UnassignedDevicesSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 
 
-# UnassignedDevicesSchema
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -683,7 +683,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'keyword': "keyword_example",
         'sortField': "HOSTNAME",
         'sortOrder': XiqSortOrder("ASC"),
-        'unassigned_devices': False,
+        'includeUnassigned': False,
     }
     body = XiqUsageAndCapacityGridFilter(
         site_ids=[
@@ -754,7 +754,7 @@ limit | LimitSchema | | optional
 keyword | KeywordSchema | | optional
 sortField | SortFieldSchema | | optional
 sortOrder | SortOrderSchema | | optional
-unassigned_devices | UnassignedDevicesSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 
 
 # PageSchema
@@ -791,7 +791,7 @@ Type | Description  | Notes
 [**XiqSortOrder**](../../models/XiqSortOrder.md) |  | 
 
 
-# UnassignedDevicesSchema
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -881,7 +881,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'unassigned_devices': False,
+        'includeUnassigned': False,
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -923,10 +923,10 @@ Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-unassigned_devices | UnassignedDevicesSchema | | optional
+includeUnassigned | IncludeUnassignedSchema | | optional
 
 
-# UnassignedDevicesSchema
+# IncludeUnassignedSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
