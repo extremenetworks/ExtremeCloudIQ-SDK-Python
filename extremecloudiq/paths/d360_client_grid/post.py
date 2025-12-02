@@ -136,6 +136,7 @@ class SortFieldSchema(
             "USER_NAME": "USER_NAME",
             "ALIAS": "ALIAS",
             "IPV6": "IPV6",
+            "CLIENT_TYPE": "CLIENT_TYPE",
         }
     
     @schemas.classproperty
@@ -221,6 +222,10 @@ class SortFieldSchema(
     @schemas.classproperty
     def IPV6(cls):
         return cls("IPV6")
+    
+    @schemas.classproperty
+    def CLIENT_TYPE(cls):
+        return cls("CLIENT_TYPE")
 SortOrderSchema = XiqSortOrder
 
 

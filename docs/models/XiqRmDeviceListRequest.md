@@ -20,6 +20,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **[country_codes](#country_codes)** | list, tuple,  | tuple,  | List of country codes to filter | [optional] 
 **[managed_by](#managed_by)** | list, tuple,  | tuple,  | List of entities managing the device to filter | [optional] 
 **[network_policies](#network_policies)** | list, tuple,  | tuple,  | List of network policies to filter | [optional] 
+**[eth_uplink_speed_filters](#eth_uplink_speed_filters)** | list, tuple,  | tuple,  | Filter by Eth uplink speed filter | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # site_ids
@@ -161,6 +162,20 @@ list, tuple,  | tuple,  | List of network policies to filter |
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  | List of network policies to filter | 
+
+# eth_uplink_speed_filters
+
+Filter by Eth uplink speed filter
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | Filter by Eth uplink speed filter | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqRmDeviceEthUplinkSpeedFilter**](XiqRmDeviceEthUplinkSpeedFilter.md) | [**XiqRmDeviceEthUplinkSpeedFilter**](XiqRmDeviceEthUplinkSpeedFilter.md) | [**XiqRmDeviceEthUplinkSpeedFilter**](XiqRmDeviceEthUplinkSpeedFilter.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

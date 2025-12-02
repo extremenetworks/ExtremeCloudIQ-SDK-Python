@@ -209,6 +209,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         has_ip_address_issues=True,
         has_roaming_issues=True,
         is_client_unhealthy=True,
+        client_type=[
+            "client_type_example"
+        ],
     )
     try:
         # Export all Client Health Data to CSV
@@ -273,6 +276,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         has_ip_address_issues=True,
         has_roaming_issues=True,
         is_client_unhealthy=True,
+        client_type=[
+            "client_type_example"
+        ],
     )
     try:
         # Export all Client Health Data to CSV
@@ -1052,6 +1058,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         has_ip_address_issues=True,
         has_roaming_issues=True,
         is_client_unhealthy=True,
+        client_type=[
+            "client_type_example"
+        ],
     )
     try:
         # Wireless client health grid
@@ -1118,6 +1127,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         has_ip_address_issues=True,
         has_roaming_issues=True,
         is_client_unhealthy=True,
+        client_type=[
+            "client_type_example"
+        ],
     )
     try:
         # Wireless client health grid

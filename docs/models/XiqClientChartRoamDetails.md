@@ -10,7 +10,6 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | The Client Roam Trail 
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**timestamp** | decimal.Decimal, int,  | decimal.Decimal,  | Client Start trial in epoch format (milliseconds) | [optional] value must be a 64 bit integer
 **device_name_from** | str,  | str,  | The Ap name From | [optional] 
 **device_name_to** | str,  | str,  | The Ap name To | [optional] 
 **device_mac_from** | str,  | str,  | The Ap mac address From | [optional] 

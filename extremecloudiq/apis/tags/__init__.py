@@ -51,4 +51,5 @@ class TagValues(str, enum.Enum):
     NGREPORTS = "NG-REPORTS"
     UNIVERSAL_COMPUTE_PLATFORM = "Universal Compute Platform"
     AFCENDPOINT = "afc-endpoint"
+    AIRRMENDPOINT = "airrm-endpoint"
     RTTSENDPOINT = "rtts-endpoint"

@@ -8,15 +8,15 @@ Method | HTTP request | Description
 [**create_user**](#create_user) | **post** /users | Create new user
 [**delete_user**](#delete_user) | **delete** /users/{id} | Delete user by ID
 [**download_users_report**](#download_users_report) | **get** /users/reports/{id} | Download the  report
-[**export_to_csv**](#export_to_csv) | **post** /users/grid_export | Export the Users grid data
+[**export_to_csv**](#export_to_csv) | **post** /users/grid-export | Export the Users grid data
 [**get_current_user**](#get_current_user) | **get** /users/me | Get current user info
 [**get_external_user**](#get_external_user) | **get** /users/external/{id} | Get external access info
 [**get_user**](#get_user) | **get** /users/{id} | Get user info by ID
-[**get_user_data_usage**](#get_user_data_usage) | **post** /users/data_usage | Get user data usage
-[**get_user_type_distribution**](#get_user_type_distribution) | **post** /users/type_distribution | Get user type distribution
+[**get_user_data_usage**](#get_user_data_usage) | **post** /users/data-usage | Get user data usage
+[**get_user_type_distribution**](#get_user_type_distribution) | **post** /users/type-distribution | Get user type distribution
 [**grant_external_user**](#grant_external_user) | **post** /users/external | Grant external access
 [**list_external_users**](#list_external_users) | **get** /users/external | List external access users
-[**list_user_grid_filter_metadata**](#list_user_grid_filter_metadata) | **post** /users/filter_metadata | List user grid filter metadata
+[**list_user_grid_filter_metadata**](#list_user_grid_filter_metadata) | **post** /users/filter-metadata | List user grid filter metadata
 [**list_users**](#list_users) | **get** /users | List all users
 [**list_users_grid**](#list_users_grid) | **post** /users/grid | List Users
 [**revoke_external_user**](#revoke_external_user) | **delete** /users/external/{id} | Revoke external access
@@ -405,6 +405,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'order': RmSortOrder("ASC"),
         'startTime': 1,
         'endTime': 1,
+        'timezoneOffset': 1,
     }
     body = RmUserGridRequest(
         user_name=[
@@ -470,6 +471,7 @@ sortField | SortFieldSchema | | optional
 order | OrderSchema | | optional
 startTime | StartTimeSchema | | 
 endTime | EndTimeSchema | | 
+timezoneOffset | TimezoneOffsetSchema | | optional
 
 
 # SearchSchema
@@ -499,6 +501,13 @@ Input Type | Accessed Type | Description | Notes
 decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
 
 # EndTimeSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+# TimezoneOffsetSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

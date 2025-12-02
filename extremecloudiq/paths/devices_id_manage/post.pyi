@@ -9,6 +9,7 @@
 from dataclasses import dataclass
 import typing_extensions
 import urllib3
+from urllib3._collections import HTTPHeaderDict
 
 from extremecloudiq import api_client, exceptions
 from datetime import date, datetime  # noqa: F401
@@ -23,6 +24,8 @@ import uuid  # noqa: F401
 import frozendict  # noqa: F401
 
 from extremecloudiq import schemas  # noqa: F401
+
+from extremecloudiq.model.xiq_change_status_to_manage_response import XiqChangeStatusToManageResponse
 
 # Path params
 IdSchema = schemas.Int64Schema
@@ -52,15 +55,50 @@ request_path_id = api_client.PathParameter(
 )
 
 
+class SchemaFor200ResponseBodyApplicationJson(
+    schemas.ListSchema
+):
+
+
+    class MetaOapg:
+        
+        @staticmethod
+        def items() -> typing.Type['XiqChangeStatusToManageResponse']:
+            return XiqChangeStatusToManageResponse
+
+    def __new__(
+        cls,
+        _arg: typing.Union[typing.Tuple['XiqChangeStatusToManageResponse'], typing.List['XiqChangeStatusToManageResponse']],
+        _configuration: typing.Optional[schemas.Configuration] = None,
+    ) -> 'SchemaFor200ResponseBodyApplicationJson':
+        return super().__new__(
+            cls,
+            _arg,
+            _configuration=_configuration,
+        )
+
+    def __getitem__(self, i: int) -> 'XiqChangeStatusToManageResponse':
+        return super().__getitem__(i)
+
+
 @dataclass
 class ApiResponseFor200(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: schemas.Unset = schemas.unset
+    body: typing.Union[
+        SchemaFor200ResponseBodyApplicationJson,
+    ]
     headers: schemas.Unset = schemas.unset
 
 
 _response_for_200 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor200,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor200ResponseBodyApplicationJson),
+    },
+)
+_all_accept_content_types = (
+    'application/json',
 )
 
 
@@ -69,6 +107,7 @@ class BaseApi(api_client.Api):
     def _change_device_status_to_manage_oapg(
         self,
         path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -81,6 +120,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -89,6 +129,7 @@ class BaseApi(api_client.Api):
     def _change_device_status_to_manage_oapg(
         self,
         path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -100,6 +141,7 @@ class BaseApi(api_client.Api):
     def _change_device_status_to_manage_oapg(
         self,
         path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
@@ -125,11 +167,17 @@ class BaseApi(api_client.Api):
 
         for k, v in _path_params.items():
             used_path = used_path.replace('{%s}' % k, v)
+
+        _headers = HTTPHeaderDict()
         # TODO add cookie handling
+        if accept_content_types:
+            for accept_content_type in accept_content_types:
+                _headers.add('Accept', accept_content_type)
 
         response = self.api_client.call_api(
             resource_path=used_path,
             method='post'.upper(),
+            headers=_headers,
             auth_settings=_auth,
             stream=stream,
             timeout=timeout,
@@ -161,6 +209,7 @@ class ChangeDeviceStatusToManage(BaseApi):
     def change_device_status_to_manage(
         self,
         path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -173,6 +222,7 @@ class ChangeDeviceStatusToManage(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -181,6 +231,7 @@ class ChangeDeviceStatusToManage(BaseApi):
     def change_device_status_to_manage(
         self,
         path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -192,12 +243,14 @@ class ChangeDeviceStatusToManage(BaseApi):
     def change_device_status_to_manage(
         self,
         path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         return self._change_device_status_to_manage_oapg(
             path_params=path_params,
+            accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization
@@ -211,6 +264,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = ...,
@@ -223,6 +277,7 @@ class ApiForpost(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
     ) -> api_client.ApiResponseWithoutDeserialization: ...
@@ -231,6 +286,7 @@ class ApiForpost(BaseApi):
     def post(
         self,
         path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = ...,
@@ -242,12 +298,14 @@ class ApiForpost(BaseApi):
     def post(
         self,
         path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
         return self._change_device_status_to_manage_oapg(
             path_params=path_params,
+            accept_content_types=accept_content_types,
             stream=stream,
             timeout=timeout,
             skip_deserialization=skip_deserialization

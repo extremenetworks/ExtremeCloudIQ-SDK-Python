@@ -71,7 +71,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'clientId': 1,
     }
     query_params = {
-        'clientMac': "",
         'startTime': 1,
         'endTime': 1,
         'precision': 600000,
@@ -102,18 +101,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-clientMac | ClientMacSchema | | optional
 startTime | StartTimeSchema | | 
 endTime | EndTimeSchema | | 
 precision | PrecisionSchema | | optional
 
-
-# ClientMacSchema
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str,  | str,  |  | if omitted the server will use the default value of ""
 
 # StartTimeSchema
 

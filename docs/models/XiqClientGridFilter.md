@@ -26,6 +26,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **has_ip_address_issues** | bool,  | BoolClass,  | Flag to check ip address issues | [optional] 
 **has_roaming_issues** | bool,  | BoolClass,  | Flag to check roaming issues | [optional] 
 **is_client_unhealthy** | bool,  | BoolClass,  | Flag to check unhealthy clients | [optional] 
+**[client_type](#client_type)** | list, tuple,  | tuple,  | The client types | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # site_ids
@@ -181,6 +182,20 @@ list, tuple,  | tuple,  | The category assignments |
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  | The category assignments | 
+
+# client_type
+
+The client types
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The client types | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The client types | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

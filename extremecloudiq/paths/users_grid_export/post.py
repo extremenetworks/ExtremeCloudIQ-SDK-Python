@@ -38,6 +38,7 @@ SortFieldSchema = RmUserGridSortField
 OrderSchema = RmSortOrder
 StartTimeSchema = schemas.Int64Schema
 EndTimeSchema = schemas.Int64Schema
+TimezoneOffsetSchema = schemas.Int64Schema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -51,6 +52,7 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
         'search': typing.Union[SearchSchema, str, ],
         'sortField': typing.Union[SortFieldSchema, ],
         'order': typing.Union[OrderSchema, ],
+        'timezoneOffset': typing.Union[TimezoneOffsetSchema, decimal.Decimal, int, ],
     },
     total=False
 )
@@ -90,6 +92,12 @@ request_query_end_time = api_client.QueryParameter(
     style=api_client.ParameterStyle.FORM,
     schema=EndTimeSchema,
     required=True,
+    explode=True,
+)
+request_query_timezone_offset = api_client.QueryParameter(
+    name="timezoneOffset",
+    style=api_client.ParameterStyle.FORM,
+    schema=TimezoneOffsetSchema,
     explode=True,
 )
 # body param
@@ -216,6 +224,7 @@ class BaseApi(api_client.Api):
             request_query_order,
             request_query_start_time,
             request_query_end_time,
+            request_query_timezone_offset,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:

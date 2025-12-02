@@ -49,11 +49,29 @@ Key | Input Type | Accessed Type | Description | Notes
 **authentication_issues** | decimal.Decimal, int,  | decimal.Decimal,  | The number of authentication issues | [optional] value must be a 32 bit integer
 **ip_address_issues** | decimal.Decimal, int,  | decimal.Decimal,  | The number of IP address issues | [optional] value must be a 32 bit integer
 **roaming_issues** | decimal.Decimal, int,  | decimal.Decimal,  | The number of roaming issues experienced by the client | [optional] value must be a 32 bit integer
+**client_type** | str,  | str,  | Client type | [optional] 
+**is_mlo** | bool,  | BoolClass,  | boolean to determine mlo ot not | [optional] 
+**[mlo_bands](#mlo_bands)** | list, tuple,  | tuple,  | supports mlo bands | [optional] 
+**mlo_mode** | str,  | str,  | mlo mode | [optional] 
 **connectionStatus** | [**XiqClientConnectionStatus**](XiqClientConnectionStatus.md) | [**XiqClientConnectionStatus**](XiqClientConnectionStatus.md) |  | [optional] 
 **last_session_start_time** | decimal.Decimal, int,  | decimal.Decimal,  | The start time of the last session | [optional] value must be a 64 bit integer
 **operating_system** | str,  | str,  | The operating system of the client device | [optional] 
 **client_mac** | str,  | str,  | The MAC address of the client device | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
+
+# mlo_bands
+
+supports mlo bands
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | supports mlo bands | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | supports mlo bands | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

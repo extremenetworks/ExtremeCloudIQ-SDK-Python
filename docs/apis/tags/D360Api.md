@@ -499,6 +499,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         category_assignments=[
             "category_assignments_example"
         ],
+        client_type=[
+            "client_type_example"
+        ],
     )
     try:
         # Get Client Grid
@@ -558,6 +561,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         ],
         category_assignments=[
             "category_assignments_example"
+        ],
+        client_type=[
+            "client_type_example"
         ],
     )
     try:
@@ -666,7 +672,7 @@ items | str,  | str,  |  | must be one of ["TOTAL", "POOR_HEALTH", "UNIQUE", ]
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | must be one of ["CONNECTION_STATUS", "CLIENT_HOSTNAME", "SNR", "RSSI", "CHANNEL_UTILIZATION_SCORE", "ASSOCIATION_ISSUE", "AUTHENTICATION_ISSUE", "IP_ADDRESS_ISSUE", "ROAMING_ISSUE", "IPV4", "CONNECTED_DEVICE_MAC", "SSID", "VLAN", "LAST_SESSION_START_TIME", "OPERATING_SYSTEM", "CLIENT_MAC", "USERNAME", "AUTHENTICATION", "USER_NAME", "ALIAS", "IPV6", ] 
+str,  | str,  |  | must be one of ["CONNECTION_STATUS", "CLIENT_HOSTNAME", "SNR", "RSSI", "CHANNEL_UTILIZATION_SCORE", "ASSOCIATION_ISSUE", "AUTHENTICATION_ISSUE", "IP_ADDRESS_ISSUE", "ROAMING_ISSUE", "IPV4", "CONNECTED_DEVICE_MAC", "SSID", "VLAN", "LAST_SESSION_START_TIME", "OPERATING_SYSTEM", "CLIENT_MAC", "USERNAME", "AUTHENTICATION", "USER_NAME", "ALIAS", "IPV6", "CLIENT_TYPE", ] 
 
 # SortOrderSchema
 Type | Description  | Notes

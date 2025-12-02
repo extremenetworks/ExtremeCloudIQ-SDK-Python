@@ -16,6 +16,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **[user_profiles](#user_profiles)** | list, tuple,  | tuple,  |  | [optional] 
 **[frequency](#frequency)** | list, tuple,  | tuple,  |  | [optional] 
 **[category_assignments](#category_assignments)** | list, tuple,  | tuple,  |  | [optional] 
+**[client_type](#client_type)** | list, tuple,  | tuple,  |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # alias
@@ -103,6 +104,18 @@ Class Name | Input Type | Accessed Type | Description | Notes
 items | str,  | str,  |  | 
 
 # category_assignments
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
+
+# client_type
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes

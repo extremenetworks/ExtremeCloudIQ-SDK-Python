@@ -33,7 +33,8 @@ class TestDevicesManage(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
-    response_body = ''
+
+
 
 
 

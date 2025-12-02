@@ -1987,7 +1987,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     body = XiqInitializeLocationRequest(
         organization="organization_example",
-        country=XiqCountryCode("AFGHANISTAN_4"),
+        country=XiqCountryCode("4"),
     )
     try:
         # Initialize organization location

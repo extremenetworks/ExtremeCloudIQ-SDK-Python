@@ -4,4 +4,4 @@
 
 from extremecloudiq.paths import PathValues
 
-path = PathValues.USERS_FILTER_METADATA
+path = PathValues.USERS_FILTERMETADATA

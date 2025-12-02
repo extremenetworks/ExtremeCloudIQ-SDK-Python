@@ -46,6 +46,7 @@ from extremecloudiq.apis.tags.thread_api import ThreadApi
 from extremecloudiq.apis.tags.ngreports_api import NGREPORTSApi
 from extremecloudiq.apis.tags.universal_compute_platform_api import UniversalComputePlatformApi
 from extremecloudiq.apis.tags.afc_endpoint_api import AfcEndpointApi
+from extremecloudiq.apis.tags.airrm_endpoint_api import AirrmEndpointApi
 from extremecloudiq.apis.tags.rtts_endpoint_api import RttsEndpointApi
 
 TagToApi = typing_extensions.TypedDict(
@@ -96,6 +97,7 @@ TagToApi = typing_extensions.TypedDict(
         TagValues.NGREPORTS: NGREPORTSApi,
         TagValues.UNIVERSAL_COMPUTE_PLATFORM: UniversalComputePlatformApi,
         TagValues.AFCENDPOINT: AfcEndpointApi,
+        TagValues.AIRRMENDPOINT: AirrmEndpointApi,
         TagValues.RTTSENDPOINT: RttsEndpointApi,
     }
 )
@@ -147,6 +149,7 @@ tag_to_api = TagToApi(
         TagValues.NGREPORTS: NGREPORTSApi,
         TagValues.UNIVERSAL_COMPUTE_PLATFORM: UniversalComputePlatformApi,
         TagValues.AFCENDPOINT: AfcEndpointApi,
+        TagValues.AIRRMENDPOINT: AirrmEndpointApi,
         TagValues.RTTSENDPOINT: RttsEndpointApi,
     }
 )

@@ -4,4 +4,4 @@
 
 from extremecloudiq.paths import PathValues
 
-path = PathValues.USERS_GRID_EXPORT
+path = PathValues.USERS_GRIDEXPORT

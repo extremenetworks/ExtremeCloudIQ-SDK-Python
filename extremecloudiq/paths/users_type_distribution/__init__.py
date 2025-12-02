@@ -4,4 +4,4 @@
 
 from extremecloudiq.paths import PathValues
 
-path = PathValues.USERS_TYPE_DISTRIBUTION
+path = PathValues.USERS_TYPEDISTRIBUTION

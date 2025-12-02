@@ -274,7 +274,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
                 name="name_example",
             )
         ],
-        restrict_number=1,
+        restrict_number=0,
         user_group_ids=[
             1
         ],
@@ -1242,10 +1242,11 @@ with extremecloudiq.ApiClient(configuration) as api_client:
                 id=1,
             )
         ],
-        restrict_number=1,
+        restrict_number=0,
         user_group_ids=[
             1
         ],
+        credential_distribution_group_error_message="credential_distribution_group_error_message_example",
     )
     try:
         # Update Credential Distribution Group by ID

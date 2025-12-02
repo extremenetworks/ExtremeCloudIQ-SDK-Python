@@ -6,6 +6,7 @@ README.md
 docs/apis/tags/AccountApi.md
 docs/apis/tags/AdministrationApi.md
 docs/apis/tags/AfcEndpointApi.md
+docs/apis/tags/AirrmEndpointApi.md
 docs/apis/tags/AlertApi.md
 docs/apis/tags/ApplicationApi.md
 docs/apis/tags/AuthenticationApi.md
@@ -113,6 +114,7 @@ docs/models/PagedXiqRadioProfile.md
 docs/models/PagedXiqRadiusClientObject.md
 docs/models/PagedXiqRadiusProxy.md
 docs/models/PagedXiqRadsecProxy.md
+docs/models/PagedXiqRmAfcDevice.md
 docs/models/PagedXiqRmDevice.md
 docs/models/PagedXiqRpMacOuiProfile.md
 docs/models/PagedXiqSite.md
@@ -150,6 +152,16 @@ docs/models/RttsSessionDevices.md
 docs/models/ServicesHealth.md
 docs/models/TimestampedEvents.md
 docs/models/WifiHealth.md
+docs/models/XIQAirrmAfcChannelInfo.md
+docs/models/XIQAirrmAfcSpectrum.md
+docs/models/XIQAirrmDeviceRadioInfo.md
+docs/models/XIQAirrmDeviceRegulatoryConfigAfcSpectrum.md
+docs/models/XIQAirrmGetDeviceApInfoResponse.md
+docs/models/XIQAirrmGetDeviceRegulatoryConfigAfcSpectrumResponse.md
+docs/models/XIQAirrmGetDevicesRadioInfoResponse.md
+docs/models/XIQAirrmGetSiteDeviceRegulatoryConfigAfcSpectrumResponse.md
+docs/models/XIQAirrmRadioInfo.md
+docs/models/XIQAirrmRegulatoryConfiguration.md
 docs/models/XiqAccount.md
 docs/models/XiqAccountMode.md
 docs/models/XiqAccountType.md
@@ -172,6 +184,7 @@ docs/models/XiqAfcFloorDetails.md
 docs/models/XiqAfcFloorDetailsCreateRequest.md
 docs/models/XiqAfcGeolocationSummary.md
 docs/models/XiqAfcInputInfo.md
+docs/models/XiqAfcMetricReport.md
 docs/models/XiqAfcMobileappAnchorCandidate.md
 docs/models/XiqAfcMobileappCoordinates.md
 docs/models/XiqAfcMobileappScanInfo.md
@@ -180,6 +193,7 @@ docs/models/XiqAfcServerState.md
 docs/models/XiqAfcServerStatistics.md
 docs/models/XiqAfcServersStatistics.md
 docs/models/XiqAfcStatusSummary.md
+docs/models/XiqAfcWifiRadioSettings.md
 docs/models/XiqAffectedDownlinkDevice.md
 docs/models/XiqAlert.md
 docs/models/XiqAlertDashboard.md
@@ -284,6 +298,7 @@ docs/models/XiqCertificateBundle.md
 docs/models/XiqCertificateType.md
 docs/models/XiqChangeDevicesIbeaconRequest.md
 docs/models/XiqChangeDevicesOsModeRequest.md
+docs/models/XiqChangeStatusToManageResponse.md
 docs/models/XiqChannelUtilizationDetails.md
 docs/models/XiqCheckPermissionRequest.md
 docs/models/XiqCheckPermissionResponse.md
@@ -330,6 +345,7 @@ docs/models/XiqConnectivityExperience.md
 docs/models/XiqConnectivityExperienceData.md
 docs/models/XiqConnectivityExperienceList.md
 docs/models/XiqConnectivityExperienceViewType.md
+docs/models/XiqConstantValue.md
 docs/models/XiqConvertOptionType.md
 docs/models/XiqCopilotAnomaliesActionResponse.md
 docs/models/XiqCopilotAnomaliesByCategory.md
@@ -409,6 +425,7 @@ docs/models/XiqD360FilterType.md
 docs/models/XiqD360NumberFilter.md
 docs/models/XiqDashboardFilter.md
 docs/models/XiqDataPoint.md
+docs/models/XiqDataUnit.md
 docs/models/XiqDateTimeType.md
 docs/models/XiqDateTimeUnitType.md
 docs/models/XiqDefaultDevicePassword.md
@@ -465,6 +482,7 @@ docs/models/XiqDeviceMonitorRefreshStatusResponse.md
 docs/models/XiqDeviceNullField.md
 docs/models/XiqDevicePath.md
 docs/models/XiqDevicePoeUsageIssuesCount.md
+docs/models/XiqDeviceRadioInfoRequest.md
 docs/models/XiqDeviceRadioOperatingMode.md
 docs/models/XiqDeviceRebootSummary.md
 docs/models/XiqDeviceSortField.md
@@ -511,6 +529,7 @@ docs/models/XiqEmployeeGroupUpdate.md
 docs/models/XiqEndUser.md
 docs/models/XiqEntitlementType.md
 docs/models/XiqError.md
+docs/models/XiqEthUplinkSpeed.md
 docs/models/XiqExcludedVlanActionType.md
 docs/models/XiqExosDevice.md
 docs/models/XiqExosDevices.md
@@ -749,6 +768,9 @@ docs/models/XiqRecurrenceType.md
 docs/models/XiqRegenerateEndUserPasswordResponse.md
 docs/models/XiqReportFtmDataRequest.md
 docs/models/XiqRfEnvironmentType.md
+docs/models/XiqRmAfcDevice.md
+docs/models/XiqRmAfcDeviceListRequest.md
+docs/models/XiqRmAfcGridFilterMetadata.md
 docs/models/XiqRmChannelFilterType.md
 docs/models/XiqRmDevice.md
 docs/models/XiqRmDeviceAction.md
@@ -757,11 +779,13 @@ docs/models/XiqRmDeviceActionSupportMetadataRequest.md
 docs/models/XiqRmDeviceActionSupportMetadataResponse.md
 docs/models/XiqRmDeviceCategory.md
 docs/models/XiqRmDeviceConnectionStatus.md
+docs/models/XiqRmDeviceEthUplinkSpeedFilter.md
 docs/models/XiqRmDeviceIcons.md
 docs/models/XiqRmDeviceListExport.md
 docs/models/XiqRmDeviceListRequest.md
 docs/models/XiqRmDeviceLocationDetails.md
 docs/models/XiqRmDeviceMetadataResponse.md
+docs/models/XiqRmDeviceNumberEnumFilter.md
 docs/models/XiqRmDeviceSortField.md
 docs/models/XiqRmSiteIdsRequest.md
 docs/models/XiqRmSourceFilterType.md
@@ -1070,6 +1094,7 @@ extremecloudiq/apis/__init__.py
 extremecloudiq/apis/tags/account_api.py
 extremecloudiq/apis/tags/administration_api.py
 extremecloudiq/apis/tags/afc_endpoint_api.py
+extremecloudiq/apis/tags/airrm_endpoint_api.py
 extremecloudiq/apis/tags/alert_api.py
 extremecloudiq/apis/tags/application_api.py
 extremecloudiq/apis/tags/authentication_api.py
@@ -1244,6 +1269,8 @@ extremecloudiq/model/paged_xiq_radius_proxy.py
 extremecloudiq/model/paged_xiq_radius_proxy.pyi
 extremecloudiq/model/paged_xiq_radsec_proxy.py
 extremecloudiq/model/paged_xiq_radsec_proxy.pyi
+extremecloudiq/model/paged_xiq_rm_afc_device.py
+extremecloudiq/model/paged_xiq_rm_afc_device.pyi
 extremecloudiq/model/paged_xiq_rm_device.py
 extremecloudiq/model/paged_xiq_rm_device.pyi
 extremecloudiq/model/paged_xiq_rp_mac_oui_profile.py
@@ -1362,6 +1389,8 @@ extremecloudiq/model/xiq_afc_geolocation_summary.py
 extremecloudiq/model/xiq_afc_geolocation_summary.pyi
 extremecloudiq/model/xiq_afc_input_info.py
 extremecloudiq/model/xiq_afc_input_info.pyi
+extremecloudiq/model/xiq_afc_metric_report.py
+extremecloudiq/model/xiq_afc_metric_report.pyi
 extremecloudiq/model/xiq_afc_mobileapp_anchor_candidate.py
 extremecloudiq/model/xiq_afc_mobileapp_anchor_candidate.pyi
 extremecloudiq/model/xiq_afc_mobileapp_coordinates.py
@@ -1378,8 +1407,30 @@ extremecloudiq/model/xiq_afc_servers_statistics.py
 extremecloudiq/model/xiq_afc_servers_statistics.pyi
 extremecloudiq/model/xiq_afc_status_summary.py
 extremecloudiq/model/xiq_afc_status_summary.pyi
+extremecloudiq/model/xiq_afc_wifi_radio_settings.py
+extremecloudiq/model/xiq_afc_wifi_radio_settings.pyi
 extremecloudiq/model/xiq_affected_downlink_device.py
 extremecloudiq/model/xiq_affected_downlink_device.pyi
+extremecloudiq/model/xiq_airrm_afc_channel_info.py
+extremecloudiq/model/xiq_airrm_afc_channel_info.pyi
+extremecloudiq/model/xiq_airrm_afc_spectrum.py
+extremecloudiq/model/xiq_airrm_afc_spectrum.pyi
+extremecloudiq/model/xiq_airrm_device_radio_info.py
+extremecloudiq/model/xiq_airrm_device_radio_info.pyi
+extremecloudiq/model/xiq_airrm_device_regulatory_config_afc_spectrum.py
+extremecloudiq/model/xiq_airrm_device_regulatory_config_afc_spectrum.pyi
+extremecloudiq/model/xiq_airrm_get_device_ap_info_response.py
+extremecloudiq/model/xiq_airrm_get_device_ap_info_response.pyi
+extremecloudiq/model/xiq_airrm_get_device_regulatory_config_afc_spectrum_response.py
+extremecloudiq/model/xiq_airrm_get_device_regulatory_config_afc_spectrum_response.pyi
+extremecloudiq/model/xiq_airrm_get_devices_radio_info_response.py
+extremecloudiq/model/xiq_airrm_get_devices_radio_info_response.pyi
+extremecloudiq/model/xiq_airrm_get_site_device_regulatory_config_afc_spectrum_response.py
+extremecloudiq/model/xiq_airrm_get_site_device_regulatory_config_afc_spectrum_response.pyi
+extremecloudiq/model/xiq_airrm_radio_info.py
+extremecloudiq/model/xiq_airrm_radio_info.pyi
+extremecloudiq/model/xiq_airrm_regulatory_configuration.py
+extremecloudiq/model/xiq_airrm_regulatory_configuration.pyi
 extremecloudiq/model/xiq_alert.py
 extremecloudiq/model/xiq_alert.pyi
 extremecloudiq/model/xiq_alert_dashboard.py
@@ -1586,6 +1637,8 @@ extremecloudiq/model/xiq_change_devices_ibeacon_request.py
 extremecloudiq/model/xiq_change_devices_ibeacon_request.pyi
 extremecloudiq/model/xiq_change_devices_os_mode_request.py
 extremecloudiq/model/xiq_change_devices_os_mode_request.pyi
+extremecloudiq/model/xiq_change_status_to_manage_response.py
+extremecloudiq/model/xiq_change_status_to_manage_response.pyi
 extremecloudiq/model/xiq_channel_utilization_details.py
 extremecloudiq/model/xiq_channel_utilization_details.pyi
 extremecloudiq/model/xiq_check_permission_request.py
@@ -1678,6 +1731,8 @@ extremecloudiq/model/xiq_connectivity_experience_list.py
 extremecloudiq/model/xiq_connectivity_experience_list.pyi
 extremecloudiq/model/xiq_connectivity_experience_view_type.py
 extremecloudiq/model/xiq_connectivity_experience_view_type.pyi
+extremecloudiq/model/xiq_constant_value.py
+extremecloudiq/model/xiq_constant_value.pyi
 extremecloudiq/model/xiq_convert_option_type.py
 extremecloudiq/model/xiq_convert_option_type.pyi
 extremecloudiq/model/xiq_copilot_anomalies_action_response.py
@@ -1836,6 +1891,8 @@ extremecloudiq/model/xiq_dashboard_filter.py
 extremecloudiq/model/xiq_dashboard_filter.pyi
 extremecloudiq/model/xiq_data_point.py
 extremecloudiq/model/xiq_data_point.pyi
+extremecloudiq/model/xiq_data_unit.py
+extremecloudiq/model/xiq_data_unit.pyi
 extremecloudiq/model/xiq_date_time_type.py
 extremecloudiq/model/xiq_date_time_type.pyi
 extremecloudiq/model/xiq_date_time_unit_type.py
@@ -1948,6 +2005,8 @@ extremecloudiq/model/xiq_device_path.py
 extremecloudiq/model/xiq_device_path.pyi
 extremecloudiq/model/xiq_device_poe_usage_issues_count.py
 extremecloudiq/model/xiq_device_poe_usage_issues_count.pyi
+extremecloudiq/model/xiq_device_radio_info_request.py
+extremecloudiq/model/xiq_device_radio_info_request.pyi
 extremecloudiq/model/xiq_device_radio_operating_mode.py
 extremecloudiq/model/xiq_device_radio_operating_mode.pyi
 extremecloudiq/model/xiq_device_reboot_summary.py
@@ -2040,6 +2099,8 @@ extremecloudiq/model/xiq_entitlement_type.py
 extremecloudiq/model/xiq_entitlement_type.pyi
 extremecloudiq/model/xiq_error.py
 extremecloudiq/model/xiq_error.pyi
+extremecloudiq/model/xiq_eth_uplink_speed.py
+extremecloudiq/model/xiq_eth_uplink_speed.pyi
 extremecloudiq/model/xiq_excluded_vlan_action_type.py
 extremecloudiq/model/xiq_excluded_vlan_action_type.pyi
 extremecloudiq/model/xiq_exos_device.py
@@ -2516,6 +2577,12 @@ extremecloudiq/model/xiq_report_ftm_data_request.py
 extremecloudiq/model/xiq_report_ftm_data_request.pyi
 extremecloudiq/model/xiq_rf_environment_type.py
 extremecloudiq/model/xiq_rf_environment_type.pyi
+extremecloudiq/model/xiq_rm_afc_device.py
+extremecloudiq/model/xiq_rm_afc_device.pyi
+extremecloudiq/model/xiq_rm_afc_device_list_request.py
+extremecloudiq/model/xiq_rm_afc_device_list_request.pyi
+extremecloudiq/model/xiq_rm_afc_grid_filter_metadata.py
+extremecloudiq/model/xiq_rm_afc_grid_filter_metadata.pyi
 extremecloudiq/model/xiq_rm_channel_filter_type.py
 extremecloudiq/model/xiq_rm_channel_filter_type.pyi
 extremecloudiq/model/xiq_rm_device.py
@@ -2532,6 +2599,8 @@ extremecloudiq/model/xiq_rm_device_category.py
 extremecloudiq/model/xiq_rm_device_category.pyi
 extremecloudiq/model/xiq_rm_device_connection_status.py
 extremecloudiq/model/xiq_rm_device_connection_status.pyi
+extremecloudiq/model/xiq_rm_device_eth_uplink_speed_filter.py
+extremecloudiq/model/xiq_rm_device_eth_uplink_speed_filter.pyi
 extremecloudiq/model/xiq_rm_device_icons.py
 extremecloudiq/model/xiq_rm_device_icons.pyi
 extremecloudiq/model/xiq_rm_device_list_export.py
@@ -2542,6 +2611,8 @@ extremecloudiq/model/xiq_rm_device_location_details.py
 extremecloudiq/model/xiq_rm_device_location_details.pyi
 extremecloudiq/model/xiq_rm_device_metadata_response.py
 extremecloudiq/model/xiq_rm_device_metadata_response.pyi
+extremecloudiq/model/xiq_rm_device_number_enum_filter.py
+extremecloudiq/model/xiq_rm_device_number_enum_filter.pyi
 extremecloudiq/model/xiq_rm_device_sort_field.py
 extremecloudiq/model/xiq_rm_device_sort_field.pyi
 extremecloudiq/model/xiq_rm_site_ids_request.py
@@ -3220,6 +3291,7 @@ test/test_models/test_paged_xiq_radio_profile.py
 test/test_models/test_paged_xiq_radius_client_object.py
 test/test_models/test_paged_xiq_radius_proxy.py
 test/test_models/test_paged_xiq_radsec_proxy.py
+test/test_models/test_paged_xiq_rm_afc_device.py
 test/test_models/test_paged_xiq_rm_device.py
 test/test_models/test_paged_xiq_rp_mac_oui_profile.py
 test/test_models/test_paged_xiq_site.py
@@ -3279,6 +3351,7 @@ test/test_models/test_xiq_afc_floor_details.py
 test/test_models/test_xiq_afc_floor_details_create_request.py
 test/test_models/test_xiq_afc_geolocation_summary.py
 test/test_models/test_xiq_afc_input_info.py
+test/test_models/test_xiq_afc_metric_report.py
 test/test_models/test_xiq_afc_mobileapp_anchor_candidate.py
 test/test_models/test_xiq_afc_mobileapp_coordinates.py
 test/test_models/test_xiq_afc_mobileapp_scan_info.py
@@ -3287,7 +3360,18 @@ test/test_models/test_xiq_afc_server_state.py
 test/test_models/test_xiq_afc_server_statistics.py
 test/test_models/test_xiq_afc_servers_statistics.py
 test/test_models/test_xiq_afc_status_summary.py
+test/test_models/test_xiq_afc_wifi_radio_settings.py
 test/test_models/test_xiq_affected_downlink_device.py
+test/test_models/test_xiq_airrm_afc_channel_info.py
+test/test_models/test_xiq_airrm_afc_spectrum.py
+test/test_models/test_xiq_airrm_device_radio_info.py
+test/test_models/test_xiq_airrm_device_regulatory_config_afc_spectrum.py
+test/test_models/test_xiq_airrm_get_device_ap_info_response.py
+test/test_models/test_xiq_airrm_get_device_regulatory_config_afc_spectrum_response.py
+test/test_models/test_xiq_airrm_get_devices_radio_info_response.py
+test/test_models/test_xiq_airrm_get_site_device_regulatory_config_afc_spectrum_response.py
+test/test_models/test_xiq_airrm_radio_info.py
+test/test_models/test_xiq_airrm_regulatory_configuration.py
 test/test_models/test_xiq_alert.py
 test/test_models/test_xiq_alert_dashboard.py
 test/test_models/test_xiq_alert_email_subscription.py
@@ -3391,6 +3475,7 @@ test/test_models/test_xiq_certificate_bundle.py
 test/test_models/test_xiq_certificate_type.py
 test/test_models/test_xiq_change_devices_ibeacon_request.py
 test/test_models/test_xiq_change_devices_os_mode_request.py
+test/test_models/test_xiq_change_status_to_manage_response.py
 test/test_models/test_xiq_channel_utilization_details.py
 test/test_models/test_xiq_check_permission_request.py
 test/test_models/test_xiq_check_permission_response.py
@@ -3437,6 +3522,7 @@ test/test_models/test_xiq_connectivity_experience.py
 test/test_models/test_xiq_connectivity_experience_data.py
 test/test_models/test_xiq_connectivity_experience_list.py
 test/test_models/test_xiq_connectivity_experience_view_type.py
+test/test_models/test_xiq_constant_value.py
 test/test_models/test_xiq_convert_option_type.py
 test/test_models/test_xiq_copilot_anomalies_action_response.py
 test/test_models/test_xiq_copilot_anomalies_by_category.py
@@ -3516,6 +3602,7 @@ test/test_models/test_xiq_d360_filter_type.py
 test/test_models/test_xiq_d360_number_filter.py
 test/test_models/test_xiq_dashboard_filter.py
 test/test_models/test_xiq_data_point.py
+test/test_models/test_xiq_data_unit.py
 test/test_models/test_xiq_date_time_type.py
 test/test_models/test_xiq_date_time_unit_type.py
 test/test_models/test_xiq_default_device_password.py
@@ -3572,6 +3659,7 @@ test/test_models/test_xiq_device_monitor_refresh_status_response.py
 test/test_models/test_xiq_device_null_field.py
 test/test_models/test_xiq_device_path.py
 test/test_models/test_xiq_device_poe_usage_issues_count.py
+test/test_models/test_xiq_device_radio_info_request.py
 test/test_models/test_xiq_device_radio_operating_mode.py
 test/test_models/test_xiq_device_reboot_summary.py
 test/test_models/test_xiq_device_sort_field.py
@@ -3618,6 +3706,7 @@ test/test_models/test_xiq_employee_group_update.py
 test/test_models/test_xiq_end_user.py
 test/test_models/test_xiq_entitlement_type.py
 test/test_models/test_xiq_error.py
+test/test_models/test_xiq_eth_uplink_speed.py
 test/test_models/test_xiq_excluded_vlan_action_type.py
 test/test_models/test_xiq_exos_device.py
 test/test_models/test_xiq_exos_devices.py
@@ -3856,6 +3945,9 @@ test/test_models/test_xiq_recurrence_type.py
 test/test_models/test_xiq_regenerate_end_user_password_response.py
 test/test_models/test_xiq_report_ftm_data_request.py
 test/test_models/test_xiq_rf_environment_type.py
+test/test_models/test_xiq_rm_afc_device.py
+test/test_models/test_xiq_rm_afc_device_list_request.py
+test/test_models/test_xiq_rm_afc_grid_filter_metadata.py
 test/test_models/test_xiq_rm_channel_filter_type.py
 test/test_models/test_xiq_rm_device.py
 test/test_models/test_xiq_rm_device_action.py
@@ -3864,11 +3956,13 @@ test/test_models/test_xiq_rm_device_action_support_metadata_request.py
 test/test_models/test_xiq_rm_device_action_support_metadata_response.py
 test/test_models/test_xiq_rm_device_category.py
 test/test_models/test_xiq_rm_device_connection_status.py
+test/test_models/test_xiq_rm_device_eth_uplink_speed_filter.py
 test/test_models/test_xiq_rm_device_icons.py
 test/test_models/test_xiq_rm_device_list_export.py
 test/test_models/test_xiq_rm_device_list_request.py
 test/test_models/test_xiq_rm_device_location_details.py
 test/test_models/test_xiq_rm_device_metadata_response.py
+test/test_models/test_xiq_rm_device_number_enum_filter.py
 test/test_models/test_xiq_rm_device_sort_field.py
 test/test_models/test_xiq_rm_site_ids_request.py
 test/test_models/test_xiq_rm_source_filter_type.py

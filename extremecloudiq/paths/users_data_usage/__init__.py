@@ -4,4 +4,4 @@
 
 from extremecloudiq.paths import PathValues
 
-path = PathValues.USERS_DATA_USAGE
+path = PathValues.USERS_DATAUSAGE

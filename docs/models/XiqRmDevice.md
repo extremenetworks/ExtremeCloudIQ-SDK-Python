@@ -56,6 +56,8 @@ Key | Input Type | Accessed Type | Description | Notes
 **os** | str,  | str,  | The OS Name | [optional] 
 **device_template_name** | str,  | str,  | The device template name | [optional] 
 **[cloud_config_groups](#cloud_config_groups)** | list, tuple,  | tuple,  | The device cloud config groups | [optional] 
+**eth0_uplink_speed** | str,  | str,  | Value for Eth0 uplink speed | [optional] 
+**eth1_uplink_speed** | str,  | str,  | Value for Eth1 uplink speed | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # cloud_config_groups

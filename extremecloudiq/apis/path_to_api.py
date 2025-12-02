@@ -81,8 +81,8 @@ from extremecloudiq.apis.paths.vlan_profiles import VlanProfiles
 from extremecloudiq.apis.paths.vlan_profiles_delete import VlanProfilesDelete
 from extremecloudiq.apis.paths.users import Users
 from extremecloudiq.apis.paths.users_type_distribution import UsersTypeDistribution
-from extremecloudiq.apis.paths.users_grid_export import UsersGridExport
 from extremecloudiq.apis.paths.users_grid import UsersGrid
+from extremecloudiq.apis.paths.users_grid_export import UsersGridExport
 from extremecloudiq.apis.paths.users_filter_metadata import UsersFilterMetadata
 from extremecloudiq.apis.paths.users_external import UsersExternal
 from extremecloudiq.apis.paths.users_data_usage import UsersDataUsage
@@ -293,8 +293,12 @@ from extremecloudiq.apis.paths.alert_subscriptions_emails_delete import AlertSub
 from extremecloudiq.apis.paths.alert_policies import AlertPolicies
 from extremecloudiq.apis.paths.alert_policies_policy_id_rules_rule_id_enable import AlertPoliciesPolicyIdRulesRuleIdEnable
 from extremecloudiq.apis.paths.alert_policies_policy_id_rules_rule_id_disable import AlertPoliciesPolicyIdRulesRuleIdDisable
+from extremecloudiq.apis.paths.airrm_ap_radio_info_ import AirrmApRadioInfo
+from extremecloudiq.apis.paths.afc_rm_devices_page import AfcRmDevicesPage
 from extremecloudiq.apis.paths.afc_recalculate_site_id import AfcRecalculateSiteId
 from extremecloudiq.apis.paths.afc_mobileapp_apcandidates import AfcMobileappApcandidates
+from extremecloudiq.apis.paths.afc_filter_metadata import AfcFilterMetadata
+from extremecloudiq.apis.paths.afc_export import AfcExport
 from extremecloudiq.apis.paths.afc_aps_report_ftm import AfcApsReportFtm
 from extremecloudiq.apis.paths.acct_api_token import AcctApiToken
 from extremecloudiq.apis.paths.account_viq_import import AccountViqImport
@@ -464,9 +468,13 @@ from extremecloudiq.apis.paths.alerts import Alerts
 from extremecloudiq.apis.paths.alerts_reports_id import AlertsReportsId
 from extremecloudiq.apis.paths.alerts_count_by_group import AlertsCountByGroup
 from extremecloudiq.apis.paths.alert_policies_available_sites import AlertPoliciesAvailableSites
+from extremecloudiq.apis.paths.airrm_site_airrm_id import AirrmSiteAirrmId
+from extremecloudiq.apis.paths.airrm_radio_ap_info_radio_mac import AirrmRadioApInfoRadioMac
+from extremecloudiq.apis.paths.airrm_device_serial_number import AirrmDeviceSerialNumber
 from extremecloudiq.apis.paths.afcserver import Afcserver
 from extremecloudiq.apis.paths.afcserver_server_id import AfcserverServerId
 from extremecloudiq.apis.paths.afcserver_statistics_server_id import AfcserverStatisticsServerId
+from extremecloudiq.apis.paths.afc_reports_id import AfcReportsId
 from extremecloudiq.apis.paths.ad_servers import AdServers
 from extremecloudiq.apis.paths.acct_api_token_export import AcctApiTokenExport
 from extremecloudiq.apis.paths.account_viq import AccountViq
@@ -570,12 +578,12 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.VLANPROFILES: VlanProfiles,
         PathValues.VLANPROFILES_DELETE: VlanProfilesDelete,
         PathValues.USERS: Users,
-        PathValues.USERS_TYPE_DISTRIBUTION: UsersTypeDistribution,
-        PathValues.USERS_GRID_EXPORT: UsersGridExport,
+        PathValues.USERS_TYPEDISTRIBUTION: UsersTypeDistribution,
         PathValues.USERS_GRID: UsersGrid,
-        PathValues.USERS_FILTER_METADATA: UsersFilterMetadata,
+        PathValues.USERS_GRIDEXPORT: UsersGridExport,
+        PathValues.USERS_FILTERMETADATA: UsersFilterMetadata,
         PathValues.USERS_EXTERNAL: UsersExternal,
-        PathValues.USERS_DATA_USAGE: UsersDataUsage,
+        PathValues.USERS_DATAUSAGE: UsersDataUsage,
         PathValues.USERGROUPS: Usergroups,
         PathValues.USERPROFILES: UserProfiles,
         PathValues.USERPROFILES_ID_MACFIREWALLPOLICIES_DETACH: UserProfilesIdMacFirewallPoliciesDetach,
@@ -783,8 +791,12 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.ALERTPOLICIES: AlertPolicies,
         PathValues.ALERTPOLICIES_POLICY_ID_RULES_RULE_ID_ENABLE: AlertPoliciesPolicyIdRulesRuleIdEnable,
         PathValues.ALERTPOLICIES_POLICY_ID_RULES_RULE_ID_DISABLE: AlertPoliciesPolicyIdRulesRuleIdDisable,
+        PathValues.AIRRM_AP_RADIO_INFO_: AirrmApRadioInfo,
+        PathValues.AFC_RMDEVICESPAGE: AfcRmDevicesPage,
         PathValues.AFC_RECALCULATE_SITE_ID: AfcRecalculateSiteId,
         PathValues.AFC_MOBILEAPP_APCANDIDATES: AfcMobileappApcandidates,
+        PathValues.AFC_FILTERMETADATA: AfcFilterMetadata,
+        PathValues.AFC_EXPORT: AfcExport,
         PathValues.AFC_APS_REPORT_FTM: AfcApsReportFtm,
         PathValues.ACCTAPITOKEN: AcctApiToken,
         PathValues.ACCOUNT_VIQ_IMPORT: AccountViqImport,
@@ -954,9 +966,13 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.ALERTS_REPORTS_ID: AlertsReportsId,
         PathValues.ALERTS_COUNTBYGROUP: AlertsCountByGroup,
         PathValues.ALERTPOLICIES_AVAILABLESITES: AlertPoliciesAvailableSites,
+        PathValues.AIRRM_SITE_AIRRM_ID: AirrmSiteAirrmId,
+        PathValues.AIRRM_RADIO_AP_INFO_RADIO_MAC: AirrmRadioApInfoRadioMac,
+        PathValues.AIRRM_DEVICE_SERIAL_NUMBER: AirrmDeviceSerialNumber,
         PathValues.AFCSERVER: Afcserver,
         PathValues.AFCSERVER_SERVER_ID: AfcserverServerId,
         PathValues.AFCSERVER_STATISTICS_SERVER_ID: AfcserverStatisticsServerId,
+        PathValues.AFC_REPORTS_ID: AfcReportsId,
         PathValues.ADSERVERS: AdServers,
         PathValues.ACCTAPITOKEN_EXPORT: AcctApiTokenExport,
         PathValues.ACCOUNT_VIQ: AccountViq,
@@ -1061,12 +1077,12 @@ path_to_api = PathToApi(
         PathValues.VLANPROFILES: VlanProfiles,
         PathValues.VLANPROFILES_DELETE: VlanProfilesDelete,
         PathValues.USERS: Users,
-        PathValues.USERS_TYPE_DISTRIBUTION: UsersTypeDistribution,
-        PathValues.USERS_GRID_EXPORT: UsersGridExport,
+        PathValues.USERS_TYPEDISTRIBUTION: UsersTypeDistribution,
         PathValues.USERS_GRID: UsersGrid,
-        PathValues.USERS_FILTER_METADATA: UsersFilterMetadata,
+        PathValues.USERS_GRIDEXPORT: UsersGridExport,
+        PathValues.USERS_FILTERMETADATA: UsersFilterMetadata,
         PathValues.USERS_EXTERNAL: UsersExternal,
-        PathValues.USERS_DATA_USAGE: UsersDataUsage,
+        PathValues.USERS_DATAUSAGE: UsersDataUsage,
         PathValues.USERGROUPS: Usergroups,
         PathValues.USERPROFILES: UserProfiles,
         PathValues.USERPROFILES_ID_MACFIREWALLPOLICIES_DETACH: UserProfilesIdMacFirewallPoliciesDetach,
@@ -1274,8 +1290,12 @@ path_to_api = PathToApi(
         PathValues.ALERTPOLICIES: AlertPolicies,
         PathValues.ALERTPOLICIES_POLICY_ID_RULES_RULE_ID_ENABLE: AlertPoliciesPolicyIdRulesRuleIdEnable,
         PathValues.ALERTPOLICIES_POLICY_ID_RULES_RULE_ID_DISABLE: AlertPoliciesPolicyIdRulesRuleIdDisable,
+        PathValues.AIRRM_AP_RADIO_INFO_: AirrmApRadioInfo,
+        PathValues.AFC_RMDEVICESPAGE: AfcRmDevicesPage,
         PathValues.AFC_RECALCULATE_SITE_ID: AfcRecalculateSiteId,
         PathValues.AFC_MOBILEAPP_APCANDIDATES: AfcMobileappApcandidates,
+        PathValues.AFC_FILTERMETADATA: AfcFilterMetadata,
+        PathValues.AFC_EXPORT: AfcExport,
         PathValues.AFC_APS_REPORT_FTM: AfcApsReportFtm,
         PathValues.ACCTAPITOKEN: AcctApiToken,
         PathValues.ACCOUNT_VIQ_IMPORT: AccountViqImport,
@@ -1445,9 +1465,13 @@ path_to_api = PathToApi(
         PathValues.ALERTS_REPORTS_ID: AlertsReportsId,
         PathValues.ALERTS_COUNTBYGROUP: AlertsCountByGroup,
         PathValues.ALERTPOLICIES_AVAILABLESITES: AlertPoliciesAvailableSites,
+        PathValues.AIRRM_SITE_AIRRM_ID: AirrmSiteAirrmId,
+        PathValues.AIRRM_RADIO_AP_INFO_RADIO_MAC: AirrmRadioApInfoRadioMac,
+        PathValues.AIRRM_DEVICE_SERIAL_NUMBER: AirrmDeviceSerialNumber,
         PathValues.AFCSERVER: Afcserver,
         PathValues.AFCSERVER_SERVER_ID: AfcserverServerId,
         PathValues.AFCSERVER_STATISTICS_SERVER_ID: AfcserverStatisticsServerId,
+        PathValues.AFC_REPORTS_ID: AfcReportsId,
         PathValues.ADSERVERS: AdServers,
         PathValues.ACCTAPITOKEN_EXPORT: AcctApiTokenExport,
         PathValues.ACCOUNT_VIQ: AccountViq,
