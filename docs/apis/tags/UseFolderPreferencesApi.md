@@ -25,6 +25,7 @@ from extremecloudiq.apis.tags import use_folder_preferences_api
 from extremecloudiq.model.xiq_rssi_thresholds import XiqRssiThresholds
 from extremecloudiq.model.xiq_snr_thresholds import XiqSnrThresholds
 from extremecloudiq.model.xiq_co_channel_interference_thresholds import XiqCoChannelInterferenceThresholds
+from extremecloudiq.model.xiq_layer_opacity_preferences import XiqLayerOpacityPreferences
 from extremecloudiq.model.xiq_coverage_overlap_thresholds import XiqCoverageOverlapThresholds
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -140,6 +141,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [XiqCoChannelInterferenceThresholds]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) | [**XiqCoChannelInterferenceThresholds**]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) | [**XiqCoChannelInterferenceThresholds**]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) |  | 
 [XiqCoverageOverlapThresholds]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) | [**XiqCoverageOverlapThresholds**]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) | [**XiqCoverageOverlapThresholds**]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) |  | 
+[XiqLayerOpacityPreferences]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) | [**XiqLayerOpacityPreferences**]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) | [**XiqLayerOpacityPreferences**]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) |  | 
 [XiqRssiThresholds]({{complexTypePrefix}}XiqRssiThresholds.md) | [**XiqRssiThresholds**]({{complexTypePrefix}}XiqRssiThresholds.md) | [**XiqRssiThresholds**]({{complexTypePrefix}}XiqRssiThresholds.md) |  | 
 [XiqSnrThresholds]({{complexTypePrefix}}XiqSnrThresholds.md) | [**XiqSnrThresholds**]({{complexTypePrefix}}XiqSnrThresholds.md) | [**XiqSnrThresholds**]({{complexTypePrefix}}XiqSnrThresholds.md) |  | 
 
@@ -166,6 +168,7 @@ from extremecloudiq.apis.tags import use_folder_preferences_api
 from extremecloudiq.model.xiq_rssi_thresholds import XiqRssiThresholds
 from extremecloudiq.model.xiq_snr_thresholds import XiqSnrThresholds
 from extremecloudiq.model.xiq_co_channel_interference_thresholds import XiqCoChannelInterferenceThresholds
+from extremecloudiq.model.xiq_layer_opacity_preferences import XiqLayerOpacityPreferences
 from extremecloudiq.model.xiq_coverage_overlap_thresholds import XiqCoverageOverlapThresholds
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -232,6 +235,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [XiqCoChannelInterferenceThresholds]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) | [**XiqCoChannelInterferenceThresholds**]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) | [**XiqCoChannelInterferenceThresholds**]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) |  | 
 [XiqCoverageOverlapThresholds]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) | [**XiqCoverageOverlapThresholds**]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) | [**XiqCoverageOverlapThresholds**]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) |  | 
+[XiqLayerOpacityPreferences]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) | [**XiqLayerOpacityPreferences**]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) | [**XiqLayerOpacityPreferences**]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) |  | 
 [XiqRssiThresholds]({{complexTypePrefix}}XiqRssiThresholds.md) | [**XiqRssiThresholds**]({{complexTypePrefix}}XiqRssiThresholds.md) | [**XiqRssiThresholds**]({{complexTypePrefix}}XiqRssiThresholds.md) |  | 
 [XiqSnrThresholds]({{complexTypePrefix}}XiqSnrThresholds.md) | [**XiqSnrThresholds**]({{complexTypePrefix}}XiqSnrThresholds.md) | [**XiqSnrThresholds**]({{complexTypePrefix}}XiqSnrThresholds.md) |  | 
 
@@ -276,6 +280,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [XiqCoChannelInterferenceThresholds]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) | [**XiqCoChannelInterferenceThresholds**]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) | [**XiqCoChannelInterferenceThresholds**]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) |  | 
 [XiqCoverageOverlapThresholds]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) | [**XiqCoverageOverlapThresholds**]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) | [**XiqCoverageOverlapThresholds**]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) |  | 
+[XiqLayerOpacityPreferences]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) | [**XiqLayerOpacityPreferences**]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) | [**XiqLayerOpacityPreferences**]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) |  | 
 [XiqRssiThresholds]({{complexTypePrefix}}XiqRssiThresholds.md) | [**XiqRssiThresholds**]({{complexTypePrefix}}XiqRssiThresholds.md) | [**XiqRssiThresholds**]({{complexTypePrefix}}XiqRssiThresholds.md) |  | 
 [XiqSnrThresholds]({{complexTypePrefix}}XiqSnrThresholds.md) | [**XiqSnrThresholds**]({{complexTypePrefix}}XiqSnrThresholds.md) | [**XiqSnrThresholds**]({{complexTypePrefix}}XiqSnrThresholds.md) |  | 
 

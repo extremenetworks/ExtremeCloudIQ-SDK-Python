@@ -367,6 +367,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         password="password_example",
         email_password_delivery="email_password_delivery_example",
         sms_password_delivery="sms_password_delivery_example",
+        vlan_override=1,
     )
     try:
         # Create an end user
@@ -2557,6 +2558,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         password="password_example",
         email_password_delivery="email_password_delivery_example",
         sms_password_delivery="sms_password_delivery_example",
+        vlan_override=1,
     )
     try:
         # Update an end user

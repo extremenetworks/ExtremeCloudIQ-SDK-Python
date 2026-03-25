@@ -40,6 +40,10 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     body = XiqLoginRequest(
         username="username_example",
         password="password_example",
+        rate_limit=XiqRateLimitPolicy(
+            hour=7500,
+            second=100,
+        ),
     )
     try:
         # User login with username and password
@@ -74,9 +78,22 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+400 | [ApiResponseFor400](#login.ApiResponseFor400) | Bad request
 200 | [ApiResponseFor200](#login.ApiResponseFor200) | Successful operation
 401 | [ApiResponseFor401](#login.ApiResponseFor401) | UNAUTHORIZED
-400 | [ApiResponseFor400](#login.ApiResponseFor400) | Bad request
+
+#### login.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqError**](../../models/XiqError.md) |  | 
+
 
 #### login.ApiResponseFor200
 Name | Type | Description  | Notes
@@ -99,19 +116,6 @@ body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
 # SchemaFor401ResponseBodyApplicationJson
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
-
-
-#### login.ApiResponseFor400
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
-headers | Unset | headers were not defined |
-
-# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 

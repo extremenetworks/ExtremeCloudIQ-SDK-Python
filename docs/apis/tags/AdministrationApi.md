@@ -1246,7 +1246,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         user_group_ids=[
             1
         ],
-        credential_distribution_group_error_message="credential_distribution_group_error_message_example",
     )
     try:
         # Update Credential Distribution Group by ID

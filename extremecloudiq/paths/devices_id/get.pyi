@@ -25,9 +25,9 @@ import frozendict  # noqa: F401
 
 from extremecloudiq import schemas  # noqa: F401
 
+from extremecloudiq.model.xiq_device_response import XiqDeviceResponse
 from extremecloudiq.model.xiq_device_field import XiqDeviceField
 from extremecloudiq.model.xiq_device_view import XiqDeviceView
-from extremecloudiq.model.xiq_device import XiqDevice
 
 # Query params
 
@@ -139,7 +139,7 @@ request_path_id = api_client.PathParameter(
     schema=IdSchema,
     required=True,
 )
-SchemaFor200ResponseBodyApplicationJson = XiqDevice
+SchemaFor200ResponseBodyApplicationJson = XiqDeviceResponse
 
 
 @dataclass

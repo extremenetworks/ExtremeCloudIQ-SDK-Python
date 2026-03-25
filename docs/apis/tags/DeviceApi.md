@@ -84,7 +84,9 @@ Method | HTTP request | Description
 [**send_cli_to_device**](#send_cli_to_device) | **post** /devices/{id}/:cli | Send CLI to a device
 [**send_cli_to_devices**](#send_cli_to_devices) | **post** /devices/:cli | [LRO] Send CLI to devices
 [**start_thread_commissioner**](#start_thread_commissioner) | **post** /devices/{id}/thread/commissioner/:start | Start Thread Commissioner
+[**start_thread_commissioner_by_buildings**](#start_thread_commissioner_by_buildings) | **post** /devices/thread/commissioner/start | Start Thread Commissioner by Buildings
 [**stop_thread_commissioner**](#stop_thread_commissioner) | **post** /devices/{id}/thread/commissioner/:stop | Stop Thread Commissioner
+[**stop_thread_commissioner_by_buildings**](#stop_thread_commissioner_by_buildings) | **post** /devices/thread/commissioner/stop | Stop Thread Commissioner by Buildings
 [**update_device_visible**](#update_device_visible) | **put** /devices/{id}/visible | Update the visible status of a device in a floor
 
 # **advanced_onboard_devices**
@@ -3672,7 +3674,7 @@ Type | Description  | Notes
 
 # **get_device1**
 <a id="get_device1"></a>
-> XiqDevice get_device1(id)
+> XiqDeviceResponse get_device1(id)
 
 Get device info for a specific device
 
@@ -3684,9 +3686,9 @@ Get device info for a specific device.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import device_api
+from extremecloudiq.model.xiq_device_response import XiqDeviceResponse
 from extremecloudiq.model.xiq_device_field import XiqDeviceField
 from extremecloudiq.model.xiq_device_view import XiqDeviceView
-from extremecloudiq.model.xiq_device import XiqDevice
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -3821,7 +3823,7 @@ headers | Unset | headers were not defined |
 # SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**XiqDevice**](../../models/XiqDevice.md) |  | 
+[**XiqDeviceResponse**](../../models/XiqDeviceResponse.md) |  | 
 
 
 ### Authorization
@@ -4069,8 +4071,8 @@ Retrieve the connection status of devices for given site IDs.
 import extremecloudiq
 from extremecloudiq.apis.tags import device_api
 from extremecloudiq.model.xiq_rm_device_connection_status import XiqRmDeviceConnectionStatus
+from extremecloudiq.model.xiq_rm_device_category_request import XiqRmDeviceCategoryRequest
 from extremecloudiq.model.xiq_rm_site_ids_request import XiqRmSiteIdsRequest
-from extremecloudiq.model.xiq_device_category import XiqDeviceCategory
 from extremecloudiq.model.xiq_device_type import XiqDeviceType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -4113,7 +4115,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'deviceCategory': XiqDeviceCategory("WIRED"),
+        'deviceCategory': XiqRmDeviceCategoryRequest("WIRED"),
         'deviceTypes': [
         XiqDeviceType("REAL")
     ],
@@ -4167,7 +4169,7 @@ includeUnassigned | IncludeUnassignedSchema | | optional
 # DeviceCategorySchema
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**XiqDeviceCategory**](../../models/XiqDeviceCategory.md) |  | 
+[**XiqRmDeviceCategoryRequest**](../../models/XiqRmDeviceCategoryRequest.md) |  | 
 
 
 # DeviceTypesSchema
@@ -4792,8 +4794,8 @@ Retrieve metadata information about devices.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import device_api
+from extremecloudiq.model.xiq_rm_device_category_request import XiqRmDeviceCategoryRequest
 from extremecloudiq.model.xiq_rm_site_ids_request import XiqRmSiteIdsRequest
-from extremecloudiq.model.xiq_device_category import XiqDeviceCategory
 from extremecloudiq.model.xiq_rm_device_metadata_response import XiqRmDeviceMetadataResponse
 from extremecloudiq.model.xiq_device_admin_state import XiqDeviceAdminState
 from extremecloudiq.model.xiq_device_type import XiqDeviceType
@@ -4838,7 +4840,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'deviceCategory': XiqDeviceCategory("WIRED"),
+        'deviceCategory': XiqRmDeviceCategoryRequest("WIRED"),
         'adminStates': [
         XiqDeviceAdminState("NEW")
     ],
@@ -4896,7 +4898,7 @@ includeUnassigned | IncludeUnassignedSchema | | optional
 # DeviceCategorySchema
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**XiqDeviceCategory**](../../models/XiqDeviceCategory.md) |  | 
+[**XiqRmDeviceCategoryRequest**](../../models/XiqRmDeviceCategoryRequest.md) |  | 
 
 
 # AdminStatesSchema
@@ -7164,7 +7166,7 @@ Type | Description  | Notes
 
 # **onboard_devices**
 <a id="onboard_devices"></a>
-> onboard_devices(xiq_onboard_device_request)
+> XiqOnboardDeviceResponse onboard_devices(xiq_onboard_device_request)
 
 Onboard Devices
 
@@ -7177,6 +7179,7 @@ Onboard devices for all devices, such as Extreme/Aerohive, EXOS, VOSS, WiNG, Del
 import extremecloudiq
 from extremecloudiq.apis.tags import device_api
 from extremecloudiq.model.xiq_onboard_device_request import XiqOnboardDeviceRequest
+from extremecloudiq.model.xiq_onboard_device_response import XiqOnboardDeviceResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
 # See configuration.py for a list of all supported configuration parameters.
@@ -7243,6 +7246,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         api_response = api_instance.onboard_devices(
             body=body,
         )
+        pprint(api_response)
     except extremecloudiq.ApiException as e:
         print("Exception when calling DeviceApi->onboard_devices: %s\n" % e)
 ```
@@ -7252,6 +7256,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -7269,14 +7274,20 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-202 | [ApiResponseFor202](#onboard_devices.ApiResponseFor202) | Accepted
+200 | [ApiResponseFor200](#onboard_devices.ApiResponseFor200) | OK
 
-#### onboard_devices.ApiResponseFor202
+#### onboard_devices.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqOnboardDeviceResponse**](../../models/XiqOnboardDeviceResponse.md) |  | 
+
 
 ### Authorization
 
@@ -8873,7 +8884,7 @@ Device List with pagination.
 import extremecloudiq
 from extremecloudiq.apis.tags import device_api
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
-from extremecloudiq.model.xiq_device_category import XiqDeviceCategory
+from extremecloudiq.model.xiq_rm_device_category_request import XiqRmDeviceCategoryRequest
 from extremecloudiq.model.xiq_device_admin_state import XiqDeviceAdminState
 from extremecloudiq.model.xiq_rm_device_sort_field import XiqRmDeviceSortField
 from extremecloudiq.model.xiq_rm_device_list_request import XiqRmDeviceListRequest
@@ -8962,7 +8973,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'adminStates': [
         XiqDeviceAdminState("NEW")
     ],
-        'deviceCategory': XiqDeviceCategory("WIRED"),
+        'deviceCategory': XiqRmDeviceCategoryRequest("WIRED"),
         'sortField': XiqRmDeviceSortField("HOSTNAME"),
         'order': XiqSortOrder("ASC"),
         'deviceTypes': [
@@ -9106,7 +9117,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 # DeviceCategorySchema
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**XiqDeviceCategory**](../../models/XiqDeviceCategory.md) |  | 
+[**XiqRmDeviceCategoryRequest**](../../models/XiqRmDeviceCategoryRequest.md) |  | 
 
 
 # SortFieldSchema
@@ -9558,6 +9569,106 @@ headers | Unset | headers were not defined |
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
+# **start_thread_commissioner_by_buildings**
+<a id="start_thread_commissioner_by_buildings"></a>
+> XiqThreadStartCommissionerByBuildingsResponse start_thread_commissioner_by_buildings(xiq_thread_start_commissioner_by_buildings_request)
+
+Start Thread Commissioner by Buildings
+
+Start the thread commissioner on the devices located in the buildings.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import device_api
+from extremecloudiq.model.xiq_thread_start_commissioner_by_buildings_response import XiqThreadStartCommissionerByBuildingsResponse
+from extremecloudiq.model.xiq_thread_start_commissioner_by_buildings_request import XiqThreadStartCommissionerByBuildingsRequest
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = device_api.DeviceApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = XiqThreadStartCommissionerByBuildingsRequest(
+        building_ids=[
+            1
+        ],
+        comm_timeout=1,
+        ext_pan_id="2",
+        owner_id=1,
+    )
+    try:
+        # Start Thread Commissioner by Buildings
+        api_response = api_instance.start_thread_commissioner_by_buildings(
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DeviceApi->start_thread_commissioner_by_buildings: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqThreadStartCommissionerByBuildingsRequest**](../../models/XiqThreadStartCommissionerByBuildingsRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#start_thread_commissioner_by_buildings.ApiResponseFor200) | OK
+
+#### start_thread_commissioner_by_buildings.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqThreadStartCommissionerByBuildingsResponse**](../../models/XiqThreadStartCommissionerByBuildingsResponse.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
 # **stop_thread_commissioner**
 <a id="stop_thread_commissioner"></a>
 > stop_thread_commissioner(idxiq_thread_stop_commissioner_request)
@@ -9657,6 +9768,105 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **stop_thread_commissioner_by_buildings**
+<a id="stop_thread_commissioner_by_buildings"></a>
+> XiqThreadStopCommissionerByBuildingsResponse stop_thread_commissioner_by_buildings(xiq_thread_stop_commissioner_by_buildings_request)
+
+Stop Thread Commissioner by Buildings
+
+Stop the thread commissioner on the devices located in the buildings.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import device_api
+from extremecloudiq.model.xiq_thread_stop_commissioner_by_buildings_request import XiqThreadStopCommissionerByBuildingsRequest
+from extremecloudiq.model.xiq_thread_stop_commissioner_by_buildings_response import XiqThreadStopCommissionerByBuildingsResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = device_api.DeviceApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = XiqThreadStopCommissionerByBuildingsRequest(
+        building_ids=[
+            1
+        ],
+        ext_pan_id="2",
+        owner_id=1,
+    )
+    try:
+        # Stop Thread Commissioner by Buildings
+        api_response = api_instance.stop_thread_commissioner_by_buildings(
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DeviceApi->stop_thread_commissioner_by_buildings: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqThreadStopCommissionerByBuildingsRequest**](../../models/XiqThreadStopCommissionerByBuildingsRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#stop_thread_commissioner_by_buildings.ApiResponseFor200) | OK
+
+#### stop_thread_commissioner_by_buildings.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqThreadStopCommissionerByBuildingsResponse**](../../models/XiqThreadStopCommissionerByBuildingsResponse.md) |  | 
+
 
 ### Authorization
 

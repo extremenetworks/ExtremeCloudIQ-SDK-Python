@@ -25,17 +25,13 @@ import frozendict  # noqa: F401
 
 from extremecloudiq import schemas  # noqa: F401
 
-from extremecloudiq.model.rm_sort_order import RmSortOrder
 from extremecloudiq.model.rm_metric_report import RmMetricReport
-from extremecloudiq.model.rm_user_grid_sort_field import RmUserGridSortField
 from extremecloudiq.model.rm_user_grid_request import RmUserGridRequest
 
 from . import path
 
 # Query params
 SearchSchema = schemas.StrSchema
-SortFieldSchema = RmUserGridSortField
-OrderSchema = RmSortOrder
 StartTimeSchema = schemas.Int64Schema
 EndTimeSchema = schemas.Int64Schema
 TimezoneOffsetSchema = schemas.Int64Schema
@@ -50,8 +46,6 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
     'RequestOptionalQueryParams',
     {
         'search': typing.Union[SearchSchema, str, ],
-        'sortField': typing.Union[SortFieldSchema, ],
-        'order': typing.Union[OrderSchema, ],
         'timezoneOffset': typing.Union[TimezoneOffsetSchema, decimal.Decimal, int, ],
     },
     total=False
@@ -66,18 +60,6 @@ request_query_search = api_client.QueryParameter(
     name="search",
     style=api_client.ParameterStyle.FORM,
     schema=SearchSchema,
-    explode=True,
-)
-request_query_sort_field = api_client.QueryParameter(
-    name="sortField",
-    style=api_client.ParameterStyle.FORM,
-    schema=SortFieldSchema,
-    explode=True,
-)
-request_query_order = api_client.QueryParameter(
-    name="order",
-    style=api_client.ParameterStyle.FORM,
-    schema=OrderSchema,
     explode=True,
 )
 request_query_start_time = api_client.QueryParameter(
@@ -220,8 +202,6 @@ class BaseApi(api_client.Api):
         prefix_separator_iterator = None
         for parameter in (
             request_query_search,
-            request_query_sort_field,
-            request_query_order,
             request_query_start_time,
             request_query_end_time,
             request_query_timezone_offset,

@@ -29,13 +29,18 @@ from extremecloudiq.apis.paths.radio_profiles_miscellaneous_id import RadioProfi
 from extremecloudiq.apis.paths.radio_profiles_mac_ouis_id import RadioProfilesMacOuisId
 from extremecloudiq.apis.paths.radio_profiles_channel_selection_id import RadioProfilesChannelSelectionId
 from extremecloudiq.apis.paths.pcgs_key_based_network_policy_policy_id_users import PcgsKeyBasedNetworkPolicyPolicyIdUsers
+from extremecloudiq.apis.paths.ng_reports_scheduled_report_id_recipients import NgReportsScheduledReportIdRecipients
+from extremecloudiq.apis.paths.ng_reports_scheduled_custom_report_id import NgReportsScheduledCustomReportId
 from extremecloudiq.apis.paths.network_policies_id import NetworkPoliciesId
 from extremecloudiq.apis.paths.mac_object_profiles_id import MacObjectProfilesId
 from extremecloudiq.apis.paths.mac_firewall_policies_id import MacFirewallPoliciesId
 from extremecloudiq.apis.paths.locations_id import LocationsId
 from extremecloudiq.apis.paths.locations_wall_type_id import LocationsWallTypeId
 from extremecloudiq.apis.paths.locations_site_id import LocationsSiteId
+from extremecloudiq.apis.paths.locations_folder_zones import LocationsFolderZones
 from extremecloudiq.apis.paths.locations_floor_id import LocationsFloorId
+from extremecloudiq.apis.paths.locations_floor_floor_id_label import LocationsFloorFloorIdLabel
+from extremecloudiq.apis.paths.locations_floor_bulk_label import LocationsFloorBulkLabel
 from extremecloudiq.apis.paths.locations_building_id import LocationsBuildingId
 from extremecloudiq.apis.paths.ldap_servers_id import LdapServersId
 from extremecloudiq.apis.paths.l3_address_profiles_id import L3AddressProfilesId
@@ -108,6 +113,7 @@ from extremecloudiq.apis.paths.ssids_id_client_monitor_profile_attach import Ssi
 from extremecloudiq.apis.paths.ssids_id_rename import SsidsIdRename
 from extremecloudiq.apis.paths.site_spectrum_ import SiteSpectrum
 from extremecloudiq.apis.paths.rtts import Rtts
+from extremecloudiq.apis.paths.rtts_supported_devices import RttsSupportedDevices
 from extremecloudiq.apis.paths.radsec_proxies import RadsecProxies
 from extremecloudiq.apis.paths.radius_servers_internal import RadiusServersInternal
 from extremecloudiq.apis.paths.radius_servers_external import RadiusServersExternal
@@ -127,13 +133,12 @@ from extremecloudiq.apis.paths.operations_operation_id_cancel import OperationsO
 from extremecloudiq.apis.paths.nos_device_device_id_nos_api import NosDeviceDeviceIdNosApi
 from extremecloudiq.apis.paths.ng_reports_timeseries import NgReportsTimeseries
 from extremecloudiq.apis.paths.ng_reports_tabledata import NgReportsTabledata
+from extremecloudiq.apis.paths.ng_reports_scheduled_custom import NgReportsScheduledCustom
 from extremecloudiq.apis.paths.ng_reports_metadata_user import NgReportsMetadataUser
 from extremecloudiq.apis.paths.ng_reports_metadata_ssids import NgReportsMetadataSsids
 from extremecloudiq.apis.paths.ng_reports_metadata_os import NgReportsMetadataOs
 from extremecloudiq.apis.paths.ng_reports_metadata_device import NgReportsMetadataDevice
-from extremecloudiq.apis.paths.ng_reports_metadata_connection_type import NgReportsMetadataConnectionType
 from extremecloudiq.apis.paths.ng_reports_metadata_client import NgReportsMetadataClient
-from extremecloudiq.apis.paths.ng_reports_metadata_channel import NgReportsMetadataChannel
 from extremecloudiq.apis.paths.ng_reports_metadata_bands import NgReportsMetadataBands
 from extremecloudiq.apis.paths.ng_reports_metadata_application import NgReportsMetadataApplication
 from extremecloudiq.apis.paths.ng_reports_downloads_reports import NgReportsDownloadsReports
@@ -181,6 +186,8 @@ from extremecloudiq.apis.paths.devices_id_reset import DevicesIdReset
 from extremecloudiq.apis.paths.devices_id_reboot import DevicesIdReboot
 from extremecloudiq.apis.paths.devices_id_manage import DevicesIdManage
 from extremecloudiq.apis.paths.devices_id_cli import DevicesIdCli
+from extremecloudiq.apis.paths.devices_thread_commissioner_stop import DevicesThreadCommissionerStop
+from extremecloudiq.apis.paths.devices_thread_commissioner_start import DevicesThreadCommissionerStart
 from extremecloudiq.apis.paths.devices_rm_devices_page import DevicesRmDevicesPage
 from extremecloudiq.apis.paths.devices_rm_devices_page_export import DevicesRmDevicesPageExport
 from extremecloudiq.apis.paths.devices_rm_devices_metadata import DevicesRmDevicesMetadata
@@ -278,6 +285,7 @@ from extremecloudiq.apis.paths.auth_permissions_check import AuthPermissionsChec
 from extremecloudiq.apis.paths.auth_apitoken import AuthApitoken
 from extremecloudiq.apis.paths.auth_apitoken_validate import AuthApitokenValidate
 from extremecloudiq.apis.paths.aps_afc_update import ApsAfcUpdate
+from extremecloudiq.apis.paths.aps_afc_query_ import ApsAfcQuery
 from extremecloudiq.apis.paths.applications_usage_summary import ApplicationsUsageSummary
 from extremecloudiq.apis.paths.applications_usage_summary_export import ApplicationsUsageSummaryExport
 from extremecloudiq.apis.paths.ap_spectrum_ import ApSpectrum
@@ -309,6 +317,7 @@ from extremecloudiq.apis.paths.account_switch import AccountSwitch
 from extremecloudiq.apis.paths.vlan_profiles_id import VlanProfilesId
 from extremecloudiq.apis.paths.users_id import UsersId
 from extremecloudiq.apis.paths.users_external_id import UsersExternalId
+from extremecloudiq.apis.paths.ng_reports_scheduled_report_schedule_id import NgReportsScheduledReportScheduleId
 from extremecloudiq.apis.paths.acct_api_token_id import AcctApiTokenId
 from extremecloudiq.apis.paths.users_reports_id import UsersReportsId
 from extremecloudiq.apis.paths.users_me import UsersMe
@@ -328,6 +337,11 @@ from extremecloudiq.apis.paths.radio_operating_modes_product_type import RadioOp
 from extremecloudiq.apis.paths.packetcaptures_id import PacketcapturesId
 from extremecloudiq.apis.paths.packetcaptures_files import PacketcapturesFiles
 from extremecloudiq.apis.paths.operations_operation_id import OperationsOperationId
+from extremecloudiq.apis.paths.ng_reports_scheduled_runs_report_run_id_recipients import NgReportsScheduledRunsReportRunIdRecipients
+from extremecloudiq.apis.paths.ng_reports_scheduled_reports_download import NgReportsScheduledReportsDownload
+from extremecloudiq.apis.paths.ng_reports_scheduled_pci_compliance import NgReportsScheduledPciCompliance
+from extremecloudiq.apis.paths.ng_reports_scheduled_network_summary import NgReportsScheduledNetworkSummary
+from extremecloudiq.apis.paths.ng_reports_scheduled_custom_report_schedule_id_runs import NgReportsScheduledCustomReportScheduleIdRuns
 from extremecloudiq.apis.paths.ng_reports_information_metrics import NgReportsInformationMetrics
 from extremecloudiq.apis.paths.ng_reports_information_ import NgReportsInformation
 from extremecloudiq.apis.paths.ng_reports_download_reports_id import NgReportsDownloadReportsId
@@ -349,6 +363,7 @@ from extremecloudiq.apis.paths.locations_wall_type_references_id import Location
 from extremecloudiq.apis.paths.locations_tree import LocationsTree
 from extremecloudiq.apis.paths.locations_tree_maps import LocationsTreeMaps
 from extremecloudiq.apis.paths.locations_tree_devices import LocationsTreeDevices
+from extremecloudiq.apis.paths.locations_folder_folder_id_zones import LocationsFolderFolderIdZones
 from extremecloudiq.apis.paths.hiq_status import HiqStatus
 from extremecloudiq.apis.paths.geo_view import GeoView
 from extremecloudiq.apis.paths.essentials_eloc_clients_client_mac_last_known_location import EssentialsElocClientsClientMacLastKnownLocation
@@ -455,7 +470,6 @@ from extremecloudiq.apis.paths.certificates import Certificates
 from extremecloudiq.apis.paths.backup_history_grid import BackupHistoryGrid
 from extremecloudiq.apis.paths.auth_permissions import AuthPermissions
 from extremecloudiq.apis.paths.auth_apitoken_info import AuthApitokenInfo
-from extremecloudiq.apis.paths.aps_afc_query_ import ApsAfcQuery
 from extremecloudiq.apis.paths.applications import Applications
 from extremecloudiq.apis.paths.applications_id_clients_topn import ApplicationsIdClientsTopn
 from extremecloudiq.apis.paths.applications_usage_summary_meta_data import ApplicationsUsageSummaryMetaData
@@ -488,7 +502,10 @@ from extremecloudiq.apis.paths.account_external import AccountExternal
 from extremecloudiq.apis.paths.subscriptions_webhook_delete import SubscriptionsWebhookDelete
 from extremecloudiq.apis.paths.rtts_id import RttsId
 from extremecloudiq.apis.paths.pcgs_key_based_network_policy_policy_id import PcgsKeyBasedNetworkPolicyPolicyId
+from extremecloudiq.apis.paths.ng_reports_scheduled_runs import NgReportsScheduledRuns
 from extremecloudiq.apis.paths.network_services_id import NetworkServicesId
+from extremecloudiq.apis.paths.locations_folder_zone_id import LocationsFolderZoneId
+from extremecloudiq.apis.paths.locations_floor_floor_id_label_label_id import LocationsFloorFloorIdLabelLabelId
 from extremecloudiq.apis.paths.hiq_organizations_id import HiqOrganizationsId
 from extremecloudiq.apis.paths.floor_afc_details_id import FloorAfcDetailsId
 from extremecloudiq.apis.paths.devices_radius_proxy_revoke import DevicesRadiusProxyRevoke
@@ -527,13 +544,18 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.RADIOPROFILES_MACOUIS_ID: RadioProfilesMacOuisId,
         PathValues.RADIOPROFILES_CHANNELSELECTION_ID: RadioProfilesChannelSelectionId,
         PathValues.PCGS_KEYBASED_NETWORKPOLICYPOLICY_ID_USERS: PcgsKeyBasedNetworkPolicyPolicyIdUsers,
+        PathValues.NGREPORTS_SCHEDULED_REPORT_ID_RECIPIENTS: NgReportsScheduledReportIdRecipients,
+        PathValues.NGREPORTS_SCHEDULED_CUSTOM_REPORT_ID: NgReportsScheduledCustomReportId,
         PathValues.NETWORKPOLICIES_ID: NetworkPoliciesId,
         PathValues.MACOBJECTPROFILES_ID: MacObjectProfilesId,
         PathValues.MACFIREWALLPOLICIES_ID: MacFirewallPoliciesId,
         PathValues.LOCATIONS_ID: LocationsId,
         PathValues.LOCATIONS_WALL_TYPE_ID: LocationsWallTypeId,
         PathValues.LOCATIONS_SITE_ID: LocationsSiteId,
+        PathValues.LOCATIONS_FOLDER_ZONES: LocationsFolderZones,
         PathValues.LOCATIONS_FLOOR_ID: LocationsFloorId,
+        PathValues.LOCATIONS_FLOOR_FLOOR_ID_LABEL: LocationsFloorFloorIdLabel,
+        PathValues.LOCATIONS_FLOOR_BULK_LABEL: LocationsFloorBulkLabel,
         PathValues.LOCATIONS_BUILDING_ID: LocationsBuildingId,
         PathValues.LDAPSERVERS_ID: LdapServersId,
         PathValues.L3ADDRESSPROFILES_ID: L3AddressProfilesId,
@@ -606,6 +628,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.SSIDS_ID_RENAME: SsidsIdRename,
         PathValues.SITE_SPECTRUM_: SiteSpectrum,
         PathValues.RTTS: Rtts,
+        PathValues.RTTS_SUPPORTEDDEVICES: RttsSupportedDevices,
         PathValues.RADSECPROXIES: RadsecProxies,
         PathValues.RADIUSSERVERS_INTERNAL: RadiusServersInternal,
         PathValues.RADIUSSERVERS_EXTERNAL: RadiusServersExternal,
@@ -625,13 +648,12 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.NOS_DEVICE_DEVICE_ID_NOSAPI: NosDeviceDeviceIdNosApi,
         PathValues.NGREPORTS_TIMESERIES: NgReportsTimeseries,
         PathValues.NGREPORTS_TABLEDATA: NgReportsTabledata,
+        PathValues.NGREPORTS_SCHEDULED_CUSTOM: NgReportsScheduledCustom,
         PathValues.NGREPORTS_METADATA_USER: NgReportsMetadataUser,
         PathValues.NGREPORTS_METADATA_SSIDS: NgReportsMetadataSsids,
         PathValues.NGREPORTS_METADATA_OS: NgReportsMetadataOs,
         PathValues.NGREPORTS_METADATA_DEVICE: NgReportsMetadataDevice,
-        PathValues.NGREPORTS_METADATA_CONNECTIONTYPE: NgReportsMetadataConnectionType,
         PathValues.NGREPORTS_METADATA_CLIENT: NgReportsMetadataClient,
-        PathValues.NGREPORTS_METADATA_CHANNEL: NgReportsMetadataChannel,
         PathValues.NGREPORTS_METADATA_BANDS: NgReportsMetadataBands,
         PathValues.NGREPORTS_METADATA_APPLICATION: NgReportsMetadataApplication,
         PathValues.NGREPORTS_DOWNLOADS_REPORTS: NgReportsDownloadsReports,
@@ -679,6 +701,8 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.DEVICES_ID_REBOOT: DevicesIdReboot,
         PathValues.DEVICES_ID_MANAGE: DevicesIdManage,
         PathValues.DEVICES_ID_CLI: DevicesIdCli,
+        PathValues.DEVICES_THREAD_COMMISSIONER_STOP: DevicesThreadCommissionerStop,
+        PathValues.DEVICES_THREAD_COMMISSIONER_START: DevicesThreadCommissionerStart,
         PathValues.DEVICES_RMDEVICESPAGE: DevicesRmDevicesPage,
         PathValues.DEVICES_RMDEVICESPAGE_EXPORT: DevicesRmDevicesPageExport,
         PathValues.DEVICES_RMDEVICESMETADATA: DevicesRmDevicesMetadata,
@@ -776,6 +800,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.AUTH_APITOKEN: AuthApitoken,
         PathValues.AUTH_APITOKEN_VALIDATE: AuthApitokenValidate,
         PathValues.APS_AFC_UPDATE: ApsAfcUpdate,
+        PathValues.APS_AFC_QUERY_: ApsAfcQuery,
         PathValues.APPLICATIONS_USAGE_SUMMARY: ApplicationsUsageSummary,
         PathValues.APPLICATIONS_USAGE_SUMMARY_EXPORT: ApplicationsUsageSummaryExport,
         PathValues.AP_SPECTRUM_: ApSpectrum,
@@ -807,6 +832,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.VLANPROFILES_ID: VlanProfilesId,
         PathValues.USERS_ID: UsersId,
         PathValues.USERS_EXTERNAL_ID: UsersExternalId,
+        PathValues.NGREPORTS_SCHEDULED_REPORT_SCHEDULE_ID: NgReportsScheduledReportScheduleId,
         PathValues.ACCTAPITOKEN_ID: AcctApiTokenId,
         PathValues.USERS_REPORTS_ID: UsersReportsId,
         PathValues.USERS_ME: UsersMe,
@@ -826,6 +852,11 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.PACKETCAPTURES_ID: PacketcapturesId,
         PathValues.PACKETCAPTURES_FILES: PacketcapturesFiles,
         PathValues.OPERATIONS_OPERATION_ID: OperationsOperationId,
+        PathValues.NGREPORTS_SCHEDULED_RUNS_REPORT_RUN_ID_RECIPIENTS: NgReportsScheduledRunsReportRunIdRecipients,
+        PathValues.NGREPORTS_SCHEDULED_REPORTS_DOWNLOAD: NgReportsScheduledReportsDownload,
+        PathValues.NGREPORTS_SCHEDULED_PCICOMPLIANCE: NgReportsScheduledPciCompliance,
+        PathValues.NGREPORTS_SCHEDULED_NETWORKSUMMARY: NgReportsScheduledNetworkSummary,
+        PathValues.NGREPORTS_SCHEDULED_CUSTOM_REPORT_SCHEDULE_ID_RUNS: NgReportsScheduledCustomReportScheduleIdRuns,
         PathValues.NGREPORTS_INFORMATION_METRICS: NgReportsInformationMetrics,
         PathValues.NGREPORTS_INFORMATION_: NgReportsInformation,
         PathValues.NGREPORTS_DOWNLOAD_REPORTS_ID: NgReportsDownloadReportsId,
@@ -847,6 +878,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.LOCATIONS_TREE: LocationsTree,
         PathValues.LOCATIONS_TREE_MAPS: LocationsTreeMaps,
         PathValues.LOCATIONS_TREE_DEVICES: LocationsTreeDevices,
+        PathValues.LOCATIONS_FOLDER_FOLDER_ID_ZONES: LocationsFolderFolderIdZones,
         PathValues.HIQ_STATUS: HiqStatus,
         PathValues.GEOVIEW: GeoView,
         PathValues.ESSENTIALS_ELOC_CLIENTS_CLIENT_MAC_LASTKNOWNLOCATION: EssentialsElocClientsClientMacLastKnownLocation,
@@ -953,7 +985,6 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.BACKUP_HISTORY_GRID: BackupHistoryGrid,
         PathValues.AUTH_PERMISSIONS: AuthPermissions,
         PathValues.AUTH_APITOKEN_INFO: AuthApitokenInfo,
-        PathValues.APS_AFC_QUERY_: ApsAfcQuery,
         PathValues.APPLICATIONS: Applications,
         PathValues.APPLICATIONS_ID_CLIENTS_TOPN: ApplicationsIdClientsTopn,
         PathValues.APPLICATIONS_USAGE_SUMMARY_METADATA: ApplicationsUsageSummaryMetaData,
@@ -986,7 +1017,10 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.SUBSCRIPTIONS_WEBHOOK_DELETE: SubscriptionsWebhookDelete,
         PathValues.RTTS_ID: RttsId,
         PathValues.PCGS_KEYBASED_NETWORKPOLICYPOLICY_ID: PcgsKeyBasedNetworkPolicyPolicyId,
+        PathValues.NGREPORTS_SCHEDULED_RUNS: NgReportsScheduledRuns,
         PathValues.NETWORKSERVICES_ID: NetworkServicesId,
+        PathValues.LOCATIONS_FOLDER_ZONE_ID: LocationsFolderZoneId,
+        PathValues.LOCATIONS_FLOOR_FLOOR_ID_LABEL_LABEL_ID: LocationsFloorFloorIdLabelLabelId,
         PathValues.HIQ_ORGANIZATIONS_ID: HiqOrganizationsId,
         PathValues.FLOOR_AFC_DETAILS_ID: FloorAfcDetailsId,
         PathValues.DEVICES_RADIUSPROXY_REVOKE: DevicesRadiusProxyRevoke,
@@ -1026,13 +1060,18 @@ path_to_api = PathToApi(
         PathValues.RADIOPROFILES_MACOUIS_ID: RadioProfilesMacOuisId,
         PathValues.RADIOPROFILES_CHANNELSELECTION_ID: RadioProfilesChannelSelectionId,
         PathValues.PCGS_KEYBASED_NETWORKPOLICYPOLICY_ID_USERS: PcgsKeyBasedNetworkPolicyPolicyIdUsers,
+        PathValues.NGREPORTS_SCHEDULED_REPORT_ID_RECIPIENTS: NgReportsScheduledReportIdRecipients,
+        PathValues.NGREPORTS_SCHEDULED_CUSTOM_REPORT_ID: NgReportsScheduledCustomReportId,
         PathValues.NETWORKPOLICIES_ID: NetworkPoliciesId,
         PathValues.MACOBJECTPROFILES_ID: MacObjectProfilesId,
         PathValues.MACFIREWALLPOLICIES_ID: MacFirewallPoliciesId,
         PathValues.LOCATIONS_ID: LocationsId,
         PathValues.LOCATIONS_WALL_TYPE_ID: LocationsWallTypeId,
         PathValues.LOCATIONS_SITE_ID: LocationsSiteId,
+        PathValues.LOCATIONS_FOLDER_ZONES: LocationsFolderZones,
         PathValues.LOCATIONS_FLOOR_ID: LocationsFloorId,
+        PathValues.LOCATIONS_FLOOR_FLOOR_ID_LABEL: LocationsFloorFloorIdLabel,
+        PathValues.LOCATIONS_FLOOR_BULK_LABEL: LocationsFloorBulkLabel,
         PathValues.LOCATIONS_BUILDING_ID: LocationsBuildingId,
         PathValues.LDAPSERVERS_ID: LdapServersId,
         PathValues.L3ADDRESSPROFILES_ID: L3AddressProfilesId,
@@ -1105,6 +1144,7 @@ path_to_api = PathToApi(
         PathValues.SSIDS_ID_RENAME: SsidsIdRename,
         PathValues.SITE_SPECTRUM_: SiteSpectrum,
         PathValues.RTTS: Rtts,
+        PathValues.RTTS_SUPPORTEDDEVICES: RttsSupportedDevices,
         PathValues.RADSECPROXIES: RadsecProxies,
         PathValues.RADIUSSERVERS_INTERNAL: RadiusServersInternal,
         PathValues.RADIUSSERVERS_EXTERNAL: RadiusServersExternal,
@@ -1124,13 +1164,12 @@ path_to_api = PathToApi(
         PathValues.NOS_DEVICE_DEVICE_ID_NOSAPI: NosDeviceDeviceIdNosApi,
         PathValues.NGREPORTS_TIMESERIES: NgReportsTimeseries,
         PathValues.NGREPORTS_TABLEDATA: NgReportsTabledata,
+        PathValues.NGREPORTS_SCHEDULED_CUSTOM: NgReportsScheduledCustom,
         PathValues.NGREPORTS_METADATA_USER: NgReportsMetadataUser,
         PathValues.NGREPORTS_METADATA_SSIDS: NgReportsMetadataSsids,
         PathValues.NGREPORTS_METADATA_OS: NgReportsMetadataOs,
         PathValues.NGREPORTS_METADATA_DEVICE: NgReportsMetadataDevice,
-        PathValues.NGREPORTS_METADATA_CONNECTIONTYPE: NgReportsMetadataConnectionType,
         PathValues.NGREPORTS_METADATA_CLIENT: NgReportsMetadataClient,
-        PathValues.NGREPORTS_METADATA_CHANNEL: NgReportsMetadataChannel,
         PathValues.NGREPORTS_METADATA_BANDS: NgReportsMetadataBands,
         PathValues.NGREPORTS_METADATA_APPLICATION: NgReportsMetadataApplication,
         PathValues.NGREPORTS_DOWNLOADS_REPORTS: NgReportsDownloadsReports,
@@ -1178,6 +1217,8 @@ path_to_api = PathToApi(
         PathValues.DEVICES_ID_REBOOT: DevicesIdReboot,
         PathValues.DEVICES_ID_MANAGE: DevicesIdManage,
         PathValues.DEVICES_ID_CLI: DevicesIdCli,
+        PathValues.DEVICES_THREAD_COMMISSIONER_STOP: DevicesThreadCommissionerStop,
+        PathValues.DEVICES_THREAD_COMMISSIONER_START: DevicesThreadCommissionerStart,
         PathValues.DEVICES_RMDEVICESPAGE: DevicesRmDevicesPage,
         PathValues.DEVICES_RMDEVICESPAGE_EXPORT: DevicesRmDevicesPageExport,
         PathValues.DEVICES_RMDEVICESMETADATA: DevicesRmDevicesMetadata,
@@ -1275,6 +1316,7 @@ path_to_api = PathToApi(
         PathValues.AUTH_APITOKEN: AuthApitoken,
         PathValues.AUTH_APITOKEN_VALIDATE: AuthApitokenValidate,
         PathValues.APS_AFC_UPDATE: ApsAfcUpdate,
+        PathValues.APS_AFC_QUERY_: ApsAfcQuery,
         PathValues.APPLICATIONS_USAGE_SUMMARY: ApplicationsUsageSummary,
         PathValues.APPLICATIONS_USAGE_SUMMARY_EXPORT: ApplicationsUsageSummaryExport,
         PathValues.AP_SPECTRUM_: ApSpectrum,
@@ -1306,6 +1348,7 @@ path_to_api = PathToApi(
         PathValues.VLANPROFILES_ID: VlanProfilesId,
         PathValues.USERS_ID: UsersId,
         PathValues.USERS_EXTERNAL_ID: UsersExternalId,
+        PathValues.NGREPORTS_SCHEDULED_REPORT_SCHEDULE_ID: NgReportsScheduledReportScheduleId,
         PathValues.ACCTAPITOKEN_ID: AcctApiTokenId,
         PathValues.USERS_REPORTS_ID: UsersReportsId,
         PathValues.USERS_ME: UsersMe,
@@ -1325,6 +1368,11 @@ path_to_api = PathToApi(
         PathValues.PACKETCAPTURES_ID: PacketcapturesId,
         PathValues.PACKETCAPTURES_FILES: PacketcapturesFiles,
         PathValues.OPERATIONS_OPERATION_ID: OperationsOperationId,
+        PathValues.NGREPORTS_SCHEDULED_RUNS_REPORT_RUN_ID_RECIPIENTS: NgReportsScheduledRunsReportRunIdRecipients,
+        PathValues.NGREPORTS_SCHEDULED_REPORTS_DOWNLOAD: NgReportsScheduledReportsDownload,
+        PathValues.NGREPORTS_SCHEDULED_PCICOMPLIANCE: NgReportsScheduledPciCompliance,
+        PathValues.NGREPORTS_SCHEDULED_NETWORKSUMMARY: NgReportsScheduledNetworkSummary,
+        PathValues.NGREPORTS_SCHEDULED_CUSTOM_REPORT_SCHEDULE_ID_RUNS: NgReportsScheduledCustomReportScheduleIdRuns,
         PathValues.NGREPORTS_INFORMATION_METRICS: NgReportsInformationMetrics,
         PathValues.NGREPORTS_INFORMATION_: NgReportsInformation,
         PathValues.NGREPORTS_DOWNLOAD_REPORTS_ID: NgReportsDownloadReportsId,
@@ -1346,6 +1394,7 @@ path_to_api = PathToApi(
         PathValues.LOCATIONS_TREE: LocationsTree,
         PathValues.LOCATIONS_TREE_MAPS: LocationsTreeMaps,
         PathValues.LOCATIONS_TREE_DEVICES: LocationsTreeDevices,
+        PathValues.LOCATIONS_FOLDER_FOLDER_ID_ZONES: LocationsFolderFolderIdZones,
         PathValues.HIQ_STATUS: HiqStatus,
         PathValues.GEOVIEW: GeoView,
         PathValues.ESSENTIALS_ELOC_CLIENTS_CLIENT_MAC_LASTKNOWNLOCATION: EssentialsElocClientsClientMacLastKnownLocation,
@@ -1452,7 +1501,6 @@ path_to_api = PathToApi(
         PathValues.BACKUP_HISTORY_GRID: BackupHistoryGrid,
         PathValues.AUTH_PERMISSIONS: AuthPermissions,
         PathValues.AUTH_APITOKEN_INFO: AuthApitokenInfo,
-        PathValues.APS_AFC_QUERY_: ApsAfcQuery,
         PathValues.APPLICATIONS: Applications,
         PathValues.APPLICATIONS_ID_CLIENTS_TOPN: ApplicationsIdClientsTopn,
         PathValues.APPLICATIONS_USAGE_SUMMARY_METADATA: ApplicationsUsageSummaryMetaData,
@@ -1485,7 +1533,10 @@ path_to_api = PathToApi(
         PathValues.SUBSCRIPTIONS_WEBHOOK_DELETE: SubscriptionsWebhookDelete,
         PathValues.RTTS_ID: RttsId,
         PathValues.PCGS_KEYBASED_NETWORKPOLICYPOLICY_ID: PcgsKeyBasedNetworkPolicyPolicyId,
+        PathValues.NGREPORTS_SCHEDULED_RUNS: NgReportsScheduledRuns,
         PathValues.NETWORKSERVICES_ID: NetworkServicesId,
+        PathValues.LOCATIONS_FOLDER_ZONE_ID: LocationsFolderZoneId,
+        PathValues.LOCATIONS_FLOOR_FLOOR_ID_LABEL_LABEL_ID: LocationsFloorFloorIdLabelLabelId,
         PathValues.HIQ_ORGANIZATIONS_ID: HiqOrganizationsId,
         PathValues.FLOOR_AFC_DETAILS_ID: FloorAfcDetailsId,
         PathValues.DEVICES_RADIUSPROXY_REVOKE: DevicesRadiusProxyRevoke,

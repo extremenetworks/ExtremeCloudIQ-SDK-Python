@@ -26,7 +26,7 @@ import frozendict  # noqa: F401
 from extremecloudiq import schemas  # noqa: F401
 
 from extremecloudiq.model.xiq_sort_order import XiqSortOrder
-from extremecloudiq.model.xiq_device_category import XiqDeviceCategory
+from extremecloudiq.model.xiq_rm_device_category_request import XiqRmDeviceCategoryRequest
 from extremecloudiq.model.xiq_device_admin_state import XiqDeviceAdminState
 from extremecloudiq.model.xiq_rm_device_sort_field import XiqRmDeviceSortField
 from extremecloudiq.model.xiq_rm_device_list_request import XiqRmDeviceListRequest
@@ -85,7 +85,7 @@ class AdminStatesSchema(
 
     def __getitem__(self, i: int) -> 'XiqDeviceAdminState':
         return super().__getitem__(i)
-DeviceCategorySchema = XiqDeviceCategory
+DeviceCategorySchema = XiqRmDeviceCategoryRequest
 SortFieldSchema = XiqRmDeviceSortField
 OrderSchema = XiqSortOrder
 

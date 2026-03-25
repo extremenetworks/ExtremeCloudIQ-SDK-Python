@@ -63,6 +63,12 @@ class SortFieldSchema(
 SortOrderSchema = XiqSortOrder
 KeywordSchema = schemas.StrSchema
 IncludeUnassignedSchema = schemas.BoolSchema
+
+
+class AlertsTimeRangeSchema(
+    schemas.Int32Schema
+):
+    pass
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -75,6 +81,7 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
         'sortOrder': typing.Union[SortOrderSchema, ],
         'keyword': typing.Union[KeywordSchema, str, ],
         'includeUnassigned': typing.Union[IncludeUnassignedSchema, bool, ],
+        'alertsTimeRange': typing.Union[AlertsTimeRangeSchema, decimal.Decimal, int, ],
     },
     total=False
 )
@@ -106,6 +113,12 @@ request_query_include_unassigned = api_client.QueryParameter(
     name="includeUnassigned",
     style=api_client.ParameterStyle.FORM,
     schema=IncludeUnassignedSchema,
+    explode=True,
+)
+request_query_alerts_time_range = api_client.QueryParameter(
+    name="alertsTimeRange",
+    style=api_client.ParameterStyle.FORM,
+    schema=AlertsTimeRangeSchema,
     explode=True,
 )
 # body param
@@ -225,6 +238,7 @@ class BaseApi(api_client.Api):
             request_query_sort_order,
             request_query_keyword,
             request_query_include_unassigned,
+            request_query_alerts_time_range,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:

@@ -43,7 +43,8 @@ from extremecloudiq.apis.tags.network_scorecard_api import NetworkScorecardApi
 from extremecloudiq.apis.tags.essentials_extreme_location_api import EssentialsExtremeLocationApi
 from extremecloudiq.apis.tags.misc_api import MiscApi
 from extremecloudiq.apis.tags.thread_api import ThreadApi
-from extremecloudiq.apis.tags.ngreports_api import NGREPORTSApi
+from extremecloudiq.apis.tags.ng_reports_ondemand_api import NGReportsOndemandApi
+from extremecloudiq.apis.tags.ng_reports_scheduled_api import NGReportsScheduledApi
 from extremecloudiq.apis.tags.universal_compute_platform_api import UniversalComputePlatformApi
 from extremecloudiq.apis.tags.afc_endpoint_api import AfcEndpointApi
 from extremecloudiq.apis.tags.airrm_endpoint_api import AirrmEndpointApi
@@ -94,7 +95,8 @@ TagToApi = typing_extensions.TypedDict(
         TagValues.ESSENTIALS__EXTREME_LOCATION: EssentialsExtremeLocationApi,
         TagValues.MISC: MiscApi,
         TagValues.THREAD: ThreadApi,
-        TagValues.NGREPORTS: NGREPORTSApi,
+        TagValues.NG_REPORTS_ONDEMAND: NGReportsOndemandApi,
+        TagValues.NG_REPORTS_SCHEDULED: NGReportsScheduledApi,
         TagValues.UNIVERSAL_COMPUTE_PLATFORM: UniversalComputePlatformApi,
         TagValues.AFCENDPOINT: AfcEndpointApi,
         TagValues.AIRRMENDPOINT: AirrmEndpointApi,
@@ -146,7 +148,8 @@ tag_to_api = TagToApi(
         TagValues.ESSENTIALS__EXTREME_LOCATION: EssentialsExtremeLocationApi,
         TagValues.MISC: MiscApi,
         TagValues.THREAD: ThreadApi,
-        TagValues.NGREPORTS: NGREPORTSApi,
+        TagValues.NG_REPORTS_ONDEMAND: NGReportsOndemandApi,
+        TagValues.NG_REPORTS_SCHEDULED: NGReportsScheduledApi,
         TagValues.UNIVERSAL_COMPUTE_PLATFORM: UniversalComputePlatformApi,
         TagValues.AFCENDPOINT: AfcEndpointApi,
         TagValues.AIRRMENDPOINT: AirrmEndpointApi,

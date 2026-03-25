@@ -21,6 +21,7 @@ from .. import ApiTestMixin
 class TestApsAfcQuery(ApiTestMixin, unittest.TestCase):
     """
     ApsAfcQuery unit test stubs
+        Get AFC APs Summary Data  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

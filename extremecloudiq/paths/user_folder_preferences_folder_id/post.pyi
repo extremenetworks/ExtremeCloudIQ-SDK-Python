@@ -28,6 +28,7 @@ from extremecloudiq import schemas  # noqa: F401
 from extremecloudiq.model.xiq_rssi_thresholds import XiqRssiThresholds
 from extremecloudiq.model.xiq_snr_thresholds import XiqSnrThresholds
 from extremecloudiq.model.xiq_co_channel_interference_thresholds import XiqCoChannelInterferenceThresholds
+from extremecloudiq.model.xiq_layer_opacity_preferences import XiqLayerOpacityPreferences
 from extremecloudiq.model.xiq_coverage_overlap_thresholds import XiqCoverageOverlapThresholds
 
 # Path params
@@ -79,6 +80,7 @@ class SchemaForRequestBodyApplicationJson(
             return [
                 XiqCoChannelInterferenceThresholds,
                 XiqCoverageOverlapThresholds,
+                XiqLayerOpacityPreferences,
                 XiqRssiThresholds,
                 XiqSnrThresholds,
             ]
@@ -127,6 +129,7 @@ class SchemaFor200ResponseBodyApplicationJson(
             return [
                 XiqCoChannelInterferenceThresholds,
                 XiqCoverageOverlapThresholds,
+                XiqLayerOpacityPreferences,
                 XiqRssiThresholds,
                 XiqSnrThresholds,
             ]

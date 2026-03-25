@@ -15,7 +15,6 @@ Key | Input Type | Accessed Type | Description | Notes
 **[employee_groups](#employee_groups)** | list, tuple,  | tuple,  | Array of member groups. | [optional] 
 **restrict_number** | decimal.Decimal, int,  | decimal.Decimal,  | Number restriction. | [optional] value must be a 32 bit integer
 **[user_group_ids](#user_group_ids)** | list, tuple,  | tuple,  | Array of user group IDs. | [optional] 
-**credential_distribution_group_error_message** | str,  | str,  |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # employee_groups

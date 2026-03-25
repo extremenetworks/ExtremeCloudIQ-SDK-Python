@@ -25,9 +25,7 @@ import frozendict  # noqa: F401
 
 from extremecloudiq import schemas  # noqa: F401
 
-from extremecloudiq.model.rm_sort_order import RmSortOrder
 from extremecloudiq.model.paged_rm_users_grid_response import PagedRmUsersGridResponse
-from extremecloudiq.model.rm_user_grid_sort_field import RmUserGridSortField
 from extremecloudiq.model.rm_user_grid_request import RmUserGridRequest
 
 from . import path
@@ -55,8 +53,6 @@ class LimitSchema(
         inclusive_maximum = 100
         inclusive_minimum = 1
 SearchSchema = schemas.StrSchema
-SortFieldSchema = RmUserGridSortField
-OrderSchema = RmSortOrder
 StartTimeSchema = schemas.Int64Schema
 EndTimeSchema = schemas.Int64Schema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
@@ -72,8 +68,6 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
         'page': typing.Union[PageSchema, decimal.Decimal, int, ],
         'limit': typing.Union[LimitSchema, decimal.Decimal, int, ],
         'search': typing.Union[SearchSchema, str, ],
-        'sortField': typing.Union[SortFieldSchema, ],
-        'order': typing.Union[OrderSchema, ],
     },
     total=False
 )
@@ -99,18 +93,6 @@ request_query_search = api_client.QueryParameter(
     name="search",
     style=api_client.ParameterStyle.FORM,
     schema=SearchSchema,
-    explode=True,
-)
-request_query_sort_field = api_client.QueryParameter(
-    name="sortField",
-    style=api_client.ParameterStyle.FORM,
-    schema=SortFieldSchema,
-    explode=True,
-)
-request_query_order = api_client.QueryParameter(
-    name="order",
-    style=api_client.ParameterStyle.FORM,
-    schema=OrderSchema,
     explode=True,
 )
 request_query_start_time = api_client.QueryParameter(
@@ -249,8 +231,6 @@ class BaseApi(api_client.Api):
             request_query_page,
             request_query_limit,
             request_query_search,
-            request_query_sort_field,
-            request_query_order,
             request_query_start_time,
             request_query_end_time,
         ):

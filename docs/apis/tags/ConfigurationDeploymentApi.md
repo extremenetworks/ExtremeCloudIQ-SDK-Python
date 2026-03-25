@@ -180,9 +180,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
                 )
             ],
             firmware_activate_option=XiqFirmwareActivateOption(
-                enable_activate_at_next_reboot=True,
                 activation_delay_seconds=1,
                 activation_time=1,
+                enable_activate_at_next_reboot=True,
             ),
         ),
     )
@@ -226,9 +226,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
                 )
             ],
             firmware_activate_option=XiqFirmwareActivateOption(
-                enable_activate_at_next_reboot=True,
                 activation_delay_seconds=1,
                 activation_time=1,
+                enable_activate_at_next_reboot=True,
             ),
         ),
     )
@@ -999,9 +999,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
                 )
             ],
             firmware_activate_option=XiqFirmwareActivateOption(
-                enable_activate_at_next_reboot=True,
                 activation_delay_seconds=1,
                 activation_time=1,
+                enable_activate_at_next_reboot=True,
             ),
         ),
     )

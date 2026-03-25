@@ -5,24 +5,31 @@ All URIs are relative to *http://localhost:8081*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**bulk_update_floor_map_labels**](#bulk_update_floor_map_labels) | **put** /locations/floor/bulk/label | Updates one ore more floor map labels.
 [**create_building**](#create_building) | **post** /locations/building | Create a building
 [**create_floor**](#create_floor) | **post** /locations/floor | Create a floor
+[**create_floor_map_label**](#create_floor_map_label) | **post** /locations/floor/{floorId}/label | Creates one floor map label.
 [**create_location**](#create_location) | **post** /locations | Create a location
 [**create_site**](#create_site) | **post** /locations/site | Create a site
 [**create_wall_type**](#create_wall_type) | **post** /locations/wall/type | Create a wall type
+[**create_zone**](#create_zone) | **post** /locations/folder/zones | Create a zone
 [**delete_building**](#delete_building) | **delete** /locations/building/{id} | Delete a building by ID
 [**delete_floor**](#delete_floor) | **delete** /locations/floor/{id} | Delete a floor by ID
+[**delete_floor_map_label**](#delete_floor_map_label) | **delete** /locations/floor/{floorId}/label/{labelId} | Deletes one floor map label
 [**delete_location**](#delete_location) | **delete** /locations/{id} | Delete a location by ID
 [**delete_site**](#delete_site) | **delete** /locations/site/{id} | Delete a site by ID
 [**delete_wall_type**](#delete_wall_type) | **delete** /locations/wall/type/{id} | Delete a wall type
+[**delete_zone**](#delete_zone) | **delete** /locations/folder/zone/{id} | Delete a zone by ID
 [**find_wall_type_references**](#find_wall_type_references) | **get** /locations/wall/type/references/{id} | Find references of a wall type
 [**get_building**](#get_building) | **get** /locations/building/{id} | Get a building by ID
 [**get_floor**](#get_floor) | **get** /locations/floor/{id} | Get a floor by ID
+[**get_floor_map_labels**](#get_floor_map_labels) | **get** /locations/floor/{floorId}/label | Find all floor map labels referencing the floor
 [**get_location_devices_list**](#get_location_devices_list) | **get** /locations/tree/devices | Get devices on the location hierarchy.
 [**get_location_maps_list**](#get_location_maps_list) | **get** /locations/tree/maps | Get maps on the location hierarchy.
 [**get_location_tree**](#get_location_tree) | **get** /locations/tree | Get location tree
 [**get_site**](#get_site) | **get** /locations/site/{id} | Get a site by ID
 [**get_wall_type**](#get_wall_type) | **get** /locations/wall/type | Get wall types
+[**get_zones_in_folder**](#get_zones_in_folder) | **get** /locations/folder/{folderId}/zones | Get all zones in folder
 [**initialize_location**](#initialize_location) | **post** /locations/:init | Initialize organization location
 [**list_buildings**](#list_buildings) | **get** /locations/building | List buildings
 [**list_floors**](#list_floors) | **get** /locations/floor | List floors
@@ -30,10 +37,125 @@ Method | HTTP request | Description
 [**start_ekahau_import**](#start_ekahau_import) | **post** /locations/import/ekahau | [LRO] Import one or more floors from an Ekahau archive
 [**update_building**](#update_building) | **put** /locations/building/{id} | Update a building
 [**update_floor**](#update_floor) | **put** /locations/floor/{id} | Update a floor
+[**update_floor_map_label**](#update_floor_map_label) | **put** /locations/floor/{floorId}/label | Updates one floor map label.
 [**update_location**](#update_location) | **put** /locations/{id} | Update a location
 [**update_site**](#update_site) | **put** /locations/site/{id} | Update a site by ID
 [**update_wall_type**](#update_wall_type) | **put** /locations/wall/type/{id} | Update a wall type
+[**update_zones**](#update_zones) | **put** /locations/folder/zones | Update zones in folder
 [**upload_floorplan**](#upload_floorplan) | **post** /locations/floorplan | Upload floorplan
+
+# **bulk_update_floor_map_labels**
+<a id="bulk_update_floor_map_labels"></a>
+> [XiqFloorMapLabel] bulk_update_floor_map_labels(xiq_floor_map_label)
+
+Updates one ore more floor map labels.
+
+Updates one or more floor map labels.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import location_api
+from extremecloudiq.model.xiq_floor_map_label import XiqFloorMapLabel
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = location_api.LocationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = [
+        XiqFloorMapLabel(
+            id=1,
+            floor_id=1,
+            x=3.14,
+            y=3.14,
+            text="text_example",
+            visible=True,
+        )
+    ]
+    try:
+        # Updates one ore more floor map labels.
+        api_response = api_instance.bulk_update_floor_map_labels(
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling LocationApi->bulk_update_floor_map_labels: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqFloorMapLabel**]({{complexTypePrefix}}XiqFloorMapLabel.md) | [**XiqFloorMapLabel**]({{complexTypePrefix}}XiqFloorMapLabel.md) | [**XiqFloorMapLabel**]({{complexTypePrefix}}XiqFloorMapLabel.md) |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#bulk_update_floor_map_labels.ApiResponseFor200) | OK
+
+#### bulk_update_floor_map_labels.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqFloorMapLabel**]({{complexTypePrefix}}XiqFloorMapLabel.md) | [**XiqFloorMapLabel**]({{complexTypePrefix}}XiqFloorMapLabel.md) | [**XiqFloorMapLabel**]({{complexTypePrefix}}XiqFloorMapLabel.md) |  | 
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **create_building**
 <a id="create_building"></a>
@@ -235,6 +357,124 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqFloor**](../../models/XiqFloor.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **create_floor_map_label**
+<a id="create_floor_map_label"></a>
+> XiqFloorMapLabel create_floor_map_label(floor_idxiq_floor_map_label)
+
+Creates one floor map label.
+
+Creates one floor map label which references the floor given by its id.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import location_api
+from extremecloudiq.model.xiq_floor_map_label import XiqFloorMapLabel
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = location_api.LocationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'floorId': 1,
+    }
+    body = XiqFloorMapLabel(
+        id=1,
+        floor_id=1,
+        x=3.14,
+        y=3.14,
+        text="text_example",
+        visible=True,
+    )
+    try:
+        # Creates one floor map label.
+        api_response = api_instance.create_floor_map_label(
+            path_params=path_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling LocationApi->create_floor_map_label: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+path_params | RequestPathParams | |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqFloorMapLabel**](../../models/XiqFloorMapLabel.md) |  | 
+
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+floorId | FloorIdSchema | | 
+
+# FloorIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#create_floor_map_label.ApiResponseFor200) | OK
+
+#### create_floor_map_label.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqFloorMapLabel**](../../models/XiqFloorMapLabel.md) |  | 
 
 
 ### Authorization
@@ -542,6 +782,111 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
+# **create_zone**
+<a id="create_zone"></a>
+> XiqZone create_zone(xiq_create_zone_request)
+
+Create a zone
+
+Create a zone.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import location_api
+from extremecloudiq.model.xiq_create_zone_request import XiqCreateZoneRequest
+from extremecloudiq.model.xiq_zone import XiqZone
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = location_api.LocationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = XiqCreateZoneRequest(
+        name="name_example",
+        color="color_example",
+        folder_id=1,
+        visible=True,
+        zone_vertical_align=XiqZoneVerticalAlign("TOP"),
+        coordinates=[
+            XiqZonePoint(
+                x=3.14,
+                y=3.14,
+            )
+        ],
+    )
+    try:
+        # Create a zone
+        api_response = api_instance.create_zone(
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling LocationApi->create_zone: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqCreateZoneRequest**](../../models/XiqCreateZoneRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+201 | [ApiResponseFor201](#create_zone.ApiResponseFor201) | Created
+
+#### create_zone.ApiResponseFor201
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor201ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor201ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqZone**](../../models/XiqZone.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
 # **delete_building**
 <a id="delete_building"></a>
 > delete_building(id)
@@ -745,6 +1090,105 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#delete_floor.ApiResponseFor200) | OK
 
 #### delete_floor.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **delete_floor_map_label**
+<a id="delete_floor_map_label"></a>
+> delete_floor_map_label(floor_idlabel_id)
+
+Deletes one floor map label
+
+Deletes one floor map label, given by its id, on condition it references the floor given by its id.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import location_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = location_api.LocationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'floorId': 1,
+        'labelId': 1,
+    }
+    try:
+        # Deletes one floor map label
+        api_response = api_instance.delete_floor_map_label(
+            path_params=path_params,
+        )
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling LocationApi->delete_floor_map_label: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+floorId | FloorIdSchema | | 
+labelId | LabelIdSchema | | 
+
+# FloorIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+# LabelIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#delete_floor_map_label.ApiResponseFor200) | OK
+
+#### delete_floor_map_label.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -1097,6 +1541,96 @@ headers | Unset | headers were not defined |
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
+# **delete_zone**
+<a id="delete_zone"></a>
+> delete_zone(id)
+
+Delete a zone by ID
+
+Delete a zone for the specified ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import location_api
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = location_api.LocationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': 1,
+    }
+    try:
+        # Delete a zone by ID
+        api_response = api_instance.delete_zone(
+            path_params=path_params,
+        )
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling LocationApi->delete_zone: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+204 | [ApiResponseFor204](#delete_zone.ApiResponseFor204) | No Content
+
+#### delete_zone.ApiResponseFor204
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
 # **find_wall_type_references**
 <a id="find_wall_type_references"></a>
 > [XiqWallTypeReference] find_wall_type_references(id)
@@ -1393,6 +1927,111 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqFloor**](../../models/XiqFloor.md) |  | 
 
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **get_floor_map_labels**
+<a id="get_floor_map_labels"></a>
+> [XiqFloorMapLabel] get_floor_map_labels(floor_id)
+
+Find all floor map labels referencing the floor
+
+Finds all labels referencing the floor given by its id.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import location_api
+from extremecloudiq.model.xiq_floor_map_label import XiqFloorMapLabel
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = location_api.LocationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'floorId': 1,
+    }
+    try:
+        # Find all floor map labels referencing the floor
+        api_response = api_instance.get_floor_map_labels(
+            path_params=path_params,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling LocationApi->get_floor_map_labels: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+floorId | FloorIdSchema | | 
+
+# FloorIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#get_floor_map_labels.ApiResponseFor200) | OK
+
+#### get_floor_map_labels.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqFloorMapLabel**]({{complexTypePrefix}}XiqFloorMapLabel.md) | [**XiqFloorMapLabel**]({{complexTypePrefix}}XiqFloorMapLabel.md) | [**XiqFloorMapLabel**]({{complexTypePrefix}}XiqFloorMapLabel.md) |  | 
 
 ### Authorization
 
@@ -1940,6 +2579,111 @@ list, tuple,  | tuple,  |  |
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**XiqWallType**]({{complexTypePrefix}}XiqWallType.md) | [**XiqWallType**]({{complexTypePrefix}}XiqWallType.md) | [**XiqWallType**]({{complexTypePrefix}}XiqWallType.md) |  | 
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **get_zones_in_folder**
+<a id="get_zones_in_folder"></a>
+> [XiqZone] get_zones_in_folder(folder_id)
+
+Get all zones in folder
+
+Retrieve the list of zones in folder by folder ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import location_api
+from extremecloudiq.model.xiq_zone import XiqZone
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = location_api.LocationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'folderId': 1,
+    }
+    try:
+        # Get all zones in folder
+        api_response = api_instance.get_zones_in_folder(
+            path_params=path_params,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling LocationApi->get_zones_in_folder: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+folderId | FolderIdSchema | | 
+
+# FolderIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#get_zones_in_folder.ApiResponseFor200) | OK
+
+#### get_zones_in_folder.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqZone**]({{complexTypePrefix}}XiqZone.md) | [**XiqZone**]({{complexTypePrefix}}XiqZone.md) | [**XiqZone**]({{complexTypePrefix}}XiqZone.md) |  | 
 
 ### Authorization
 
@@ -2914,6 +3658,124 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
+# **update_floor_map_label**
+<a id="update_floor_map_label"></a>
+> XiqFloorMapLabel update_floor_map_label(floor_idxiq_floor_map_label)
+
+Updates one floor map label.
+
+Updates one floor map label which references the floor given by its id.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import location_api
+from extremecloudiq.model.xiq_floor_map_label import XiqFloorMapLabel
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = location_api.LocationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'floorId': 1,
+    }
+    body = XiqFloorMapLabel(
+        id=1,
+        floor_id=1,
+        x=3.14,
+        y=3.14,
+        text="text_example",
+        visible=True,
+    )
+    try:
+        # Updates one floor map label.
+        api_response = api_instance.update_floor_map_label(
+            path_params=path_params,
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling LocationApi->update_floor_map_label: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+path_params | RequestPathParams | |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqFloorMapLabel**](../../models/XiqFloorMapLabel.md) |  | 
+
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+floorId | FloorIdSchema | | 
+
+# FloorIdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | value must be a 64 bit integer
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#update_floor_map_label.ApiResponseFor200) | OK
+
+#### update_floor_map_label.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqFloorMapLabel**](../../models/XiqFloorMapLabel.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
 # **update_location**
 <a id="update_location"></a>
 > XiqLocation update_location(idxiq_update_location_request)
@@ -3263,6 +4125,122 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqWallType**](../../models/XiqWallType.md) |  | 
 
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **update_zones**
+<a id="update_zones"></a>
+> [XiqZone] update_zones(xiq_update_zones_request)
+
+Update zones in folder
+
+Update zones for the specified folder ID.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import location_api
+from extremecloudiq.model.xiq_update_zones_request import XiqUpdateZonesRequest
+from extremecloudiq.model.xiq_zone import XiqZone
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = location_api.LocationApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = XiqUpdateZonesRequest(
+        folder_id=1,
+        zones=[
+            XiqUpdateZoneRequest(
+                id=1,
+                name="name_example",
+                color="color_example",
+                zone_vertical_align=XiqZoneVerticalAlign("TOP"),
+                visible=True,
+                coordinates=[
+                    XiqZonePoint(
+                        x=3.14,
+                        y=3.14,
+                    )
+                ],
+            )
+        ],
+    )
+    try:
+        # Update zones in folder
+        api_response = api_instance.update_zones(
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling LocationApi->update_zones: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqUpdateZonesRequest**](../../models/XiqUpdateZonesRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#update_zones.ApiResponseFor200) | OK
+
+#### update_zones.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqZone**]({{complexTypePrefix}}XiqZone.md) | [**XiqZone**]({{complexTypePrefix}}XiqZone.md) | [**XiqZone**]({{complexTypePrefix}}XiqZone.md) |  | 
 
 ### Authorization
 

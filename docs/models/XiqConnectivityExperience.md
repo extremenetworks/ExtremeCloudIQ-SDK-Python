@@ -30,6 +30,9 @@ Key | Input Type | Accessed Type | Description | Notes
 **dhcp_circle_status** | str,  | str,  | The circle Dhcp Status (Available status  SUCCESS, INVALID, DISABLED, ERROR) | [optional] must be one of ["SUCCESS", "INVALID", "DISABLED", "ERROR", ] 
 **dns_circle_status** | str,  | str,  | The circle Dns Status (Available status  SUCCESS, INVALID, DISABLED, ERROR) | [optional] must be one of ["SUCCESS", "INVALID", "DISABLED", "ERROR", ] 
 **gateway_circle_status** | str,  | str,  | The circle Gateway ARP Status (Available status  SUCCESS, INVALID, DISABLED, ERROR) | [optional] must be one of ["SUCCESS", "INVALID", "DISABLED", "ERROR", ] 
+**avg_snr** | decimal.Decimal, int,  | decimal.Decimal,  | Average SNR in dB | [optional] value must be a 32 bit integer
+**avg_rssi** | decimal.Decimal, int,  | decimal.Decimal,  | Average RSSI in dBm | [optional] value must be a 32 bit integer
+**client_ip** | str,  | str,  | Client IP address | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

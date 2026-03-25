@@ -174,6 +174,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         native_vlan=1,
         block_non_essential_broadcast=True,
         arp_proxy=True,
+        internal_mgmt_vlan=1,
+        keep_alive_interval=1,
+        keep_alive_retries=1,
         multicast_rules=[
             XiqMulticastRule(
                 ip="ip_example",
@@ -821,6 +824,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         native_vlan=1,
         block_non_essential_broadcast=True,
         arp_proxy=True,
+        internal_mgmt_vlan=1,
+        keep_alive_interval=1,
+        keep_alive_retries=1,
         multicast_rules=[
             XiqMulticastRule(
                 ip="ip_example",

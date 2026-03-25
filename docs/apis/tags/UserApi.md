@@ -334,9 +334,7 @@ Export the Users grid data as a CSV file.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import user_api
-from extremecloudiq.model.rm_sort_order import RmSortOrder
 from extremecloudiq.model.rm_metric_report import RmMetricReport
-from extremecloudiq.model.rm_user_grid_sort_field import RmUserGridSortField
 from extremecloudiq.model.rm_user_grid_request import RmUserGridRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -365,9 +363,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'endTime': 1,
     }
     body = RmUserGridRequest(
-        user_name=[
-            "user_name_example"
-        ],
         source=[
             "source_example"
         ],
@@ -375,18 +370,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
             1
         ],
         status=True,
-        duration=[
-            RmUserNumberFilter(
-                column_name="column_name_example",
-                filter_type=RmUserFilterType("GT"),
-                value=1,
-                min=1,
-                max=1,
-            )
-        ],
-        user_ids=[
-            1
-        ],
     )
     try:
         # Export the Users grid data
@@ -401,16 +384,11 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     # example passing only optional values
     query_params = {
         'search': "search_example",
-        'sortField': RmUserGridSortField("USER_NAME"),
-        'order': RmSortOrder("ASC"),
         'startTime': 1,
         'endTime': 1,
         'timezoneOffset': 1,
     }
     body = RmUserGridRequest(
-        user_name=[
-            "user_name_example"
-        ],
         source=[
             "source_example"
         ],
@@ -418,18 +396,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
             1
         ],
         status=True,
-        duration=[
-            RmUserNumberFilter(
-                column_name="column_name_example",
-                filter_type=RmUserFilterType("GT"),
-                value=1,
-                min=1,
-                max=1,
-            )
-        ],
-        user_ids=[
-            1
-        ],
     )
     try:
         # Export the Users grid data
@@ -467,8 +433,6 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 search | SearchSchema | | optional
-sortField | SortFieldSchema | | optional
-order | OrderSchema | | optional
 startTime | StartTimeSchema | | 
 endTime | EndTimeSchema | | 
 timezoneOffset | TimezoneOffsetSchema | | optional
@@ -480,18 +444,6 @@ timezoneOffset | TimezoneOffsetSchema | | optional
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
-
-# SortFieldSchema
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RmUserGridSortField**](../../models/RmUserGridSortField.md) |  | 
-
-
-# OrderSchema
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RmSortOrder**](../../models/RmSortOrder.md) |  | 
-
 
 # StartTimeSchema
 
@@ -1523,9 +1475,7 @@ Returns a paginated list of users with support for search, filter, and sort.
 ```python
 import extremecloudiq
 from extremecloudiq.apis.tags import user_api
-from extremecloudiq.model.rm_sort_order import RmSortOrder
 from extremecloudiq.model.paged_rm_users_grid_response import PagedRmUsersGridResponse
-from extremecloudiq.model.rm_user_grid_sort_field import RmUserGridSortField
 from extremecloudiq.model.rm_user_grid_request import RmUserGridRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -1554,9 +1504,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'endTime': 1,
     }
     body = RmUserGridRequest(
-        user_name=[
-            "user_name_example"
-        ],
         source=[
             "source_example"
         ],
@@ -1564,18 +1511,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
             1
         ],
         status=True,
-        duration=[
-            RmUserNumberFilter(
-                column_name="column_name_example",
-                filter_type=RmUserFilterType("GT"),
-                value=1,
-                min=1,
-                max=1,
-            )
-        ],
-        user_ids=[
-            1
-        ],
     )
     try:
         # List Users
@@ -1592,15 +1527,10 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'page': 1,
         'limit': 10,
         'search': "search_example",
-        'sortField': RmUserGridSortField("USER_NAME"),
-        'order': RmSortOrder("ASC"),
         'startTime': 1,
         'endTime': 1,
     }
     body = RmUserGridRequest(
-        user_name=[
-            "user_name_example"
-        ],
         source=[
             "source_example"
         ],
@@ -1608,18 +1538,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
             1
         ],
         status=True,
-        duration=[
-            RmUserNumberFilter(
-                column_name="column_name_example",
-                filter_type=RmUserFilterType("GT"),
-                value=1,
-                min=1,
-                max=1,
-            )
-        ],
-        user_ids=[
-            1
-        ],
     )
     try:
         # List Users
@@ -1659,8 +1577,6 @@ Name | Type | Description  | Notes
 page | PageSchema | | optional
 limit | LimitSchema | | optional
 search | SearchSchema | | optional
-sortField | SortFieldSchema | | optional
-order | OrderSchema | | optional
 startTime | StartTimeSchema | | 
 endTime | EndTimeSchema | | 
 
@@ -1685,18 +1601,6 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use t
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 str,  | str,  |  | 
-
-# SortFieldSchema
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RmUserGridSortField**](../../models/RmUserGridSortField.md) |  | 
-
-
-# OrderSchema
-Type | Description  | Notes
-------------- | ------------- | -------------
-[**RmSortOrder**](../../models/RmSortOrder.md) |  | 
-
 
 # StartTimeSchema
 

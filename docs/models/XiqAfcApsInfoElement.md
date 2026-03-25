@@ -8,6 +8,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
+**total_devices** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] value must be a 32 bit integer
 **afc_status** | [**XiqAfcStatusSummary**](XiqAfcStatusSummary.md) | [**XiqAfcStatusSummary**](XiqAfcStatusSummary.md) |  | [optional] 
 **geo_location** | [**XiqAfcGeolocationSummary**](XiqAfcGeolocationSummary.md) | [**XiqAfcGeolocationSummary**](XiqAfcGeolocationSummary.md) |  | [optional] 
 **spectrum_mismatch** | [**XiqSpectrumMismatchSummary**](XiqSpectrumMismatchSummary.md) | [**XiqSpectrumMismatchSummary**](XiqSpectrumMismatchSummary.md) |  | [optional] 

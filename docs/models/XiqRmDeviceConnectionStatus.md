@@ -17,6 +17,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **total_unmanaged_devices** | decimal.Decimal, int,  | decimal.Decimal,  | The total unmanaged devices. | [optional] value must be a 64 bit integer
 **connected_unmanaged_devices** | decimal.Decimal, int,  | decimal.Decimal,  | The connected unmanaged devices. | [optional] value must be a 64 bit integer
 **disconnected_unmanaged_devices** | decimal.Decimal, int,  | decimal.Decimal,  | The disconnected unmanaged devices. | [optional] value must be a 64 bit integer
+**total_simulated_devices** | decimal.Decimal, int,  | decimal.Decimal,  | The total simulated devices. | [optional] value must be a 64 bit integer
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

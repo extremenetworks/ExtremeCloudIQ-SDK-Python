@@ -19,6 +19,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **password** | str,  | str,  | The user password, if null a random password will be generated base on the user group rule | [optional] 
 **email_password_delivery** | str,  | str,  | The password delivery Email | [optional] 
 **sms_password_delivery** | str,  | str,  | The password delivery SMS | [optional] 
+**vlan_override** | decimal.Decimal, int,  | decimal.Decimal,  | VLAN ID override assigned to the user (range 1-4094, Optional) | [optional] value must be a 32 bit integer
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

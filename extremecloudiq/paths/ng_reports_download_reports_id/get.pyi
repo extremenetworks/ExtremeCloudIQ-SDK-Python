@@ -133,6 +133,47 @@ _response_for_404 = api_client.OpenApiResponse(
             schema=SchemaFor404ResponseBodyApplicationJson),
     },
 )
+
+
+class SchemaFor400ResponseBodyApplicationJson(
+    schemas.ListSchema
+):
+
+
+    class MetaOapg:
+        items = schemas.StrSchema
+
+    def __new__(
+        cls,
+        _arg: typing.Union[typing.Tuple[typing.Union[MetaOapg.items, str, ]], typing.List[typing.Union[MetaOapg.items, str, ]]],
+        _configuration: typing.Optional[schemas.Configuration] = None,
+    ) -> 'SchemaFor400ResponseBodyApplicationJson':
+        return super().__new__(
+            cls,
+            _arg,
+            _configuration=_configuration,
+        )
+
+    def __getitem__(self, i: int) -> MetaOapg.items:
+        return super().__getitem__(i)
+
+
+@dataclass
+class ApiResponseFor400(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor400ResponseBodyApplicationJson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_400 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor400,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor400ResponseBodyApplicationJson),
+    },
+)
 _all_accept_content_types = (
     'application/json',
 )

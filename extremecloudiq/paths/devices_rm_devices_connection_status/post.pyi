@@ -26,12 +26,12 @@ import frozendict  # noqa: F401
 from extremecloudiq import schemas  # noqa: F401
 
 from extremecloudiq.model.xiq_rm_device_connection_status import XiqRmDeviceConnectionStatus
+from extremecloudiq.model.xiq_rm_device_category_request import XiqRmDeviceCategoryRequest
 from extremecloudiq.model.xiq_rm_site_ids_request import XiqRmSiteIdsRequest
-from extremecloudiq.model.xiq_device_category import XiqDeviceCategory
 from extremecloudiq.model.xiq_device_type import XiqDeviceType
 
 # Query params
-DeviceCategorySchema = XiqDeviceCategory
+DeviceCategorySchema = XiqRmDeviceCategoryRequest
 
 
 class DeviceTypesSchema(
