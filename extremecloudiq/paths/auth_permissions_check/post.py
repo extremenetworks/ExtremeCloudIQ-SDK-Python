@@ -45,42 +45,23 @@ request_body_xiq_check_permission_request = api_client.RequestBody(
 _auth = [
     'Bearer',
 ]
-SchemaFor401ResponseBodyApplicationJson = XiqError
+SchemaFor400ResponseBodyApplicationJson = XiqError
 
 
 @dataclass
-class ApiResponseFor401(api_client.ApiResponse):
+class ApiResponseFor400(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        SchemaFor401ResponseBodyApplicationJson,
+        SchemaFor400ResponseBodyApplicationJson,
     ]
     headers: schemas.Unset = schemas.unset
 
 
-_response_for_401 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor401,
+_response_for_400 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor400,
     content={
         'application/json': api_client.MediaType(
-            schema=SchemaFor401ResponseBodyApplicationJson),
-    },
-)
-SchemaFor403ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor403(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor403ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_403 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor403,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor403ResponseBodyApplicationJson),
+            schema=SchemaFor400ResponseBodyApplicationJson),
     },
 )
 SchemaFor200ResponseBodyApplicationJson = XiqCheckPermissionResponse
@@ -102,30 +83,49 @@ _response_for_200 = api_client.OpenApiResponse(
             schema=SchemaFor200ResponseBodyApplicationJson),
     },
 )
-SchemaFor400ResponseBodyApplicationJson = XiqError
+SchemaFor403ResponseBodyApplicationJson = XiqError
 
 
 @dataclass
-class ApiResponseFor400(api_client.ApiResponse):
+class ApiResponseFor403(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        SchemaFor400ResponseBodyApplicationJson,
+        SchemaFor403ResponseBodyApplicationJson,
     ]
     headers: schemas.Unset = schemas.unset
 
 
-_response_for_400 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor400,
+_response_for_403 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor403,
     content={
         'application/json': api_client.MediaType(
-            schema=SchemaFor400ResponseBodyApplicationJson),
+            schema=SchemaFor403ResponseBodyApplicationJson),
+    },
+)
+SchemaFor401ResponseBodyApplicationJson = XiqError
+
+
+@dataclass
+class ApiResponseFor401(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor401ResponseBodyApplicationJson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_401 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor401,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor401ResponseBodyApplicationJson),
     },
 )
 _status_code_to_response = {
-    '401': _response_for_401,
-    '403': _response_for_403,
-    '200': _response_for_200,
     '400': _response_for_400,
+    '200': _response_for_200,
+    '403': _response_for_403,
+    '401': _response_for_401,
 }
 _all_accept_content_types = (
     'application/json',

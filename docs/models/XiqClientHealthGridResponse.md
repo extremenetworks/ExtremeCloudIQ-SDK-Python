@@ -53,6 +53,8 @@ Key | Input Type | Accessed Type | Description | Notes
 **is_mlo** | bool,  | BoolClass,  | boolean to determine mlo ot not | [optional] 
 **[mlo_bands](#mlo_bands)** | list, tuple,  | tuple,  | supports mlo bands | [optional] 
 **mlo_mode** | str,  | str,  | mlo mode | [optional] 
+**rtts_supported** | bool,  | BoolClass,  | Indicates if RTTS is supported | [optional] 
+**connected_device_hostname** | str,  | str,  | Connected Device Hostname | [optional] 
 **connectionStatus** | [**XiqClientConnectionStatus**](XiqClientConnectionStatus.md) | [**XiqClientConnectionStatus**](XiqClientConnectionStatus.md) |  | [optional] 
 **last_session_start_time** | decimal.Decimal, int,  | decimal.Decimal,  | The start time of the last session | [optional] value must be a 64 bit integer
 **operating_system** | str,  | str,  | The operating system of the client device | [optional] 
