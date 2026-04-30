@@ -9,7 +9,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **connected_status** | bool,  | BoolClass,  | The connected status of the device | [optional] 
-**active_since** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] value must be a 64 bit integer
+**active_since** | decimal.Decimal, int,  | decimal.Decimal,  | The timestamp when the device became active. Unix timestamp in milliseconds since epoch. | [optional] value must be a 64 bit integer
 **device_health_issues** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] value must be a 32 bit integer
 **usage_and_capacity_issues** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] value must be a 32 bit integer
 **client_health_issues** | decimal.Decimal, int,  | decimal.Decimal,  |  | [optional] value must be a 32 bit integer

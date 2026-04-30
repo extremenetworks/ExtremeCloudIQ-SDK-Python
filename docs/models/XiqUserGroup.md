@@ -10,8 +10,8 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **password_settings** | [**XiqPasswordSettings**](XiqPasswordSettings.md) | [**XiqPasswordSettings**](XiqPasswordSettings.md) |  | 
 **[ssids](#ssids)** | list, tuple,  | tuple,  | The ssids | 
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **password_type** | [**XiqPasswordType**](XiqPasswordType.md) | [**XiqPasswordType**](XiqPasswordType.md) |  | 
 **user_count** | decimal.Decimal, int,  | decimal.Decimal,  | The user count | value must be a 32 bit integer
 **name** | str,  | str,  | The user group name | 

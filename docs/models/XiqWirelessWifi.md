@@ -13,9 +13,9 @@ Key | Input Type | Accessed Type | Description | Notes
 **ssid_count** | decimal.Decimal, int,  | decimal.Decimal,  | The count of SSIDs | [optional] value must be a 32 bit integer
 **[ssids](#ssids)** | list, tuple,  | tuple,  | The list of SSIDs | [optional] 
 **number_of_clients** | decimal.Decimal, int,  | decimal.Decimal,  | The total number of clients | [optional] value must be a 64 bit integer
-**channel_utilization** | decimal.Decimal, int,  | decimal.Decimal,  | The value for channel utilization | [optional] value must be a 32 bit integer
+**channel_utilization** | decimal.Decimal, int,  | decimal.Decimal,  | The channel utilization as a percentage (0-100). | [optional] value must be a 32 bit integer
 **channel** | decimal.Decimal, int,  | decimal.Decimal,  | The value for channel | [optional] value must be a 32 bit integer
-**channel_width** | decimal.Decimal, int,  | decimal.Decimal,  | The value for channel width | [optional] value must be a 32 bit integer
+**channel_width** | decimal.Decimal, int,  | decimal.Decimal,  | The channel width in MHz. Possible values: 20, 40, 80, 160, 320. | [optional] value must be a 32 bit integer
 **load_balancing** | bool,  | BoolClass,  | The value for load balancing | [optional] 
 **band_steering** | bool,  | BoolClass,  | The value for band steering | [optional] 
 **channel_utilization_details** | [**XiqChannelUtilizationDetails**](XiqChannelUtilizationDetails.md) | [**XiqChannelUtilizationDetails**](XiqChannelUtilizationDetails.md) |  | [optional] 

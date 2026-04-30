@@ -19,13 +19,13 @@ Key | Input Type | Accessed Type | Description | Notes
 **association_issues** | decimal.Decimal, int,  | decimal.Decimal,  | The number of association issues | [optional] value must be a 64 bit integer
 **authentication_issues** | decimal.Decimal, int,  | decimal.Decimal,  | The number of authentication issues | [optional] value must be a 64 bit integer
 **ip_address_issues** | decimal.Decimal, int,  | decimal.Decimal,  | The number of IP address issues | [optional] value must be a 64 bit integer
-**snr** | decimal.Decimal, int,  | decimal.Decimal,  | Signal-to-noise ratio of the client&#x27;s connection | [optional] value must be a 32 bit integer
-**rssi** | decimal.Decimal, int,  | decimal.Decimal,  | Received signal strength indicator of the client&#x27;s connection | [optional] value must be a 32 bit integer
-**channel_utilization_score** | decimal.Decimal, int,  | decimal.Decimal,  | The percentage of channel utilization | [optional] value must be a 32 bit integer
+**snr** | decimal.Decimal, int,  | decimal.Decimal,  | Signal-to-noise ratio of the client&#x27;s connection in dB (decibels) | [optional] value must be a 32 bit integer
+**rssi** | decimal.Decimal, int,  | decimal.Decimal,  | Received signal strength indicator of the client&#x27;s connection in dBm (decibels-milliwatts) | [optional] value must be a 32 bit integer
+**channel_utilization_score** | decimal.Decimal, int,  | decimal.Decimal,  | The percentage of channel utilization (0-100%) | [optional] value must be a 32 bit integer
 **frequency** | str,  | str,  | The frequency band used by the client (e.g., 2.4 GHz, 5 GHz, 6 GHz) | [optional] 
 **roaming_issues** | decimal.Decimal, int,  | decimal.Decimal,  | The number of roaming issues experienced by the client | [optional] value must be a 64 bit integer
 **ipv4** | str,  | str,  | The IPv4 address assigned to the client | [optional] 
-**connected_device_mac** | str,  | str,  | The MAC address of the connected device | [optional] 
+**connected_device_mac** | str,  | str,  | The MAC address of the connected device (accepted formats: 12 hex characters without delimiters, or colon-separated or hyphen-separated) | [optional] 
 **ssid** | str,  | str,  | The SSID of the network | [optional] 
 **vlan** | decimal.Decimal, int,  | decimal.Decimal,  | The VLAN ID | [optional] value must be a 64 bit integer
 **username** | str,  | str,  | The username of the client | [optional] 
@@ -41,9 +41,9 @@ Key | Input Type | Accessed Type | Description | Notes
 **is_mlo** | bool,  | BoolClass,  | boolean to determine mlo ot not | [optional] 
 **[mlo_bands](#mlo_bands)** | list, tuple,  | tuple,  | supports mlo bands | [optional] 
 **mlo_mode** | str,  | str,  | mlo mode | [optional] 
-**last_session_start_time** | decimal.Decimal, int,  | decimal.Decimal,  | The start time of the last session | [optional] value must be a 64 bit integer
+**last_session_start_time** | decimal.Decimal, int,  | decimal.Decimal,  | The start time of the last session (int64 epoch in milliseconds) | [optional] value must be a 64 bit integer
 **operating_system** | str,  | str,  | The operating system of the client device | [optional] 
-**client_mac** | str,  | str,  | The MAC address of the client device | [optional] 
+**client_mac** | str,  | str,  | The MAC address of the connected device (accepted formats: 12 hex characters without delimiters, or colon-separated or hyphen-separated) | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # mlo_bands

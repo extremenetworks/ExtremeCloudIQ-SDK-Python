@@ -12,8 +12,8 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **country_code** | decimal.Decimal, int,  | decimal.Decimal,  | The country code for the site | value must be a 32 bit integer
 **unique_name** | str,  | str,  | The site unique name | 
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **name** | str,  | str,  | The site name | 
 **id** | decimal.Decimal, int,  | decimal.Decimal,  | The unique identifier | value must be a 64 bit integer
 **type** | str,  | str,  | The location type | 

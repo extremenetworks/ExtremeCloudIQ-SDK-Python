@@ -11,8 +11,8 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | The IP Firewall Action
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **service_type** | str,  | str,  | The Service Type. | must be one of ["NETWORK", "APPLICATION", ] 
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **id** | decimal.Decimal, int,  | decimal.Decimal,  | The unique identifier | value must be a 64 bit integer
 **org_id** | decimal.Decimal, int,  | decimal.Decimal,  | The organization identifier, valid when enabling HIQ feature | [optional] value must be a 64 bit integer
 **name** | str,  | str,  | The Network Service name | [optional] 

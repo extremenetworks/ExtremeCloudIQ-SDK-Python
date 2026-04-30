@@ -419,7 +419,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     query_params = {
-        'macAddress': "macAddress_example",
+        'macAddress': "AABBCCDDEEFF",
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -440,7 +440,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     query_params = {
         'page': 1,
         'limit': 10,
-        'macAddress': "macAddress_example",
+        'macAddress': "AABBCCDDEEFF",
         'includeUnassigned': False,
     }
     body = XiqDashboardFilter(
@@ -505,10 +505,12 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use t
 
 # MacAddressSchema
 
+The MAC address in format 'AABBCCDDEEFF' without separators. Accepted formats: (1) OUI only — first 6 hex characters (e.g., 'AABBCC'), (2) Full MAC address — 12 hex characters (e.g., 'AABBCCDDEEFF').
+
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | 
+str,  | str,  | The MAC address in format &#x27;AABBCCDDEEFF&#x27; without separators. Accepted formats: (1) OUI only — first 6 hex characters (e.g., &#x27;AABBCC&#x27;), (2) Full MAC address — 12 hex characters (e.g., &#x27;AABBCCDDEEFF&#x27;). | 
 
 # IncludeUnassignedSchema
 
@@ -588,7 +590,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     query_params = {
-        'macAddress': "macAddress_example",
+        'macAddress': "AABBCCDDEEFF",
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -607,7 +609,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'macAddress': "macAddress_example",
+        'macAddress': "AABBCCDDEEFF",
         'includeUnassigned': False,
     }
     body = XiqDashboardFilter(
@@ -656,10 +658,12 @@ includeUnassigned | IncludeUnassignedSchema | | optional
 
 # MacAddressSchema
 
+The MAC address in format 'AABBCCDDEEFF' without separators. Accepted formats: (1) OUI only — first 6 hex characters (e.g., 'AABBCC'), (2) Full MAC address — 12 hex characters (e.g., 'AABBCCDDEEFF').
+
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | 
+str,  | str,  | The MAC address in format &#x27;AABBCCDDEEFF&#x27; without separators. Accepted formats: (1) OUI only — first 6 hex characters (e.g., &#x27;AABBCC&#x27;), (2) Full MAC address — 12 hex characters (e.g., &#x27;AABBCCDDEEFF&#x27;). | 
 
 # IncludeUnassignedSchema
 
@@ -1552,7 +1556,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     query_params = {
-        'macAddress': "macAddress_example",
+        'macAddress': "AABBCCDDEEFF",
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -1573,7 +1577,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     query_params = {
         'page': 1,
         'limit': 10,
-        'macAddress': "macAddress_example",
+        'macAddress': "AABBCCDDEEFF",
         'includeUnassigned': False,
     }
     body = XiqDashboardFilter(
@@ -1638,10 +1642,12 @@ decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use t
 
 # MacAddressSchema
 
+The MAC address in format 'AABBCCDDEEFF' without separators. Accepted formats: (1) OUI only — first 6 hex characters (e.g., 'AABBCC'), (2) Full MAC address — 12 hex characters (e.g., 'AABBCCDDEEFF').
+
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | 
+str,  | str,  | The MAC address in format &#x27;AABBCCDDEEFF&#x27; without separators. Accepted formats: (1) OUI only — first 6 hex characters (e.g., &#x27;AABBCC&#x27;), (2) Full MAC address — 12 hex characters (e.g., &#x27;AABBCCDDEEFF&#x27;). | 
 
 # IncludeUnassignedSchema
 
@@ -1721,7 +1727,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     query_params = {
-        'macAddress': "macAddress_example",
+        'macAddress': "AABBCCDDFFEE",
     }
     body = XiqDashboardFilter(
         site_ids=[
@@ -1742,7 +1748,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     query_params = {
         'page': 1,
         'limit': 10,
-        'macAddress': "macAddress_example",
+        'macAddress': "AABBCCDDFFEE",
         'includeUnassigned': False,
     }
     body = XiqDashboardFilter(

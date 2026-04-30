@@ -9,8 +9,8 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **account_type** | [**XiqAccountType**](XiqAccountType.md) | [**XiqAccountType**](XiqAccountType.md) |  | 
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **quota** | str,  | str,  | The API quota policy | 
 **name** | str,  | str,  | Account name | 
 **data_center** | str,  | str,  | The default Regional Data Center (RDC) to hold data from customer network | 

@@ -10,8 +10,8 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | The payload of config 
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **id** | decimal.Decimal, int,  | decimal.Decimal,  | The unique identifier | value must be a 64 bit integer
 **access_category** | str,  | str,  | The media categories, including \&quot;VOICE\&quot;, \&quot;VIDEO\&quot;, \&quot;BEST_EFFORT\&quot;, and \&quot;BACKGROUND\&quot; | [optional] 
 **arbitration_interframe_space** | decimal.Decimal, int,  | decimal.Decimal,  | The Arbitration Interframe space from 1 up to 15. | [optional] value must be a 32 bit integer

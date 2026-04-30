@@ -52,7 +52,17 @@ class LimitSchema(
         format = 'int32'
         inclusive_maximum = 100
         inclusive_minimum = 1
-MacAddressSchema = schemas.StrSchema
+
+
+class MacAddressSchema(
+    schemas.StrSchema
+):
+
+
+    class MetaOapg:
+        regex=[{
+            'pattern': r'^[0-9A-Fa-f]{12}$',  # noqa: E501
+        }]
 IncludeUnassignedSchema = schemas.BoolSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',

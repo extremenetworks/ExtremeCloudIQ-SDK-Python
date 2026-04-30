@@ -13,7 +13,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **key_type** | [**XiqSsidKeyType**](XiqSsidKeyType.md) | [**XiqSsidKeyType**](XiqSsidKeyType.md) |  | [optional] 
 **key_value** | str,  | str,  | The schedule type name. | [optional] 
 **sae_group** | [**XiqSsidSaeGroup**](XiqSsidSaeGroup.md) | [**XiqSsidSaeGroup**](XiqSsidSaeGroup.md) |  | [optional] 
-**anti_logging_threshold** | decimal.Decimal, int,  | decimal.Decimal,  | The anti logging threshold value. | [optional] value must be a 64 bit integer
+**anti_logging_threshold** | decimal.Decimal, int,  | decimal.Decimal,  | The anti-logging threshold value representing the maximum number of failed authentication attempts before triggering anti-logging protection. | [optional] value must be a 64 bit integer
 **transition_mode** | bool,  | BoolClass,  | The flag for enabling transition mode. | [optional] 
 **security_type** | str,  | str,  | The security type. | [optional] 
 **key_management** | [**XiqSsidKeyManagement**](XiqSsidKeyManagement.md) | [**XiqSsidKeyManagement**](XiqSsidKeyManagement.md) |  | [optional] 

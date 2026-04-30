@@ -10,8 +10,8 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | The payload of config 
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **id** | decimal.Decimal, int,  | decimal.Decimal,  | The unique identifier | value must be a 64 bit integer
 **preamble** | str,  | str,  | The preamble data length -- \&quot;AUTO\&quot; or \&quot;LONG\&quot; | [optional] 
 **beacon_period** | decimal.Decimal, int,  | decimal.Decimal,  | The amount of time between beacons from 40 up to 3500. | [optional] value must be a 32 bit integer

@@ -12,9 +12,9 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **enable_permit_dynamic_authorization_message_change** | bool,  | BoolClass,  | The flag for enable permit dynamic authorization message change | 
 **[entries](#entries)** | list, tuple,  | tuple,  | The list of RADIUS client object entries | 
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **enable_inject_operator_name_attribute** | bool,  | BoolClass,  | The flag for enable inject operator name attribute. | 
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **accounting_interim_update_interval** | decimal.Decimal, int,  | decimal.Decimal,  | The accounting interim update interval, 60 - 100000000 seconds | value must be a 32 bit integer
 **enable_message_authenticator_attribute** | bool,  | BoolClass,  | The flag for enable message authenticator attribute | 
 **name** | str,  | str,  | The RADIUS client object name. | 

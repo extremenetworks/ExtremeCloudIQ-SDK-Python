@@ -12,11 +12,11 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **enable_check_user_for_tls_auth** | bool,  | BoolClass,  | Enable check user for TLS auth or not | 
 **server_key_id** | decimal.Decimal, int,  | decimal.Decimal,  | The Server key ID | value must be a 64 bit integer
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **authentication_method_group** | [**XiqInternalRadiusServerAuthenticationMethodGroup**](XiqInternalRadiusServerAuthenticationMethodGroup.md) | [**XiqInternalRadiusServerAuthenticationMethodGroup**](XiqInternalRadiusServerAuthenticationMethodGroup.md) |  | 
 **default_authentication_method** | [**XiqInternalRadiusServerAuthenticationMethod**](XiqInternalRadiusServerAuthenticationMethod.md) | [**XiqInternalRadiusServerAuthenticationMethod**](XiqInternalRadiusServerAuthenticationMethod.md) |  | 
 **ca_certificate_id** | decimal.Decimal, int,  | decimal.Decimal,  | The CA certificate ID | value must be a 64 bit integer
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **authentication_server_port** | decimal.Decimal, int,  | decimal.Decimal,  | Port for the authentication, must enable authentication. Max:65535, Min:1 | if omitted the server will use the default value of 1812value must be a 32 bit integer
 **enable_verify_server_cert** | bool,  | BoolClass,  | Enable verify server cert or not | 
 **name** | str,  | str,  | The internal RADIUS server name | 

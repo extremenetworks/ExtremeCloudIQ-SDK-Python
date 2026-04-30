@@ -10,9 +10,9 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | The webhook subscripti
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **application** | str,  | str,  | The external application name. | 
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **data_type** | [**XiqSubscriptionDataType**](XiqSubscriptionDataType.md) | [**XiqSubscriptionDataType**](XiqSubscriptionDataType.md) |  | 
 **message_type** | [**XiqSubscriptionMessageType**](XiqSubscriptionMessageType.md) | [**XiqSubscriptionMessageType**](XiqSubscriptionMessageType.md) |  | 
 **id** | decimal.Decimal, int,  | decimal.Decimal,  | The unique identifier | value must be a 64 bit integer

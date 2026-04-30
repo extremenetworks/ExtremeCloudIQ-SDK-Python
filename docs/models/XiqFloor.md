@@ -12,8 +12,8 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **environment** | [**XiqRfEnvironmentType**](XiqRfEnvironmentType.md) | [**XiqRfEnvironmentType**](XiqRfEnvironmentType.md) |  | 
 **unique_name** | str,  | str,  | The floor unique name | 
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **installation_height** | decimal.Decimal, int, float,  | decimal.Decimal,  | The installation height | value must be a 64 bit float
 **parent_id** | decimal.Decimal, int,  | decimal.Decimal,  | The parent building ID | value must be a 64 bit integer
 **db_attenuation** | decimal.Decimal, int, float,  | decimal.Decimal,  | The floor attenuation in dBs | value must be a 64 bit float

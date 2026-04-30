@@ -9,9 +9,9 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **user_role** | [**XiqUserRole**](XiqUserRole.md) | [**XiqUserRole**](XiqUserRole.md) |  | 
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **login_name** | str,  | str,  | Login name, i.e. username or login Email | 
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **id** | decimal.Decimal, int,  | decimal.Decimal,  | The unique identifier | value must be a 64 bit integer
 **org_id** | decimal.Decimal, int,  | decimal.Decimal,  | The HIQ organization ID if it is HIQ user. | [optional] value must be a 64 bit integer
 **[location_ids](#location_ids)** | list, tuple,  | tuple,  | The assigned location IDs. | [optional] 

@@ -14,7 +14,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **ssid** | str,  | str,  | The SSID | [optional] 
 **ssid_status** | [**XiqSsidStatus**](XiqSsidStatus.md) | [**XiqSsidStatus**](XiqSsidStatus.md) |  | [optional] 
 **ssid_security_type** | [**XiqSsidAccessSecurityType**](XiqSsidAccessSecurityType.md) | [**XiqSsidAccessSecurityType**](XiqSsidAccessSecurityType.md) |  | [optional] 
-**bssid** | str,  | str,  | The BSSID | [optional] 
+**bssid** | str,  | str,  | The BSSID in MAC address format XXXXXXXXXXXX | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

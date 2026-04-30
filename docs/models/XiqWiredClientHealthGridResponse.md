@@ -22,7 +22,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **switch_name** | str,  | str,  | The switch name of the connected device | [optional] 
 **vlan** | decimal.Decimal, int,  | decimal.Decimal,  | The VLAN | [optional] value must be a 32 bit integer
 **operating_system** | str,  | str,  | The operating system of the client device | [optional] 
-**mac** | str,  | str,  | The MAC address of the client device | [optional] 
+**mac** | str,  | str,  | The MAC address of the client device in format XXXXXXXXXXXX | [optional] 
 **username** | str,  | str,  | The username of the client | [optional] 
 **instant_port_profile** | str,  | str,  | The Instant Port Profile type assignment to client | [optional] 
 **total_congestion_packets** | decimal.Decimal, int,  | decimal.Decimal,  | The total congestion packets | [optional] value must be a 64 bit integer

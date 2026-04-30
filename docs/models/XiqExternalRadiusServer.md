@@ -11,8 +11,8 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | The configuration of e
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **authentication_port** | decimal.Decimal, int,  | decimal.Decimal,  | The authentication port for the external RADIUS server (1 ~ 65535) | value must be a 32 bit integer
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **accounting_port** | decimal.Decimal, int,  | decimal.Decimal,  | The accounting port for the external RADIUS server (1 ~ 65535) | value must be a 32 bit integer
 **enable_a3** | bool,  | BoolClass,  | Indicates whether this is an Extreme A3 RADIUS server or not, cannot be updated after creation. Please set it to false if it is not an Extreme A3 RADIUS server. | 
 **name** | str,  | str,  | The external RADIUS server name | 

@@ -10,8 +10,8 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | The payload of config 
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **id** | decimal.Decimal, int,  | decimal.Decimal,  | The unique identifier | value must be a 64 bit integer
 **sla_throughput_level** | str,  | str,  | The Client SLA options -- \&quot;NORMAL_DENSITY\&quot;, \&quot;HIGH_DENSITY\&quot; (performance-oriented), or \&quot;LOW_DENSITY\&quot; (coverage-oriented) | [optional] 
 **radio_range** | decimal.Decimal, int,  | decimal.Decimal,  | The Outdoor Deployment for signal distance from 300 to 10000 meters | [optional] value must be a 32 bit integer

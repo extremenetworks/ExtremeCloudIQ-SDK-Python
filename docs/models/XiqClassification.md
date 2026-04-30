@@ -10,13 +10,13 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | The payload of common 
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **match** | bool,  | BoolClass,  | Contains or not contains) | 
 **classification_id** | decimal.Decimal, int,  | decimal.Decimal,  | The ID of location, cloud config group, IP address, IP subnet or IP range. | value must be a 64 bit integer
 **classification_type** | [**XiqClassificationType**](XiqClassificationType.md) | [**XiqClassificationType**](XiqClassificationType.md) |  | 
 **id** | decimal.Decimal, int,  | decimal.Decimal,  | The unique identifier | value must be a 64 bit integer
-**value** | str,  | str,  | The value of classification | 
+**value** | str,  | str,  | The MAC address in format &#x27;AABBCCDDEEFF&#x27; without separators. Accepted formats: (1) OUI only — first 6 hex characters (e.g., &#x27;AABBCC&#x27;), (2) Full MAC address — 12 hex characters (e.g., &#x27;AABBCCDDEEFF&#x27;). | 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

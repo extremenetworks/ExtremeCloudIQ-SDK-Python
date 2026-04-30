@@ -10,17 +10,17 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | Generic ExtremeCloud I
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **id** | decimal.Decimal, int,  | decimal.Decimal,  | The unique identifier | value must be a 64 bit integer
 **org_id** | decimal.Decimal, int,  | decimal.Decimal,  | The organization identifier, valid when enabling HIQ feature | [optional] value must be a 64 bit integer
 **connected** | bool,  | BoolClass,  | The device connection status | [optional] 
 **hostname** | str,  | str,  | The device hostname | [optional] 
 **healthy_clients** | decimal.Decimal, int,  | decimal.Decimal,  | The associated active client count for the device | [optional] value must be a 32 bit integer
 **unhealthy_clients** | decimal.Decimal, int,  | decimal.Decimal,  | The associated inactive client count for the device | [optional] value must be a 32 bit integer
-**system_up_time** | decimal.Decimal, int,  | decimal.Decimal,  | The device uptime | [optional] value must be a 64 bit integer
+**system_up_time** | decimal.Decimal, int,  | decimal.Decimal,  | The device uptime in milliseconds | [optional] value must be a 64 bit integer
 **updated_on** | decimal.Decimal, int,  | decimal.Decimal,  | The last device updated time | [optional] value must be a 64 bit integer
-**mac_address** | str,  | str,  | The device MAC address | [optional] 
+**mac_address** | str,  | str,  | The device MAC address in format XXXXXXXXXXXX | [optional] 
 **serial_number** | str,  | str,  | The device serial number, valid for all non-HAC devices | [optional] 
 **device_ip** | str,  | str,  | The device IPv4 address | [optional] 
 **default_gateway** | str,  | str,  | The device default gateway | [optional] 
@@ -56,8 +56,8 @@ Key | Input Type | Accessed Type | Description | Notes
 **os** | str,  | str,  | The OS Name | [optional] 
 **device_template_name** | str,  | str,  | The device template name | [optional] 
 **[cloud_config_groups](#cloud_config_groups)** | list, tuple,  | tuple,  | The device cloud config groups | [optional] 
-**eth0_uplink_speed** | str,  | str,  | Value for Eth0 uplink speed | [optional] 
-**eth1_uplink_speed** | str,  | str,  | Value for Eth1 uplink speed | [optional] 
+**eth0_uplink_speed** | str,  | str,  | Value for Eth0 uplink speed. Represents the negotiated or configured speed of the Eth0 interface. | [optional] must be one of ["SPEED_AUTO", "SPEED_10M", "SPEED_100M", "SPEED_1000M", "SPEED_10000M", "SPEED_100000M", "SPEED_44M", "SPEED_155M", "SPEED_622M", ] 
+**eth1_uplink_speed** | str,  | str,  | Value for Eth1 uplink speed. Represents the negotiated or configured speed of the Eth1 interface. | [optional] must be one of ["SPEED_AUTO", "SPEED_10M", "SPEED_100M", "SPEED_1000M", "SPEED_10000M", "SPEED_100000M", "SPEED_44M", "SPEED_155M", "SPEED_622M", ] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # cloud_config_groups

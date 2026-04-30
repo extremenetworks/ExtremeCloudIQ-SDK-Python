@@ -11,8 +11,8 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | The payload of Hotspot
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **domain_name** | str,  | str,  | The domain name of the entity or organization operating the IEEE 802.11 access network. | 
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **name** | str,  | str,  | The Hotspot profile name | 
 **id** | decimal.Decimal, int,  | decimal.Decimal,  | The unique identifier | value must be a 64 bit integer
 **hessid** | str,  | str,  | Homogenous Extended Service Set Identifier (HESSID) for a Hotspot 2.0 network. | [optional] 

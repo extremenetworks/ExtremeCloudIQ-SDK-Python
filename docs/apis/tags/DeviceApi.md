@@ -3413,15 +3413,11 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         sns=[
             "sns_example"
         ],
-        mac_addresses=[
-            "mac_addresses_example"
-        ],
+        mac_addresses=["001122334455","AABBCCDDEEFF"],
         hostnames=[
             "hostnames_example"
         ],
-        default_gateway_ips=[
-            "default_gateway_ips_example"
-        ],
+        default_gateway_ips=["192.168.1.1","10.0.0.1"],
         product_types=[
             "product_types_example"
         ],
@@ -3481,15 +3477,11 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         sns=[
             "sns_example"
         ],
-        mac_addresses=[
-            "mac_addresses_example"
-        ],
+        mac_addresses=["001122334455","AABBCCDDEEFF"],
         hostnames=[
             "hostnames_example"
         ],
-        default_gateway_ips=[
-            "default_gateway_ips_example"
-        ],
+        default_gateway_ips=["192.168.1.1","10.0.0.1"],
         product_types=[
             "product_types_example"
         ],
@@ -8921,15 +8913,11 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         sns=[
             "sns_example"
         ],
-        mac_addresses=[
-            "mac_addresses_example"
-        ],
+        mac_addresses=["001122334455","AABBCCDDEEFF"],
         hostnames=[
             "hostnames_example"
         ],
-        default_gateway_ips=[
-            "default_gateway_ips_example"
-        ],
+        default_gateway_ips=["192.168.1.1","10.0.0.1"],
         product_types=[
             "product_types_example"
         ],
@@ -8991,15 +8979,11 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         sns=[
             "sns_example"
         ],
-        mac_addresses=[
-            "mac_addresses_example"
-        ],
+        mac_addresses=["001122334455","AABBCCDDEEFF"],
         hostnames=[
             "hostnames_example"
         ],
-        default_gateway_ips=[
-            "default_gateway_ips_example"
-        ],
+        default_gateway_ips=["192.168.1.1","10.0.0.1"],
         product_types=[
             "product_types_example"
         ],

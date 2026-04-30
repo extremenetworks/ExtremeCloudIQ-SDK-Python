@@ -10,8 +10,8 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | The payload of Tunnel 
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **primary_bridging_interface** | decimal.Decimal, int,  | decimal.Decimal,  | Primary Bridging Interface ID. | value must be a 32 bit integer
 **primary_vlan** | decimal.Decimal, int,  | decimal.Decimal,  | The VLAN ID for the primary listening interface | value must be a 32 bit integer
 **tunnel_address** | str,  | str,  | IP address/CIDR of listening interface. | 

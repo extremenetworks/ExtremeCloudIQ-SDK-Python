@@ -78,21 +78,21 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ApiResponseFor200](#login.ApiResponseFor200) | Successful operation
-400 | [ApiResponseFor400](#login.ApiResponseFor400) | Bad request
 401 | [ApiResponseFor401](#login.ApiResponseFor401) | UNAUTHORIZED
+400 | [ApiResponseFor400](#login.ApiResponseFor400) | Bad request
+200 | [ApiResponseFor200](#login.ApiResponseFor200) | Successful operation
 
-#### login.ApiResponseFor200
+#### login.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor200ResponseBodyApplicationJson
+# SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**XiqLoginResponse**](../../models/XiqLoginResponse.md) |  | 
+[**XiqError**](../../models/XiqError.md) |  | 
 
 
 #### login.ApiResponseFor400
@@ -108,17 +108,17 @@ Type | Description  | Notes
 [**XiqError**](../../models/XiqError.md) |  | 
 
 
-#### login.ApiResponseFor401
+#### login.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor401ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**XiqError**](../../models/XiqError.md) |  | 
+[**XiqLoginResponse**](../../models/XiqLoginResponse.md) |  | 
 
 
 ### Authorization

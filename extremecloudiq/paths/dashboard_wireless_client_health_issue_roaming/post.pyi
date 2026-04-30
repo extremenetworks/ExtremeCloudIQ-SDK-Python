@@ -41,7 +41,12 @@ class LimitSchema(
     schemas.Int32Schema
 ):
     pass
-MacAddressSchema = schemas.StrSchema
+
+
+class MacAddressSchema(
+    schemas.StrSchema
+):
+    pass
 IncludeUnassignedSchema = schemas.BoolSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',

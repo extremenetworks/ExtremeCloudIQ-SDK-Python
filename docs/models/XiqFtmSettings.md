@@ -11,8 +11,8 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | The payload of FTM Set
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **wgs84_override** | bool,  | BoolClass,  | World Geodetic System 1984 (WGS84) override | 
-**update_time** | str, datetime,  | str,  | The last update time | value must conform to RFC-3339 date-time
-**create_time** | str, datetime,  | str,  | The create time | value must conform to RFC-3339 date-time
+**update_time** | str, datetime,  | str,  | The last update time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
+**create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **zsubelement_override** | bool,  | BoolClass,  | Z Subelement override. | 
 **civic_address_override** | bool,  | BoolClass,  | Civic Address override. | 
 **id** | decimal.Decimal, int,  | decimal.Decimal,  | The unique identifier | value must be a 64 bit integer

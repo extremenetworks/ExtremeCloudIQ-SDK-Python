@@ -461,9 +461,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     query_params = {
-        'deviceId': 1,
-        'startTime': 1,
-        'endTime': 1,
+        'deviceId': 12345,
+        'startTime': 1708243200000,
+        'endTime': 1708246800000,
     }
     body = XiqD360ClientGridFilterRequest(
         number_filter=[
@@ -518,9 +518,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'page': 1,
         'limit': 10,
         'keyword': "keyword_example",
-        'deviceId': 1,
-        'startTime': 1,
-        'endTime': 1,
+        'deviceId': 12345,
+        'startTime': 1708243200000,
+        'endTime': 1708246800000,
         'clientStatus': [
         "TOTAL"
     ],
@@ -2058,9 +2058,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     query_params = {
-        'deviceId': 1,
-        'startTime': 1,
-        'endTime': 1,
+        'deviceId': 12345,
+        'startTime': 1708243200000,
+        'endTime': 1708246800000,
     }
     try:
         # Get Wifi Information
@@ -2073,10 +2073,10 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only optional values
     query_params = {
-        'deviceId': 1,
-        'startTime': 1,
-        'endTime': 1,
-        'selectedTime': 1,
+        'deviceId': 12345,
+        'startTime': 1708243200000,
+        'endTime': 1708246800000,
+        'selectedTime': 1708245000000,
     }
     try:
         # Get Wifi Information
