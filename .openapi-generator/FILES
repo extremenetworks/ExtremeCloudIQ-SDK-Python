@@ -53,6 +53,11 @@ docs/apis/tags/UseFolderPreferencesApi.md
 docs/apis/tags/UserApi.md
 docs/models/ClientHealth.md
 docs/models/DeviceHealth.md
+docs/models/EssentialsElocClientPathPoint.md
+docs/models/EssentialsElocConnectedClientLocation.md
+docs/models/EssentialsElocCurrentLocation.md
+docs/models/EssentialsElocDensityMapCell.md
+docs/models/EssentialsElocHourlyDensityMap.md
 docs/models/EssentialsElocLastKnownLocation.md
 docs/models/EventCount.md
 docs/models/EventGraphResponse.md
@@ -106,6 +111,7 @@ docs/models/PagedXiqKeyBasedPcgUser.md
 docs/models/PagedXiqLdapServer.md
 docs/models/PagedXiqLocationTreeDevice.md
 docs/models/PagedXiqLocationTreeMap.md
+docs/models/PagedXiqLockedClient.md
 docs/models/PagedXiqMacFirewall.md
 docs/models/PagedXiqMacObject.md
 docs/models/PagedXiqNetworkPolicy.md
@@ -237,6 +243,7 @@ docs/models/XiqApCoordinates.md
 docs/models/XiqApiAccessToken.md
 docs/models/XiqApiAccessTokenSortField.md
 docs/models/XiqApiTokenInfo.md
+docs/models/XiqAppDataUnit.md
 docs/models/XiqAppUsageSummary.md
 docs/models/XiqAppUsageSummaryExport.md
 docs/models/XiqAppUsageSummaryFilter.md
@@ -314,6 +321,8 @@ docs/models/XiqClientChartDataList.md
 docs/models/XiqClientChartRoamDetails.md
 docs/models/XiqClientConnectionStatus.md
 docs/models/XiqClientConnectionTrailResponse.md
+docs/models/XiqClientDensityThresholds.md
+docs/models/XiqClientDensityThresholdsInfo.md
 docs/models/XiqClientDetail.md
 docs/models/XiqClientField.md
 docs/models/XiqClientGraphData.md
@@ -324,6 +333,7 @@ docs/models/XiqClientHealthFrequencyDistribution.md
 docs/models/XiqClientHealthGridResponse.md
 docs/models/XiqClientHealthRoamingIssues.md
 docs/models/XiqClientHealthSortField.md
+docs/models/XiqClientLocationSearchInterval.md
 docs/models/XiqClientMacAddressAlias.md
 docs/models/XiqClientMonitorParameters.md
 docs/models/XiqClientMonitorProfile.md
@@ -587,6 +597,7 @@ docs/models/XiqHhClientStatsEntity.md
 docs/models/XiqHhCpuMemStatsEntity.md
 docs/models/XiqHiqContext.md
 docs/models/XiqHiqStatus.md
+docs/models/XiqHmIdName.md
 docs/models/XiqHostNameAddressProfile.md
 docs/models/XiqHotspotAccessNetworkType.md
 docs/models/XiqHotspotCellularNetwork.md
@@ -672,6 +683,8 @@ docs/models/XiqLocationLegendDetails.md
 docs/models/XiqLocationTreeDevice.md
 docs/models/XiqLocationTreeMap.md
 docs/models/XiqLocationType.md
+docs/models/XiqLockedClient.md
+docs/models/XiqLockedClientSortField.md
 docs/models/XiqLoggingType.md
 docs/models/XiqLoginRequest.md
 docs/models/XiqLoginResponse.md
@@ -937,6 +950,7 @@ docs/models/XiqUcpEngine.md
 docs/models/XiqUcpEngineInstance.md
 docs/models/XiqUcpEngines.md
 docs/models/XiqUnaffectedDownlinkDevice.md
+docs/models/XiqUnlockClientsRequest.md
 docs/models/XiqUpdateActionAnomalyDetails.md
 docs/models/XiqUpdateAlertEmailSubscriptionRequest.md
 docs/models/XiqUpdateAlertRuleRequest.md
@@ -1190,6 +1204,16 @@ extremecloudiq/model/client_health.py
 extremecloudiq/model/client_health.pyi
 extremecloudiq/model/device_health.py
 extremecloudiq/model/device_health.pyi
+extremecloudiq/model/essentials_eloc_client_path_point.py
+extremecloudiq/model/essentials_eloc_client_path_point.pyi
+extremecloudiq/model/essentials_eloc_connected_client_location.py
+extremecloudiq/model/essentials_eloc_connected_client_location.pyi
+extremecloudiq/model/essentials_eloc_current_location.py
+extremecloudiq/model/essentials_eloc_current_location.pyi
+extremecloudiq/model/essentials_eloc_density_map_cell.py
+extremecloudiq/model/essentials_eloc_density_map_cell.pyi
+extremecloudiq/model/essentials_eloc_hourly_density_map.py
+extremecloudiq/model/essentials_eloc_hourly_density_map.pyi
 extremecloudiq/model/essentials_eloc_last_known_location.py
 extremecloudiq/model/essentials_eloc_last_known_location.pyi
 extremecloudiq/model/event_count.py
@@ -1296,6 +1320,8 @@ extremecloudiq/model/paged_xiq_location_tree_device.py
 extremecloudiq/model/paged_xiq_location_tree_device.pyi
 extremecloudiq/model/paged_xiq_location_tree_map.py
 extremecloudiq/model/paged_xiq_location_tree_map.pyi
+extremecloudiq/model/paged_xiq_locked_client.py
+extremecloudiq/model/paged_xiq_locked_client.pyi
 extremecloudiq/model/paged_xiq_mac_firewall.py
 extremecloudiq/model/paged_xiq_mac_firewall.pyi
 extremecloudiq/model/paged_xiq_mac_object.py
@@ -1558,6 +1584,8 @@ extremecloudiq/model/xiq_api_access_token_sort_field.py
 extremecloudiq/model/xiq_api_access_token_sort_field.pyi
 extremecloudiq/model/xiq_api_token_info.py
 extremecloudiq/model/xiq_api_token_info.pyi
+extremecloudiq/model/xiq_app_data_unit.py
+extremecloudiq/model/xiq_app_data_unit.pyi
 extremecloudiq/model/xiq_app_usage_summary.py
 extremecloudiq/model/xiq_app_usage_summary.pyi
 extremecloudiq/model/xiq_app_usage_summary_export.py
@@ -1712,6 +1740,10 @@ extremecloudiq/model/xiq_client_connection_status.py
 extremecloudiq/model/xiq_client_connection_status.pyi
 extremecloudiq/model/xiq_client_connection_trail_response.py
 extremecloudiq/model/xiq_client_connection_trail_response.pyi
+extremecloudiq/model/xiq_client_density_thresholds.py
+extremecloudiq/model/xiq_client_density_thresholds.pyi
+extremecloudiq/model/xiq_client_density_thresholds_info.py
+extremecloudiq/model/xiq_client_density_thresholds_info.pyi
 extremecloudiq/model/xiq_client_detail.py
 extremecloudiq/model/xiq_client_detail.pyi
 extremecloudiq/model/xiq_client_field.py
@@ -1732,6 +1764,8 @@ extremecloudiq/model/xiq_client_health_roaming_issues.py
 extremecloudiq/model/xiq_client_health_roaming_issues.pyi
 extremecloudiq/model/xiq_client_health_sort_field.py
 extremecloudiq/model/xiq_client_health_sort_field.pyi
+extremecloudiq/model/xiq_client_location_search_interval.py
+extremecloudiq/model/xiq_client_location_search_interval.pyi
 extremecloudiq/model/xiq_client_mac_address_alias.py
 extremecloudiq/model/xiq_client_mac_address_alias.pyi
 extremecloudiq/model/xiq_client_monitor_parameters.py
@@ -2258,6 +2292,8 @@ extremecloudiq/model/xiq_hiq_context.py
 extremecloudiq/model/xiq_hiq_context.pyi
 extremecloudiq/model/xiq_hiq_status.py
 extremecloudiq/model/xiq_hiq_status.pyi
+extremecloudiq/model/xiq_hm_id_name.py
+extremecloudiq/model/xiq_hm_id_name.pyi
 extremecloudiq/model/xiq_host_name_address_profile.py
 extremecloudiq/model/xiq_host_name_address_profile.pyi
 extremecloudiq/model/xiq_hotspot_access_network_type.py
@@ -2428,6 +2464,10 @@ extremecloudiq/model/xiq_location_tree_map.py
 extremecloudiq/model/xiq_location_tree_map.pyi
 extremecloudiq/model/xiq_location_type.py
 extremecloudiq/model/xiq_location_type.pyi
+extremecloudiq/model/xiq_locked_client.py
+extremecloudiq/model/xiq_locked_client.pyi
+extremecloudiq/model/xiq_locked_client_sort_field.py
+extremecloudiq/model/xiq_locked_client_sort_field.pyi
 extremecloudiq/model/xiq_logging_type.py
 extremecloudiq/model/xiq_logging_type.pyi
 extremecloudiq/model/xiq_login_request.py
@@ -2958,6 +2998,8 @@ extremecloudiq/model/xiq_ucp_engines.py
 extremecloudiq/model/xiq_ucp_engines.pyi
 extremecloudiq/model/xiq_unaffected_downlink_device.py
 extremecloudiq/model/xiq_unaffected_downlink_device.pyi
+extremecloudiq/model/xiq_unlock_clients_request.py
+extremecloudiq/model/xiq_unlock_clients_request.pyi
 extremecloudiq/model/xiq_update_action_anomaly_details.py
 extremecloudiq/model/xiq_update_action_anomaly_details.pyi
 extremecloudiq/model/xiq_update_alert_email_subscription_request.py
@@ -3360,6 +3402,11 @@ test/__init__.py
 test/test_models/__init__.py
 test/test_models/test_client_health.py
 test/test_models/test_device_health.py
+test/test_models/test_essentials_eloc_client_path_point.py
+test/test_models/test_essentials_eloc_connected_client_location.py
+test/test_models/test_essentials_eloc_current_location.py
+test/test_models/test_essentials_eloc_density_map_cell.py
+test/test_models/test_essentials_eloc_hourly_density_map.py
 test/test_models/test_essentials_eloc_last_known_location.py
 test/test_models/test_event_count.py
 test/test_models/test_event_graph_response.py
@@ -3413,6 +3460,7 @@ test/test_models/test_paged_xiq_key_based_pcg_user.py
 test/test_models/test_paged_xiq_ldap_server.py
 test/test_models/test_paged_xiq_location_tree_device.py
 test/test_models/test_paged_xiq_location_tree_map.py
+test/test_models/test_paged_xiq_locked_client.py
 test/test_models/test_paged_xiq_mac_firewall.py
 test/test_models/test_paged_xiq_mac_object.py
 test/test_models/test_paged_xiq_network_policy.py
@@ -3544,6 +3592,7 @@ test/test_models/test_xiq_ap_coordinates.py
 test/test_models/test_xiq_api_access_token.py
 test/test_models/test_xiq_api_access_token_sort_field.py
 test/test_models/test_xiq_api_token_info.py
+test/test_models/test_xiq_app_data_unit.py
 test/test_models/test_xiq_app_usage_summary.py
 test/test_models/test_xiq_app_usage_summary_export.py
 test/test_models/test_xiq_app_usage_summary_filter.py
@@ -3621,6 +3670,8 @@ test/test_models/test_xiq_client_chart_data_list.py
 test/test_models/test_xiq_client_chart_roam_details.py
 test/test_models/test_xiq_client_connection_status.py
 test/test_models/test_xiq_client_connection_trail_response.py
+test/test_models/test_xiq_client_density_thresholds.py
+test/test_models/test_xiq_client_density_thresholds_info.py
 test/test_models/test_xiq_client_detail.py
 test/test_models/test_xiq_client_field.py
 test/test_models/test_xiq_client_graph_data.py
@@ -3631,6 +3682,7 @@ test/test_models/test_xiq_client_health_frequency_distribution.py
 test/test_models/test_xiq_client_health_grid_response.py
 test/test_models/test_xiq_client_health_roaming_issues.py
 test/test_models/test_xiq_client_health_sort_field.py
+test/test_models/test_xiq_client_location_search_interval.py
 test/test_models/test_xiq_client_mac_address_alias.py
 test/test_models/test_xiq_client_monitor_parameters.py
 test/test_models/test_xiq_client_monitor_profile.py
@@ -3894,6 +3946,7 @@ test/test_models/test_xiq_hh_client_stats_entity.py
 test/test_models/test_xiq_hh_cpu_mem_stats_entity.py
 test/test_models/test_xiq_hiq_context.py
 test/test_models/test_xiq_hiq_status.py
+test/test_models/test_xiq_hm_id_name.py
 test/test_models/test_xiq_host_name_address_profile.py
 test/test_models/test_xiq_hotspot_access_network_type.py
 test/test_models/test_xiq_hotspot_cellular_network.py
@@ -3979,6 +4032,8 @@ test/test_models/test_xiq_location_legend_details.py
 test/test_models/test_xiq_location_tree_device.py
 test/test_models/test_xiq_location_tree_map.py
 test/test_models/test_xiq_location_type.py
+test/test_models/test_xiq_locked_client.py
+test/test_models/test_xiq_locked_client_sort_field.py
 test/test_models/test_xiq_logging_type.py
 test/test_models/test_xiq_login_request.py
 test/test_models/test_xiq_login_response.py
@@ -4244,6 +4299,7 @@ test/test_models/test_xiq_ucp_engine.py
 test/test_models/test_xiq_ucp_engine_instance.py
 test/test_models/test_xiq_ucp_engines.py
 test/test_models/test_xiq_unaffected_downlink_device.py
+test/test_models/test_xiq_unlock_clients_request.py
 test/test_models/test_xiq_update_action_anomaly_details.py
 test/test_models/test_xiq_update_alert_email_subscription_request.py
 test/test_models/test_xiq_update_alert_rule_request.py

@@ -27,6 +27,7 @@ from extremecloudiq import schemas  # noqa: F401
 
 from extremecloudiq.model.xiq_rssi_thresholds import XiqRssiThresholds
 from extremecloudiq.model.xiq_snr_thresholds import XiqSnrThresholds
+from extremecloudiq.model.xiq_client_density_thresholds import XiqClientDensityThresholds
 from extremecloudiq.model.xiq_co_channel_interference_thresholds import XiqCoChannelInterferenceThresholds
 from extremecloudiq.model.xiq_layer_opacity_preferences import XiqLayerOpacityPreferences
 from extremecloudiq.model.xiq_coverage_overlap_thresholds import XiqCoverageOverlapThresholds
@@ -78,6 +79,7 @@ class SchemaForRequestBodyApplicationJson(
             # classes don't exist yet because their module has not finished
             # loading
             return [
+                XiqClientDensityThresholds,
                 XiqCoChannelInterferenceThresholds,
                 XiqCoverageOverlapThresholds,
                 XiqLayerOpacityPreferences,
@@ -127,6 +129,7 @@ class SchemaFor200ResponseBodyApplicationJson(
             # classes don't exist yet because their module has not finished
             # loading
             return [
+                XiqClientDensityThresholds,
                 XiqCoChannelInterferenceThresholds,
                 XiqCoverageOverlapThresholds,
                 XiqLayerOpacityPreferences,

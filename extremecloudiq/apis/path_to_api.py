@@ -173,6 +173,7 @@ from extremecloudiq.apis.paths.hiq_organizations import HiqOrganizations
 from extremecloudiq.apis.paths.hiq_organizations_id_rename import HiqOrganizationsIdRename
 from extremecloudiq.apis.paths.endusers import Endusers
 from extremecloudiq.apis.paths.endusers_id_regenerate_password import EndusersIdRegeneratePassword
+from extremecloudiq.apis.paths.endusers_client_unlock import EndusersClientUnlock
 from extremecloudiq.apis.paths.devices_id_thread_commissioner_stop import DevicesIdThreadCommissionerStop
 from extremecloudiq.apis.paths.devices_id_thread_commissioner_start import DevicesIdThreadCommissionerStart
 from extremecloudiq.apis.paths.devices_id_ssid_status_change import DevicesIdSsidStatusChange
@@ -367,6 +368,12 @@ from extremecloudiq.apis.paths.locations_folder_folder_id_zones import Locations
 from extremecloudiq.apis.paths.hiq_status import HiqStatus
 from extremecloudiq.apis.paths.geo_view import GeoView
 from extremecloudiq.apis.paths.essentials_eloc_clients_client_mac_last_known_location import EssentialsElocClientsClientMacLastKnownLocation
+from extremecloudiq.apis.paths.essentials_eloc_clients_location_path_in_interval_on_floor import EssentialsElocClientsLocationPathInIntervalOnFloor
+from extremecloudiq.apis.paths.essentials_eloc_clients_location_last_known_location_in_interval_on_floor import EssentialsElocClientsLocationLastKnownLocationInIntervalOnFloor
+from extremecloudiq.apis.paths.essentials_eloc_clients_location_density_map_data import EssentialsElocClientsLocationDensityMapData
+from extremecloudiq.apis.paths.essentials_eloc_clients_location_current_on_floor import EssentialsElocClientsLocationCurrentOnFloor
+from extremecloudiq.apis.paths.essentials_eloc_clients_location_current_of_all_on_floor import EssentialsElocClientsLocationCurrentOfAllOnFloor
+from extremecloudiq.apis.paths.endusers_client_locked_list import EndusersClientLockedList
 from extremecloudiq.apis.paths.email_templates import EmailTemplates
 from extremecloudiq.apis.paths.devices import Devices
 from extremecloudiq.apis.paths.devices_id import DevicesId
@@ -688,6 +695,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.HIQ_ORGANIZATIONS_ID_RENAME: HiqOrganizationsIdRename,
         PathValues.ENDUSERS: Endusers,
         PathValues.ENDUSERS_ID_REGENERATEPASSWORD: EndusersIdRegeneratePassword,
+        PathValues.ENDUSERS_CLIENT_UNLOCK: EndusersClientUnlock,
         PathValues.DEVICES_ID_THREAD_COMMISSIONER_STOP: DevicesIdThreadCommissionerStop,
         PathValues.DEVICES_ID_THREAD_COMMISSIONER_START: DevicesIdThreadCommissionerStart,
         PathValues.DEVICES_ID_SSID_STATUS_CHANGE: DevicesIdSsidStatusChange,
@@ -882,6 +890,12 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.HIQ_STATUS: HiqStatus,
         PathValues.GEOVIEW: GeoView,
         PathValues.ESSENTIALS_ELOC_CLIENTS_CLIENT_MAC_LASTKNOWNLOCATION: EssentialsElocClientsClientMacLastKnownLocation,
+        PathValues.ESSENTIALS_ELOC_CLIENTS_LOCATION_PATHININTERVALONFLOOR: EssentialsElocClientsLocationPathInIntervalOnFloor,
+        PathValues.ESSENTIALS_ELOC_CLIENTS_LOCATION_LASTKNOWNLOCATIONININTERVALONFLOOR: EssentialsElocClientsLocationLastKnownLocationInIntervalOnFloor,
+        PathValues.ESSENTIALS_ELOC_CLIENTS_LOCATION_DENSITYMAPDATA: EssentialsElocClientsLocationDensityMapData,
+        PathValues.ESSENTIALS_ELOC_CLIENTS_LOCATION_CURRENTONFLOOR: EssentialsElocClientsLocationCurrentOnFloor,
+        PathValues.ESSENTIALS_ELOC_CLIENTS_LOCATION_CURRENTOFALLONFLOOR: EssentialsElocClientsLocationCurrentOfAllOnFloor,
+        PathValues.ENDUSERS_CLIENT_LOCKEDLIST: EndusersClientLockedList,
         PathValues.EMAILTEMPLATES: EmailTemplates,
         PathValues.DEVICES: Devices,
         PathValues.DEVICES_ID: DevicesId,
@@ -1204,6 +1218,7 @@ path_to_api = PathToApi(
         PathValues.HIQ_ORGANIZATIONS_ID_RENAME: HiqOrganizationsIdRename,
         PathValues.ENDUSERS: Endusers,
         PathValues.ENDUSERS_ID_REGENERATEPASSWORD: EndusersIdRegeneratePassword,
+        PathValues.ENDUSERS_CLIENT_UNLOCK: EndusersClientUnlock,
         PathValues.DEVICES_ID_THREAD_COMMISSIONER_STOP: DevicesIdThreadCommissionerStop,
         PathValues.DEVICES_ID_THREAD_COMMISSIONER_START: DevicesIdThreadCommissionerStart,
         PathValues.DEVICES_ID_SSID_STATUS_CHANGE: DevicesIdSsidStatusChange,
@@ -1398,6 +1413,12 @@ path_to_api = PathToApi(
         PathValues.HIQ_STATUS: HiqStatus,
         PathValues.GEOVIEW: GeoView,
         PathValues.ESSENTIALS_ELOC_CLIENTS_CLIENT_MAC_LASTKNOWNLOCATION: EssentialsElocClientsClientMacLastKnownLocation,
+        PathValues.ESSENTIALS_ELOC_CLIENTS_LOCATION_PATHININTERVALONFLOOR: EssentialsElocClientsLocationPathInIntervalOnFloor,
+        PathValues.ESSENTIALS_ELOC_CLIENTS_LOCATION_LASTKNOWNLOCATIONININTERVALONFLOOR: EssentialsElocClientsLocationLastKnownLocationInIntervalOnFloor,
+        PathValues.ESSENTIALS_ELOC_CLIENTS_LOCATION_DENSITYMAPDATA: EssentialsElocClientsLocationDensityMapData,
+        PathValues.ESSENTIALS_ELOC_CLIENTS_LOCATION_CURRENTONFLOOR: EssentialsElocClientsLocationCurrentOnFloor,
+        PathValues.ESSENTIALS_ELOC_CLIENTS_LOCATION_CURRENTOFALLONFLOOR: EssentialsElocClientsLocationCurrentOfAllOnFloor,
+        PathValues.ENDUSERS_CLIENT_LOCKEDLIST: EndusersClientLockedList,
         PathValues.EMAILTEMPLATES: EmailTemplates,
         PathValues.DEVICES: Devices,
         PathValues.DEVICES_ID: DevicesId,

@@ -5839,7 +5839,7 @@ Type | Description  | Notes
 
 Get Radio Operating Modes by product type
 
-Modern AP hardware types include dual or triple band radios.         A limited subset of band combinations are supported.         Operating mode defines the supported band combinations per radio.             Access Points with fixed band radios use GENERIC operating mode.           SERVICE_2_5_6:   wifi0-2.4Ghz, wifi1-5Ghz, wifi2-6Ghz         SENSOR_SERVICE_5_6: wifi0-Tri-band sensor, wifi1-5Ghz, wifi2-6Ghz         SERVICE_5L_5H_6: wifi0-5G Low, wifi1-5G High, wifi2-6Ghz         SENSOR_SERVICE_5_2: wifi0-Tri-band sensor, wifi1-5GHz, wifi2-2.4Ghz         SERVICE_5L_5H_2: wifi0-5G Low, wifi1-5G High, wifi2-2.4Ghz         SERVICE_2_5H_5L: wifi2-2.4Ghz, wifi1-5G High, wifi0-5G Low         SERVICE_6L_5_6H: wifi0-6G Low, wifi1-5GHz, wifi2-6Ghz.
+Modern AP hardware types include dual or triple band radios.         A limited subset of band combinations are supported.         Operating mode defines the supported band combinations per radio.             Access Points with fixed band radios use GENERIC operating mode.           SERVICE_2_5_6:   wifi0-2.4Ghz, wifi1-5Ghz, wifi2-6Ghz         SENSOR_SERVICE_5_6: wifi0-Tri-band sensor, wifi1-5Ghz, wifi2-6Ghz         SERVICE_5L_5H_6: wifi0-5G Low, wifi1-5G High, wifi2-6Ghz         SENSOR_SERVICE_5_2: wifi0-Tri-band sensor, wifi1-5GHz, wifi2-2.4Ghz         SERVICE_5L_5H_2: wifi0-5G Low, wifi1-5G High, wifi2-2.4Ghz         SERVICE_2_5H_5L: wifi2-2.4Ghz, wifi1-5G High, wifi0-5G Low         SERVICE_6L_5_6H: wifi0-6G Low, wifi1-5GHz, wifi2-6Ghz.         SERVICE_6H_5_6L: wifi0-6G High, wifi1-5GHz, wifi2-6Ghz Low.
 
 ### Example
 

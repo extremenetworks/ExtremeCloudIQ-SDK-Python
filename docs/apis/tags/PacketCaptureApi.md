@@ -110,6 +110,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
                 ],
                 status=XiqPacketCaptureStatus("INITIAL"),
                 error_message="error_message_example",
+                error_code="error_code_example",
                 storage=XiqStorage(
                     cloud_storage="cloud_storage_example",
                     cloud_shark_storage=XiqCloudSharkStorage(

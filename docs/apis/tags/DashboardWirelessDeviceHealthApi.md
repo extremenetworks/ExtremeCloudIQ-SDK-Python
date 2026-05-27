@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**get_device_health_grid**](#get_device_health_grid) | **post** /dashboard/wireless/device-health/grid | Wireless device health grid
 [**get_device_memory_usage_issue_count**](#get_device_memory_usage_issue_count) | **post** /dashboard/wireless/device-health/issues/memory-usage-issues | Memory usage issues for wireless devices
 [**get_device_poe_usage_issues_count**](#get_device_poe_usage_issues_count) | **post** /dashboard/wireless/device-health/issues/poe-usage-issues | PoE usage issues for wireless devices
-[**get_device_reboot_summary**](#get_device_reboot_summary) | **get** /dashboard/wireless/device-health/reboot/summary | 
+[**get_device_reboot_summary**](#get_device_reboot_summary) | **get** /dashboard/wireless/device-health/reboot/summary | Device reboot summary for wireless device
 [**get_device_summary**](#get_device_summary) | **post** /dashboard/wireless/device-health/summary | Device health summary for wireless devices
 
 # **download_device_health_report**
@@ -925,7 +925,9 @@ Type | Description  | Notes
 <a id="get_device_reboot_summary"></a>
 > PagedXiqDeviceRebootSummary get_device_reboot_summary()
 
+Device reboot summary for wireless device
 
+Returns the device reboot summary of wireless device based on the provided filters.
 
 ### Example
 
@@ -962,6 +964,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'deviceId': 1,
     }
     try:
+        # Device reboot summary for wireless device
         api_response = api_instance.get_device_reboot_summary(
             query_params=query_params,
         )

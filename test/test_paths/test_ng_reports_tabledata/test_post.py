@@ -21,6 +21,7 @@ from .. import ApiTestMixin
 class TestNgReportsTabledata(ApiTestMixin, unittest.TestCase):
     """
     NgReportsTabledata unit test stubs
+        Get QoE Diagnostics Table Data  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

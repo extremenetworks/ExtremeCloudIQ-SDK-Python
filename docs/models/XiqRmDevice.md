@@ -31,6 +31,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **sim_type** | [**XiqDeviceType**](XiqDeviceType.md) | [**XiqDeviceType**](XiqDeviceType.md) |  | [optional] 
 **country_code** | decimal.Decimal, int,  | decimal.Decimal,  | The assigned country code on the device | [optional] value must be a 32 bit integer
 **managed_by** | str,  | str,  | The managed application for the device | [optional] 
+**display_managed_by** | str,  | str,  | Display label used in EP1. This field represents the controller hostname for controller-managed devices and the Managed By value for other devices. | [optional] 
 **channel_wifi0** | str,  | str,  | Channel for wifi0 | [optional] 
 **power_wifi0** | str,  | str,  | Power for wifi0 | [optional] 
 **radio_wifi0** | str,  | str,  | Radio for wifi0 | [optional] 
@@ -58,6 +59,9 @@ Key | Input Type | Accessed Type | Description | Notes
 **[cloud_config_groups](#cloud_config_groups)** | list, tuple,  | tuple,  | The device cloud config groups | [optional] 
 **eth0_uplink_speed** | str,  | str,  | Value for Eth0 uplink speed. Represents the negotiated or configured speed of the Eth0 interface. | [optional] must be one of ["SPEED_AUTO", "SPEED_10M", "SPEED_100M", "SPEED_1000M", "SPEED_10000M", "SPEED_100000M", "SPEED_44M", "SPEED_155M", "SPEED_622M", ] 
 **eth1_uplink_speed** | str,  | str,  | Value for Eth1 uplink speed. Represents the negotiated or configured speed of the Eth1 interface. | [optional] must be one of ["SPEED_AUTO", "SPEED_10M", "SPEED_100M", "SPEED_1000M", "SPEED_10000M", "SPEED_100000M", "SPEED_44M", "SPEED_155M", "SPEED_622M", ] 
+**controller_id** | decimal.Decimal, int,  | decimal.Decimal,  | The controller ID | [optional] value must be a 64 bit integer
+**primary_controller_address** | str,  | str,  | The primary controller Address | [optional] 
+**secondary_controller_address** | str,  | str,  | The secondary controller Address | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # cloud_config_groups

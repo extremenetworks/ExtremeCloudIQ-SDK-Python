@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestDashboardWirelessClientHealthReportsId(ApiTestMixin, unittest.TestCase):
     """
     DashboardWirelessClientHealthReportsId unit test stubs
-        Download the  report  # noqa: E501
+        Download the report  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

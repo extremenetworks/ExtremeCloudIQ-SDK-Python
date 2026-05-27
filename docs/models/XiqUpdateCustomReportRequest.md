@@ -8,7 +8,6 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**[recipients](#recipients)** | list, tuple,  | tuple,  | List of recipient email to send the report. | 
 **[schedules](#schedules)** | list, tuple,  | tuple,  | List of schedules (e.g., daily, weekly, etc.). | 
 **[metrics](#metrics)** | list, tuple,  | tuple,  | List of metrics to include in the report (e.g., MAX_CONCURRENT_CLIENTS). | 
 **report_name** | str,  | str,  | The name of the report. | 
@@ -19,6 +18,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **[floor_ids](#floor_ids)** | list, tuple,  | tuple,  | List of floor IDs the report will cover. | [optional] 
 **[ssids](#ssids)** | list, tuple,  | tuple,  | List of SSIDs to be included in the report. | [optional] 
 **[bands](#bands)** | list, tuple,  | tuple,  | List of bands (e.g., 2.4GHz, 5GHz) to be covered in the report. | [optional] 
+**[recipients](#recipients)** | list, tuple,  | tuple,  | List of recipient email to send the report. | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # metrics
@@ -34,20 +34,6 @@ list, tuple,  | tuple,  | List of metrics to include in the report (e.g., MAX_CO
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**XiqQoeDiagnosticsMetrics**](XiqQoeDiagnosticsMetrics.md) | [**XiqQoeDiagnosticsMetrics**](XiqQoeDiagnosticsMetrics.md) | [**XiqQoeDiagnosticsMetrics**](XiqQoeDiagnosticsMetrics.md) |  | 
-
-# recipients
-
-List of recipient email to send the report.
-
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple,  | tuple,  | List of recipient email to send the report. | 
-
-### Tuple Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[**XiqRecipientCnsInfo**](XiqRecipientCnsInfo.md) | [**XiqRecipientCnsInfo**](XiqRecipientCnsInfo.md) | [**XiqRecipientCnsInfo**](XiqRecipientCnsInfo.md) |  | 
 
 # schedules
 
@@ -146,6 +132,20 @@ list, tuple,  | tuple,  | List of bands (e.g., 2.4GHz, 5GHz) to be covered in th
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**XiqDiagnosticsBands**](XiqDiagnosticsBands.md) | [**XiqDiagnosticsBands**](XiqDiagnosticsBands.md) | [**XiqDiagnosticsBands**](XiqDiagnosticsBands.md) |  | 
+
+# recipients
+
+List of recipient email to send the report.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | List of recipient email to send the report. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqRecipientCnsInfo**](XiqRecipientCnsInfo.md) | [**XiqRecipientCnsInfo**](XiqRecipientCnsInfo.md) | [**XiqRecipientCnsInfo**](XiqRecipientCnsInfo.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

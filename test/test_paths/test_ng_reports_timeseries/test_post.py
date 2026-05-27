@@ -21,6 +21,7 @@ from .. import ApiTestMixin
 class TestNgReportsTimeseries(ApiTestMixin, unittest.TestCase):
     """
     NgReportsTimeseries unit test stubs
+        Get QoE Diagnostics Time Series Data  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost:8081*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**download_report**](#download_report) | **get** /ng-reports/download/reports/{id} | Download the reports
+[**download_report**](#download_report) | **get** /ng-reports/download/reports/{id} | Download the Reports by ID
 [**get_application_list_for_filter**](#get_application_list_for_filter) | **post** /ng-reports/metadata/application | List of Applications for filtering
 [**get_band_metadata**](#get_band_metadata) | **post** /ng-reports/metadata/bands | List of Band for filtering
 [**get_client_list_for_filter**](#get_client_list_for_filter) | **post** /ng-reports/metadata/client | List of Clients for filtering
@@ -15,15 +15,15 @@ Method | HTTP request | Description
 [**get_users_list_for_filter**](#get_users_list_for_filter) | **post** /ng-reports/metadata/user | List of Users for filtering
 [**q_oe_diagnostics_help**](#q_oe_diagnostics_help) | **get** /ng-reports/information/{metrics} | Information about QoE-Diagnostics Metrics
 [**q_oe_diagnostics_help1**](#q_oe_diagnostics_help1) | **get** /ng-reports/information/ | Information about QoE-Diagnostics Metrics
-[**qoe_diagnostics_table_data**](#qoe_diagnostics_table_data) | **post** /ng-reports/tabledata | 
-[**qoe_diagnostics_time_series_data**](#qoe_diagnostics_time_series_data) | **post** /ng-reports/timeseries | 
-[**qoe_diagnostics_xlsx_data**](#qoe_diagnostics_xlsx_data) | **post** /ng-reports/downloads/reports | 
+[**qoe_diagnostics_table_data**](#qoe_diagnostics_table_data) | **post** /ng-reports/tabledata | Get QoE Diagnostics Table Data
+[**qoe_diagnostics_time_series_data**](#qoe_diagnostics_time_series_data) | **post** /ng-reports/timeseries | Get QoE Diagnostics Time Series Data
+[**qoe_diagnostics_xlsx_data**](#qoe_diagnostics_xlsx_data) | **post** /ng-reports/downloads/reports | Download the Reports
 
 # **download_report**
 <a id="download_report"></a>
 > [str] download_report(id)
 
-Download the reports
+Download the Reports by ID
 
 Download reports of Metrics
 
@@ -59,7 +59,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Download the reports
+        # Download the Reports by ID
         api_response = api_instance.download_report(
             path_params=path_params,
         )
@@ -169,7 +169,7 @@ items | str,  | str,  |  |
 
 List of Applications for filtering
 
-Gives List of Applciations for filtering
+Gives List of Applications for filtering
 
 ### Example
 
@@ -1192,7 +1192,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 <a id="qoe_diagnostics_table_data"></a>
 > PagedMapStringObject qoe_diagnostics_table_data(xiq_qoe_diagnostics_table_data_filters)
 
+Get QoE Diagnostics Table Data
 
+Retrieve QoE diagnostics table data for the selected metric using applicable filters
 
 ### Example
 
@@ -1287,6 +1289,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         is_band_selected=True,
     )
     try:
+        # Get QoE Diagnostics Table Data
         api_response = api_instance.qoe_diagnostics_table_data(
             body=body,
         )
@@ -1343,7 +1346,9 @@ Type | Description  | Notes
 <a id="qoe_diagnostics_time_series_data"></a>
 > XiqQoeDiagnosticsResponse qoe_diagnostics_time_series_data(xiq_qoe_diagnostics_time_series_filters)
 
+Get QoE Diagnostics Time Series Data
 
+Retrieve QoE diagnostics time-series data for the selected metric using applicable filters
 
 ### Example
 
@@ -1434,6 +1439,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         is_band_selected=True,
     )
     try:
+        # Get QoE Diagnostics Time Series Data
         api_response = api_instance.qoe_diagnostics_time_series_data(
             body=body,
         )
@@ -1490,7 +1496,9 @@ Type | Description  | Notes
 <a id="qoe_diagnostics_xlsx_data"></a>
 > NgMetricsReport qoe_diagnostics_xlsx_data(xiq_xlsx_ng_reports_data_filters)
 
+Download the Reports
 
+Download reports of Metrics
 
 ### Example
 
@@ -1588,6 +1596,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         is_band_selected=True,
     )
     try:
+        # Download the Reports
         api_response = api_instance.qoe_diagnostics_xlsx_data(
             body=body,
         )

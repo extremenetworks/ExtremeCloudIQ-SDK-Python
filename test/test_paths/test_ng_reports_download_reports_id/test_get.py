@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestNgReportsDownloadReportsId(ApiTestMixin, unittest.TestCase):
     """
     NgReportsDownloadReportsId unit test stubs
-        Download the reports  # noqa: E501
+        Download the Reports by ID  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

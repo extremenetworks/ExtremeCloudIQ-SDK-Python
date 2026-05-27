@@ -24,6 +24,7 @@ import extremecloudiq
 from extremecloudiq.apis.tags import use_folder_preferences_api
 from extremecloudiq.model.xiq_rssi_thresholds import XiqRssiThresholds
 from extremecloudiq.model.xiq_snr_thresholds import XiqSnrThresholds
+from extremecloudiq.model.xiq_client_density_thresholds import XiqClientDensityThresholds
 from extremecloudiq.model.xiq_co_channel_interference_thresholds import XiqCoChannelInterferenceThresholds
 from extremecloudiq.model.xiq_layer_opacity_preferences import XiqLayerOpacityPreferences
 from extremecloudiq.model.xiq_coverage_overlap_thresholds import XiqCoverageOverlapThresholds
@@ -139,6 +140,7 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+[XiqClientDensityThresholds]({{complexTypePrefix}}XiqClientDensityThresholds.md) | [**XiqClientDensityThresholds**]({{complexTypePrefix}}XiqClientDensityThresholds.md) | [**XiqClientDensityThresholds**]({{complexTypePrefix}}XiqClientDensityThresholds.md) |  | 
 [XiqCoChannelInterferenceThresholds]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) | [**XiqCoChannelInterferenceThresholds**]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) | [**XiqCoChannelInterferenceThresholds**]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) |  | 
 [XiqCoverageOverlapThresholds]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) | [**XiqCoverageOverlapThresholds**]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) | [**XiqCoverageOverlapThresholds**]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) |  | 
 [XiqLayerOpacityPreferences]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) | [**XiqLayerOpacityPreferences**]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) | [**XiqLayerOpacityPreferences**]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) |  | 
@@ -167,6 +169,7 @@ import extremecloudiq
 from extremecloudiq.apis.tags import use_folder_preferences_api
 from extremecloudiq.model.xiq_rssi_thresholds import XiqRssiThresholds
 from extremecloudiq.model.xiq_snr_thresholds import XiqSnrThresholds
+from extremecloudiq.model.xiq_client_density_thresholds import XiqClientDensityThresholds
 from extremecloudiq.model.xiq_co_channel_interference_thresholds import XiqCoChannelInterferenceThresholds
 from extremecloudiq.model.xiq_layer_opacity_preferences import XiqLayerOpacityPreferences
 from extremecloudiq.model.xiq_coverage_overlap_thresholds import XiqCoverageOverlapThresholds
@@ -233,6 +236,7 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+[XiqClientDensityThresholds]({{complexTypePrefix}}XiqClientDensityThresholds.md) | [**XiqClientDensityThresholds**]({{complexTypePrefix}}XiqClientDensityThresholds.md) | [**XiqClientDensityThresholds**]({{complexTypePrefix}}XiqClientDensityThresholds.md) |  | 
 [XiqCoChannelInterferenceThresholds]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) | [**XiqCoChannelInterferenceThresholds**]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) | [**XiqCoChannelInterferenceThresholds**]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) |  | 
 [XiqCoverageOverlapThresholds]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) | [**XiqCoverageOverlapThresholds**]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) | [**XiqCoverageOverlapThresholds**]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) |  | 
 [XiqLayerOpacityPreferences]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) | [**XiqLayerOpacityPreferences**]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) | [**XiqLayerOpacityPreferences**]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) |  | 
@@ -278,6 +282,7 @@ dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal
 #### oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+[XiqClientDensityThresholds]({{complexTypePrefix}}XiqClientDensityThresholds.md) | [**XiqClientDensityThresholds**]({{complexTypePrefix}}XiqClientDensityThresholds.md) | [**XiqClientDensityThresholds**]({{complexTypePrefix}}XiqClientDensityThresholds.md) |  | 
 [XiqCoChannelInterferenceThresholds]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) | [**XiqCoChannelInterferenceThresholds**]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) | [**XiqCoChannelInterferenceThresholds**]({{complexTypePrefix}}XiqCoChannelInterferenceThresholds.md) |  | 
 [XiqCoverageOverlapThresholds]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) | [**XiqCoverageOverlapThresholds**]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) | [**XiqCoverageOverlapThresholds**]({{complexTypePrefix}}XiqCoverageOverlapThresholds.md) |  | 
 [XiqLayerOpacityPreferences]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) | [**XiqLayerOpacityPreferences**]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) | [**XiqLayerOpacityPreferences**]({{complexTypePrefix}}XiqLayerOpacityPreferences.md) |  | 

@@ -176,6 +176,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
                 value=3.14,
                 min=3.14,
                 max=3.14,
+                data_unit=XiqAppDataUnit("BYTES"),
             )
         ],
     )
@@ -213,6 +214,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
                 value=3.14,
                 min=3.14,
                 max=3.14,
+                data_unit=XiqAppDataUnit("BYTES"),
             )
         ],
     )
@@ -584,6 +586,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
                 value=3.14,
                 min=3.14,
                 max=3.14,
+                data_unit=XiqAppDataUnit("BYTES"),
             )
         ],
     )
@@ -623,6 +626,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
                 value=3.14,
                 min=3.14,
                 max=3.14,
+                data_unit=XiqAppDataUnit("BYTES"),
             )
         ],
     )

@@ -24,8 +24,10 @@ Method | HTTP request | Description
 [**list_sms_templates**](#list_sms_templates) | **get** /sms-templates | List SMS templates
 [**list_unique_user_group_names**](#list_unique_user_group_names) | **get** /usergroups/:unique | List unique user group names
 [**list_user_groups**](#list_user_groups) | **get** /usergroups | List user groups
+[**locked_clients**](#locked_clients) | **get** /endusers/client/locked-list | List locked clients
 [**onboard_key_based_private_client_group**](#onboard_key_based_private_client_group) | **post** /pcgs/key-based/network-policy-{policyId}/:onboard | [LRO] Onboard Key-based PCG in network policy
 [**regenerate_end_user_password**](#regenerate_end_user_password) | **post** /endusers/{id}/:regenerate-password | Regenerate a new password for the end user
+[**unlock_clients**](#unlock_clients) | **post** /endusers/client/unlock | Unlock locked clients
 [**update_end_user**](#update_end_user) | **put** /endusers/{id} | Update an end user
 [**update_key_based_pcg_users**](#update_key_based_pcg_users) | **put** /pcgs/key-based/network-policy-{policyId}/users | Replace all users in a PCG-enabled network policy
 [**update_user_group**](#update_user_group) | **put** /usergroups/{id} | Update user group
@@ -2246,6 +2248,133 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
+# **locked_clients**
+<a id="locked_clients"></a>
+> PagedXiqLockedClient locked_clients()
+
+List locked clients
+
+List a page of clients that are locked due to too many failed authentication attempts.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import configuration_user_management_api
+from extremecloudiq.model.paged_xiq_locked_client import PagedXiqLockedClient
+from extremecloudiq.model.xiq_sort_order import XiqSortOrder
+from extremecloudiq.model.xiq_locked_client_sort_field import XiqLockedClientSortField
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = configuration_user_management_api.ConfigurationUserManagementApi(api_client)
+
+    # example passing only optional values
+    query_params = {
+        'page': 1,
+        'limit': 10,
+        'sortField': XiqLockedClientSortField("LOCKED_AT"),
+        'sortOrder': XiqSortOrder("ASC"),
+    }
+    try:
+        # List locked clients
+        api_response = api_instance.locked_clients(
+            query_params=query_params,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling ConfigurationUserManagementApi->locked_clients: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+query_params | RequestQueryParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+page | PageSchema | | optional
+limit | LimitSchema | | optional
+sortField | SortFieldSchema | | optional
+sortOrder | SortOrderSchema | | optional
+
+
+# PageSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 1value must be a 32 bit integer
+
+# LimitSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 10value must be a 32 bit integer
+
+# SortFieldSchema
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqLockedClientSortField**](../../models/XiqLockedClientSortField.md) |  | 
+
+
+# SortOrderSchema
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqSortOrder**](../../models/XiqSortOrder.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#locked_clients.ApiResponseFor200) | OK
+
+#### locked_clients.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**PagedXiqLockedClient**](../../models/PagedXiqLockedClient.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
 # **onboard_key_based_private_client_group**
 <a id="onboard_key_based_private_client_group"></a>
 > XiqOnboardKeyBasedPcgResponse onboard_key_based_private_client_group(policy_idxiq_onboard_key_based_pcg_request)
@@ -2500,6 +2629,94 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqRegenerateEndUserPasswordResponse**](../../models/XiqRegenerateEndUserPasswordResponse.md) |  | 
 
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **unlock_clients**
+<a id="unlock_clients"></a>
+> unlock_clients(xiq_unlock_clients_request)
+
+Unlock locked clients
+
+Unlock one or more locked clients by MAC address.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import configuration_user_management_api
+from extremecloudiq.model.xiq_unlock_clients_request import XiqUnlockClientsRequest
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = configuration_user_management_api.ConfigurationUserManagementApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = XiqUnlockClientsRequest(
+        client_macs=[
+            "client_macs_example"
+        ],
+    )
+    try:
+        # Unlock locked clients
+        api_response = api_instance.unlock_clients(
+            body=body,
+        )
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling ConfigurationUserManagementApi->unlock_clients: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqUnlockClientsRequest**](../../models/XiqUnlockClientsRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#unlock_clients.ApiResponseFor200) | OK
+
+#### unlock_clients.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
 
 ### Authorization
 

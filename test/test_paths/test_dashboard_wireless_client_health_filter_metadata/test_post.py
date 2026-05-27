@@ -21,6 +21,7 @@ from .. import ApiTestMixin
 class TestDashboardWirelessClientHealthFilterMetadata(ApiTestMixin, unittest.TestCase):
     """
     DashboardWirelessClientHealthFilterMetadata unit test stubs
+        Filter Metadata for Wireless Client Health Grid  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

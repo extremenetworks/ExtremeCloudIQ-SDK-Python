@@ -1749,6 +1749,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         enable_password_for_exos_voss=True,
         enable_auto_config_push=True,
         enable_site_isolation=True,
+        enable_legacy_uztna_proxy=True,
     )
     try:
         # Update Vhm Setting

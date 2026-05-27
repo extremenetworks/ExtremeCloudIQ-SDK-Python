@@ -16,6 +16,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **[device_admin_state](#device_admin_state)** | list, tuple,  | tuple,  | The device admin state | [optional] 
 **[country_code](#country_code)** | list, tuple,  | tuple,  | The assigned country code on the device | [optional] 
 **[managed_by](#managed_by)** | list, tuple,  | tuple,  | The managed application for the device | [optional] 
+**[display_managed_by](#display_managed_by)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | The display managed by map | [optional] 
 **[sim_type](#sim_type)** | list, tuple,  | tuple,  | The device type - REAL or SIMULATED | [optional] 
 **[country_code_name](#country_code_name)** | list, tuple,  | tuple,  | The assigned country name on the device | [optional] 
 **[network_policy](#network_policy)** | list, tuple,  | tuple,  | The network policy applied to the device | [optional] 
@@ -106,6 +107,20 @@ list, tuple,  | tuple,  | The managed application for the device |
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  | The managed application for the device | 
+
+# display_managed_by
+
+The display managed by map
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The display managed by map | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type The display managed by map | [optional] 
 
 # sim_type
 

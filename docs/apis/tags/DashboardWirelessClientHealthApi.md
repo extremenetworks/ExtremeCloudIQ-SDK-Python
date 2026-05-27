@@ -5,14 +5,14 @@ All URIs are relative to *http://localhost:8081*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**download_client_health_report**](#download_client_health_report) | **get** /dashboard/wireless/client-health/reports/{id} | Download the  report
+[**download_client_health_report**](#download_client_health_report) | **get** /dashboard/wireless/client-health/reports/{id} | Download the report
 [**export_to_csv3**](#export_to_csv3) | **post** /dashboard/wireless/client-health/export | Export all Client Health Data to CSV
 [**get_client_association_issues**](#get_client_association_issues) | **post** /dashboard/wireless/client-health/issue/association | Association issue for wireless client
 [**get_client_auth_issues**](#get_client_auth_issues) | **post** /dashboard/wireless/client-health/issue/authentication | Authentication issue for wireless client
 [**get_client_frequency_distribution**](#get_client_frequency_distribution) | **post** /dashboard/wireless/client-health/frequency-distribution | Wireless clients count with frequency distribution
 [**get_client_health_connectivity_issues**](#get_client_health_connectivity_issues) | **post** /dashboard/wireless/client-health/connectivity-issues | Wireless clients count with connectivity issues
 [**get_client_health_grid**](#get_client_health_grid) | **post** /dashboard/wireless/client-health/grid | Wireless client health grid
-[**get_client_health_grid_filter_metadata**](#get_client_health_grid_filter_metadata) | **post** /dashboard/wireless/client-health/filter-metadata | 
+[**get_client_health_grid_filter_metadata**](#get_client_health_grid_filter_metadata) | **post** /dashboard/wireless/client-health/filter-metadata | Filter Metadata for Wireless Client Health Grid
 [**get_client_health_roaming_issues**](#get_client_health_roaming_issues) | **post** /dashboard/wireless/client-health/roaming-issues | Wireless clients count with roaming issues
 [**get_client_ip_address_issues**](#get_client_ip_address_issues) | **post** /dashboard/wireless/client-health/issue/ipaddress | Ip Address issue for Wireless client
 [**get_client_roaming_issues**](#get_client_roaming_issues) | **post** /dashboard/wireless/client-health/issue/roaming | Roaming issue for wireless client
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 <a id="download_client_health_report"></a>
 > [str] download_client_health_report(id)
 
-Download the  report
+Download the report
 
 Download report of Metrics
 
@@ -57,7 +57,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'id': "id_example",
     }
     try:
-        # Download the  report
+        # Download the report
         api_response = api_instance.download_client_health_report(
             path_params=path_params,
         )
@@ -1255,7 +1255,9 @@ Type | Description  | Notes
 <a id="get_client_health_grid_filter_metadata"></a>
 > XiqWirelessClientHealthGridFilterMetadata get_client_health_grid_filter_metadata(xiq_dashboard_filter)
 
+Filter Metadata for Wireless Client Health Grid
 
+Filter Metadata for Wireless Client Health Grid based on the provided filters. You can filter the results by sites.
 
 ### Example
 
@@ -1295,6 +1297,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         ],
     )
     try:
+        # Filter Metadata for Wireless Client Health Grid
         api_response = api_instance.get_client_health_grid_filter_metadata(
             query_params=query_params,
             body=body,
@@ -1313,6 +1316,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         ],
     )
     try:
+        # Filter Metadata for Wireless Client Health Grid
         api_response = api_instance.get_client_health_grid_filter_metadata(
             query_params=query_params,
             body=body,

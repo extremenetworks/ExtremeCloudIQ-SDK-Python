@@ -5,7 +5,7 @@ The license tier of the device
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  | The license tier of the device | must be one of ["NOT_APPLICABLE", "TIER_A", "TIER_B", "TIER_C", "TIER_D", "UNKNOWN", "NONE", ] 
+str,  | str,  | The license tier of the device | must be one of ["NOT_APPLICABLE", "TIER_A", "TIER_B", "TIER_C", "TIER_D", "UNKNOWN", "NONE", "TIER_3RD", ] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -3430,6 +3430,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         managed_by=[
             "managed_by_example"
         ],
+        display_managed_by=[
+            "display_managed_by_example"
+        ],
         network_policies=[
             "network_policies_example"
         ],
@@ -3493,6 +3496,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         ],
         managed_by=[
             "managed_by_example"
+        ],
+        display_managed_by=[
+            "display_managed_by_example"
         ],
         network_policies=[
             "network_policies_example"
@@ -8930,6 +8936,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         managed_by=[
             "managed_by_example"
         ],
+        display_managed_by=[
+            "display_managed_by_example"
+        ],
         network_policies=[
             "network_policies_example"
         ],
@@ -8995,6 +9004,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         ],
         managed_by=[
             "managed_by_example"
+        ],
+        display_managed_by=[
+            "display_managed_by_example"
         ],
         network_policies=[
             "network_policies_example"

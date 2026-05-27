@@ -19,6 +19,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **[firmware_versions](#firmware_versions)** | list, tuple,  | tuple,  | List of device firmware versions to filter | [optional] 
 **[country_codes](#country_codes)** | list, tuple,  | tuple,  | List of country codes to filter | [optional] 
 **[managed_by](#managed_by)** | list, tuple,  | tuple,  | List of entities managing the device to filter | [optional] 
+**[display_managed_by](#display_managed_by)** | list, tuple,  | tuple,  | List of display values for &#x27;Managed By&#x27; shown only in EP1 | [optional] 
 **[network_policies](#network_policies)** | list, tuple,  | tuple,  | List of network policies to filter | [optional] 
 **[eth_uplink_speed_filters](#eth_uplink_speed_filters)** | list, tuple,  | tuple,  | Filter by Eth uplink speed filter | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
@@ -148,6 +149,20 @@ list, tuple,  | tuple,  | List of entities managing the device to filter |
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str,  | str,  | List of entities managing the device to filter | 
+
+# display_managed_by
+
+List of display values for 'Managed By' shown only in EP1
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | List of display values for &#x27;Managed By&#x27; shown only in EP1 | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | List of display values for &#x27;Managed By&#x27; shown only in EP1 | 
 
 # network_policies
 

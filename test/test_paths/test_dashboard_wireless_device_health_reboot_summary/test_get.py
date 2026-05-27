@@ -21,6 +21,7 @@ from .. import ApiTestMixin
 class TestDashboardWirelessDeviceHealthRebootSummary(ApiTestMixin, unittest.TestCase):
     """
     DashboardWirelessDeviceHealthRebootSummary unit test stubs
+        Device reboot summary for wireless device  # noqa: E501
     """
     _configuration = configuration.Configuration()
 
