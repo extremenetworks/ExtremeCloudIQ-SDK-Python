@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**get_home_account**](#get_home_account) | **get** /account/home | Get home ExtremeCloud IQ account info
 [**get_vhm_setting**](#get_vhm_setting) | **get** /account/vhm/setting | Get Vhm Setting
 [**get_vhm_status**](#get_vhm_status) | **get** /account/vhm/status | Get Vhm Status
+[**get_viq_backup_status**](#get_viq_backup_status) | **get** /account/viq/backup/status | Get VIQ Backup Status
 [**get_viq_info**](#get_viq_info) | **get** /account/viq | Get VIQ Info
 [**import_viq**](#import_viq) | **post** /account/viq/import | [LRO] Import VIQ data
 [**list_backup_history**](#list_backup_history) | **get** /backup/history/grid | List backup history grid
@@ -859,6 +860,79 @@ headers | Unset | headers were not defined |
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqVhmStatus**](../../models/XiqVhmStatus.md) |  | 
+
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **get_viq_backup_status**
+<a id="get_viq_backup_status"></a>
+> XiqBackupStatus get_viq_backup_status()
+
+Get VIQ Backup Status
+
+Returns IDLE, IN_PROGRESS, COMPLETED or FAILED. Safe to call during an active backup.
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import account_api
+from extremecloudiq.model.xiq_backup_status import XiqBackupStatus
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = account_api.AccountApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # Get VIQ Backup Status
+        api_response = api_instance.get_viq_backup_status()
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling AccountApi->get_viq_backup_status: %s\n" % e)
+```
+### Parameters
+This endpoint does not need any parameter.
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#get_viq_backup_status.ApiResponseFor200) | OK
+
+#### get_viq_backup_status.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqBackupStatus**](../../models/XiqBackupStatus.md) |  | 
 
 
 ### Authorization
@@ -1742,7 +1816,6 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'id': 1,
     }
     body = XiqUpdateVhmSettingRequest(
-        enable_copilot=True,
         enable_ssh=True,
         enable_supplemental_cli=True,
         enable_wireless_onboarding=True,

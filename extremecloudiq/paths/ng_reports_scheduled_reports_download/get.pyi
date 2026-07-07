@@ -34,13 +34,13 @@ PreviewSchema = schemas.BoolSchema
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
+        'reportRunId': typing.Union[ReportRunIdSchema, decimal.Decimal, int, ],
         'fileFormat': typing.Union[FileFormatSchema, ],
     }
 )
 RequestOptionalQueryParams = typing_extensions.TypedDict(
     'RequestOptionalQueryParams',
     {
-        'reportRunId': typing.Union[ReportRunIdSchema, decimal.Decimal, int, ],
         'preview': typing.Union[PreviewSchema, bool, ],
     },
     total=False
@@ -55,6 +55,7 @@ request_query_report_run_id = api_client.QueryParameter(
     name="reportRunId",
     style=api_client.ParameterStyle.FORM,
     schema=ReportRunIdSchema,
+    required=True,
     explode=True,
 )
 request_query_file_format = api_client.QueryParameter(

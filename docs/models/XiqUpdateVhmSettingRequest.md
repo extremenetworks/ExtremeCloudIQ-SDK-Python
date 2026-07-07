@@ -8,7 +8,6 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**enable_copilot** | bool,  | BoolClass,  | Flag indicating whether Co-Pilot should be enabled (true) or disabled (false). | [optional] 
 **enable_ssh** | bool,  | BoolClass,  | Flag indicating Ssh Availability. | [optional] 
 **enable_supplemental_cli** | bool,  | BoolClass,  | Flag indicating Supplemental CLI. | [optional] 
 **enable_wireless_onboarding** | bool,  | BoolClass,  | Flag indicating AP Out-of-the-box Wireless Onboarding. | [optional] 

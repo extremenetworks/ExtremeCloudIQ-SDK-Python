@@ -45,25 +45,6 @@ request_body_xiq_check_permission_request = api_client.RequestBody(
 _auth = [
     'Bearer',
 ]
-SchemaFor403ResponseBodyApplicationJson = XiqError
-
-
-@dataclass
-class ApiResponseFor403(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor403ResponseBodyApplicationJson,
-    ]
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_403 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor403,
-    content={
-        'application/json': api_client.MediaType(
-            schema=SchemaFor403ResponseBodyApplicationJson),
-    },
-)
 SchemaFor200ResponseBodyApplicationJson = XiqCheckPermissionResponse
 
 
@@ -102,6 +83,25 @@ _response_for_400 = api_client.OpenApiResponse(
             schema=SchemaFor400ResponseBodyApplicationJson),
     },
 )
+SchemaFor403ResponseBodyApplicationJson = XiqError
+
+
+@dataclass
+class ApiResponseFor403(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor403ResponseBodyApplicationJson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_403 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor403,
+    content={
+        'application/json': api_client.MediaType(
+            schema=SchemaFor403ResponseBodyApplicationJson),
+    },
+)
 SchemaFor401ResponseBodyApplicationJson = XiqError
 
 
@@ -122,9 +122,9 @@ _response_for_401 = api_client.OpenApiResponse(
     },
 )
 _status_code_to_response = {
-    '403': _response_for_403,
     '200': _response_for_200,
     '400': _response_for_400,
+    '403': _response_for_403,
     '401': _response_for_401,
 }
 _all_accept_content_types = (

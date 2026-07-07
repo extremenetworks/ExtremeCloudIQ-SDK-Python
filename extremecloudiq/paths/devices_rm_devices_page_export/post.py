@@ -31,6 +31,7 @@ from extremecloudiq.model.xiq_device_category import XiqDeviceCategory
 from extremecloudiq.model.xiq_device_admin_state import XiqDeviceAdminState
 from extremecloudiq.model.xiq_rm_device_sort_field import XiqRmDeviceSortField
 from extremecloudiq.model.xiq_rm_device_list_request import XiqRmDeviceListRequest
+from extremecloudiq.model.xiq_copilot_license_status import XiqCopilotLicenseStatus
 from extremecloudiq.model.xiq_device_type import XiqDeviceType
 
 from . import path
@@ -97,6 +98,32 @@ ConfigMismatchSchema = schemas.BoolSchema
 TimezoneOffsetSchema = schemas.Int64Schema
 ModelAsyncSchema = schemas.BoolSchema
 IncludeUnassignedSchema = schemas.BoolSchema
+
+
+class CopilotLicenseStatusesSchema(
+    schemas.ListSchema
+):
+
+
+    class MetaOapg:
+        
+        @staticmethod
+        def items() -> typing.Type['XiqCopilotLicenseStatus']:
+            return XiqCopilotLicenseStatus
+
+    def __new__(
+        cls,
+        _arg: typing.Union[typing.Tuple['XiqCopilotLicenseStatus'], typing.List['XiqCopilotLicenseStatus']],
+        _configuration: typing.Optional[schemas.Configuration] = None,
+    ) -> 'CopilotLicenseStatusesSchema':
+        return super().__new__(
+            cls,
+            _arg,
+            _configuration=_configuration,
+        )
+
+    def __getitem__(self, i: int) -> 'XiqCopilotLicenseStatus':
+        return super().__getitem__(i)
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -116,6 +143,7 @@ RequestOptionalQueryParams = typing_extensions.TypedDict(
         'timezoneOffset': typing.Union[TimezoneOffsetSchema, decimal.Decimal, int, ],
         'async': typing.Union[ModelAsyncSchema, bool, ],
         'includeUnassigned': typing.Union[IncludeUnassignedSchema, bool, ],
+        'copilotLicenseStatuses': typing.Union[CopilotLicenseStatusesSchema, list, tuple, ],
     },
     total=False
 )
@@ -189,6 +217,12 @@ request_query_include_unassigned = api_client.QueryParameter(
     name="includeUnassigned",
     style=api_client.ParameterStyle.FORM,
     schema=IncludeUnassignedSchema,
+    explode=True,
+)
+request_query_copilot_license_statuses = api_client.QueryParameter(
+    name="copilotLicenseStatuses",
+    style=api_client.ParameterStyle.FORM,
+    schema=CopilotLicenseStatusesSchema,
     explode=True,
 )
 # body param
@@ -321,6 +355,7 @@ class BaseApi(api_client.Api):
             request_query_timezone_offset,
             request_query__async,
             request_query_include_unassigned,
+            request_query_copilot_license_statuses,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:

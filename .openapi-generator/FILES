@@ -282,6 +282,7 @@ docs/models/XiqAuditLogSortField.md
 docs/models/XiqAuthLog.md
 docs/models/XiqAvailableChannelInfo.md
 docs/models/XiqBackupHistory.md
+docs/models/XiqBackupStatus.md
 docs/models/XiqBounceDevicePortData.md
 docs/models/XiqBounceDevicePortOperationResult.md
 docs/models/XiqBounceDevicePortRequest.md
@@ -362,6 +363,7 @@ docs/models/XiqCopilotAnomaliesActionResponse.md
 docs/models/XiqCopilotAnomaliesByCategory.md
 docs/models/XiqCopilotEventsWiredSortField.md
 docs/models/XiqCopilotEventsWirelessSortField.md
+docs/models/XiqCopilotLicenseStatus.md
 docs/models/XiqCopilotLldpCdpInfo.md
 docs/models/XiqCopilotMissingVlanPagedXiqMissingVlanExcludedVlanList.md
 docs/models/XiqCopilotMissingVlanSiteDetails.md
@@ -819,11 +821,14 @@ docs/models/XiqRmDeviceAction.md
 docs/models/XiqRmDeviceActionSupportMetadata.md
 docs/models/XiqRmDeviceActionSupportMetadataRequest.md
 docs/models/XiqRmDeviceActionSupportMetadataResponse.md
+docs/models/XiqRmDeviceActionValidationRequest.md
+docs/models/XiqRmDeviceActionValidationResponse.md
 docs/models/XiqRmDeviceCategory.md
 docs/models/XiqRmDeviceCategoryRequest.md
 docs/models/XiqRmDeviceConnectionStatus.md
 docs/models/XiqRmDeviceEthUplinkSpeedFilter.md
 docs/models/XiqRmDeviceIcons.md
+docs/models/XiqRmDeviceIconsFilter.md
 docs/models/XiqRmDeviceListExport.md
 docs/models/XiqRmDeviceListRequest.md
 docs/models/XiqRmDeviceLocationDetails.md
@@ -1662,6 +1667,8 @@ extremecloudiq/model/xiq_available_channel_info.py
 extremecloudiq/model/xiq_available_channel_info.pyi
 extremecloudiq/model/xiq_backup_history.py
 extremecloudiq/model/xiq_backup_history.pyi
+extremecloudiq/model/xiq_backup_status.py
+extremecloudiq/model/xiq_backup_status.pyi
 extremecloudiq/model/xiq_bounce_device_port_data.py
 extremecloudiq/model/xiq_bounce_device_port_data.pyi
 extremecloudiq/model/xiq_bounce_device_port_operation_result.py
@@ -1822,6 +1829,8 @@ extremecloudiq/model/xiq_copilot_events_wired_sort_field.py
 extremecloudiq/model/xiq_copilot_events_wired_sort_field.pyi
 extremecloudiq/model/xiq_copilot_events_wireless_sort_field.py
 extremecloudiq/model/xiq_copilot_events_wireless_sort_field.pyi
+extremecloudiq/model/xiq_copilot_license_status.py
+extremecloudiq/model/xiq_copilot_license_status.pyi
 extremecloudiq/model/xiq_copilot_lldp_cdp_info.py
 extremecloudiq/model/xiq_copilot_lldp_cdp_info.pyi
 extremecloudiq/model/xiq_copilot_missing_vlan_paged_xiq_missing_vlan_excluded_vlan_list.py
@@ -2736,6 +2745,10 @@ extremecloudiq/model/xiq_rm_device_action_support_metadata_request.py
 extremecloudiq/model/xiq_rm_device_action_support_metadata_request.pyi
 extremecloudiq/model/xiq_rm_device_action_support_metadata_response.py
 extremecloudiq/model/xiq_rm_device_action_support_metadata_response.pyi
+extremecloudiq/model/xiq_rm_device_action_validation_request.py
+extremecloudiq/model/xiq_rm_device_action_validation_request.pyi
+extremecloudiq/model/xiq_rm_device_action_validation_response.py
+extremecloudiq/model/xiq_rm_device_action_validation_response.pyi
 extremecloudiq/model/xiq_rm_device_category.py
 extremecloudiq/model/xiq_rm_device_category.pyi
 extremecloudiq/model/xiq_rm_device_category_request.py
@@ -2746,6 +2759,8 @@ extremecloudiq/model/xiq_rm_device_eth_uplink_speed_filter.py
 extremecloudiq/model/xiq_rm_device_eth_uplink_speed_filter.pyi
 extremecloudiq/model/xiq_rm_device_icons.py
 extremecloudiq/model/xiq_rm_device_icons.pyi
+extremecloudiq/model/xiq_rm_device_icons_filter.py
+extremecloudiq/model/xiq_rm_device_icons_filter.pyi
 extremecloudiq/model/xiq_rm_device_list_export.py
 extremecloudiq/model/xiq_rm_device_list_export.pyi
 extremecloudiq/model/xiq_rm_device_list_request.py
@@ -3631,6 +3646,7 @@ test/test_models/test_xiq_audit_log_sort_field.py
 test/test_models/test_xiq_auth_log.py
 test/test_models/test_xiq_available_channel_info.py
 test/test_models/test_xiq_backup_history.py
+test/test_models/test_xiq_backup_status.py
 test/test_models/test_xiq_bounce_device_port_data.py
 test/test_models/test_xiq_bounce_device_port_operation_result.py
 test/test_models/test_xiq_bounce_device_port_request.py
@@ -3711,6 +3727,7 @@ test/test_models/test_xiq_copilot_anomalies_action_response.py
 test/test_models/test_xiq_copilot_anomalies_by_category.py
 test/test_models/test_xiq_copilot_events_wired_sort_field.py
 test/test_models/test_xiq_copilot_events_wireless_sort_field.py
+test/test_models/test_xiq_copilot_license_status.py
 test/test_models/test_xiq_copilot_lldp_cdp_info.py
 test/test_models/test_xiq_copilot_missing_vlan_paged_xiq_missing_vlan_excluded_vlan_list.py
 test/test_models/test_xiq_copilot_missing_vlan_site_details.py
@@ -4168,11 +4185,14 @@ test/test_models/test_xiq_rm_device_action.py
 test/test_models/test_xiq_rm_device_action_support_metadata.py
 test/test_models/test_xiq_rm_device_action_support_metadata_request.py
 test/test_models/test_xiq_rm_device_action_support_metadata_response.py
+test/test_models/test_xiq_rm_device_action_validation_request.py
+test/test_models/test_xiq_rm_device_action_validation_response.py
 test/test_models/test_xiq_rm_device_category.py
 test/test_models/test_xiq_rm_device_category_request.py
 test/test_models/test_xiq_rm_device_connection_status.py
 test/test_models/test_xiq_rm_device_eth_uplink_speed_filter.py
 test/test_models/test_xiq_rm_device_icons.py
+test/test_models/test_xiq_rm_device_icons_filter.py
 test/test_models/test_xiq_rm_device_list_export.py
 test/test_models/test_xiq_rm_device_list_request.py
 test/test_models/test_xiq_rm_device_location_details.py

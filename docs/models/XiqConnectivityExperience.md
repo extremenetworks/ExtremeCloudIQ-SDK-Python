@@ -25,11 +25,11 @@ Key | Input Type | Accessed Type | Description | Notes
 **default_gateway_round_trip_delay_time** | decimal.Decimal, int,  | decimal.Decimal,  | Time of the delay trip in epoch format (milliseconds) | [optional] value must be a 32 bit integer
 **dns_server_ip** | str,  | str,  | Dns server address | [optional] 
 **dns_server_response_time** | decimal.Decimal, int,  | decimal.Decimal,  | Time of the response in epoch format (milliseconds) | [optional] value must be a 32 bit integer
-**association_circle_status** | str,  | str,  | The circle Association status (Available status  SUCCESS, INVALID, DISABLED, ERROR) | [optional] must be one of ["SUCCESS", "INVALID", "DISABLED", "ERROR", ] 
-**auth_circle_status** | str,  | str,  | The circle Authentication status (Available status  SUCCESS, INVALID, DISABLED, ERROR) | [optional] must be one of ["SUCCESS", "INVALID", "DISABLED", "ERROR", ] 
-**dhcp_circle_status** | str,  | str,  | The circle Dhcp Status (Available status  SUCCESS, INVALID, DISABLED, ERROR) | [optional] must be one of ["SUCCESS", "INVALID", "DISABLED", "ERROR", ] 
-**dns_circle_status** | str,  | str,  | The circle Dns Status (Available status  SUCCESS, INVALID, DISABLED, ERROR) | [optional] must be one of ["SUCCESS", "INVALID", "DISABLED", "ERROR", ] 
-**gateway_circle_status** | str,  | str,  | The circle Gateway ARP Status (Available status  SUCCESS, INVALID, DISABLED, ERROR) | [optional] must be one of ["SUCCESS", "INVALID", "DISABLED", "ERROR", ] 
+**association_circle_status** | str,  | str,  | The circle Association status (Available status  SUCCESS, INVALID, DISABLED, ERROR, NA) | [optional] must be one of ["SUCCESS", "INVALID", "DISABLED", "ERROR", "NA", ] 
+**auth_circle_status** | str,  | str,  | The circle Authentication status (Available status  SUCCESS, INVALID, DISABLED, ERROR, NA) | [optional] must be one of ["SUCCESS", "INVALID", "DISABLED", "ERROR", "NA", ] 
+**dhcp_circle_status** | str,  | str,  | The circle Dhcp Status (Available status  SUCCESS, INVALID, DISABLED, ERROR, NA) | [optional] must be one of ["SUCCESS", "INVALID", "DISABLED", "ERROR", "NA", ] 
+**dns_circle_status** | str,  | str,  | The circle Dns Status (Available status  SUCCESS, INVALID, DISABLED, ERROR, NA) | [optional] must be one of ["SUCCESS", "INVALID", "DISABLED", "ERROR", "NA", ] 
+**gateway_circle_status** | str,  | str,  | The circle Gateway ARP Status (Available status  SUCCESS, INVALID, DISABLED, ERROR, NA) | [optional] must be one of ["SUCCESS", "INVALID", "DISABLED", "ERROR", "NA", ] 
 **avg_snr** | decimal.Decimal, int,  | decimal.Decimal,  | Average SNR in dB | [optional] value must be a 32 bit integer
 **avg_rssi** | decimal.Decimal, int,  | decimal.Decimal,  | Average RSSI in dBm | [optional] value must be a 32 bit integer
 **client_ip** | str,  | str,  | Client IP address | [optional] 

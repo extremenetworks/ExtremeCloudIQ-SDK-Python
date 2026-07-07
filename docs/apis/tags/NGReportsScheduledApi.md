@@ -203,8 +203,8 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         schedules=[
             XiqReportScheduleRequest(
                 frequency_type=XiqScheduleFrequency("DAILY"),
-                schedule_time="schedule_time_example",
-                schedule_timezone="schedule_timezone_example",
+                schedule_time="1439",
+                schedule_timezone="UTC",
                 schedule_days=[
                     1
                 ],
@@ -574,7 +574,7 @@ headers | Unset | headers were not defined |
 
 # **download_scheduled_report_file**
 <a id="download_scheduled_report_file"></a>
-> [str] download_scheduled_report_file(file_format)
+> [str] download_scheduled_report_file(report_run_idfile_format)
 
 Download or Preview Scheduled Report File
 
@@ -610,6 +610,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     query_params = {
+        'reportRunId': 1,
         'fileFormat': XiqReportFileFormat("PDF"),
     }
     try:
@@ -651,7 +652,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-reportRunId | ReportRunIdSchema | | optional
+reportRunId | ReportRunIdSchema | | 
 fileFormat | FileFormatSchema | | 
 preview | PreviewSchema | | optional
 
@@ -1743,8 +1744,8 @@ with extremecloudiq.ApiClient(configuration) as api_client:
             XiqUpdateReportScheduleRequest(
                 report_schedule_id=1,
                 frequency_type=XiqScheduleFrequency("DAILY"),
-                schedule_time="schedule_time_example",
-                schedule_timezone="schedule_timezone_example",
+                schedule_time="1439",
+                schedule_timezone="UTC",
                 schedule_days=[
                     1
                 ],

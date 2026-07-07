@@ -16,7 +16,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **device_mac_from** | str,  | str,  | The Ap mac address From | [optional] 
 **device_mac_to** | str,  | str,  | The Ap mac address To | [optional] 
 **roam_duration** | decimal.Decimal, int,  | decimal.Decimal,  | The roam duration in milliseconds | [optional] value must be a 32 bit integer
-**status_action** | str,  | str,  | The Status of roam action (Completed, Failed) | [optional] 
+**status_action** | str,  | str,  | The Status of roam action (Completed, Failed) | [optional] must be one of ["COMPLETED", "FAILED", "DISCONNECT", ] 
 **[data](#data)** | list, tuple,  | tuple,  | The List of client roaming Trail details | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 

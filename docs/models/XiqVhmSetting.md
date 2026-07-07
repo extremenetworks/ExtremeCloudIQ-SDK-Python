@@ -14,7 +14,6 @@ Key | Input Type | Accessed Type | Description | Notes
 **create_time** | str, datetime,  | str,  | The create time in UTC (ISO 8601 format) | value must conform to RFC-3339 date-time
 **id** | decimal.Decimal, int,  | decimal.Decimal,  | The unique identifier | value must be a 64 bit integer
 **org_id** | decimal.Decimal, int,  | decimal.Decimal,  | The organization identifier, valid when enabling HIQ feature | [optional] value must be a 64 bit integer
-**enable_copilot** | bool,  | BoolClass,  | Flag indicating whether Co-Pilot should be enabled (true) or disabled (false). | [optional] 
 **enable_ssh** | bool,  | BoolClass,  | Flag indicating Ssh Availability. | [optional] 
 **enable_supplemental_cli** | bool,  | BoolClass,  | Flag indicating Supplemental CLI. | [optional] 
 **enable_wireless_onboarding** | bool,  | BoolClass,  | Flag indicating AP Out-of-the-box Wireless Onboarding. | [optional] 

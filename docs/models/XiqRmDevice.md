@@ -62,6 +62,8 @@ Key | Input Type | Accessed Type | Description | Notes
 **controller_id** | decimal.Decimal, int,  | decimal.Decimal,  | The controller ID | [optional] value must be a 64 bit integer
 **primary_controller_address** | str,  | str,  | The primary controller Address | [optional] 
 **secondary_controller_address** | str,  | str,  | The secondary controller Address | [optional] 
+**copilot_license_status** | [**XiqCopilotLicenseStatus**](XiqCopilotLicenseStatus.md) | [**XiqCopilotLicenseStatus**](XiqCopilotLicenseStatus.md) |  | [optional] 
+**device_family** | str,  | str,  | Device family or category (e.g.\&quot;AP\&quot;, \&quot;UCP\&quot;, \&quot;SWITCH\&quot;, \&quot;XIQ_SE\&quot;, \&quot;TPME\&quot;, \&quot;THIRDPARTY\&quot;, \&quot;TUNNELCONCENTRATOR\&quot;, \&quot;CONTROLLER\&quot;) | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # cloud_config_groups

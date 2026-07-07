@@ -88,6 +88,7 @@ Method | HTTP request | Description
 [**stop_thread_commissioner**](#stop_thread_commissioner) | **post** /devices/{id}/thread/commissioner/:stop | Stop Thread Commissioner
 [**stop_thread_commissioner_by_buildings**](#stop_thread_commissioner_by_buildings) | **post** /devices/thread/commissioner/stop | Stop Thread Commissioner by Buildings
 [**update_device_visible**](#update_device_visible) | **put** /devices/{id}/visible | Update the visible status of a device in a floor
+[**validate_device_action**](#validate_device_action) | **post** /devices/validate-device-action | validate device action metadata
 
 # **advanced_onboard_devices**
 <a id="advanced_onboard_devices"></a>
@@ -3381,6 +3382,7 @@ from extremecloudiq.model.xiq_device_category import XiqDeviceCategory
 from extremecloudiq.model.xiq_device_admin_state import XiqDeviceAdminState
 from extremecloudiq.model.xiq_rm_device_sort_field import XiqRmDeviceSortField
 from extremecloudiq.model.xiq_rm_device_list_request import XiqRmDeviceListRequest
+from extremecloudiq.model.xiq_copilot_license_status import XiqCopilotLicenseStatus
 from extremecloudiq.model.xiq_device_type import XiqDeviceType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8081
@@ -3444,6 +3446,25 @@ with extremecloudiq.ApiClient(configuration) as api_client:
                 data_unit=XiqDataUnit("KBPS"),
             )
         ],
+        device_icons_filter=XiqRmDeviceIconsFilter(
+            anchor_ap=True,
+            locally_managed=True,
+            device_update_unsuccessful=True,
+            provisioned_device=True,
+            configuration_roll_back=True,
+            undetermined=True,
+            configured_at_device_level=True,
+            switch_stack=True,
+            switch_stack_warning=True,
+            radsec_proxy_server=True,
+            sensor_mode_interface=True,
+            spectrum_intelligence=True,
+            fabric_attach=True,
+            fabric_attach_issue=True,
+            digital_twin=True,
+            managed_by_extreme_iot=True,
+            configuration_pending=True,
+        ),
     )
     try:
         # [LRO] Export RM devices data to CSV
@@ -3472,6 +3493,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'timezoneOffset': 1,
         'async': False,
         'includeUnassigned': False,
+        'copilotLicenseStatuses': [
+        XiqCopilotLicenseStatus("ACTIVE")
+    ],
     }
     body = XiqRmDeviceListRequest(
         site_ids=[
@@ -3511,6 +3535,25 @@ with extremecloudiq.ApiClient(configuration) as api_client:
                 data_unit=XiqDataUnit("KBPS"),
             )
         ],
+        device_icons_filter=XiqRmDeviceIconsFilter(
+            anchor_ap=True,
+            locally_managed=True,
+            device_update_unsuccessful=True,
+            provisioned_device=True,
+            configuration_roll_back=True,
+            undetermined=True,
+            configured_at_device_level=True,
+            switch_stack=True,
+            switch_stack_warning=True,
+            radsec_proxy_server=True,
+            sensor_mode_interface=True,
+            spectrum_intelligence=True,
+            fabric_attach=True,
+            fabric_attach_issue=True,
+            digital_twin=True,
+            managed_by_extreme_iot=True,
+            configuration_pending=True,
+        ),
     )
     try:
         # [LRO] Export RM devices data to CSV
@@ -3558,6 +3601,7 @@ configMismatch | ConfigMismatchSchema | | optional
 timezoneOffset | TimezoneOffsetSchema | | optional
 async | ModelAsyncSchema | | optional
 includeUnassigned | IncludeUnassignedSchema | | optional
+copilotLicenseStatuses | CopilotLicenseStatusesSchema | | optional
 
 
 # KeywordSchema
@@ -3643,6 +3687,18 @@ bool,  | BoolClass,  |  | if omitted the server will use the default value of Fa
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
+# CopilotLicenseStatusesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqCopilotLicenseStatus**]({{complexTypePrefix}}XiqCopilotLicenseStatus.md) | [**XiqCopilotLicenseStatus**]({{complexTypePrefix}}XiqCopilotLicenseStatus.md) | [**XiqCopilotLicenseStatus**]({{complexTypePrefix}}XiqCopilotLicenseStatus.md) |  | 
 
 ### Return Types, Responses
 
@@ -3875,9 +3931,7 @@ with extremecloudiq.ApiClient(configuration) as api_client:
     ],
     }
     body = XiqRmDeviceActionSupportMetadataRequest(
-        product_types=[
-            "product_types_example"
-        ],
+        product_types=["AP_302W","AP_4020","VSP_4900_24P"],
     )
     try:
         # Get Actions Support metadata
@@ -8886,6 +8940,7 @@ from extremecloudiq.model.xiq_rm_device_category_request import XiqRmDeviceCateg
 from extremecloudiq.model.xiq_device_admin_state import XiqDeviceAdminState
 from extremecloudiq.model.xiq_rm_device_sort_field import XiqRmDeviceSortField
 from extremecloudiq.model.xiq_rm_device_list_request import XiqRmDeviceListRequest
+from extremecloudiq.model.xiq_copilot_license_status import XiqCopilotLicenseStatus
 from extremecloudiq.model.paged_xiq_rm_device import PagedXiqRmDevice
 from extremecloudiq.model.xiq_device_type import XiqDeviceType
 from pprint import pprint
@@ -8950,6 +9005,25 @@ with extremecloudiq.ApiClient(configuration) as api_client:
                 data_unit=XiqDataUnit("KBPS"),
             )
         ],
+        device_icons_filter=XiqRmDeviceIconsFilter(
+            anchor_ap=True,
+            locally_managed=True,
+            device_update_unsuccessful=True,
+            provisioned_device=True,
+            configuration_roll_back=True,
+            undetermined=True,
+            configured_at_device_level=True,
+            switch_stack=True,
+            switch_stack_warning=True,
+            radsec_proxy_server=True,
+            sensor_mode_interface=True,
+            spectrum_intelligence=True,
+            fabric_attach=True,
+            fabric_attach_issue=True,
+            digital_twin=True,
+            managed_by_extreme_iot=True,
+            configuration_pending=True,
+        ),
     )
     try:
         # [LRO] RM Device Page
@@ -8980,6 +9054,9 @@ with extremecloudiq.ApiClient(configuration) as api_client:
         'async': False,
         'includeUnassigned': False,
         'stacked_view': True,
+        'copilotLicenseStatuses': [
+        XiqCopilotLicenseStatus("ACTIVE")
+    ],
     }
     body = XiqRmDeviceListRequest(
         site_ids=[
@@ -9019,6 +9096,25 @@ with extremecloudiq.ApiClient(configuration) as api_client:
                 data_unit=XiqDataUnit("KBPS"),
             )
         ],
+        device_icons_filter=XiqRmDeviceIconsFilter(
+            anchor_ap=True,
+            locally_managed=True,
+            device_update_unsuccessful=True,
+            provisioned_device=True,
+            configuration_roll_back=True,
+            undetermined=True,
+            configured_at_device_level=True,
+            switch_stack=True,
+            switch_stack_warning=True,
+            radsec_proxy_server=True,
+            sensor_mode_interface=True,
+            spectrum_intelligence=True,
+            fabric_attach=True,
+            fabric_attach_issue=True,
+            digital_twin=True,
+            managed_by_extreme_iot=True,
+            configuration_pending=True,
+        ),
     )
     try:
         # [LRO] RM Device Page
@@ -9068,6 +9164,7 @@ configMismatch | ConfigMismatchSchema | | optional
 async | ModelAsyncSchema | | optional
 includeUnassigned | IncludeUnassignedSchema | | optional
 stacked_view | StackedViewSchema | | optional
+copilotLicenseStatuses | CopilotLicenseStatusesSchema | | optional
 
 
 # PageSchema
@@ -9167,6 +9264,18 @@ bool,  | BoolClass,  |  | if omitted the server will use the default value of Fa
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  | if omitted the server will use the default value of True
+
+# CopilotLicenseStatusesSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**XiqCopilotLicenseStatus**]({{complexTypePrefix}}XiqCopilotLicenseStatus.md) | [**XiqCopilotLicenseStatus**]({{complexTypePrefix}}XiqCopilotLicenseStatus.md) | [**XiqCopilotLicenseStatus**]({{complexTypePrefix}}XiqCopilotLicenseStatus.md) |  | 
 
 ### Return Types, Responses
 
@@ -9973,6 +10082,103 @@ Name | Type | Description  | Notes
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
+
+### Authorization
+
+[Bearer](../../../README.md#Bearer)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **validate_device_action**
+<a id="validate_device_action"></a>
+> XiqRmDeviceActionValidationResponse validate_device_action(xiq_rm_device_action_validation_request)
+
+validate device action metadata
+
+validate metadata information of actions supported for devices
+
+### Example
+
+* Bearer (JWT) Authentication (Bearer):
+```python
+import extremecloudiq
+from extremecloudiq.apis.tags import device_api
+from extremecloudiq.model.xiq_rm_device_action_validation_response import XiqRmDeviceActionValidationResponse
+from extremecloudiq.model.xiq_rm_device_action_validation_request import XiqRmDeviceActionValidationRequest
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:8081
+# See configuration.py for a list of all supported configuration parameters.
+configuration = extremecloudiq.Configuration(
+    host = "http://localhost:8081"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): Bearer
+configuration = extremecloudiq.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+# Enter a context with an instance of the API client
+with extremecloudiq.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = device_api.DeviceApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    body = XiqRmDeviceActionValidationRequest(
+        device_ids=[
+            1
+        ],
+    )
+    try:
+        # validate device action metadata
+        api_response = api_instance.validate_device_action(
+            body=body,
+        )
+        pprint(api_response)
+    except extremecloudiq.ApiException as e:
+        print("Exception when calling DeviceApi->validate_device_action: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqRmDeviceActionValidationRequest**](../../models/XiqRmDeviceActionValidationRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#validate_device_action.ApiResponseFor200) | OK
+
+#### validate_device_action.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**XiqRmDeviceActionValidationResponse**](../../models/XiqRmDeviceActionValidationResponse.md) |  | 
+
 
 ### Authorization
 

@@ -78,18 +78,18 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [ApiResponseFor400](#login.ApiResponseFor400) | Bad request
-200 | [ApiResponseFor200](#login.ApiResponseFor200) | Successful operation
 401 | [ApiResponseFor401](#login.ApiResponseFor401) | UNAUTHORIZED
+200 | [ApiResponseFor200](#login.ApiResponseFor200) | Successful operation
+400 | [ApiResponseFor400](#login.ApiResponseFor400) | Bad request
 
-#### login.ApiResponseFor400
+#### login.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor400ResponseBodyApplicationJson
+# SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 
@@ -108,14 +108,14 @@ Type | Description  | Notes
 [**XiqLoginResponse**](../../models/XiqLoginResponse.md) |  | 
 
 
-#### login.ApiResponseFor401
+#### login.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | typing.Union[SchemaFor401ResponseBodyApplicationJson, ] |  |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-# SchemaFor401ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**XiqError**](../../models/XiqError.md) |  | 

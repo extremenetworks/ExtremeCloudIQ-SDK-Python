@@ -187,6 +187,7 @@ from extremecloudiq.apis.paths.devices_id_reset import DevicesIdReset
 from extremecloudiq.apis.paths.devices_id_reboot import DevicesIdReboot
 from extremecloudiq.apis.paths.devices_id_manage import DevicesIdManage
 from extremecloudiq.apis.paths.devices_id_cli import DevicesIdCli
+from extremecloudiq.apis.paths.devices_validate_device_action import DevicesValidateDeviceAction
 from extremecloudiq.apis.paths.devices_thread_commissioner_stop import DevicesThreadCommissionerStop
 from extremecloudiq.apis.paths.devices_thread_commissioner_start import DevicesThreadCommissionerStart
 from extremecloudiq.apis.paths.devices_rm_devices_page import DevicesRmDevicesPage
@@ -501,6 +502,7 @@ from extremecloudiq.apis.paths.acct_api_token_export import AcctApiTokenExport
 from extremecloudiq.apis.paths.account_viq import AccountViq
 from extremecloudiq.apis.paths.account_viq_export_import_status import AccountViqExportImportStatus
 from extremecloudiq.apis.paths.account_viq_download import AccountViqDownload
+from extremecloudiq.apis.paths.account_viq_backup_status import AccountViqBackupStatus
 from extremecloudiq.apis.paths.account_vhm_status import AccountVhmStatus
 from extremecloudiq.apis.paths.account_vhm_setting import AccountVhmSetting
 from extremecloudiq.apis.paths.account_third_party_applications import AccountThirdPartyApplications
@@ -709,6 +711,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.DEVICES_ID_REBOOT: DevicesIdReboot,
         PathValues.DEVICES_ID_MANAGE: DevicesIdManage,
         PathValues.DEVICES_ID_CLI: DevicesIdCli,
+        PathValues.DEVICES_VALIDATEDEVICEACTION: DevicesValidateDeviceAction,
         PathValues.DEVICES_THREAD_COMMISSIONER_STOP: DevicesThreadCommissionerStop,
         PathValues.DEVICES_THREAD_COMMISSIONER_START: DevicesThreadCommissionerStart,
         PathValues.DEVICES_RMDEVICESPAGE: DevicesRmDevicesPage,
@@ -1023,6 +1026,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.ACCOUNT_VIQ: AccountViq,
         PathValues.ACCOUNT_VIQ_EXPORTIMPORTSTATUS: AccountViqExportImportStatus,
         PathValues.ACCOUNT_VIQ_DOWNLOAD: AccountViqDownload,
+        PathValues.ACCOUNT_VIQ_BACKUP_STATUS: AccountViqBackupStatus,
         PathValues.ACCOUNT_VHM_STATUS: AccountVhmStatus,
         PathValues.ACCOUNT_VHM_SETTING: AccountVhmSetting,
         PathValues.ACCOUNT_THIRDPARTYAPPLICATIONS: AccountThirdPartyApplications,
@@ -1232,6 +1236,7 @@ path_to_api = PathToApi(
         PathValues.DEVICES_ID_REBOOT: DevicesIdReboot,
         PathValues.DEVICES_ID_MANAGE: DevicesIdManage,
         PathValues.DEVICES_ID_CLI: DevicesIdCli,
+        PathValues.DEVICES_VALIDATEDEVICEACTION: DevicesValidateDeviceAction,
         PathValues.DEVICES_THREAD_COMMISSIONER_STOP: DevicesThreadCommissionerStop,
         PathValues.DEVICES_THREAD_COMMISSIONER_START: DevicesThreadCommissionerStart,
         PathValues.DEVICES_RMDEVICESPAGE: DevicesRmDevicesPage,
@@ -1546,6 +1551,7 @@ path_to_api = PathToApi(
         PathValues.ACCOUNT_VIQ: AccountViq,
         PathValues.ACCOUNT_VIQ_EXPORTIMPORTSTATUS: AccountViqExportImportStatus,
         PathValues.ACCOUNT_VIQ_DOWNLOAD: AccountViqDownload,
+        PathValues.ACCOUNT_VIQ_BACKUP_STATUS: AccountViqBackupStatus,
         PathValues.ACCOUNT_VHM_STATUS: AccountVhmStatus,
         PathValues.ACCOUNT_VHM_SETTING: AccountVhmSetting,
         PathValues.ACCOUNT_THIRDPARTYAPPLICATIONS: AccountThirdPartyApplications,

@@ -22,6 +22,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **[display_managed_by](#display_managed_by)** | list, tuple,  | tuple,  | List of display values for &#x27;Managed By&#x27; shown only in EP1 | [optional] 
 **[network_policies](#network_policies)** | list, tuple,  | tuple,  | List of network policies to filter | [optional] 
 **[eth_uplink_speed_filters](#eth_uplink_speed_filters)** | list, tuple,  | tuple,  | Filter by Eth uplink speed filter | [optional] 
+**device_icons_filter** | [**XiqRmDeviceIconsFilter**](XiqRmDeviceIconsFilter.md) | [**XiqRmDeviceIconsFilter**](XiqRmDeviceIconsFilter.md) |  | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # site_ids

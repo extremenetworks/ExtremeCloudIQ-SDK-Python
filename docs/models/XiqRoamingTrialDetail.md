@@ -18,7 +18,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **snr_to** | decimal.Decimal, int,  | decimal.Decimal,  | The SNR To | [optional] value must be a 32 bit integer
 **radio_type_from** | str,  | str,  | The RadioType From | [optional] 
 **radio_type_to** | str,  | str,  | The RadioType To | [optional] 
-**status** | str,  | str,  | The operation progress | [optional] must be one of ["ASSOC_FAILED", "DHCP_FAILED", "GW_FAILED", "AUTH_FAILED", "DNS_FAILED", "ROAMING_STARTED", "ROAMING_COMPLETED", "ROAMING_FAILED", ] 
+**status** | str,  | str,  | The operation progress | [optional] must be one of ["ASSOC_FAILED", "DHCP_FAILED", "GW_FAILED", "AUTH_FAILED", "DNS_FAILED", "ROAMING_STARTED", "ROAMING_COMPLETED", "ROAMING_FAILED", "DISCONNECT", ] 
 **reason** | str,  | str,  | Reason if operation failed | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
